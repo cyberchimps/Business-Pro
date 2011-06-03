@@ -8,8 +8,8 @@ $options = get_option('ifeature') ;
 
 <?php get_header(); ?>
 
-<div style="width: 100%;min-height: 390px;margin: auto; padding-top: 30px;
-	background: #787878 url(http://orangeola.com/business/wp-content/themes/ifeaturepro/images/sliderbg.png) no-repeat center top;">	
+<div style="width: 100%;min-height: 380px;margin: auto; padding-top: 30px;
+	background: #fff url(http://orangeola.com/business/wp-content/themes/ifeaturepro/images/sliderbg.png) no-repeat center top;">	
 	<!--Insert Feature Slider-->
 	<?php 
 	
@@ -20,8 +20,9 @@ $options = get_option('ifeature') ;
 			<?php get_template_part('slider', 'featurepage' ); ?>
 		<?php endif;?>
 </div>
+<div style="height: 1px; width: 990px; margin: auto;border-bottom: 1px dotted #ccc;"> </div>
 	
-<div style="width: 100%;min-height: 100px;background: #fff;border-top: 1px solid #000;padding-top: 20px;">
+<div style="width: 100%;min-height: 100px;background: #fff;">
 		<?php $hidecallout = $options['if_hide_callout'] ?>
 		<?php if ($hidecallout != '1' ):?>
 			<?php include (TEMPLATEPATH . '/pro/callout.php' ); ?>

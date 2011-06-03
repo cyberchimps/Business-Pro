@@ -49,7 +49,7 @@ $options = get_option('ifeature') ;
 							<?php get_template_part('share', 'index' ); ?>
 							<div class="tags">
 								<?php the_tags('Tags: ', ', ', '<br />'); ?>
-							</div><!--end tags-->							
+							</div><!--end tags-->	
 				</div><!--end post_class-->
 				
 		</div><!--end post_container-->

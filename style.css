@@ -53,19 +53,26 @@ code, tt { }
 
 #header { 
 	width: 100%;
-	height: 100px;
-	background: url(./images/header.png) repeat-x center;
+	display: block;
+	background: #111 url(./images/header.png) repeat-x center bottom;
 }
 
-#headerwrap { height: 100px;margin: auto; width: 1000px; }
+#headerwrap { margin: auto; width: 990px;overflow: auto;position: relative; }
 
 #logo { 
-	height: 80px;
-	max-height: 80px;	
+	float: left;
+	position: relative;
 	bottom: 10px;
-	padding-top: 10px;
+	padding-top: 15px;
 	z-index: 1;
-	width: 300px;
+}
+
+#header_right {
+	float: right;
+	position: relative;
+	display: block;
+	margin-right: 5px;
+	width: 690px;
 }
 
 .sitename {
@@ -91,13 +98,6 @@ code, tt { }
 .description {
 	font-size: 16px;
 	margin-left: 5px;
-}
-
-#header_right {
-	float: right;
-	margin-right: 5px;
-	width: 690px;
-	height: 100px;
 }
 
 /* Search Form */
@@ -158,7 +158,7 @@ input[type=text] {
 
 #content_left {
 	float: left;
-	width: 660px;
+	width: 700px;
 }
 
 #content_fullwidth {
@@ -490,7 +490,7 @@ padding-left: 15px;
 
 #footer { 
 	min-height: 200px;
-	background-color: #151515;
+	background: #222 url(./images/footer.png) repeat-x center top;
 	border-top: 2px solid #000;
 }
 
@@ -574,7 +574,7 @@ padding-left: 15px;
 /* Callout Section */
 
 #calloutwrap {
-	height: 80px; 
+	height: 90px; 
 	width: 990px;
 	display: block;
 	margin: auto;
@@ -589,12 +589,13 @@ padding-left: 15px;
 	width: 740px;
 	float: left;
 	padding-left: 10px;
+	padding-top: 5px;
 	font-size: 14px;
 	color: #000;
 }
 
 .callout_title {
-	font-size: 24px;
+	font-size: 28px;
 	color: #000;
 	font-weight: bolder;
 }
@@ -703,9 +704,8 @@ a { text-decoration: none; color: black; }
 /* Nav */
 
 #sfwrapper {
-    float:              right;
     background:         transparent;
-    font-size:          16px;
+    width: 600px;
 }
 
 /* Superfish Nav */
