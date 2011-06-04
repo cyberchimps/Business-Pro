@@ -12,8 +12,6 @@
 
 ?>
 				
-<div style ="height: 40px;width: 690px;display: block;margin-top: 36px;">
-
 <div id="navcontainer">
 <div id="searchbar">
 <?php get_search_form(); ?>
@@ -30,5 +28,4 @@
     </div>
 </div><!--end navcontainer-->
 
-</div>    
 <!--end nav.php-->
