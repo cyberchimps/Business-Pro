@@ -11,11 +11,8 @@
 	$homeimage		= get_option('ne_menuicon') ? '': 'default';
 
 ?>
-				
+<div style="float: right;"> 
 <div id="navcontainer">
-<div id="searchbar">
-<?php get_search_form(); ?>
-</div>
     <div id="sfwrapper">
         <?php wp_nav_menu( array(
 	    'theme_location' => 'header-menu', // Setting up the location for the main-menu, Main Navigation.
@@ -27,5 +24,5 @@
     ?>
     </div>
 </div><!--end navcontainer-->
-
+</div>
 <!--end nav.php-->

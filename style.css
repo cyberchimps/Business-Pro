@@ -55,16 +55,15 @@ code, tt { }
 	width: 100%;
 	display: block;
 	background: #111 url(./images/header.png) repeat-x center bottom;
-	min-height: 80px;
+	height: 100px;
 }
 
-#headerwrap { margin: auto; width: 990px;display: block; overflow: auto;}
+#headerwrap { margin: auto; width: 990px;position: relative;display: block;padding: 15px 0 5px 0; }
 
 #logo { 
 	float: left;
 	bottom: 10px;
 	display: block;
-	padding-top: 15px;
 	z-index: 1;
 	height: 80px;
 }
@@ -705,12 +704,12 @@ a { text-decoration: none; color: black; }
 /* Nav */
 
 #navcontainer {
-	margin-top: 35px;
+ display: block;
+ float: right;
 }
 
 #sfwrapper {
-    background:         transparent;
-    width: 610px;
+  display: block;
 }
 
 /* Superfish Nav */
@@ -733,7 +732,7 @@ a { text-decoration: none; color: black; }
 }
 .sf-menu ul li {
     width:          195px;
-    position: absolute;
+ 
 }
 .sf-menu li:hover {
     visibility:     inherit; /* fixes IE7 'sticky bug' */
