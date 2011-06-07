@@ -82,6 +82,9 @@ $options = get_option('ifeature') ;
 		
 			<div id="header">
 				<div id="headerwrap">
+					<div id="header_right">
+						<?php get_template_part('nav', 'header' ); ?>
+					</div><!-- end header_right -->
 					<!-- Inserts Site Logo -->
 					<?php  $logo = $options['if_logo'] ; ?>
 						<?php if ($logo != 'hide'  and $logo != ''):?>
@@ -99,7 +102,6 @@ $options = get_option('ifeature') ;
 								<h1 class="sitename"><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?> </h1></a>
 							</div>
 						<?php endif;?>
-						<?php get_template_part('nav', 'header' ); ?>
 				</div><!-- end headerwrap -->
 								
 			</div><!-- end header -->

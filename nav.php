@@ -11,7 +11,7 @@
 	$homeimage		= get_option('ne_menuicon') ? '': 'default';
 
 ?>
-<div style="float: right;"> 
+
 <div id="navcontainer">
     <div id="sfwrapper">
         <?php wp_nav_menu( array(
@@ -24,5 +24,4 @@
     ?>
     </div>
 </div><!--end navcontainer-->
-</div>
 <!--end nav.php-->

@@ -71,7 +71,6 @@ code, tt { }
 #header_right {
 	float: right;
 	display: block;
-	margin-right: 5px;
 	width: 690px;
 }
 
@@ -111,12 +110,7 @@ input[type=text] {
 #searchbar  {
 	width: 80px;
 	float: right;
-	text-align: right;
-}
-
-#searchbar  {
-	width: 80px;
-	float: right;
+	position: absolute;
 	text-align: right;
 	margin-top: 7px;
 }
@@ -789,8 +783,8 @@ ul.sf-menu li li li.sfHover ul {
 /* The container wrapping .sf-menu */
 .sf-menu {
     float:              left;
-    width:              690px;
-    position: relative;
+    width:              610px;
+    position:			relative;
 }
 .sf-menu li {
     background:         transparent;
@@ -984,6 +978,4 @@ background : -moz-linear-gradient(center top, #73b338, #88c841);
 .button_link.large_button span{
 	background-position:-6px -3px;
 	line-height:20px;
-	padding:17px 0 20px 20px;
-	text-transform:none;}
-.button_link:hover{text-decoration:none !important;}
+	p
