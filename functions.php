@@ -268,7 +268,7 @@ add_action( 'wp_head', 'ifeature_add_scripts',0);
 	global $post; ?>
 	
 	<ul id="menu-nav" class="sf-menu">
-		<?php wp_list_pages( 'title_li=&sort_column=menu_order&depth=3'); ?>
+	<?php wp_list_pages( 'title_li=&sort_column=menu_order&depth=3'); ?>
 	</ul><?php
 }
 
