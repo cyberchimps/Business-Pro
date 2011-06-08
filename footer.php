@@ -18,28 +18,28 @@ $options = get_option('ifeature') ;
     	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Footer") ) : ?>
 		
 		<div class="footer-widgets">
-			<h3>Recent Posts</h3>
+			<h3 class="footer-widget-title">Recent Posts</h3>
 			<ul>
 				<?php wp_get_archives('type=postbypost&limit=4'); ?>
 			</ul>
 		</div>
 		
 		<div class="footer-widgets">
-			<h3>Archives</h3>
+			<h3 class="footer-widget-title">Archives</h3>
 			<ul>
 				<?php wp_get_archives('type=monthly&limit=16'); ?>
 			</ul>
 		</div>
 
 		<div class="footer-widgets">
-			<h3>Links</h3>
+			<h3 class="footer-widget-title">Links</h3>
 			<ul>
 				<?php wp_list_bookmarks('categorize=0&title_li='); ?>
 			</ul>
 		</div>
 
 		<div class="footer-widgets">
-			<h3>WordPress</h3>
+			<h3 class="footer-widget-title">WordPress</h3>
 			<ul>
     		<?php wp_register(); ?>
     		<li><?php wp_loginout(); ?></li>
@@ -47,6 +47,16 @@ $options = get_option('ifeature') ;
     		<?php wp_meta(); ?>
     		</ul>
 		</div>
+		
+		<div class="footer-widgets">
+			<h3 class="footer-widget-title">Subscribe</h3>
+			<ul>
+				<li><a href="<?php bloginfo('rss2_url'); ?>">Entries (RSS)</a></li>
+    		<li><a href="<?php bloginfo('comments_rss2_url'); ?>">Comments (RSS)</a></li>
+
+			</ul>
+		</div>
+		
 			<?php endif; ?>
 		<div class="clear"></div>
 
@@ -81,8 +91,8 @@ $options = get_option('ifeature') ;
 								$hidelink		= $options['if_hide_link'];
 							?>
 							<?php if ($hidelink == "0" ):?>
-					<div id="seomodule">
-						<?php include (TEMPLATEPATH . '/library/options/seomodule.php' ); ?>
+					<div id="credit">
+						<a href="http://cyberchimps.com"><img src="<?php echo get_template_directory_uri(); ?>/images/cyberchimps.png" /></a>
 					</div>
 			<?php endif;?>
 		</div>  <!--end afterfooterwrap-->	
