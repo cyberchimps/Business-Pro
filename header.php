@@ -83,19 +83,20 @@ $options = get_option('ifeature') ;
 						<?php get_template_part('nav', 'header' ); ?>
 					<!-- Inserts Site Logo -->
 					<?php  $logo = $options['if_logo'] ; ?>
-						<?php if ($logo != 'hide'  and $logo != ''):?>
+						<?php if ($logo != ''):?>
 							<div id="logo" class="grid_4 column">
 								<a href="<?php echo home_url(); ?>/"><img src="<?php echo stripslashes($logo); ?>" alt="logo"></a>
+								<div id="description">
+									<h1 class="description"><?php bloginfo('description'); ?></h1>
+								</div>
 							</div>
 						<?php endif;?>
 						<?php if ($logo == '' ):?>
 							<div id="logo" class="grid_4 column">
-								<a href="<?php echo home_url(); ?>/"><img src="<?php echo get_template_directory_uri(); ?>/images/ifeaturelogo.png " alt="iFeature" /></a>
-							</div>
-						<?php endif;?>
-						<?php if ($logo == 'hide' ):?>
-							<div id="logo" class="grid_4 column">
 								<h1 class="sitename" class="grid_4 column"><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?> </h1></a>
+								<div id="description">
+									<h1 class="description"><?php bloginfo('description'); ?></h1>
+								</div>
 							</div>
 						<?php endif;?>
 					</div><!-- end headergrid-->
