@@ -12,6 +12,18 @@
 
 <div id="sidebar_right">
 	<div id="sidebar">
+	
+		<div class="sidebar-widget-style">
+			<div id="social">
+				<?php get_template_part('icons', 'header'); ?>
+			</div><!-- end social -->
+    	</div>
+    	
+    	<div class="sidebar-widget-style">
+			<div id="searchbar">
+				<?php get_search_form(); ?>
+			</div>
+		</div>
 
     <?php if (dynamic_sidebar('Sidebar Widgets')) : else : ?>
     

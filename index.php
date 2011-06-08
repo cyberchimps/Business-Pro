@@ -25,7 +25,7 @@ $options = get_option('ifeature') ;
 			
 					<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
 
-						<div class="poststitlewrap"><h2 class="posts_title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2></div>
+						<h2 class="posts_title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 						<?php get_template_part('meta', 'index' ); ?>
 
 						<?php 
