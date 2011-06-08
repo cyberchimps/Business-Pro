@@ -20,13 +20,6 @@ body { font-size: 14px;	}
 .group:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
 * html .group, *:first-child+html .group { zoom: 1; } /* First selector = IE6, Second Selector = IE 7 */
 
-/* Fonts  */
-
-h1, h2, h3 { font-weight: bold; margin: 0px; }
-h1 { font-size: 36px; }
-h2 { font-size: 16px; }
-h3 { font-size: 14px; }
-
 .error { font-size: 28px; text-align: center;}
 
 p { margin: 0 0 10px 0; }
@@ -37,16 +30,13 @@ a img {border: none; }
 
 ul, ol { margin: 0 0 10px 0; }
 
-.entry { }
-.entry a { }
-.entry a:hover { }
 
-pre { }
-code, tt { }
+/* Headlines  */
 
-/* Page Layout  */
-
-#page-wrap { width: 100%; }
+h1, h2, h3 { font-weight: bold; margin: 0px; }
+h1 { font-size: 36px; }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
 
 /* Header  */
 
@@ -56,17 +46,15 @@ code, tt { }
 	background: #111 url(./images/header.png) repeat-x center bottom;
 }
 
-#headerwrap { margin: auto; width: 990px;position: relative;display: block;padding: 15px 0 5px 0; }
-
-#logo { 
-
-}
-
-#header_right {
-	float: right;
+#headerwrap { 
+	margin: auto;
+	width: 990px;
+	position: relative;
 	display: block;
-	width: 690px;
+	padding: 15px 0 5px 0;
 }
+
+#logo { }
 
 .sitename {
 	font-size: 34px;
@@ -90,6 +78,28 @@ code, tt { }
 	font-weight: 300;
 	margin-top: 5px;
 	color: #fff;
+}
+
+/* Feature Page Layout */
+
+#fp_slider {
+	width: 100%;
+	min-height: 380px;
+	margin: auto;
+	padding-top: 30px;
+	background: #fff url(./images/sliderbg.png) no-repeat center top;
+}
+
+#fp_border {
+	height: 1px; width: 990px; margin: auto;border-bottom: 1px dotted #ccc;
+}
+
+#fp_callout {
+	width: 100%;min-height: 100px;background: #fff;
+}
+
+#fp_boxes {
+	width: 100%;background: #fff;padding-top: 20px;
 }
 
 /* Search Form */
@@ -140,7 +150,7 @@ input[type=text] {
 #content_wrap {
 	width: 1000px;
 	margin: auto;
-	margin-top: 5px;
+	padding-top: 5px;
 }
 
 #content_left {
@@ -159,7 +169,8 @@ input[type=text] {
 /* Posts Styling */
 
 hr {
-	border: 1px dotted #dadada; border-style: none none dotted;
+	border: 1px dotted #dadada;
+	border-style: none none dotted;
 }
 
 
@@ -172,7 +183,6 @@ hr {
 }
 
 .post_container ul {
-	
 	list-style: square;
 	margin-left: 21px;
 	list-style-position: inside;
