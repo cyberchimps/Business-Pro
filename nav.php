@@ -12,7 +12,7 @@
 
 ?>
 
-<div id="navcontainer">
+<div id="navcontainer" class="grid_8 column">
     <div id="sfwrapper">
         <?php wp_nav_menu( array(
 	    'theme_location' => 'header-menu', // Setting up the location for the main-menu, Main Navigation.

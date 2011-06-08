@@ -76,32 +76,29 @@ $options = get_option('ifeature') ;
 	
 </head>
 
-<body style="font-family:'<?php echo $fontstrip ?>'" <?php body_class(); ?> >
-	
-	<div id="page-wrap">
-		
+<body style="font-family:'<?php echo $fontstrip ?>'" <?php body_class(); ?> >		
 			<div id="header">
 				<div id="headerwrap">
-					<div id="header_right">
+					<div id="headergrid" class="row">
 						<?php get_template_part('nav', 'header' ); ?>
-					</div><!-- end header_right -->
 					<!-- Inserts Site Logo -->
 					<?php  $logo = $options['if_logo'] ; ?>
 						<?php if ($logo != 'hide'  and $logo != ''):?>
-							<div id="logo">
+							<div id="logo" class="grid_4 column">
 								<a href="<?php echo home_url(); ?>/"><img src="<?php echo stripslashes($logo); ?>" alt="logo"></a>
 							</div>
 						<?php endif;?>
 						<?php if ($logo == '' ):?>
-							<div id="logo">
+							<div id="logo" class="grid_4 column">
 								<a href="<?php echo home_url(); ?>/"><img src="<?php echo get_template_directory_uri(); ?>/images/ifeaturelogo.png " alt="iFeature" /></a>
 							</div>
 						<?php endif;?>
 						<?php if ($logo == 'hide' ):?>
-							<div id="logo">
-								<h1 class="sitename"><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?> </h1></a>
+							<div id="logo" class="grid_4 column">
+								<h1 class="sitename" class="grid_4 column"><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?> </h1></a>
 							</div>
 						<?php endif;?>
+					</div><!-- end headergrid-->
 				</div><!-- end headerwrap -->
 								
 			</div><!-- end header -->

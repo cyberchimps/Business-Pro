@@ -10,11 +10,7 @@
 	
 */
 $options = get_option('ifeature') ;  
-?>
-	
-	
-</div><!--end page_wrap-->			
-	
+?>	
 		
 <div id="footer">
     <div id="footer_wrap">

@@ -4,7 +4,7 @@ Theme URI: http://cyberchimps.com/ifeaturepro
 Description: iFeature Pro: A Premium WordPress Theme designed by CyberChimps.com featuring customizable theme options, an aesthetically pleasing design with five color choices, a feature slider, callout section, dynamic header for custom logo, social icons, and contact section, widgetized sidebar and footer, typography including Google Fonts, and multiple template choices.
 Author: CyberChimps
 Author URI: http://cyberchimps.com
-Version: 1.0 beta B
+Version: 1.0 beta CD
 Tags: white, light, silver, two-columns, fixed-width, custom-header, custom-menu, threaded-comments, sticky-post
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -20,6 +20,41 @@ body { font-size: 14px;	}
 .group:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
 * html .group, *:first-child+html .group { zoom: 1; } /* First selector = IE6, Second Selector = IE 7 */
 
+/* ================ */
+/* = The 1Kb Grid = */     /* 12 columns, 60 pixels each, with 20 pixel gutter */
+/* ================ */
+
+.grid_1 { width:60px; }
+.grid_2 { width:140px; }
+.grid_3 { width:220px; }
+.grid_4 { width:300px; }
+.grid_5 { width:380px; }
+.grid_6 { width:460px; }
+.grid_7 { width:540px; }
+.grid_8 { width:620px; }
+.grid_9 { width:700px; }
+.grid_10 { width:780px; }
+.grid_11 { width:860px; }
+.grid_12 { width:940px; }
+
+.column {
+	margin: 0 10px;
+/*	overflow: hidden;*/
+	float: left;
+	display: inline;
+}
+.row {
+	width: 990px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.row .row {
+	margin: 0 -10px;
+	width: auto;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+}
 
 /* Fonts  */
 
@@ -55,17 +90,12 @@ code, tt { }
 	width: 100%;
 	display: block;
 	background: #111 url(./images/header.png) repeat-x center bottom;
-	height: 100px;
 }
 
 #headerwrap { margin: auto; width: 990px;position: relative;display: block;padding: 15px 0 5px 0; }
 
 #logo { 
-	float: left;
-	bottom: 10px;
-	display: block;
-	z-index: 1;
-	height: 80px;
+
 }
 
 #header_right {
@@ -437,7 +467,7 @@ li {padding-left: 5px;}
 	min-height: 200px;
 	padding: 5px;
 	margin-left: 0px;
-	margin-right: 21px;
+	margin-right: 28px;
 	padding-bottom: 10px;
 	color: #222;
 		border-radius: 5px;
@@ -452,7 +482,7 @@ li {padding-left: 5px;}
 	min-height: 200px;
 	padding: 5px;
 	margin-left: 0px;
-	margin-right: 21px;
+	margin-right: 28px;
 	padding-bottom: 10px;
 	color: #222;
 		border-radius: 5px;
@@ -978,4 +1008,4 @@ background : -moz-linear-gradient(center top, #73b338, #88c841);
 .button_link.large_button span{
 	background-position:-6px -3px;
 	line-height:20px;
-	p 
+	p
