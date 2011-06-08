@@ -30,7 +30,7 @@ $options = get_option('ifeature') ;
 
 							<?php
 	if ( has_post_thumbnail()) {
- 		 echo '<div style="margin-top: 14px; margin-right: 12px; margin-bottom: 10px; float: left;">';
+ 		 echo '<div class="featured-image">';
  		 echo '<a href="' . get_permalink($post->ID) . '" >';
  		 the_post_thumbnail();
   		echo '</a>';
