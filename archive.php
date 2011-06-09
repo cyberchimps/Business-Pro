@@ -3,7 +3,7 @@
 /*
 	Archive
 	
-	Creates the iFeature archive pages.
+	Creates the Business Pro archive pages.
 	
 	Copyright (C) 2011 CyberChimps
 */

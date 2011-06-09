@@ -1,9 +1,9 @@
 <?php
-
+$options = get_option('business') ; 
 /*
 	Sidebar
 	
-	Creates the widgetized sidebar of Neuro. 
+	Creates the widgetized sidebar of Business Pro. 
 	
 	Copyright (C) 2011 CyberChimps
 */
@@ -13,18 +13,25 @@
 <div id="sidebar_right">
 	<div id="sidebar">
 	
+	<?php 
+		$social = $options['bu_hide_social'];
+		$search = $options['bu_hide_search'];
+	?>
+
+	<?php if ($social != '1'):?>
 		<div class="sidebar-widget-style">
 			<div id="social">
 				<?php get_template_part('icons', 'header'); ?>
 			</div><!-- end social -->
     	</div>
-    	
+    	<?php endif;?>
+    	<?php if ($search != '1'):?>
     	<div class="sidebar-widget-style">
 			<div id="searchbar">
 				<?php get_search_form(); ?>
 			</div>
 		</div>
-
+		<?php endif;?>
     <?php if (dynamic_sidebar('Sidebar Widgets')) : else : ?>
     
         <!-- All these widgets only shows up if you DON'T have any widgets active in this zone -->

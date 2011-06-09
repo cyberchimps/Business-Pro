@@ -3,7 +3,7 @@
 /*
 	Section: Pagination
 	Authors: Trent Lapinski, Tyler Cunningham 
-	Description: Controls iFeature pagination.
+	Description: Controls Business Pro pagination.
 	Version: 1.0	
 */
 

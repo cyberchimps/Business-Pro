@@ -1,5 +1,5 @@
 <?php
-$options = get_option('ifeature') ;  
+$options = get_option('business') ;  
 ?>
 
 <?php get_header(); ?>
@@ -9,8 +9,11 @@ $options = get_option('ifeature') ;
 	<div id="content_left">
 	
 	<?php 
-		$hideslider = $options['if_hide_slider'];
-		$sliderplacement = $options['if_slider_placement'];
+		$hideslider = $options['bu_hide_slider'];
+		$sliderplacement = $options['bu_slider_placement'];
+		$share = $options['bu_hide_share'];
+		$tags = $options['bu_hide_tags'];
+		$excerpts = $options['bu_show_excerpts']
 	?>
 	
 		<?php if ($hideslider != '1' && $sliderplacement == 'blog'):?>
@@ -38,7 +41,16 @@ $options = get_option('ifeature') ;
 	}
 	?>
 							<div class="entry">
-								<?php the_content(); ?>
+							<?php if ($excerpts == '1' ) {
+								 the_excerpt();
+								 }
+								 else {
+								 
+								 the_content();
+								 }
+								 
+								 
+								 ?>
 							</div><!--end entry-->
 							<?php edit_post_link('Edit this entry.', '<p>', '</p>'); ?>
 						<?php 
@@ -50,9 +62,13 @@ $options = get_option('ifeature') ;
 							</div>
 							<?php endif;?>
 							<!--end fb-->
+							<?php if ($share != '1'):?>
 							<?php get_template_part('share', 'index' ); ?>
+							<?php endif;?>
 							<div class="tags">
+							<?php if ($tags != '1'):?>
 								<?php the_tags('Tags: ', ', ', '<br />'); ?>
+								<?php endif;?>
 							</div><!--end tags-->	
 				</div><!--end post_class-->
 				

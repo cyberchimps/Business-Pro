@@ -34,7 +34,7 @@ get_header(); ?>
 						<?php edit_post_link('Edit this entry.', '<p>', '</p>'); ?>
 						
 							<?php 
-								$showfblike		= $options['if_show_fb_like'];
+								$showfblike		= $options['bu_show_fb_like'];
 							?>
 							<?php if ($showfblike == "1" ):?>
 							<div class="fb" >

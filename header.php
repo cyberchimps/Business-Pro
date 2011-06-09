@@ -3,11 +3,11 @@
 /*
 	Header
 	
-	Creates the iFeature header. 
+	Creates the Business Pro header. 
 	
 	Copyright (C) 2011 CyberChimps
 */
-$options = get_option('ifeature') ; 
+$options = get_option('business') ; 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -17,16 +17,16 @@ $options = get_option('ifeature') ;
 	
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 	<!-- Inserts META Home Description -->
-	<?php  $homedescription = $options['if_home_description']; ?>
+	<?php  $homedescription = $options['bu_home_description']; ?>
 		<meta name="description" content="<?php echo $homedescription ?>" />
 	<!-- Inserts META Keywords -->	
-	<?php  $homekeywords = $options['if_home_keywords'] ; ?>
+	<?php  $homekeywords = $options['bu_home_keywords'] ; ?>
 		<meta name="keywords" content="<?php echo $homekeywords ?>" />
 	<meta name="distribution" content="global" />
 	<meta name="language" content="en" />
 <!-- Page title -->
 	<title>
-			<?php  $hometitle = $options['if_home_title']; ?>
+			<?php  $hometitle = $options['bu_home_title']; ?>
 		   <?php
 		      if (function_exists('is_tag') && is_tag()) {
 		         single_tag_title("Tag Archive for &quot;"); echo '&quot; - '; }
@@ -48,7 +48,7 @@ $options = get_option('ifeature') ;
 		         echo ' - page '. $paged; }
 		   ?>
 	</title>	
-	<?php  $favicon = $options['if_favicon']; ?>
+	<?php  $favicon = $options['bu_favicon']; ?>
 	<link rel="shortcut icon" href="<?php echo stripslashes($favicon); ?>" type="image/x-icon" />
 	
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" />
@@ -56,10 +56,14 @@ $options = get_option('ifeature') ;
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	
 		<?php  
-		if ($options['if_font'] == "")
-			$font = 'Cantarell';
+		if ($options['bu_font'] == "" AND $options['bu_custom_font'] == "")
+			$font = 'Maven+Pro';
+		
+		elseif ($options['bu_custom_font'] != "")
+			$font = $options['bu_custom_font'];
+		
 		else
-			$font = $options[('if_font')]; 
+			$font = $options[('bu_font')]; 
 			$fontstrip =  ereg_replace("[^A-Za-z0-9]", " ", $font );?>
 	
 	<link href='http://fonts.googleapis.com/css?family=<?php echo $font ?>' rel='stylesheet' type='text/css' />
@@ -82,7 +86,7 @@ $options = get_option('ifeature') ;
 					<div id="headergrid" class="row">
 						<?php get_template_part('nav', 'header' ); ?>
 					<!-- Inserts Site Logo -->
-					<?php  $logo = $options['if_logo'] ; ?>
+					<?php  $logo = $options['bu_logo'] ; ?>
 						<?php if ($logo != ''):?>
 							<div id="logo" class="grid_4 column">
 								<a href="<?php echo home_url(); ?>/"><img src="<?php echo stripslashes($logo); ?>" alt="logo"></a>

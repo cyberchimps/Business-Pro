@@ -550,22 +550,22 @@ $meta_boxes[] = array(
 	'fields' => array(
 	
 	array(
-			'name' => 'iFeature Slider Image',
+			'name' => 'Business Slider Image',
 			'desc' => 'Upload your image here:',
 			'id' => $prefix . 'post_image',
 			'type' => 'image',
 			'std' => ''
 		),
 		array(
-			'name' => 'iFeature Slider Text',
+			'name' => 'Business Slider Text',
 			'desc' => 'Enter your slider text here (optional):',
 			'id' => $prefix . 'text',
 			'type' => 'text',
 			'std' => ''
 		),
 			array(
-			'name' => 'Hide Title Bar',
-			'desc' => 'Click to disable the title bar on this slide:',
+			'name' => 'Show Title Bar',
+			'desc' => 'Click to enable the title bar on this slide:',
 			'id' => $prefix . 'hidetitle',
 			'type' => 'checkbox',
 			'std' => ''
@@ -578,7 +578,7 @@ $meta_boxes[] = array(
 $meta_boxes[] = array(
 	'id' => 'slides',
 	'title' => 'Custom Feature Slides',
-	'pages' => array('if_custom_slides'),
+	'pages' => array('bu_custom_slides'),
 
 	'fields' => array(
 	
@@ -597,8 +597,8 @@ $meta_boxes[] = array(
 			'std' => ''
 		),
 		array(
-			'name' => 'Hide Title Bar',
-			'desc' => 'Click to disable the title bar on this post:',
+			'name' => 'Show Title Bar',
+			'desc' => 'Click to enable the title bar on this post:',
 			'id' => $prefix . 'hidetitle',
 			'type' => 'checkbox',
 			'std' => ''

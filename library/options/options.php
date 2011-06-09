@@ -920,4 +920,360 @@ if ( isset( $_REQUEST['updated'] ))
   			update_option( 'ifeature', $options_array );
 		}   		
 
+?>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       custom_font]" id="business[bu_custom_font]" type="text" value="<?php echo $options['bu_custom_font'] ?>"  />
+
+</td>
+</tr> 
+ 
+<tr>
+
+</tr><tr><td colspan="2" style="margin-bottom:5px;border-bottom:1px dotted #ddd;">&nbsp;</td></tr><tr><td colspan="2">&nbsp;</td></tr>
+
+
+<?php
+break;
+
+case 'select3':
+?>
+<tr>
+<td width="15%" rowspan="2" valign="middle"><strong><?php echo $value['name']; ?></strong><br /><small><?php echo $value['desc']; ?></small></td>
+<td width="85%"><select style="width:300px;" name="<?php echo 'business['.$value['id'].']'; ?>">
+
+<?php
+								$selected = $options[$value['id']];
+								$p = '';
+								$r = '';
+
+								foreach ( $select_slider_effect as $option ) {
+									$label = $option['label'];
+									if ( $selected == $option['value'] ) // Make default first in list
+										$p = "\n\t<option style=\"padding-right: 10px;\" selected='selected' value='" . esc_attr( $option['value'] ) . "'>$label</option>";
+									else
+										$r .= "\n\t<option style=\"padding-right: 10px;\" value='" . esc_attr( $option['value'] ) . "'>$label</option>";      
+								}
+								echo $p . $r;   
+							?>    
+
+</select></td>
+</tr> 
+ 
+<tr>
+
+</tr><tr><td colspan="2" style="margin-bottom:5px;border-bottom:1px dotted #ddd;">&nbsp;</td></tr><tr><td colspan="2">&nbsp;</td></tr>
+
+
+<?php
+break;
+
+case 'select4':
+?>
+<tr>
+<td width="15%" rowspan="2" valign="middle"><strong><?php echo $value['name']; ?></strong><br /><small><?php echo $value['desc']; ?></small></td>
+<td width="85%"><select style="width:300px;" name="<?php echo 'business['.$value['id'].']'; ?>">
+
+<?php
+								$selected = $options[$value['id']];
+								$p = '';
+								$r = '';
+
+								foreach ( $select_slider_type as $option ) {
+									$label = $option['label'];
+									if ( $selected == $option['value'] ) // Make default first in list
+										$p = "\n\t<option style=\"padding-right: 10px;\" selected='selected' value='" . esc_attr( $option['value'] ) . "'>$label</option>";
+									else
+										$r .= "\n\t<option style=\"padding-right: 10px;\" value='" . esc_attr( $option['value'] ) . "'>$label</option>";      
+								}
+								echo $p . $r;   
+							?>    
+
+</select></td>
+</tr> 
+ 
+<tr>
+
+</tr><tr><td colspan="2" style="margin-bottom:5px;border-bottom:1px dotted #ddd;">&nbsp;</td></tr><tr><td colspan="2">&nbsp;</td></tr>
+
+
+<?php
+break;
+
+case 'select5':
+?>
+<tr>
+<td width="15%" rowspan="2" valign="middle"><strong><?php echo $value['name']; ?></strong><br /><small><?php echo $value['desc']; ?></small></td>
+<td width="85%"><select style="width:300px;" name="<?php echo 'business['.$value['id'].']'; ?>">
+
+<?php
+								$selected = $options[$value['id']];
+								$p = '';
+								$r = '';
+
+								foreach ( $select_slider_placement as $option ) {
+									$label = $option['label'];
+									if ( $selected == $option['value'] ) // Make default first in list
+										$p = "\n\t<option style=\"padding-right: 10px;\" selected='selected' value='" . esc_attr( $option['value'] ) . "'>$label</option>";
+									else
+										$r .= "\n\t<option style=\"padding-right: 10px;\" value='" . esc_attr( $option['value'] ) . "'>$label</option>";      
+								}
+								echo $p . $r;   
+							?>    
+
+</select></td>
+</tr> 
+ 
+<tr>
+
+</tr><tr><td colspan="2" style="margin-bottom:5px;border-bottom:1px dotted #ddd;">&nbsp;</td></tr><tr><td colspan="2">&nbsp;</td></tr>
+
+
+<?php
+break;
+
+ 
+case "checkbox":
+?>
+<tr>
+<td width="15%" rowspan="2" valign="middle"><strong><?php echo $value['name']; ?></strong><br /><small><?php echo $value['desc']; ?></small></td>
+<td width="85%">
+<input type="checkbox" name="<?php echo 'business['.$value['id'].']'; ?>" id="<?php echo 'business['.$value['id'].']'; ?>" value="1" <?php checked( '1', $options[$value['id']] ); ?>/>
+</td>
+</tr>
+ 
+<tr>
+
+</tr><tr><td colspan="2" style="margin-bottom:5px;border-bottom:1px dotted #ddd;">&nbsp;</td></tr><tr><td colspan="2">&nbsp;</td></tr>
+
+
+<?php break;
+ 
+}
+}
+?>
+      </div>  
+    </div>    
+
+			<p class="submit">
+				<input type="submit" class="button-primary" value="Save Settings" />   
+			</p>
+		</form>
+
+    
+    <form method="post">
+<p class="submit">
+<input name="reset" type="submit" value="Reset" />
+<input type="hidden" name="action" value="reset" />
+&nbsp;&nbsp;&nbsp;<small>WARNING, THIS RESTORES TO DEFAULT</small>
+</p>
+</form> 
+
+
+
+	</div>
+	<?php
+}
+
+
+
+function theme_options_validate( $input ) {
+	global  $select_font, $select_slider_effect, $select_slider_type, $select_slider_placement;
+
+	// Assign checkbox value
+  
+
+   if ( ! isset( $input['bu_show_excerpts'] ) )
+		$input['bu_show_excerpts'] = null;
+	$input['bu_show_excerpts'] = ( $input['bu_show_excerpts'] == 1 ? 1 : 0 ); 
+ 
+    if ( ! isset( $input['bu_hide_facebook'] ) )
+		$input['bu_hide_facebook'] = null;
+	$input['bu_hide_facebook'] = ( $input['bu_hide_facebook'] == 1 ? 1 : 0 ); 
+	
+	if ( ! isset( $input['bu_hide_twitter'] ) )
+		$input['bu_hide_twitter'] = null;
+	$input['bu_hide_twitter'] = ( $input['bu_hide_twitter'] == 1 ? 1 : 0 ); 
+	
+	if ( ! isset( $input['bu_hide_linkedin'] ) )
+		$input['bu_hide_linkedin'] = null;
+	$input['bu_hide_linkedin'] = ( $input['bu_hide_linkedin'] == 1 ? 1 : 0 ); 
+	
+	if ( ! isset( $input['bu_hide_youtube'] ) )
+		$input['bu_hide_youtube'] = null;
+	$input['bu_hide_youtube'] = ( $input['bu_hide_youtube'] == 1 ? 1 : 0 ); 
+	
+	if ( ! isset( $input['bu_hide_googlemaps'] ) )
+		$input['bu_hide_googlemaps'] = null;
+	$input['bu_hide_googlemaps'] = ( $input['bu_hide_googlemaps'] == 1 ? 1 : 0 ); 
+	
+	if ( ! isset( $input['bu_hide_email'] ) )
+		$input['bu_hide_email'] = null;
+	$input['bu_hide_email'] = ( $input['bu_hide_email'] == 1 ? 1 : 0 ); 
+	
+	if ( ! isset( $input['bu_hide_rss'] ) )
+		$input['bu_hide_rss'] = null;
+	$input['bu_hide_rss'] = ( $input['bu_hide_rss'] == 1 ? 1 : 0 ); 
+
+  if ( ! isset( $input['bu_hide_callout'] ) )
+		$input['bu_hide_callout'] = null;
+	$input['bu_hide_callout'] = ( $input['bu_hide_callout'] == 1 ? 1 : 0 ); 
+	
+	 if ( ! isset( $input['bu_hide_author'] ) )
+		$input['bu_hide_author'] = null;
+	$input['bu_hide_author'] = ( $input['bu_hide_author'] == 1 ? 1 : 0 ); 
+	
+	 if ( ! isset( $input['bu_hide_categories'] ) )
+		$input['bu_hide_categories'] = null;
+	$input['bu_hide_categories'] = ( $input['bu_hide_categories'] == 1 ? 1 : 0 ); 
+	
+	 if ( ! isset( $input['bu_hide_date'] ) )
+		$input['bu_hide_date'] = null;
+	$input['bu_hide_date'] = ( $input['bu_hide_date'] == 1 ? 1 : 0 ); 
+	
+	 if ( ! isset( $input['bu_hide_comments'] ) )
+		$input['bu_hide_comments'] = null;
+	$input['bu_hide_comments'] = ( $input['bu_hide_comments'] == 1 ? 1 : 0 ); 
+	
+	 if ( ! isset( $input['bu_hide_share'] ) )
+		$input['bu_hide_share'] = null;
+	$input['bu_hide_share'] = ( $input['bu_hide_share'] == 1 ? 1 : 0 ); 
+	
+	 if ( ! isset( $input['bu_hide_tags'] ) )
+		$input['bu_hide_tags'] = null;
+	$input['bu_hide_tags'] = ( $input['bu_hide_tags'] == 1 ? 1 : 0 ); 
+		 
+	if ( ! isset( $input['bu_hide_social'] ) )
+		$input['bu_hide_social'] = null;
+	$input['bu_hide_social'] = ( $input['bu_hide_social'] == 1 ? 1 : 0 ); 
+	
+	if ( ! isset( $input['bu_hide_search'] ) )
+		$input['bu_hide_search'] = null;
+	$input['bu_hide_search'] = ( $input['bu_hide_search'] == 1 ? 1 : 0 ); 
+	
+	  if ( ! isset( $input['bu_show_fb_like'] ) )
+		$input['bu_show_fb_like'] = null;
+	$input['bu_show_fb_like'] = ( $input['bu_show_fb_like'] == 1 ? 1 : 0 ); 
+  
+  
+     if ( ! isset( $input['bu_hide_slider'] ) )
+		$input['bu_hide_slider'] = null;
+	$input['bu_hide_slider'] = ( $input['bu_hide_slider'] == 1 ? 1 : 0 ); 
+  
+  
+    if ( ! isset( $input['bu_hide_boxes'] ) )
+		$input['bu_hide_boxes'] = null;
+	$input['bu_hide_boxes'] = ( $input['bu_hide_boxes'] == 1 ? 1 : 0 ); 
+  
+     if ( ! isset( $input['bu_hide_link'] ) )
+		$input['bu_hide_link'] = null;
+	$input['bu_hide_link'] = ( $input['bu_hide_link'] == 1 ? 1 : 0 ); 
+	
+	  if ( ! isset( $input['bu_slider_navigation'] ) )
+		$input['bu_slider_navigation'] = null;
+	$input['bu_slider_navigation'] = ( $input['bu_slider_navigation'] == 1 ? 1 : 0 ); 
+  
+  	// Strip HTML from certain options
+  	
+   $input['bu_logo'] = wp_filter_nohtml_kses( $input['bu_logo'] );
+  
+   $input['bu_facebook'] = wp_filter_nohtml_kses( $input['bu_facebook'] ); 
+    
+   $input['bu_twitter'] = wp_filter_nohtml_kses( $input['bu_twitter'] ); 
+  
+   $input['bu_linkedin'] = wp_filter_nohtml_kses( $input['bu_linkedin'] );   
+  
+   $input['bu_youtube'] = wp_filter_nohtml_kses( $input['bu_youtube'] );  
+  
+   $input['bu_rsslink'] = wp_filter_nohtml_kses( $input['bu_rsslink'] );  
+  
+   $input['bu_email'] = wp_filter_nohtml_kses( $input['bu_email'] );   
+  
+
+	return $input;    
+
+}
+
+?>
+<?php
+
+
+/* Truncate */
+
+function truncate ($str, $length=10, $trailing='..')
+{
+ $length-=mb_strlen($trailing);
+ if (mb_strlen($str)> $length)
+	  {
+ return mb_substr($str,0,$length).$trailing;
+  }
+ else
+  {
+ $res = $str;
+  }
+ return $res;
+} 
+
+
+/* Get first image */
+
+function get_first_image() {
+ global $post, $posts;
+ $first_img = '';
+ $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+ if(isset($matches[1][0])){
+ $first_img = $matches [1][0];
+ return $first_img;
+ }  
+}  
+
+function ud_setting_filename() {
+  }
+  
+/* Custom Menu */   
+  
+add_action( 'init', 'register_my_menu' );
+
+function register_my_menu() {
+	register_nav_menu( 'primary-menu', __( 'Primary Menu' ) );
+}
+
+
+// Add scripts and stylesheet
+
+  function bu_scripts() {
+        wp_enqueue_script('bujquery');
+        wp_enqueue_script('bujqueryui');
+        wp_enqueue_script('bujquerycookie');
+         wp_enqueue_script('bumcolor');
+        wp_enqueue_script('bucookie');
+   }
+    
+ function bu_styles() {
+       wp_enqueue_style('bucss');
+   }
+
+/* Redirect after activation */
+
+if ( is_admin() && isset($_GET['activated'] ) && $pagenow ==	"themes.php" )
+	wp_redirect( 'themes.php?page=theme_options' );
+	
+/* Redirect after resetting theme options */
+
+if ( isset( $_REQUEST['reset'] ))
+  wp_redirect( 'themes.php?page=theme_options' );
+  
+/* Update theme options after saving the import code */
+  
+if ( isset( $_REQUEST['updated'] ))
+
+  $options = get_option('business') ; 
+  $checkimport = $options['bu_import_code'];
+		
+		if ($checkimport != '' ) {
+			
+			$options = get_option('business') ;  
+			$import = $options['bu_import_code'];
+			
+			$options_array = (unserialize($import));
+  			update_option( 'business', $options_array );
+		}   		
+
 ?>

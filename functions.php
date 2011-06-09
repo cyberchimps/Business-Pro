@@ -3,10 +3,16 @@
 /*
 	Functions
 	
-	Establishes the core iFeature functions.
+	Establishes the core Business Pro functions.
 	
 	Copyright (C) 2011 CyberChimps
 */
+
+function new_excerpt_more($more) {
+       global $post;
+	return '<a href="'. get_permalink($post->ID) . '"> <br /><br /> (Read More...)</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
 
 add_theme_support('automatic-feed-links');
 	if ( ! isset( $content_width ) )
@@ -33,7 +39,7 @@ set_post_thumbnail_size( 100, 100, true );
 * Attach CSS3PIE behavior to elements
 * Add elements here that need PIE applied
 */   
-function ifeature_render_ie_pie() { ?>
+function business_render_ie_pie() { ?>
 <style type="text/css" media="screen">
 #header li a, .postmetadata, .post_container, .wp-caption, .sidebar-widget-style, .sidebar-widget-title, .boxes, .box1, .box2, .box3, .box-widget-title  {
   behavior: url('<?php bloginfo('stylesheet_directory'); ?>/library/pie/PIE.htc');
@@ -42,7 +48,7 @@ function ifeature_render_ie_pie() { ?>
 <?php
 }
 
-add_action('wp_head', 'ifeature_render_ie_pie', 8);
+add_action('wp_head', 'business_render_ie_pie', 8);
 	
 //Checklist Shortcode
 	
@@ -155,11 +161,11 @@ function four_fifth_last( $atts, $content = null ) {
 add_shortcode('four_fifth_last', 'four_fifth_last');
 
 
-// Create custom post type for iFeature Slider
+// Create custom post type for business Slider
 
 add_action( 'init', 'create_post_type' );
 function create_post_type() {
-	register_post_type( 'if_custom_slides',
+	register_post_type( 'bu_custom_slides',
 		array(
 			'labels' => array(
 				'name' => __( 'Custom Slides' ),
@@ -234,7 +240,7 @@ add_action('wp_head', 'cs_head');
 
 	// Register superfish scripts
 	
-function ifeature_add_scripts() {
+function business_add_scripts() {
  
     if (!is_admin()) { // Add the scripts, but not to the wp-admin section.
     // Adjust the below path to where scripts dir is, if you must.
@@ -251,16 +257,16 @@ function ifeature_add_scripts() {
 } //end add_our_scripts function
  
 //Add our function to the wp_head. You can also use wp_print_scripts.
-add_action( 'wp_head', 'ifeature_add_scripts',0);
+add_action( 'wp_head', 'business_add_scripts',0);
 	
 	// Register menu names
 	
-	function register_ifeature_menus() {
+	function register_business_menus() {
 	register_nav_menus(
 	array( 'header-menu' => __( 'Header Menu' ), 'extra-menu' => __( 'Extra Menu' ))
   );
 }
-	add_action( 'init', 'register_ifeature_menus' );
+	add_action( 'init', 'register_business_menus' );
 	
 	// Menu fallback
 	
@@ -346,7 +352,7 @@ add_action( 'wp_head', 'ifeature_add_scripts',0);
 	));
     }
 
-	//iFeature theme options file
+	//Business Pro options file
 	
 require_once ( get_template_directory() . '/library/options/options.php' );
 require_once ( get_template_directory() . '/pro/meta-box.php' );

@@ -3,7 +3,7 @@
 /*
 	404
 	
-	Creates the iFeature 404 page.
+	Creates the Business Pro 404 page.
 	
 	Copyright (C) 2011 CyberChimps
 */

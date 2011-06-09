@@ -3,7 +3,7 @@
 /*
 	Comments
 	
-	Creates the iFeature comments section.
+	Creates the Business Pro comments section.
 	
 	Copyright (C) 2011 CyberChimps
 */
