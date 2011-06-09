@@ -114,13 +114,13 @@ h3 { font-size: 14px; }
 /* Search Form */
 
 input[type=text] { 
-	width: 230px;
+	width: 160px;
 }
 
 /* Search Bar */
 
 #searchbar  {
-	width: 230px;
+	width: 160px;
 	text-align: right;
 	margin-top: 7px;
 }
@@ -131,7 +131,7 @@ input[type=text] {
 }
 	
 .s {	
-	background: url(./images/search.png) no-repeat 0 1px;
+	background: #fff url(./images/search.png) no-repeat 0 1px;
 	color: #3b3b3b;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -155,7 +155,7 @@ input[type=text] {
 
 #content_left {
 	float: left;
-	width: 710px;
+	width: 670px;
 }
 
 #content_fullwidth {
@@ -394,14 +394,17 @@ label[for="comment"] {display: block;}
 /* Sidebar Left/Right */
 
 .content_half {
-	width: 50%;float: left;
+	width: 48%;
+	float: left;
+	padding-left: 10px;
 }
 
 .sidebars_area {
 	text-align: left;
 	margin: 0px auto;
-	padding: 0px;border:0;
-	width: 980px;
+	padding-top: 5px;
+	border: 0;
+	width: 990px;
 }
 
 /* Sidebar Left */
@@ -409,6 +412,9 @@ label[for="comment"] {display: block;}
 #sidebar_left {
 	float: left;
 	width: 244px;
+	border-right: 1px dotted #dadada;
+	margin-top: -5px;
+	padding-top: 5px;
 }
 
 #sidebar240 { 
@@ -421,9 +427,12 @@ label[for="comment"] {display: block;}
 			
 /* Sidebar Right */
 
-#sidebar_right {
+#sidebar_rightsm {
 	float: right;
 	width: 244px;
+	border-left: 1px dotted #dadada;
+	margin-top: -5px;
+	padding-top: 5px;
 }
 
 
@@ -444,9 +453,11 @@ label[for="comment"] {display: block;}
 .box-widget-title {
 	color: #000;
 	font-size: 24px;
-	font-weight: bold;
-	text-align: center;
-	padding-bottom: 10px;
+	font-weight: 300;
+	text-align: left;
+	padding-bottom: 4px;
+	margin-bottom: 10px;
+	border-bottom: 1px dotted #ccc;
 }
 
 .box1 {
@@ -598,6 +609,19 @@ label[for="comment"] {display: block;}
 	font-size: 18px;
 	font-weight: 300;
 	padding-bottom: 10px;
+}
+
+#search_footer  {
+	width: 160px;
+	text-align: right;
+	margin-top: 7px;
+}
+
+#social_footer {
+	height: 35px;
+	margin-top: -5px;
+	width: 335px;
+	float: left;
 }
 
 .footer-item ul { padding-left: 15px; }
