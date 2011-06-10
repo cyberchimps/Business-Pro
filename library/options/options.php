@@ -137,7 +137,7 @@ array( "name" => "Choose a font:",
     "std" => ""),
     
 array( "name" => "Logo URL",  
-    "desc" => "Enter the link to your logo image (max-height 60px), or to use your site title text leave blank.",  
+    "desc" => "Enter the link to your logo image, or to use your site title text leave blank.",  
     "id" => $shortname."_logo",  
     "type" => "text",  
     "std" => ""), 
