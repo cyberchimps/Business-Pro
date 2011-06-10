@@ -1082,6 +1082,4 @@ background : -moz-linear-gradient(center top, #73b338, #88c841);
 	height:56px;
 	padding-right:24px;}
 .button_link.large_button span{
-	background-position:-6px -3px;
-	line-height:20px;
-	}
+	background-position
