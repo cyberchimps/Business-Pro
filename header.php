@@ -97,7 +97,7 @@ $options = get_option('business') ;
 						<?php endif;?>
 						<?php if ($logo == '' ):?>
 							<div id="logo" class="grid_4 column">
-								<h1 class="sitename" class="grid_4 column"><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?> </h1></a>
+								<h1 class="sitename"><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a> </h1>
 								<div id="description">
 									<h1 class="description"><?php bloginfo('description'); ?></h1>
 								</div>

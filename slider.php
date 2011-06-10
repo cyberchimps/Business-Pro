@@ -21,6 +21,14 @@
 		
 		$usecustomslides		= $options['bu_slider_type'];
 		
+		if ($options['bu_slider_placement'] != 'feature'  && $options['bu_slider_placement'] != '') {
+		$default = 'businessprosmall';
+		}
+		
+		else {
+		$default = 'businesspro';
+		}
+		
 		if ($usecustomslides == 'custom')
     	query_posts( array ('post_type' => 'bu_custom_slides', 'showposts' => 20 ) );
     	
@@ -78,7 +86,7 @@
 	       } 
 	       		elseif ($customimage == '' && $usecustomslides != 'posts'&& $showtitlebar == '' ){ 
 	       		$out .= "<a href='$customlink'>	
-	    						<img src='$root/images/pro/bizpro.jpg' alt='BusinessPro' />
+	    						<img src='$root/images/$default.jpg' alt='BusinessPro' />
 	    					
 	    					</a>
 	    			";
@@ -86,7 +94,7 @@
 	       
 	       	elseif ($customimage == '' && $usecustomslides != 'posts' ) {
 	       		$out .= "<a href='$customlink'>	
-	    						<img src='$root/images/pro/bizpro.jpg' alt='BusinessPro' />
+	    						<img src='$root/images/$default.jpg' alt='BusinessPro' />
 	    						<span>
 	    							<strong>$title</strong><br />
 	    							$customtext
@@ -119,7 +127,7 @@
 	         elseif ($image == '' && $usecustomslides == 'posts' && $showtitlebar == ''){
 	     
 	    		$out .= "<a href='$permalink'>	
-	    						<img src='$root/images/pro/bizpro.jpg' alt='iFeaturePro' />
+	    						<img src='$root/images/$default.jpg' alt='iFeaturePro' />
 	    						
 	    					</a>
 	    			";
@@ -128,7 +136,7 @@
 	         else {
 	     
 	    		$out .= "<a href='$permalink'>	
-	    						<img src='$root/images/bizpro.jpg' />
+	    						<img src='$root/images/$default.jpg' />
 	    						<span>
 	    							<strong>$title</strong><br />
 	    							$text

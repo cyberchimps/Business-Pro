@@ -17,8 +17,7 @@ $root = get_template_directory_uri();
 			<div class="box1">
 				<h2 class="box-widget-title">Professional Design</h2>
 				<img src="<?php echo $root ; ?>/images/icons/blueprint.png" height="100" alt="blueprint" class="aligncenter" />
-				<p>With <a href="http://cyberchimps.com/businesspro/">Business Pro</a> we've done the design work for you.</p>	
-				<p>If we were all designers then every WordPress theme would look this good.</p>
+				<p>With <a href="http://cyberchimps.com/businesspro/">Business Pro</a> we've done the design work for you. If we were all designers then every WordPress theme would look this good.</p>
 			</div><!--end box1-->
 			<?php endif; ?>
 			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box2") ) : ?>

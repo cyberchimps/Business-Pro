@@ -131,7 +131,7 @@ array( "id" => $shortname."-tab1",
 array( "type" => "open"),
 
 array( "name" => "Choose a font:",  
-    "desc" => "(Default is Cantarell)",  
+    "desc" => "(Default is Maven Pro)",  
     "id" => $shortname."_font",  
     "type" => "select2",  
     "std" => ""),
