@@ -81,16 +81,21 @@ $options = get_option('business') ;
 					</div>
 				<?php endif;?>
 			<!--Inserts Afterfooter Social Icons -->
+			<?php 
+								$hidefootersocial		= $options['bu_hide_footer_social'];
+							?>
+			<?php if ($hidefootersocial != "1" ):?>
 			<div id="social_footer">
 				<?php get_template_part('icons', 'header'); ?>
 			</div><!-- end social -->
+			<?php endif;?>
 			<!--Inserts Site Credit -->
 			<?php 
 								$hidelink		= $options['bu_hide_link'];
 							?>
 							<?php if ($hidelink != "1" ):?>
 					<div id="credit">
-						<a href="http://cyberchimps.com"><img src="<?php echo get_template_directory_uri(); ?>/images/cyberchimps.png" /></a>
+						<a href="http://cyberchimps.com"><img src="<?php echo get_template_directory_uri(); ?>/images/cyberchimps.png" alt="CyberChimps"/></a>
 					</div>
 			<?php endif;?>
 		</div>  <!--end afterfooterwrap-->	

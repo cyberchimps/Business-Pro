@@ -82,7 +82,7 @@ if ($header == '' OR $header == "111111") {
 			 
 			
 echo '<style type="text/css">';
-		echo "#header {background: #$header url($tdurl/images/transheader.png) repeat-x 50% 100%;}";
+		echo "#header {background: #$header;}";
 		echo '</style>';
 }
 }
@@ -159,6 +159,12 @@ array( "name" => "Custom Favicon",
     "id" => $shortname."_favicon",  
     "type" => "text",  
     "std" => ""),   
+    
+array( "name" => "Twitter Bar",  
+    "desc" => "Enter your Twitter handle for the Twitter Bar",  
+    "id" => $shortname."_twitter_bar",  
+    "type" => "twitter",  
+    "std" => ""),  
 
 array( "name" => "Google Analytics Code",  
     "desc" => "You can paste your Google Analytics or other tracking code in this box. This will be automatically be added to the footer.",  
@@ -352,14 +358,14 @@ array( "name" => "Callout Text",
     "type" => "textarea",
     "std" => ""),
 
-array( "name" => "Callout Image",  
-    "desc" => "Enter HTML to display call out image (max-height: 60px, max-width 180px, you can use callout.psd).",  
-    "id" => $shortname."_callout_img",  
+array( "name" => "Callout Button Text",  
+    "desc" => "Enter text for your callout button",  
+    "id" => $shortname."_callout_button_text",  
     "type" => "text",
-    "std" => ""),
+    "std" => "BUY NOW"),
     
-array( "name" => "Callout Image Link",  
-    "desc" => "Enter a URL for the Callout Image's link.",  
+array( "name" => "Callout Button Link",  
+    "desc" => "Enter a URL for the Callout button's link.",  
     "id" => $shortname."_callout_image_link",  
     "type" => "text",
     "std" => ""),
@@ -441,6 +447,12 @@ array( "name" => "Hide the Boxes Section",
     "id" => $shortname."_hide_boxes",  
       "type" => "checkbox",  
     "std" => "false"),
+    
+array( "name" => "Hide the Social Icons",  
+    "desc" => "Check this box to hide the social icons in the footer.",  
+    "id" => $shortname."_hide_footer_social",  
+      "type" => "checkbox",  
+    "std" => "false"),    
   
 array( "name" => "Footer Copyright",  
     "desc" => "Enter Copyright text used on the right side of the footer. It can be HTML (default is your blog title)",  
@@ -619,6 +631,34 @@ if (isset($options['bu_header_color']) == "")
 
 <?php
 break;
+
+
+case 'twitter':  
+?>  
+  
+<tr>
+
+    <td width="15%" rowspan="2" valign="middle"><label for="<?php echo $value['id']; ?>"><strong><?php echo $value['name']; ?></strong><br /><small><?php echo $value['desc']; ?></small></label>  </td>
+    <td width="85%">
+    <br />
+    <input style="width:300px;" name="<?php echo 'business['.$value['id'].']'; ?>" id="<?php echo 'ne['.$value['id'].']'; ?>" type="<?php echo $value['type']; ?>" value="<?php if (  $options[$value['id']]  != "") { echo esc_attr($options[$value['id']]) ; } else { echo esc_attr($value['std']) ; } ?>" />
+
+<br /><br />
+
+<input type="checkbox" id="business[bu_enable_twitter]" name="business[bu_enable_twitter]" value="1" <?php checked( '1', $options['bu_enable_twitter'] ); ?>> - Check this box to enable the Twitter Bar on the Business Pro Homepage (Requires <a href="http://wordpress.org/extend/plugins/twitter-for-wordpress/">Twitter for WordPress Plugin</a>)
+</td>
+  </tr>
+ 
+<tr>
+
+</tr><tr><td colspan="2" style="margin-bottom:5px;border-bottom:1px dotted #ddd;">&nbsp;</td></tr><tr><td colspan="2">&nbsp;</td></tr>
+
+
+
+<?php
+break;
+
+
  
 case 'textarea':
 ?>
@@ -1070,6 +1110,15 @@ function theme_options_validate( $input ) {
 	// Assign checkbox value
   
 
+    if ( ! isset( $input['bu_enable_twitter'] ) )
+		$input['bu_enable_twitter'] = null;
+	$input['bu_enable_twitter'] = ( $input['bu_enable_twitter'] == 1 ? 1 : 0 ); 
+
+   
+   if ( ! isset( $input['bu_hide_footer_social'] ) )
+		$input['bu_hide_footer_social'] = null;
+	$input['bu_hide_footer_social'] = ( $input['bu_hide_footer_social'] == 1 ? 1 : 0 ); 
+   
    if ( ! isset( $input['bu_show_excerpts'] ) )
 		$input['bu_show_excerpts'] = null;
 	$input['bu_show_excerpts'] = ( $input['bu_show_excerpts'] == 1 ? 1 : 0 ); 

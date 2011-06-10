@@ -78,7 +78,7 @@
 	       } 
 	       		elseif ($customimage == '' && $usecustomslides != 'posts'&& $showtitlebar == '' ){ 
 	       		$out .= "<a href='$customlink'>	
-	    						<img src='$root/images/pro/bizpro.jpg' alt='iFeaturePro' />
+	    						<img src='$root/images/pro/bizpro.jpg' alt='BusinessPro' />
 	    					
 	    					</a>
 	    			";
@@ -86,7 +86,7 @@
 	       
 	       	elseif ($customimage == '' && $usecustomslides != 'posts' ) {
 	       		$out .= "<a href='$customlink'>	
-	    						<img src='$root/images/pro/bizpro.jpg' alt='iFeaturePro' />
+	    						<img src='$root/images/pro/bizpro.jpg' alt='BusinessPro' />
 	    						<span>
 	    							<strong>$title</strong><br />
 	    							$customtext
@@ -98,7 +98,7 @@
 	       elseif ($image != '' && $usecustomslides == 'posts' && $showtitlebar == ''){
 	     
 	    		$out .= "<a href='$permalink'>	
-	    						<img src='$image' alt='iFeaturePro' />
+	    						<img src='$image' alt='BusinessPro' />
 	    						
 	    					</a>
 	    			";
@@ -107,7 +107,7 @@
 	       elseif ($image != '' && $usecustomslides == 'posts'){
 	     
 	    		$out .= "<a href='$permalink'>	
-	    						<img src='$image' alt='iFeaturePro'/>
+	    						<img src='$image' alt='BusinessPro'/>
 	    						<span>
 	    							<strong>$title</strong><br />
 	    							$text
@@ -128,7 +128,7 @@
 	         else {
 	     
 	    		$out .= "<a href='$permalink'>	
-	    						<img src='$root/images/pro/bizpro.jpg' />
+	    						<img src='$root/images/bizpro.jpg' />
 	    						<span>
 	    							<strong>$title</strong><br />
 	    							$text

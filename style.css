@@ -673,6 +673,23 @@ label[for="comment"] {display: block;}
 	margin: auto;
 }
 
+/* Twitter Section */
+
+#twitterbar {
+	background: none;
+	width: 978px;
+	border-top: 1px dotted #CCC;
+	overflow: hidden;
+	margin: auto;
+}
+
+.twittertext {
+	padding: 10px;
+	width: 978px;
+	font-size: 14px;
+}
+
+
 /* ================ */
 /* = The 1Kb Grid (http://www.1kbgrid.com/) = */ /* 12 columns, 60 pixels each, with 20 pixel gutter */
 /* ================ */

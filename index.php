@@ -54,7 +54,7 @@ $options = get_option('business') ;
 							</div><!--end entry-->
 							<?php edit_post_link('Edit this entry.', '<p>', '</p>'); ?>
 						<?php 
-								$showfblike		= $options['ne_show_fb_like'];
+								$showfblike		= $options['bu_show_fb_like'];
 							?>
 							<?php if ($showfblike == "1" ):?>
 							<div class="fb" >
