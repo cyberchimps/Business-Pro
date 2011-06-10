@@ -49,12 +49,10 @@ $options = get_option('business') ;
 		</div>
 		
 		<div class="footer-widgets">
-			<h3 class="footer-widget-title">Subscribe</h3>
-			<ul>
-				<li><a href="<?php bloginfo('rss2_url'); ?>">Entries (RSS)</a></li>
-    		<li><a href="<?php bloginfo('comments_rss2_url'); ?>">Comments (RSS)</a></li>
-
-			</ul>
+			<h3 class="footer-widget-title">Search</h3>
+			<div id="search_footer">
+				<?php get_search_form(); ?>
+			</div>
 		</div>
 		
 			<?php endif; ?>
@@ -82,10 +80,10 @@ $options = get_option('business') ;
 						&copy; <?php echo $copyright; ?>
 					</div>
 				<?php endif;?>
-			<!--Inserts Afterfooter Menu-->
-			<div id="afterfootermenu">
-				<?php wp_nav_menu('depth=1'); ?>
-			</div>
+			<!--Inserts Afterfooter Social Icons -->
+			<div id="social_footer">
+				<?php get_template_part('icons', 'header'); ?>
+			</div><!-- end social -->
 			<!--Inserts Site Credit -->
 			<?php 
 								$hidelink		= $options['bu_hide_link'];

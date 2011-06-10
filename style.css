@@ -23,7 +23,7 @@ body { font-size: 14px;	}
 .error { font-size: 28px; text-align: center;}
 
 p { margin: 0 0 10px 0; }
-a { color: #717171; text-decoration: none; }
+a { color: #777; text-decoration: none; }
 a:hover { color: #555; }
 
 a img {border: none; }
@@ -75,7 +75,7 @@ h3 { font-size: 14px; }
 }
 
 .sitename a:hover{
-	color: #444;
+	color: #ccc;
 }
 
 #description {
@@ -534,7 +534,6 @@ label[for="comment"] {display: block;}
 .callout_title {
 	font-size: 28px;
 	color: #000;
-	font-weight: bolder;
 }
 
 .calloutimg{
@@ -830,7 +829,7 @@ ul.sf-menu li li li.sfHover ul {
     padding:            9px 10px 13px 10px;   
     font-weight:    300;
     background: transparent;
-    color: 			#666;
+    color: 			#ccc;
 }
 
 .sf-menu ul li a {
