@@ -458,6 +458,7 @@ label[for="comment"] {display: block;}
 	padding-bottom: 4px;
 	margin-bottom: 10px;
 	border-bottom: 1px dotted #ccc;
+	text-align: center;
 }
 
 .box1 {
@@ -467,7 +468,7 @@ label[for="comment"] {display: block;}
 	padding: 5px;
 	margin-left: 0px;
 	margin-right: 28px;
-	padding-bottom: 10px;
+	padding-bottom: 30px;
 	color: #222;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -482,7 +483,7 @@ label[for="comment"] {display: block;}
 	padding: 5px;
 	margin-left: 0px;
 	margin-right: 28px;
-	padding-bottom: 10px;
+	padding-bottom: 30px;
 	color: #222;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -497,7 +498,7 @@ label[for="comment"] {display: block;}
 	padding: 5px;
 	margin-left: 0px;
 	margin-right: 1px;
-	padding-bottom: 10px;
+	padding-bottom: 30px;
 	color: #222;
 	border-radius: 5px;
 	-moz-border-radius: 5px;

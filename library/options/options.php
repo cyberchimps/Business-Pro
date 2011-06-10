@@ -163,7 +163,7 @@ array( "name" => "Custom Favicon",
 array( "name" => "Twitter Bar",  
     "desc" => "Enter your Twitter handle for the Twitter Bar",  
     "id" => $shortname."_twitter_bar",  
-    "type" => "twitter",  
+    "type" => "twitterbar",  
     "std" => ""),  
 
 array( "name" => "Google Analytics Code",  
@@ -633,7 +633,7 @@ if (isset($options['bu_header_color']) == "")
 break;
 
 
-case 'twitter':  
+case 'twitterbar':  
 ?>  
   
 <tr>
