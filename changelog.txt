@@ -9,5 +9,8 @@ Business Pro Changelog\
 \
 ****************************\
 \
+Version 1.0.1 (6-11-2011)\
+-API added for push updates.\
+\
 Version 1.0 (6-10-2011)\
 -Initial release}
