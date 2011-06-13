@@ -9,8 +9,9 @@ Business Pro Changelog\
 \
 ****************************\
 \
-Version 1.0.1 (6-11-2011)\
+Version 1.0.1 (6-13-2011)\
 -API added for push updates.\
+-jQuery noconflict patch to fix third-party plugin compatibility issues.\
 \
 Version 1.0 (6-10-2011)\
--Initial release}
+-Initial release.\
