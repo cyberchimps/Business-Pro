@@ -636,7 +636,6 @@ label[for="comment"] {display: block;}
 	width: 980px; 
 	height: 35px; 
 	margin: auto;
-	margin-top: 10px;
 	padding: 3px;
 }
 
@@ -716,7 +715,7 @@ label[for="comment"] {display: block;}
 .row {
 	width: 990px;
 	margin: 0 auto;
-	overflow: hidden;
+	height: 80px;
 }
 .row .row {
 	margin: 0 -10px;
@@ -802,7 +801,7 @@ ul.sf-menu li.sfHover li ul {
 
 .sf-menu li li {
 	height: 35px;
-	display: none;
+
 }
 
 .sf-menu li li:hover {
@@ -873,7 +872,7 @@ ul.sf-menu li li li.sfHover ul {
 
 /*** arrows **/
 .sf-menu a.sf-with-ul {
-    
+     padding-right:  1.25em;
     min-width:      1px; /* trigger IE7 hasLayout so spans position accurately */
 }
 .sf-sub-indicator {
@@ -885,7 +884,7 @@ ul.sf-menu li li li.sfHover ul {
     height:         10px;
     text-indent:    -999em;
     overflow:       hidden;
-    background:     none; /* 8-bit indexed alpha png. IE6 gets solid image only */
+    background:    url(./images/arrows-ffffff.png) no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
 }
 a > .sf-sub-indicator {  /* give all except IE6 the correct values */
     top:            .8em;

@@ -12,6 +12,7 @@
 
 ?>
 
+
 <div id="navcontainer" class="grid_8 column">
     <div id="sfwrapper">
         <?php wp_nav_menu( array(
@@ -24,4 +25,6 @@
     ?>
     </div>
 </div><!--end navcontainer-->
+
+
 <!--end nav.php-->

@@ -89,6 +89,23 @@ echo '<style type="text/css">';
 
 add_action( 'wp_head', 'business_add_header_color');
 
+function business_header_height() {
+
+$options = get_option('business');
+$height = $options['bu_header_height'];
+$px  = 'px';
+if ($height != '') {
+
+			echo '<style type="text/css">';
+			echo ".row {height: $height$px;}";
+			echo '</style>';
+	}
+
+}
+
+add_action( 'wp_head', 'business_header_height');
+
+
 
 
 $select_font = array(
@@ -148,6 +165,12 @@ array( "name" => "Header Color",
       "type" => "color2",  
     "std" => "false"),
     
+array( "name" => "Header Height",  
+    "desc" => "Enter a custom header height here. The default is 80.",  
+    "id" => $shortname."_header_height",  
+      "type" => "text",  
+    "std" => "80"),
+        
 array( "name" => "Custom CSS",  
     "desc" => "Override default Business Pro CSS here.",  
     "id" => $shortname."_css_options",  
