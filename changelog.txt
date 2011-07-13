@@ -2,6 +2,11 @@ Business Pro Changelog
 
 ****************************
 
+Version 1.0.3 (7-13-2011)
+-Added Google + social icon.
+-Fixed WordPress 3.2 related bug in update.php.
+
+
 Version 1.0.2 (7-6-2011)
 -Added dropdown menu support, corresponding header height option in theme options.
 -Adjusted theme option CSS to eliminate WordPress 3.2 footer styling conflict.

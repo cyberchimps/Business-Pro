@@ -1,13 +1,10 @@
 <?php
 
-
 /**/
 // TEMP: Enable update check on every request. Normally you don't need this! This is for testing only!
 //set_site_transient('update_themes', null);
 
-
 add_filter('pre_set_site_transient_update_themes', 'check_for_update');
-
 	$theme_data = get_theme_data( TEMPLATEPATH . '/style.css');
 	$theme_version = $theme_data['Version'];
 	$theme_base = get_option('stylesheet');
@@ -38,11 +35,9 @@ function check_for_update($checked_data) {
 	if (!is_wp_error($raw_response) && ($raw_response['response']['code'] == 200))
 		$response = unserialize($raw_response['body']);
 
-
 	// Feed the update data into WP updater
 	if (!empty($response)) 
 		$checked_data->response[$theme_base] = $response;
-
 
 	return $checked_data;
 }
@@ -73,7 +68,12 @@ function my_theme_api_call($def, $action, $args) {
 	return $res;
 }
 
+function force_check_updates(){
+	$current = get_site_transient( 'update_themes' );
+	$current->last_checked = 0;
+	set_site_transient( 'update_themes', $current );
+	wp_update_themes();
+}
+add_action( 'load-update-core.php', 'force_check_updates' );
 
-if (is_admin())
-	$current = get_transient('update_themes');
 ?>

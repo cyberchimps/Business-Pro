@@ -1305,4 +1305,49 @@ if ( isset( $_REQUEST['updated'] ))
   			update_option( 'business', $options_array );
 		}   		
 
+?>                                                                                                                                                                                                                        {
+	register_nav_menu( 'primary-menu', __( 'Primary Menu' ) );
+}
+
+
+// Add scripts and stylesheet
+
+  function bu_scripts() {
+        wp_enqueue_script('bujquery');
+        wp_enqueue_script('bujqueryui');
+        wp_enqueue_script('bujquerycookie');
+         wp_enqueue_script('bumcolor');
+        wp_enqueue_script('bucookie');
+   }
+    
+ function bu_styles() {
+       wp_enqueue_style('bucss');
+   }
+
+/* Redirect after activation */
+
+if ( is_admin() && isset($_GET['activated'] ) && $pagenow ==	"themes.php" )
+	wp_redirect( 'themes.php?page=theme_options' );
+	
+/* Redirect after resetting theme options */
+
+if ( isset( $_REQUEST['reset'] ))
+  wp_redirect( 'themes.php?page=theme_options' );
+  
+/* Update theme options after saving the import code */
+  
+if ( isset( $_REQUEST['updated'] ))
+
+  $options = get_option('business') ; 
+  $checkimport = $options['bu_import_code'];
+		
+		if ($checkimport != '' ) {
+			
+			$options = get_option('business') ;  
+			$import = $options['bu_import_code'];
+			
+			$options_array = (unserialize($import));
+  			update_option( 'business', $options_array );
+		}   		
+
 ?>
