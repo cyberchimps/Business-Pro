@@ -233,10 +233,16 @@ array( "name" => "Facebook URL",
     "std" => "http://facebook.com"),
 
 array( "name" => "Twitter URL",  
-    "desc" => "Enter your Twitter URL for Twitter social icon.",  
+    "desc" => "Enter your Twitter URL for the Twitter social icon.",  
     "id" => $shortname."_twitter",  
     "type" => "twitter",  
     "std" => "http://twitter.com"),
+    
+array( "name" => "Google + URL",  
+    "desc" => "Enter your Google + URL for the Google + social icon.",  
+    "id" => $shortname."_gplus",  
+    "type" => "gplus",  
+    "std" => "http://plus.google.com"),
     
 array( "name" => "LinkedIn URL",  
     "desc" => "Enter your LinkedIn URL for the LinkedIn social icon.",  
@@ -792,6 +798,30 @@ case 'twitter':
 <?php
 break;
 
+case 'gplus':  
+?>  
+  
+<tr>
+
+    <td width="15%" rowspan="2" valign="middle"><label for="<?php echo $value['id']; ?>"><strong><?php echo $value['name']; ?></strong><br /><small><?php echo $value['desc']; ?></small></label>  </td>
+    <td width="85%"><input style="width:300px;" name="<?php echo 'business['.$value['id'].']'; ?>" id="<?php echo 'bu['.$value['id'].']'; ?>" type="<?php echo $value['type']; ?>" value="<?php if (  $options[$value['id']]  != "") { echo esc_attr($options[$value['id']]) ; } else { echo esc_attr($value['std']) ; } ?>" />
+    
+    <br /><br />
+    <input type="checkbox" id="business[bu_hide_gplus]" name="business[bu_hide_gplus]" value="1" <?php checked( '1', $options['bu_hide_gplus'] ); ?>> - Check this box to hide the Google + icon. 
+    
+    </td>
+
+  </tr>
+ 
+<tr>
+
+</tr><tr><td colspan="2" style="margin-bottom:5px;border-bottom:1px dotted #ddd;">&nbsp;</td></tr><tr><td colspan="2">&nbsp;</td></tr>
+
+
+
+<?php
+break;
+
 case 'linkedin':  
 ?>  
   
@@ -1154,6 +1184,10 @@ function theme_options_validate( $input ) {
 		$input['bu_hide_twitter'] = null;
 	$input['bu_hide_twitter'] = ( $input['bu_hide_twitter'] == 1 ? 1 : 0 ); 
 	
+	if ( ! isset( $input['bu_hide_gplus'] ) )
+		$input['bu_hide_gplus'] = null;
+	$input['bu_hide_gplus'] = ( $input['bu_hide_gplus'] == 1 ? 1 : 0 ); 
+	
 	if ( ! isset( $input['bu_hide_linkedin'] ) )
 		$input['bu_hide_linkedin'] = null;
 	$input['bu_hide_linkedin'] = ( $input['bu_hide_linkedin'] == 1 ? 1 : 0 ); 
@@ -1261,51 +1295,6 @@ function theme_options_validate( $input ) {
 add_action( 'init', 'register_my_menu' );
 
 function register_my_menu() {
-	register_nav_menu( 'primary-menu', __( 'Primary Menu' ) );
-}
-
-
-// Add scripts and stylesheet
-
-  function bu_scripts() {
-        wp_enqueue_script('bujquery');
-        wp_enqueue_script('bujqueryui');
-        wp_enqueue_script('bujquerycookie');
-         wp_enqueue_script('bumcolor');
-        wp_enqueue_script('bucookie');
-   }
-    
- function bu_styles() {
-       wp_enqueue_style('bucss');
-   }
-
-/* Redirect after activation */
-
-if ( is_admin() && isset($_GET['activated'] ) && $pagenow ==	"themes.php" )
-	wp_redirect( 'themes.php?page=theme_options' );
-	
-/* Redirect after resetting theme options */
-
-if ( isset( $_REQUEST['reset'] ))
-  wp_redirect( 'themes.php?page=theme_options' );
-  
-/* Update theme options after saving the import code */
-  
-if ( isset( $_REQUEST['updated'] ))
-
-  $options = get_option('business') ; 
-  $checkimport = $options['bu_import_code'];
-		
-		if ($checkimport != '' ) {
-			
-			$options = get_option('business') ;  
-			$import = $options['bu_import_code'];
-			
-			$options_array = (unserialize($import));
-  			update_option( 'business', $options_array );
-		}   		
-
-?>                                                                                                                                                                                                                        {
 	register_nav_menu( 'primary-menu', __( 'Primary Menu' ) );
 }
 
