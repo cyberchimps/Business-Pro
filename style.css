@@ -4,7 +4,7 @@ Theme URI: http://cyberchimps.com/businesspro
 Description: Business Pro: A Premium WordPress Theme designed by CyberChimps.com featuring customizable theme options, a clean and professional design, a feature slider, callout section, Twitter bar, dynamic header for custom logo, social icons, widgetized sidebar and footer, typography including Google Fonts, and multiple template choices.
 Author: CyberChimps
 Author URI: http://cyberchimps.com
-Version: 1.0.3
+Version: 1.0.4
 Tags: white, light, silver, two-columns, fixed-width, custom-header, custom-menu, threaded-comments, sticky-post
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -697,7 +697,7 @@ label[for="comment"] {display: block;}
 .grid_1 { width:60px; }
 .grid_2 { width:140px; }
 .grid_3 { width:220px; }
-.grid_4 { width:300px; }
+.grid_4 { width:300px; height: 50px;}
 .grid_5 { width:380px; }
 .grid_6 { width:460px; }
 .grid_7 { width:540px; }
@@ -1083,4 +1083,4 @@ background : -moz-linear-gradient(center top, #73b338, #88c841);
 .button_link.large_button span{
 	background-position:-6px -3px;
 	line-height:20px;
-	}             
+	}�������������
