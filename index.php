@@ -1,79 +1,79 @@
 <?php
-$options = get_option('business') ;  
+
+ /*
+	Index
+	
+	Creates the Business Pro default index page.
+	
+	Copyright (C) 2011 CyberChimps
+*/
+
+/* Call globals. */	
+
+	global $themename, $themeslug, $options;
+
+/* End globals. */	
+
+/* Define Variables. */	
+
+	$hideslider = $options[$themeslug.'_hide_slider_blog'];
+	$blogsidebar = $options[$themeslug.'_blog_sidebar'];
+	$blogslidersize = $options[$themeslug.'_slider_size'];
+	$title = get_post_meta($post->ID, 'seo_title' , true);
+	$pagedescription = get_post_meta($post->ID, 'seo_description' , true);
+	$keywords = get_post_meta($post->ID, 'seo_keywords' , true);
+	$enable = get_post_meta($post->ID, 'page_enable_slider' , true);
+	$size = get_post_meta($post->ID, 'page_slider_size' , true);
+	$hidetitle = get_post_meta($post->ID, 'hide_page_title' , true);
+	$sidebar = get_post_meta($post->ID, 'page_sidebar' , true);
+
 ?>
 
 <?php get_header(); ?>
 
 <div id="content_wrap">
 		
-	<div id="content_left">
+<?php if ($options[$themeslug.'_hide_slider_blog'] != '1' && $blogslidersize == "full"): ?>
+		<div id = "slider-wrapper">
+			<?php get_template_part('sliderblog', 'index' ); ?>
+		</div>
+	<?php endif;?>
+		
+	<?php if ($sidebar == "4" OR $blogsidebar == 'none'): ?>
+		<div id="content_fullwidth">
+	<?php endif;?>
 	
-	<?php 
-		$hideslider = $options['bu_hide_slider'];
-		$sliderplacement = $options['bu_slider_placement'];
-		$share = $options['bu_hide_share'];
-		$tags = $options['bu_hide_tags'];
-		$excerpts = $options['bu_show_excerpts']
-	?>
+	<?php if ($sidebar == "1" OR $blogsidebar == "right"): ?>
+		<div id="content_left">
+	<?php endif;?>
 	
-		<?php if ($hideslider != '1' && $sliderplacement == 'blog'):?>
-			<?php get_template_part('slider', 'index' ); ?>
-		<?php endif;?>
+	<?php if ($sidebar == '' AND $blogsidebar == ''): ?>
+		<div id="content_left">
+	<?php endif;?>
+	
+	<?php if ($sidebar == "3" OR $blogsidebar == 'right-left' ): ?>
+		<?php get_sidebar('left'); ?>
+		<?php get_sidebar('right'); ?>
+	<?php endif;?>
+	
+	<?php if ($sidebar == "2"  OR $sidebar == "3" OR $blogsidebar == "two-right" OR $blogsidebar == "right-left"): ?>
+		<?php get_sidebar('right'); ?>
+		<div class="content_half">
+	<?php endif;?>
+	
+	<?php if ($options[$themeslug.'_hide_slider_blog'] != '1' && $blogslidersize != "full"): ?>
+		<div id = "slider-wrapper">
+			<?php get_template_part('sliderblog', 'page' ); ?>
+		</div>
+	<?php endif;?>
+
 	
 		<div class="content_padding">
 		
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 			
-				<div class="post_container">
-			
-					<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
-
-						<h2 class="posts_title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-						<?php get_template_part('meta', 'index' ); ?>
-
-							<?php
-	if ( has_post_thumbnail()) {
- 		 echo '<div class="featured-image">';
- 		 echo '<a href="' . get_permalink($post->ID) . '" >';
- 		 the_post_thumbnail();
-  		echo '</a>';
-  		echo '</div>';
-	}
-	?>
-							<div class="entry">
-							<?php if ($excerpts == '1' ) {
-								 the_excerpt();
-								 }
-								 else {
-								 
-								 the_content();
-								 }
-								 
-								 
-								 ?>
-							</div><!--end entry-->
-							<?php edit_post_link('Edit this entry.', '<p>', '</p>'); ?>
-						<?php 
-								$showfblike		= $options['bu_show_fb_like'];
-							?>
-							<?php if ($showfblike == "1" ):?>
-							<div class="fb" >
-								<iframe src="http://www.facebook.com/plugins/like.php?href=<?php the_permalink() ?>&layout=standard&show_faces=true&width=450&action=like&colorscheme=light" scrolling="no" frameborder="0"  allowTransparency="true" style="border:none; overflow:hidden; width:530px; height:28px"></iframe>
-							</div>
-							<?php endif;?>
-							<!--end fb-->
-							<?php if ($share != '1'):?>
-							<?php get_template_part('share', 'index' ); ?>
-							<?php endif;?>
-							<div class="tags">
-							<?php if ($tags != '1'):?>
-								<?php the_tags('Tags: ', ', ', '<br />'); ?>
-								<?php endif;?>
-							</div><!--end tags-->	
-				</div><!--end post_class-->
-				
-		</div><!--end post_container-->
-
+				<!--Call the Loop-->
+			<?php get_template_part('loop', 'index' ); ?>
 		<?php endwhile; ?>
 
 		<?php get_template_part('pagination', 'index' ); ?>
@@ -86,7 +86,17 @@ $options = get_option('business') ;
 		</div> <!--end content_padding-->
 	</div> <!--end content_left-->
 
+	<?php if ($sidebar == '' AND $blogsidebar == ''): ?>
 	<?php get_sidebar(); ?>
+	<?php endif;?>
+	
+	<?php if ($sidebar == "1" OR $blogsidebar == 'right' ): ?>
+	<?php get_sidebar(); ?>
+	<?php endif;?>
+	<?php if ($sidebar == "2" OR $blogsidebar == 'two-right' ): ?>
+	<?php get_sidebar('left'); ?>
+	<?php endif;?>
+
 	
 </div><!--end content_wrap-->
 <div style="clear:both;"></div>

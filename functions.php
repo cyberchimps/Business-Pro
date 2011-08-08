@@ -2,26 +2,88 @@
 
 /*
 	Functions
-	
+	Author: Tyler Cunningham
 	Establishes the core Business Pro functions.
-	
 	Copyright (C) 2011 CyberChimps
+	Version 2.0
 */
 
+/* Define global variables. */	
+
+	$themename = 'business';
+	$themenamefull = 'Business Pro';
+	$themeslug = 'bu';
+	$options = get_option($themename);
+
+/* End global variables. */	
+
+/* Begin custom excerpt functions. */	
+
 function new_excerpt_more($more) {
-       global $post;
-	return '<a href="'. get_permalink($post->ID) . '"> <br /><br /> (Read More...)</a>';
+
+	global $themename, $themeslug, $options;
+    
+    	if ($options[$themeslug.'_excerpt_link_text'] == '') {
+    		$linktext = '(Read More...)';
+   		}
+    
+    	else {
+    		$linktext = $options[$themeslug.'_excerpt_link_text'];
+   		}
+    
+    global $post;
+	return '<a href="'. get_permalink($post->ID) . '"> <br /><br /> '.$linktext.'</a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
-add_theme_support('automatic-feed-links');
-	if ( ! isset( $content_width ) )
-	$content_width = 600;
+function new_excerpt_length($length) {
+
+	global $themename, $themeslug, $options;
 	
-add_theme_support( 'post-thumbnails' ); 
-set_post_thumbnail_size( 100, 100, true );
+		if ($options[$themeslug.'_excerpt_length'] == '') {
+    		$length = '55';
+    	}
+    
+    	else {
+    		$length = $options[$themeslug.'_excerpt_length'];
+    	}
 
+	return $length;
+}
+add_filter('excerpt_length', 'new_excerpt_length');
 
+/* End excerpt functions. */
+
+/* Add auto-feed links support. */	
+	add_theme_support('automatic-feed-links');
+	
+/* Add post-thumb support. */
+
+	
+if ( function_exists( 'add_theme_support' ) ) {
+
+	global $themename, $themeslug, $options;
+	
+		if($options[$themeslug.'_featured_image_height'] == "") {
+			$featureheight = '100';
+	}		
+	
+	else {
+		$featureheight = $options[$themeslug.'_featured_image_height']; 
+		
+	}
+	
+		if ($options[$themeslug.'_featured_image_width'] == "") {
+			$featurewidth = '100';
+	}		
+	
+	else {
+		$featurewidth = $options[$themeslug.'_featured_image_width']; 
+	}
+	add_theme_support( 'post-thumbnails' ); 
+	set_post_thumbnail_size( $featureheight, $featurewidth, true );
+}	
+	
 // This theme allows users to set a custom background
 	add_custom_background();
 	
@@ -30,14 +92,15 @@ set_post_thumbnail_size( 100, 100, true );
 	
 // Load jQuery
 	if ( !is_admin() ) {
+	   wp_deregister_script('jquery');
+	   wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"), false);
 	   wp_enqueue_script('jquery');
 	}
-
 /**
 * Attach CSS3PIE behavior to elements
 * Add elements here that need PIE applied
 */   
-function business_render_ie_pie() { ?>
+function render_ie_pie() { ?>
 <style type="text/css" media="screen">
 #header li a, .postmetadata, .post_container, .wp-caption, .sidebar-widget-style, .sidebar-widget-title, .boxes, .box1, .box2, .box3, .box-widget-title  {
   behavior: url('<?php bloginfo('stylesheet_directory'); ?>/library/pie/PIE.htc');
@@ -46,7 +109,7 @@ function business_render_ie_pie() { ?>
 <?php
 }
 
-add_action('wp_head', 'business_render_ie_pie', 8);
+add_action('wp_head', 'render_ie_pie', 8);
 	
 //Checklist Shortcode
 	
@@ -159,26 +222,6 @@ function four_fifth_last( $atts, $content = null ) {
 add_shortcode('four_fifth_last', 'four_fifth_last');
 
 
-// Create custom post type for business Slider
-
-add_action( 'init', 'create_post_type' );
-function create_post_type() {
-	register_post_type( 'bu_custom_slides',
-		array(
-			'labels' => array(
-				'name' => __( 'Custom Slides' ),
-				'singular_name' => __( 'Slides' )
-			),
-			'public' => true,
-			'show_ui' => true, // UI in admin panel
-			
-			'has_archive' => true,
-			'rewrite' => array('slug' => 'slides')
-		)
-	);
-}
-
-
 	//Download Button Shortcode
 	
 function button( $atts, $content = null ) {
@@ -218,22 +261,115 @@ add_shortcode('button', 'button');
 add_shortcode('slide', 'slide');
 
 
+// Create custom post type for Slider
 
-// Coin Slider 
+add_action( 'init', 'create_post_type' );
 
-function cs_head(){
+function create_post_type() {
+
+	global $themename, $themeslug, $options;
+	
+	register_post_type( $themeslug.'_custom_slides',
+		array(
+			'labels' => array(
+				'name' => __( 'Custom Slides' ),
+				'singular_name' => __( 'Slides' )
+			),
+			'public' => true,
+			'show_ui' => true, 
+			'supports' => array('title', 'editor','custom-fields'),
+			'taxonomies' => array( 'slide_categories'),
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'slides')
+		)
+	);
+}
+
+
+// Register custom category taxonomy for Slider
+
+function custom_taxonomies() {
+
+	global $themename, $themeslug, $options;
+	
+	register_taxonomy(
+		'slide_categories',		
+		$themeslug.'_custom_slides',		
+		array(
+			'hierarchical' => true,
+			'label' => 'Slide Categories',	
+			'query_var' => true,	
+			'rewrite' => array( 'slug' => 'slide_categories' ),	
+		)
+	);
+}
+
+add_action('init', 'custom_taxonomies', 0);
+
+// Define default category for custom category taxonomy
+
+function custom_taxonomy_default( $post_id, $post ) {
+
+	global $themename, $themeslug, $options;	
+
+	if( 'publish' === $post->post_status ) {
+
+		$defaults = array(
+
+			'slide_categories' => array( 'default' ),
+
+			);
+
+		$taxonomies = get_object_taxonomies( $post->post_type );
+
+		foreach( (array) $taxonomies as $taxonomy ) {
+
+			$terms = wp_get_post_terms( $post_id, $taxonomy );
+
+			if( empty( $terms ) && array_key_exists( $taxonomy, $defaults ) ) {
+
+				wp_set_object_terms( $post_id, $defaults[$taxonomy], $taxonomy );
+
+			}
+
+		}
+
+	}
+
+}
+
+add_action( 'save_post', 'custom_taxonomy_default', 100, 2 );
+
+
+// Nivo Slider 
+
+function nivoslider(){
 	 
-	$path =  get_template_directory_uri() ."/library/cs/";
+	$path =  get_template_directory_uri() ."/library/ns";
 
 	$script = "
 		
-		<script type=\"text/javascript\" src=\"".$path."scripts/coin-slider.min.js\"></script>
+		<script type=\"text/javascript\" src=\"".$path."/jquery.nivo.slider.js\"></script>
 		";
 	
 	echo $script;
 }
+add_action('wp_head', 'nivoslider');
 
-add_action('wp_head', 'cs_head');
+// + 1 Button 
+
+function plusone(){
+	
+	$path =  get_template_directory_uri() ."/library/js";
+
+	$script = "
+		
+		<script type=\"text/javascript\" src=\"".$path."/plusone.js\"></script>
+		";
+	
+	echo $script;
+}
+add_action('wp_head', 'plusone');
 
 
 	// Register superfish scripts
@@ -263,7 +399,7 @@ add_action( 'wp_head', 'business_add_scripts',0);
 	
 	function register_business_menus() {
 	register_nav_menus(
-	array( 'header-menu' => __( 'Header Menu' ), 'extra-menu' => __( 'Extra Menu' ))
+	array( 'header-menu' => __( 'Header Menu' ), 'footer-menu' => __( 'Footer Menu' ))
   );
 }
 	add_action( 'init', 'register_business_menus' );
@@ -278,15 +414,6 @@ add_action( 'wp_head', 'business_add_scripts',0);
 	</ul><?php
 }
 
-	// Clean up the <head>
-	function removeHeadLinks() {
-    	remove_action('wp_head', 'rsd_link');
-    	remove_action('wp_head', 'wlwmanifest_link');
-    }
-    add_action('init', 'removeHeadLinks');
-    remove_action('wp_head', 'wp_generator');
-    
-    if (function_exists('register_sidebar')) {
     	register_sidebar(array(
     		'name' => 'Sidebar Widgets',
     		'id'   => 'sidebar-widgets',
@@ -296,7 +423,7 @@ add_action( 'wp_head', 'business_add_scripts',0);
     		'before_title'  => '<h2 class="sidebar-widget-title">',
     		'after_title'   => '</h2>'
     	));
-    	 if (function_exists('register_sidebar')) 
+    	
     	register_sidebar(array(
     		'name' => 'Sidebar Left',
     		'id'   => 'sidebar-left',
@@ -307,7 +434,7 @@ add_action( 'wp_head', 'business_add_scripts',0);
     		'after_title'   => '</h2>'
     	));
     	
-    	    	 if (function_exists('register_sidebar')) 
+    	  
     	register_sidebar(array(
     		'name' => 'Sidebar Right',
     		'id'   => 'sidebar-right',
@@ -318,7 +445,7 @@ add_action( 'wp_head', 'business_add_scripts',0);
     		'after_title'   => '</h2>'
     	));
     	
-    	if ( function_exists('register_sidebar') )
+    	
 	register_sidebar(array(
 	'name' => 'Box1',
 	'before_widget' => '<div class="box1">',
@@ -326,7 +453,7 @@ add_action( 'wp_head', 'business_add_scripts',0);
 	'before_title' => '<h3 class="box-widget-title">',
 	'after_title' => '</h3>',
 	));
-	if ( function_exists('register_sidebar') )
+	
 	register_sidebar(array(
 	'name' => 'Box2',
 	'before_widget' => '<div class="box2">',
@@ -334,7 +461,7 @@ add_action( 'wp_head', 'business_add_scripts',0);
 	'before_title' => '<h3 class="box-widget-title">',
 	'after_title' => '</h3>',
 	));
-	if ( function_exists('register_sidebar') )
+	
 	register_sidebar(array(
 	'name' => 'Box3',
 	'before_widget' => '<div class="box3">',
@@ -342,7 +469,7 @@ add_action( 'wp_head', 'business_add_scripts',0);
 	'before_title' => '<h3 class="box-widget-title">',
 	'after_title' => '</h3>',
 	));
-	if ( function_exists('register_sidebar') )
+
 	register_sidebar(array(
 	'name' => 'Footer',
 	'before_widget' => '<div class="footer-widgets">',
@@ -350,11 +477,12 @@ add_action( 'wp_head', 'business_add_scripts',0);
 	'before_title' => '<h3 class="footer-widget-title">',
 	'after_title' => '</h3>',
 	));
-    }
+    
 
 	//Business Pro options file
 	
-require_once ( get_template_directory() . '/library/options/options.php' );
+require_once ( get_template_directory() . '/library/options/options-core.php' );
+require_once ( get_template_directory() . '/library/options/options-themes.php' );
 require_once ( get_template_directory() . '/pro/meta-box.php' );
 require_once ( get_template_directory() . '/inc/update.php' );
 ?>
