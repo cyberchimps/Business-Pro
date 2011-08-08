@@ -29,6 +29,8 @@
 
 ?>
 
+<div id="content_wrap">
+
 <?php if ($enable == "on" && $size == "0"): ?>
 		<div id = "slider-wrapper">
 			<center><?php get_template_part('nivoslider', 'page' ); ?> </center>
