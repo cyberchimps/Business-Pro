@@ -31,7 +31,7 @@
 /* Establish fonts. */	
 
 	if ($options[$themeslug.'_font'] == "" AND $options[$themeslug.'_custom_font'] == "") {
-		$font = 'Cantarell';
+		$font = 'Maven+Pro';
 	}
 			
 	elseif ($options[$themeslug.'_custom_font'] != "") {
