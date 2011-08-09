@@ -344,6 +344,11 @@ label[for="comment"] {display: block;}
 	width: 335px;
 }
 
+.gplusone {
+
+	margin-bottom: 6px;
+}
+
 .icons a img {
 	opacity:.5;filter:alpha(opacity=50);
 }
