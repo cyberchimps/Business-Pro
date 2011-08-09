@@ -635,7 +635,7 @@ function initialize_the_meta_boxes() {
 
 	$meta_boxes[] = array(
 		'id' => 'feature',
-		'title' => $themenamefull.' Pro Slider Options',
+		'title' => $themenamefull.' Slider Options',
 		'pages' => array('post'),
 
 		'tabs' => array(
@@ -643,14 +643,14 @@ function initialize_the_meta_boxes() {
 				'fields' => array(
 
 					array(
-						'name' => $themenamefull.' Pro Slider Image',
+						'name' => $themenamefull.' Slider Image',
 						'desc' => 'Upload your image here:',
 						'id' => $prefix . 'image',
 						'type' => 'image',
 						'std' => ''
 					),
 					array(
-						'name' => $themenamefull.' Pro Slider Text',
+						'name' => $themenamefull.' Slider Text',
 						'desc' => 'Enter your slider text here (optional):',
 						'id' => $prefix . 'text',
 						'type' => 'text',
@@ -770,7 +770,7 @@ function initialize_the_meta_boxes() {
 
 	$meta_boxes[] = array(
 		'id' => 'pages',
-		'title' => $themenamefull.' Pro Page Options',
+		'title' => $themenamefull.' Page Options',
 		'pages' => array('page'),
 
 		'tabs' => array(
@@ -854,7 +854,7 @@ function initialize_the_meta_boxes() {
 			)),
 
 			array(
-				'title' => $themenamefull." Pro Slider Options",
+				'title' => $themenamefull." Slider Options",
 				'fields' => array(
 
 			array(
@@ -1025,22 +1025,6 @@ function initialize_the_meta_boxes() {
 					),
 					
 				array(
-				'name' => 'Select Callout Section Background',
-				'desc' => 'Default is ' .$themenamefull.' Pro 2, select "color picker" to use the color picker option below',
-				'id' => 'callout_background_color',
-				'type' => 'select',
-				'options' => array($themenamefull.' Pro 2 (default)', 'Blue', 'Grey', 'Orange', 'Pink', 'Red', 'Color Picker'),
-				'std' => ''
-			 		),
-				
-				array(
-						'name' => 'Custom Background Color',
-						'desc' => 'Use the color picker to select a custom background color for the Callout Section',
-						'id' => 'custom_callout_color',
-						'type' => 'color'
-					),
-					
-				array(
 						'name' => 'Callout Title Color',
 						'desc' => 'Use the color picker to select the callout section title color',
 						'id' => 'custom_callout_title_color',
@@ -1136,6 +1120,4 @@ function metabox_enqueue() {
 }
 
 /********************* END DEFINITION OF META BOXES ***********************/
-
-
 ?>

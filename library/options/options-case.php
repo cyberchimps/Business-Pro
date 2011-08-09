@@ -404,7 +404,7 @@ case 'excerpts':
     <td width="15%" rowspan="2" valign="middle"><label for="<?php echo $value['id']; ?>"><strong><?php echo $value['name']; ?></strong><br /><small><?php echo $value['desc']; ?></small></label>  </td>
     <td width="85%">
     <br />
-    <input type="checkbox" id="<?php echo $themename ;?>[<?php echo $themeslug ;?>_show_excerpts]" name="<?php echo $themename ;?>[<?php echo $themeslug ;?>_show_excerpts]" value="1" <?php checked( '1', $options['if_show_excerpts'] ); ?>> - Show Excerpts
+    <input type="checkbox" id="<?php echo $themename ;?>[<?php echo $themeslug ;?>_show_excerpts]" name="<?php echo $themename ;?>[<?php echo $themeslug ;?>_show_excerpts]" value="1" <?php checked( '1', $options[$themeslug.'_show_excerpts'] ); ?>> - Show Excerpts
 <br /><br />
 
 	<?php

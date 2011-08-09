@@ -358,7 +358,6 @@ label[for="comment"] {display: block;}
 	width: 310px;
 	height: 100%;
 	display: block;
-	margin-top: -5px;
 	padding-top: 5px;
 	border-left: 1px dotted #dadada;
 }
@@ -413,7 +412,6 @@ label[for="comment"] {display: block;}
 	float: left;
 	width: 244px;
 	border-right: 1px dotted #dadada;
-	margin-top: -5px;
 	padding-top: 5px;
 }
 
@@ -431,7 +429,6 @@ label[for="comment"] {display: block;}
 	float: right;
 	width: 244px;
 	border-left: 1px dotted #dadada;
-	margin-top: -5px;
 	padding-top: 5px;
 }
 
@@ -513,10 +510,15 @@ label[for="comment"] {display: block;}
 #calloutwrap {
 	height: 90px; 
 	width: 990px;
+	padding-right: 10px;
 	display: block;
 	margin: auto;
 	border-bottom: 1px dotted #ccc;
 	border-top: 1px dotted #ccc;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
 }
 
 .calloutpadding {
@@ -547,7 +549,7 @@ label[for="comment"] {display: block;}
 	padding: 10px 5px 10px 5px;
 	width: 200px;
 	float:right;
-	margin-top: 10px;
+	margin-top: 21px;
 	background: #333;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -679,7 +681,7 @@ label[for="comment"] {display: block;}
 #twitterbar {
 	background: none;
 	width: 990px;
-	border-top: 1px dotted #CCC;
+	border-bottom: 1px dotted #CCC;
 	overflow: hidden;
 	margin: auto;
 }
