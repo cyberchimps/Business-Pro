@@ -27,7 +27,7 @@
 
 /* End define global variables. */
 
-/*Sidebar Right/Left style */
+/*Two Sidebar-Right style */
 	
 	if ($sidebar == '1') {
 		echo '<style type="text/css">';
@@ -36,7 +36,10 @@
 		echo '</style>';
 	}
 
+/*End Two Sidebar-Right style */
+
 ?>
+
 
 <div id="content_wrap">
 

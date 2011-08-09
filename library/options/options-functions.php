@@ -7,6 +7,27 @@
 	Version 2.0
 	
 */
+
+/*Two Sidebar-Right style */
+
+function two_sidebar_right_style() {
+
+	global $themename, $themeslug, $options;
+	
+	if ($options[$themeslug.'_blog_sidebar'] == 'two-right') {
+		echo '<style type="text/css">';
+		echo "#sidebar_left {border-left: 1px dotted #DADADA;}";
+		echo "#sidebar_left {border-right: none;}";
+		echo '</style>';
+	}
+	
+}
+
+add_action( 'wp_head', 'two_sidebar_right_style');
+/*End Two Sidebar-Right style */
+
+
+
 /* Header height */
 
 function header_height() {
