@@ -257,7 +257,7 @@
 	    	}
 	    	
 	    	elseif ($customimage == '' && $timdisable == '1'){
-	    		$image = "$root/images/pro/ifeatureprolarge.jpg";
+	    		$image = "$root/images/pro/businesspro.jpg";
 	    		$thumbnail = $customthumb;
 	    	}
 	    	
@@ -282,7 +282,7 @@
 	    	}
 
 	   		elseif ($timdisable != '1') {
-	       		$image = "$root/library/wt/wordthumb.php?src=$root/images/pro/ifeatureprolarge.jpg&a=c&h=$height&w=980";
+	       		$image = "$root/library/wt/wordthumb.php?src=$root/images/pro/businesspro.jpg&a=c&h=$height&w=980";
 	       		$thumbnail = "$root/images/pro/iFeaturePro2thumb.jpg";
 	       	}
 	       	
