@@ -3,7 +3,7 @@ Business Pro Changelog
 ****************************
 
 Version 2.0 (8-9-11)
--Updated Design tab, added user control over more visual elements of the theme.
+-Added Design tab, includes user control over several visual elements of the theme.
 -Added Blog options tab, includes support for post excerpts, featured images, ability to hide meta elements.
 -Added support for menu font choice.
 -Replaced CoinSlider with Nivoslider, adds more animation effects and functionality options.

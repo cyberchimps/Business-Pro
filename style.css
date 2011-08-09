@@ -518,6 +518,7 @@ label[for="comment"] {display: block;}
 	padding-right: 10px;
 	display: block;
 	margin: auto;
+	margin-top: 10px;
 	border-bottom: 1px dotted #ccc;
 	border-top: 1px dotted #ccc;
 	border-radius: 5px;

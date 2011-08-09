@@ -260,12 +260,12 @@ class RW_Meta_Box {
 	
 	function show_field_pagehelp($field, $meta) {
 		$this->show_field_begin($field, $meta);
-		echo "Visit our iFeature Pro 2 Page Options help page here: <a href='http://cyberchimps.com/question/using-the-ifeature-pro-page-meta-options/' target='_blank'>Page Options Documentation</a></td>";
+		echo "Visit our Business Pro 2 Page Options help page here: <a href='http://cyberchimps.com/question/using-the-ifeature-pro-page-meta-options/' target='_blank'>Page Options Documentation</a></td>";
 	}
 		
 	function show_field_sliderhelp($field, $meta) {
 		$this->show_field_begin($field, $meta);
-		echo "Visit our iFeature Pro Slider help page here: <a href='http://cyberchimps.com/question/using-the-ifeature-pro-2-slider' target='_blank'>Page Options Documentation</a></td>";
+		echo "Visit our Business Pro Slider help page here: <a href='http://cyberchimps.com/question/using-the-ifeature-pro-2-slider' target='_blank'>Page Options Documentation</a></td>";
 	}
 	
 	function show_field_reorder($field, $meta) {

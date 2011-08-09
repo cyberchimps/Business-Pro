@@ -447,7 +447,7 @@ add_action( 'wp_head', 'business_add_scripts',0);
     	
     	
 	register_sidebar(array(
-	'name' => 'Box1',
+	'name' => 'Box Left',
 	'before_widget' => '<div class="box1">',
 	'after_widget' => '</div>',
 	'before_title' => '<h3 class="box-widget-title">',
@@ -455,7 +455,7 @@ add_action( 'wp_head', 'business_add_scripts',0);
 	));
 	
 	register_sidebar(array(
-	'name' => 'Box2',
+	'name' => 'Box Middle',
 	'before_widget' => '<div class="box2">',
 	'after_widget' => '</div>',
 	'before_title' => '<h3 class="box-widget-title">',
@@ -463,7 +463,7 @@ add_action( 'wp_head', 'business_add_scripts',0);
 	));
 	
 	register_sidebar(array(
-	'name' => 'Box3',
+	'name' => 'Box Right',
 	'before_widget' => '<div class="box3">',
 	'after_widget' => '</div>',
 	'before_title' => '<h3 class="box-widget-title">',
