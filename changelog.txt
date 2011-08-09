@@ -2,6 +2,20 @@ Business Pro Changelog
 
 ****************************
 
+Version 2.0 (8-9-11)
+-Updated Design tab, added user control over more visual elements of the theme.
+-Added Blog options tab, includes support for post excerpts, featured images, ability to hide meta elements.
+-Added support for menu font choice.
+-Replaced CoinSlider with Nivoslider, adds more animation effects and functionality options.
+-Added taxonomy structure to Custom Slides, users can now assign slides to custom categories to be called on a per-page basis.
+-Added image uploader support for site logo and favicon in theme options.
+-Added category drop-down menu support for theme options page.
+-Added tabbed meta options for per-page options.
+-Slider, SEO, and Callout options tabs removed, moved options to page meta options.
+-Added Loop file.
+-Added Plus One button option.
+-General bug fixes.
+
 Version 1.0.4 (7-14-2011)
 -Fixed sitetitle issue in header causing blowout.
 
@@ -22,4 +36,4 @@ Version 1.0.1 (6-13-2011)
 -jQuery noconflict patch to fix third-party plugin compatibility issues.
 
 Version 1.0 (6-10-2011)
--Initial release.����������������������������������������������������������������
+-Initial release.
