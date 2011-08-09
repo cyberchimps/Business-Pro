@@ -27,6 +27,15 @@
 
 /* End define global variables. */
 
+/*Sidebar Right/Left style */
+	
+	if ($sidebar == '1') {
+		echo '<style type="text/css">';
+		echo "#sidebar_left {border-left: 1px dotted #DADADA;}";
+		echo "#sidebar_left {border-right: none;}";
+		echo '</style>';
+	}
+
 ?>
 
 <div id="content_wrap">
