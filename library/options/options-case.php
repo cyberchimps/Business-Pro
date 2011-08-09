@@ -698,7 +698,7 @@ case 'color9':
 <?php
 
 	if (isset($options[$themeslug.'_tagline_color']) == "") {
-		$picker = '000';
+		$picker = 'FFF';
 	}		
 	else {
 		$picker = $options[$themeslug.'_tagline_color']; 

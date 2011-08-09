@@ -228,7 +228,7 @@ function add_tagline_color() {
 	global $themename, $themeslug, $options;
 
 	if (isset($options[$themeslug.'_tagline_color']) == "") {
-		$tagline = '000';
+		$tagline = 'FFF';
 	}
 	
 	else { 
@@ -236,7 +236,7 @@ function add_tagline_color() {
 	}		
 		
 		echo '<style type="text/css">';
-		echo "#description {color: #$tagline;}";
+		echo ".description {color: #$tagline;}";
 		echo '</style>';
 
 }
