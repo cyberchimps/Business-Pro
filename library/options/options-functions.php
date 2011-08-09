@@ -8,6 +8,30 @@
 	
 */
 
+function add_header_color() {
+
+$options = get_option('business');
+$tdurl = get_template_directory_uri();
+$header = $options['bu_header_color'];
+
+if ($header == '' OR $header == "111111") {
+
+			echo '<style type="text/css">';
+			echo "#header {background: #111 url($tdurl/images/header.png) repeat-x 50% 100%;}";
+			echo '</style>';
+}
+		else {
+			 
+			
+echo '<style type="text/css">';
+		echo "#header {background: #$header;}";
+		echo '</style>';
+}
+}
+
+add_action( 'wp_head', 'add_header_color');
+
+
 /*Two Sidebar-Right style */
 
 function two_sidebar_right_style() {

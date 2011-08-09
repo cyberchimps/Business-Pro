@@ -477,6 +477,41 @@ case 'post':
 
 <?php
 break;
+
+case 'color10':  
+?>  
+  
+<tr>
+
+    <td width="15%" rowspan="2" valign="middle"><label for="<?php echo $value['id']; ?>"><strong><?php echo $value['name']; ?></strong><br /><small><?php echo $value['desc']; ?></small></label>  </td>
+    <td width="85%">
+    
+<?php
+
+if (isset($options[$themeslug.'_header_color']) == "")
+			$picker = '111111';
+			
+		else
+			$picker = $options[$themeslug.'_header_color']; 
+?>
+
+<input type="text" class="color{required:false}" id="<?php echo $themename ;?>[<?php echo $themeslug ;?>_header_color]" name="<?php echo $themename ;?>[<?php echo $themeslug ;?>_header_color]"  value="<?php echo $picker ;?>" style="width: 300px;">   
+
+<br /><br />
+    
+    </td>
+
+  </tr>
+ 
+<tr>
+
+</tr><tr><td colspan="2" style="margin-bottom:5px;border-bottom:1px dotted #ddd;">&nbsp;</td></tr><tr><td colspan="2">&nbsp;</td></tr>
+
+
+
+<?php
+break;
+
  
 case 'color1':  
 ?>  

@@ -814,7 +814,7 @@ ul.sf-menu li.sfHover li ul {
 
 ul.sf-menu li li:hover ul,
 ul.sf-menu li li.sfHover ul {
-    left:           15.5em; /* match ul width */
+    left:           15.4em; /* match ul width */
     top:            0;
 }
 ul.sf-menu li li:hover li ul,

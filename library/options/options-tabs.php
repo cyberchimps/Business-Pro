@@ -101,6 +101,12 @@ array( "name" => "Choose a Menu Font:",
     "id" => $shortname."_menu_font",  
     "type" => "select12",  
     "std" => ""),
+    
+array( "name" => "Header Color",  
+    "desc" => "Use the color picker to select the header color. Default is 111111",  
+    "id" => $shortname."_header_color",  
+      "type" => "color10",  
+    "std" => "false"),
 
 array( "name" => "Menu Link Color",  
     "desc" => "Use the color picker to select the site menu link color (Default is FFFFFF)",  
