@@ -107,7 +107,7 @@ function theme_options_do_page() {
 <div class="wrap">
 
 <br />
-<img src="<?php echo get_template_directory_uri() ;?>/images/options/ifeaturepro.png" />
+<img src="<?php echo get_template_directory_uri() ;?>/images/options/businessprologo.png" />
 <br />
 <br />
 
