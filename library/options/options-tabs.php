@@ -48,6 +48,18 @@ array( "name" => "Header Height",
       "type" => "text",  
     "std" => "80"),
     
+array(  "name" => "Hide Sidebar Social Icons",
+	"desc" => "Check this box to hide the social icons in the primary sidebar",
+	"id" => $shortname."_hide_sidebar_social",
+	"type" => "checkbox",
+	"std" => "false"), 
+	
+array(  "name" => "Hide Sidebar Search",
+	"desc" => "Check this box to hide the search bar in the primary sidebar",
+	"id" => $shortname."_hide_sidebar_search",
+	"type" => "checkbox",
+	"std" => "false"), 
+    
 array( "name" => "Custom Favicon",  
     "desc" => "A favicon is a 16x16 pixel icon that represents your site; paste the URL to a .ico image that you want to use as the image",  
     "id" => $shortname."_favicon",  

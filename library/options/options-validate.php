@@ -149,6 +149,14 @@ function theme_options_validate( $input ) {
 		$input[$themeslug.'_hide_footer_social'] = null;
 	$input[$themeslug.'_hide_footer_social'] = ( $input[$themeslug.'_hide_footer_social'] == 1 ? 1 : 0 ); 
 	
+	if ( ! isset( $input[$themeslug.'_hide_sidebar_search'] ) )
+		$input[$themeslug.'_hide_sidebar_search'] = null;
+	$input[$themeslug.'_hide_sidebar_search'] = ( $input[$themeslug.'_hide_sidebar_search'] == 1 ? 1 : 0 ); 
+	
+	if ( ! isset( $input[$themeslug.'_hide_sidebar_social'] ) )
+		$input[$themeslug.'_hide_sidebar_social'] = null;
+	$input[$themeslug.'_hide_sidebar_social'] = ( $input[$themeslug.'_hide_sidebar_social'] == 1 ? 1 : 0 ); 
+		
   	/* Strip HTML from certain options */
   	  
 	$input[$themeslug.'_facebook'] = wp_filter_nohtml_kses( $input[$themeslug.'_facebook'] ); 

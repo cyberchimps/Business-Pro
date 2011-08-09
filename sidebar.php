@@ -1,5 +1,5 @@
 <?php
-$options = get_option('business') ; 
+
 /*
 	Sidebar
 	
@@ -8,16 +8,20 @@ $options = get_option('business') ;
 	Copyright (C) 2011 CyberChimps
 */
 
+/* Call globals. */	
+
+	global $themename, $themeslug, $options;
+
+/* End globals. */
+
+	$social = $options[$themeslug.'_hide_sidebar_social'];
+	$search = $options[$themeslug.'_hide_sidebar_search'];
+
 ?>
 
 <div id="sidebar_right">
 	<div id="sidebar">
 	
-	<?php 
-		$social = $options['bu_hide_social'];
-		$search = $options['bu_hide_search'];
-	?>
-
 	<?php if ($social != '1'):?>
 		<div class="sidebar-widget-style">
 			<div id="social">
