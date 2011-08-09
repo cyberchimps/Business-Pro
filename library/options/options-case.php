@@ -109,7 +109,7 @@ case 'general_faq':
 <tr>
 
     <td width="15%" rowspan="2" valign="middle"><label for="<?php echo $value['id']; ?>"><strong><?php echo $value['name']; ?></strong><br /><small><?php echo $value['desc']; ?></small></label>  </td>
-    <td width="85%">Read the <a href="http://cyberchimps.com/question/general-settings-tab-2/" target="_blank">General Options FAQ</a></td>
+    <td width="85%">Read the <a href="http://cyberchimps.com/question/business-pro-2-general-settings-tab/" target="_blank">General Options FAQ</a></td>
 
   </tr>
  
@@ -127,7 +127,7 @@ case 'design_faq':
 <tr>
 
     <td width="15%" rowspan="2" valign="middle"><label for="<?php echo $value['id']; ?>"><strong><?php echo $value['name']; ?></strong><br /><small><?php echo $value['desc']; ?></small></label>  </td>
-    <td width="85%">Read the <a href="http://cyberchimps.com/question/design-settings-tab-2/" target="_blank">Design Options FAQ</a></td>
+    <td width="85%">Read the <a href="http://cyberchimps.com/question/business-pro-2-design-settings-tab/" target="_blank">Design Options FAQ</a></td>
 
   </tr>
  
@@ -145,7 +145,7 @@ case 'social_faq':
 <tr>
 
     <td width="15%" rowspan="2" valign="middle"><label for="<?php echo $value['id']; ?>"><strong><?php echo $value['name']; ?></strong><br /><small><?php echo $value['desc']; ?></small></label>  </td>
-    <td width="85%">Read the <a href="http://cyberchimps.com/question/pro-social-settings-tab/" target="_blank">Social Options FAQ</a></td>
+    <td width="85%">Read the <a href="http://cyberchimps.com/question/business-pro-2-social-settings-tab/" target="_blank">Social Options FAQ</a></td>
 
   </tr>
  
@@ -163,7 +163,7 @@ case 'blog_faq':
 <tr>
 
     <td width="15%" rowspan="2" valign="middle"><label for="<?php echo $value['id']; ?>"><strong><?php echo $value['name']; ?></strong><br /><small><?php echo $value['desc']; ?></small></label>  </td>
-    <td width="85%">Read the <a href="http://cyberchimps.com/question/pro-blog-settings-tab/" target="_blank">Blog Options FAQ</a></td>
+    <td width="85%">Read the <a href="http://cyberchimps.com/question/business-pro-2-blog-settings-tab/" target="_blank">Blog Options FAQ</a></td>
 
   </tr>
  
@@ -181,7 +181,7 @@ case 'footer_faq':
 <tr>
 
     <td width="15%" rowspan="2" valign="middle"><label for="<?php echo $value['id']; ?>"><strong><?php echo $value['name']; ?></strong><br /><small><?php echo $value['desc']; ?></small></label>  </td>
-    <td width="85%">Read the <a href="http://cyberchimps.com/question/pro-footer-settings-tab/" target="_blank">Footer Options FAQ</a></td>
+    <td width="85%">Read the <a href="http://cyberchimps.com/question/business-pro-2-footer-settings-tab/" target="_blank">Footer Options FAQ</a></td>
 
   </tr>
  
@@ -199,7 +199,7 @@ case 'import_faq':
 <tr>
 
     <td width="15%" rowspan="2" valign="middle"><label for="<?php echo $value['id']; ?>"><strong><?php echo $value['name']; ?></strong><br /><small><?php echo $value['desc']; ?></small></label>  </td>
-    <td width="85%">Read the <a href="http://cyberchimps.com/question/pro-importexport-settings-tab/" target="_blank">Import/Export Options FAQ</a></td>
+    <td width="85%">Read the <a href="http://cyberchimps.com/question/business-pro-2-importexport-settings-tab/" target="_blank">Import/Export Options FAQ</a></td>
 
   </tr>
  
