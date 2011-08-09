@@ -201,21 +201,7 @@ function theme_options_validate( $input ) {
     else {
 	    $input['file2'] = null;
 	}
-   
-	if ($_FILES['homebutton_filename']['name'] != '') {
-       $overrides = array('test_form' => false); 
-       $file3 = wp_handle_upload($_FILES['homebutton_filename'], $overrides);
-       $input['file3'] = $file3;
-    } 
-   
-    elseif(isset($_POST['homebutton_filename_text']) && $_POST['homebutton_filename_text'] != '') {
-	   $input['file3'] = array('url' => $_POST['homebutton_filename_text']);
-    } 
-   
-    else {
-	   $input['file3'] = null;
-    }
-   
+      
 	return $input;    
 }
 
