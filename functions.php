@@ -502,7 +502,7 @@ add_action( 'wp_head', 'business_add_scripts',0);
 	
 	function register_business_menus() {
 	register_nav_menus(
-	array( 'header-menu' => __( 'Header Menu' ), 'footer-menu' => __( 'Footer Menu' ))
+	array( 'header-menu' => __( 'Header Menu' ))
   );
 }
 	add_action( 'init', 'register_business_menus' );
@@ -516,6 +516,8 @@ add_action( 'wp_head', 'business_add_scripts',0);
 	<?php wp_list_pages( 'title_li=&sort_column=menu_order&depth=3'); ?>
 	</ul><?php
 }
+
+function business_sidebars() {
 
     	register_sidebar(array(
     		'name' => 'Sidebar Widgets',
@@ -551,6 +553,7 @@ add_action( 'wp_head', 'business_add_scripts',0);
     	
 	register_sidebar(array(
 	'name' => 'Box Left',
+	'description'   => 'These are widgets for the left box.',
 	'before_widget' => '<div class="box1">',
 	'after_widget' => '</div>',
 	'before_title' => '<h3 class="box-widget-title">',
@@ -559,6 +562,7 @@ add_action( 'wp_head', 'business_add_scripts',0);
 	
 	register_sidebar(array(
 	'name' => 'Box Middle',
+	'description'   => 'These are widgets for the middle box.',
 	'before_widget' => '<div class="box2">',
 	'after_widget' => '</div>',
 	'before_title' => '<h3 class="box-widget-title">',
@@ -567,6 +571,7 @@ add_action( 'wp_head', 'business_add_scripts',0);
 	
 	register_sidebar(array(
 	'name' => 'Box Right',
+	'description'   => 'These are widgets for the right box.',
 	'before_widget' => '<div class="box3">',
 	'after_widget' => '</div>',
 	'before_title' => '<h3 class="box-widget-title">',
@@ -575,11 +580,25 @@ add_action( 'wp_head', 'business_add_scripts',0);
 
 	register_sidebar(array(
 	'name' => 'Footer',
+	'description'   => 'These are widgets for the footer.',
 	'before_widget' => '<div class="footer-widgets">',
 	'after_widget' => '</div>',
 	'before_title' => '<h3 class="footer-widget-title">',
 	'after_title' => '</h3>',
 	));
+	
+}
+add_action( 'widgets_init', 'business_sidebars' );	
+
+function business_admin_link() {
+
+	global $wp_admin_bar;
+
+	$wp_admin_bar->add_menu( array( 'id' => 'Business Pro', 'title' => 'Business Pro Options', 'href' => admin_url('themes.php?page=theme_options')  ) ); 
+  
+}
+add_action( 'admin_bar_menu', 'business_admin_link', 113 );
+	
     
 
 	//Business Pro options file

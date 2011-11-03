@@ -46,6 +46,7 @@
 	<?php if (function_exists('business_breadcrumbs') && $options['bu_disable_breadcrumbs'] != "1") business_breadcrumbs(); ?>
 
 <?php if ($enable == "on" && $size == "0"): ?>
+
 		<div id = "slider-wrapper">
 			<center><?php get_template_part('nivoslider', 'page' ); ?> </center>
 		</div>
