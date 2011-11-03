@@ -10,6 +10,7 @@ Version 2.1 (11-02-11)
 -Changed font family to websafe Arial, Helvetica, serif. 
 -Fixed image alignment issue.
 -Added breadcrumb support. 
+-register_sidebar calls now inside a function that hooks into widgets_init.
 
 Version 2.0 (8-9-11)
 -Added Design tab, includes user control over several visual elements of the theme.
