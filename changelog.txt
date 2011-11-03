@@ -3,6 +3,7 @@ Business Pro Changelog
 ****************************
 
 Version 2.1 (11-02-11)
+-WordThumb image resizing now off by default, must be enabled on page options or blog options tab.
 -Cleaned up HTML element styling.
 -Removed extra display of comments from index.
 -Added post page links to index. 
