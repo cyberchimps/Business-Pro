@@ -8,6 +8,15 @@
 	Version 2.0
 */
 
+/* Define global variables. */	
+
+	$themename = 'business';
+	$themenamefull = 'Business Pro';
+	$themeslug = 'bu';
+	$options = get_option($themename);
+
+/* End global variables. */	
+
 /* Begin breadcrumb function. */	
 
 function business_breadcrumbs() {
@@ -110,15 +119,6 @@ function business_breadcrumbs() {
   }
 } // end business_breadcrumbs()
 
-
-/* Define global variables. */	
-
-	$themename = 'business';
-	$themenamefull = 'Business Pro';
-	$themeslug = 'bu';
-	$options = get_option($themename);
-
-/* End global variables. */	
 
 /* Begin custom excerpt functions. */	
 

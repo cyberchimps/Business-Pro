@@ -141,9 +141,9 @@ function theme_options_validate( $input ) {
 		$input[$themeslug.'_hide_header'] = null;
 	$input[$themeslug.'_hide_header'] = ( $input[$themeslug.'_hide_header'] == 1 ? 1 : 0 ); 
 	
-	if ( ! isset( $input[$themeslug.'_disable_wordthumb'] ) )
-		$input[$themeslug.'_disable_wordthumb'] = null;
-	$input[$themeslug.'_disable_wordthumb'] = ( $input[$themeslug.'_disable_wordthumb'] == 1 ? 1 : 0 ); 
+	if ( ! isset( $input[$themeslug.'_enable_wordthumb'] ) )
+		$input[$themeslug.'_enable_wordthumb'] = null;
+	$input[$themeslug.'_enable_wordthumb'] = ( $input[$themeslug.'_enable_wordthumb'] == 1 ? 1 : 0 ); 
 	
 	if ( ! isset( $input[$themeslug.'_hide_footer_social'] ) )
 		$input[$themeslug.'_hide_footer_social'] = null;

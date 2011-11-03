@@ -294,9 +294,9 @@ array( "name" => "Disable Slider Navigation Auto-Hide",
 	"type" => "checkbox",  
     "std" => "false"),
     
-array( "name" => "Disable WordThumb Image Resizing",  
-    "desc" => "Check this box to disable the use of TimThumb Image Resizing on the slider",  
-    "id" => $shortname."_disable_wordthumb",  
+array( "name" => "Enable WordThumb Image Resizing",  
+    "desc" => "Check this box to enable the use of TimThumb Image Resizing on the slider",  
+    "id" => $shortname."_enable_wordthumb",  
 	"type" => "checkbox",  
     "std" => "false"),
     
