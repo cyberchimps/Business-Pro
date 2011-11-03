@@ -89,7 +89,6 @@ class RW_Meta_Box {
 					data = $(this).attr("rel");
 				$.post(ajaxurl, {action: \'rw_delete_file\', data: data}, function(response){
 					$parent.fadeOut("slow");
-					alert(response);
 				});
 				return false;
 			});
@@ -961,9 +960,9 @@ function initialize_the_meta_boxes() {
 			),
 			
 			array(
-				'name' => 'Disable WordThumb Image Resizing',
-				'desc' => 'Check this box to disable the use of WordThumb image resizing.',
-				'id' => 'disable_wordthumb',
+				'name' => 'Enable WordThumb Image Resizing',
+				'desc' => 'Check this box to enable the use of WordThumb image resizing.',
+				'id' => 'enable_wordthumb',
 				'type' => 'checkbox',
 				'std' => ''
 			),

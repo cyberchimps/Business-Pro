@@ -30,7 +30,7 @@
 	$navigationstyle = get_post_meta($post->ID, 'page_slider_navigation_style' , true);
 	$navautohide = get_post_meta($post->ID, 'disable_autohide' , true);
 	$hidenav = get_post_meta($post->ID, 'hide_arrows' , true);
-	$timdisable = get_post_meta($post->ID, 'disable_wordthumb' , true);
+	$wordthumbenable = get_post_meta($post->ID, 'enable_wordthumb' , true);
 	
 /* End define variables. */	
 
@@ -314,43 +314,43 @@
 
 	    	/* Controls slide image and thumbnails */
 
-	    	if ($customimage != '' && $customthumb == '' && $timdisable != '1'){
+	    	if ($customimage != '' && $customthumb == '' && $wordthumbenable == 'on'){
 	    		$image = $customsized;
 	    		$thumbnail = "$root/library/wt/wordthumb.php?src=$customimage&a=c&h=30&w=50";
 	    	}
 	    	
-	    	elseif ($customimage != '' && $timdisable == '1'){
+	    	elseif ($customimage != '' && $wordthumbenable != 'on'){
 	    		$image = $customimage;
 	    		$thumbnail = $customthumb;
 	    	}
 	    	
-	    	elseif ($customimage == '' && $timdisable == '1'){
-	    		$image = "$root/images/pro/businesspro.jpg";
+	    	elseif ($customimage == '' && $wordthumbenable != 'on'){
+	    		$image = "$root/images/pro/bizpro.jpg";
 	    		$thumbnail = $customthumb;
 	    	}
 	    	
-	    	elseif ($customimage != '' && $customthumb != '' && $timdisable != '1' ){
+	    	elseif ($customimage != '' && $customthumb != '' && $wordthumbenable == 'on' ){
 	    		$image = $customsized;
 	    		$thumbnail = "$root/library/wt/wordthumb.php?src=$customthumb&a=c&h=30&w=50";
 	    	}
 
-	    	elseif ($customimage == '' && $size2 == "0" && $size != "0" && $timdisable != '1'){
+	    	elseif ($customimage == '' && $size2 == "0" && $size != "0" && $wordthumbenable == 'on'){
 	    		$image = "$root/library/wt/wordthumb.php?src=$root/images/pro/businessprosmall.jpg&a=c&h=$height&w=640";
 	    		$thumbnail = "$root/images/pro/businessprothumb.jpg";
 	    	}
 
-	    	elseif ($customimage == '' && $size2 == '4' && $size != "0" && $timdisable != '1'){
+	    	elseif ($customimage == '' && $size2 == '4' && $size != "0" && $wordthumbenable == 'on'){
 	    		$image = "$root/library/wt/wordthumb.php?src=$root/images/pro/businessprosmall.jpg&a=c&h=$height&w=640";
 	    		$thumbnail = "$root/images/pro/businessprothumb.jpg";
 	    	}
 
-	    	elseif ($customimage == '' && $size2 == "1" && $size != "0" && $timdisable != '1' OR $customimage == '' && $size2 == "2" && $size != "0" && $timdisable != '1'){
+	    	elseif ($customimage == '' && $size2 == "1" && $size != "0" && $wordthumbenable == 'on' OR $customimage == '' && $size2 == "2" && $size != "0" && $wordthumbenable == 'on'){
 	    		$image = "$root/library/wt/wordthumb.php?src=$root/images/pro/businessprosmall.jpg&a=c&h=$height&w=480";
 	    		$thumbnail = "$root/images/pro/businessprothumb.jpg";
 	    	}
 
-	   		elseif ($timdisable != '1') {
-	       		$image = "$root/library/wt/wordthumb.php?src=$root/images/pro/businesspro.jpg&a=c&h=$height&w=980";
+	   		elseif ($wordthumbenable == 'on') {
+	       		$image = "$root/library/wt/wordthumb.php?src=$root/images/pro/bizpro.jpg&a=c&h=$height&w=980";
 	       		$thumbnail = "$root/images/pro/businessprothumb.jpg";
 	       	}
 	       	
@@ -447,8 +447,8 @@ To create a Custom Slide please go to the Custom Slides tab in WP-Admin. Once yo
     
     $out .= <<<OUT
 	<script type="text/javascript">
-		
-	jQuery(document).ready(function($) {
+		var $ = jQuery.noConflict();
+
 	$(window).load(function() {
     $('#slider').nivoSlider({
         effect:'$animation', // Specify sets like: 'fold,fade,sliceDown'
@@ -481,11 +481,8 @@ To create a Custom Slide please go to the Custom Slides tab in WP-Admin. Once yo
     \$control.css({left: (\$this.width() - \$control.width()) / 2}); 
 });
 });
-});
 
 </script>
-
-OUT;
 
 OUT;
 
