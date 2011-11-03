@@ -2,6 +2,15 @@ Business Pro Changelog
 
 ****************************
 
+Version 2.1 (11-02-11)
+-Cleaned up HTML element styling.
+-Removed extra display of comments from index.
+-Added post page links to index. 
+-Removed border on sidebar, added bottom border to posts instead. 
+-Changed font family to websafe Arial, Helvetica, serif. 
+-Fixed image alignment issue.
+-Added breadcrumb support. 
+
 Version 2.0 (8-9-11)
 -Added Design tab, includes user control over several visual elements of the theme.
 -Added Blog options tab, includes support for post excerpts, featured images, ability to hide meta elements.

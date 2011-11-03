@@ -146,7 +146,7 @@ function add_sitetitle_color() {
 	global $themename, $themeslug, $options;
 
 	if (isset($options[$themeslug.'_sitetitle_color']) == "") {
-		$sitetitle = '717171';
+		$sitetitle = 'FFF';
 	}
 	
 	else {
@@ -230,7 +230,7 @@ function add_posttitle_color() {
 	global $themename, $themeslug, $options;
 
 	if (isset($options[$themeslug.'_posttitle_color']) == "") {
-		$posttitle = '717171';
+		$posttitle = '000';
 	}
 	else {
 		$posttitle = $options[$themeslug.'_posttitle_color']; 
@@ -268,7 +268,7 @@ function add_menu_font() {
 	global $themename, $themeslug, $options;	
 		
 	if ($options[$themeslug.'_menu_font'] == "") {
-		$font = 'Maven+Pro';
+		$font = 'Arial';
 	}		
 		
 	elseif ($options[$themeslug.'_custom_menu_font'] != "") {
@@ -283,7 +283,7 @@ function add_menu_font() {
 	
 		echo "<link href='http://fonts.googleapis.com/css?family=$font' rel='stylesheet' type='text/css' />";
 		echo '<style type="text/css">';
-		echo ".sf-menu a {font-family: $fontstrip;}";
+		echo ".sf-menu a {font-family: '$fontstrip', Helvetica, serif;}";
 		echo '</style>';
 }
 add_action( 'wp_head', 'add_menu_font');

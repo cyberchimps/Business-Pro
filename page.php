@@ -43,6 +43,8 @@
 
 <div id="content_wrap">
 
+	<?php if (function_exists('business_breadcrumbs') && $options['bu_disable_breadcrumbs'] != "1") business_breadcrumbs(); ?>
+
 <?php if ($enable == "on" && $size == "0"): ?>
 		<div id = "slider-wrapper">
 			<center><?php get_template_part('nivoslider', 'page' ); ?> </center>
@@ -84,6 +86,8 @@
 	<?php get_sidebar('right'); ?>
 	<div class="content_half">
 	<?php endif;?>
+	
+
 	
 	<?php if ($enable == "on" && $size == "1"): ?>
 		<div id = "slider-wrapper">

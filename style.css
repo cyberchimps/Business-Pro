@@ -4,7 +4,7 @@ Theme URI: http://cyberchimps.com/businesspro
 Description: Business Pro: A Premium WordPress Theme designed by CyberChimps.com featuring customizable theme options, a clean and professional design, a feature slider, callout section, Twitter bar, dynamic header for custom logo, social icons, widgetized sidebar and footer, typography including Google Fonts, and multiple template choices.
 Author: CyberChimps
 Author URI: http://cyberchimps.com
-Version: 2.0
+Version: 2.1
 Tags: white, light, silver, two-columns, fixed-width, custom-header, custom-menu, threaded-comments, sticky-post
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -29,22 +29,42 @@ a:hover { color: #555; }
 a img {border: none; }
 
 .featured-image {
-	margin-top: 14px; 
-	margin-right: 12px; 
-	margin-bottom: 10px; 
-	float: left;
 
+	margin: 4px 12px 10px 1px;
 }
 
 ul, ol { margin: 0 0 10px 0; }
 
+#crumbs {
+	margin-bottom: 5px;
+	margin-left: 8px;	
+}
+
+th { padding-right: 30px; padding-bottom: 10px; }
+
+td {
+border-top: 1px solid #DDD;
+padding: 6px 10px 6px 0;
+}
+
+table {border-bottom: 1px solid #DDD;}
+
+dt {font-weight: bold; margin-top: 5px; margin-bottom: 5px; margin-left: 26px; }
+
+dd {margin-bottom: 15px; margin-left: 26px; }
+
+pre {margin-left: 20px;}
+
+fieldset {border: none;}
+
+
 
 /* Headlines  */
 
-h1, h2, h3 { font-weight: bold; margin: 0px; }
-h1 { font-size: 36px; }
-h2 { font-size: 16px; }
-h3 { font-size: 14px; }
+h1, h2, h3, h4, h5, h6 {
+	margin-bottom: 4px;
+	margin-top: 4px;
+}
 
 /* Header  */
 
@@ -147,10 +167,14 @@ input[type=text] {
    
 /* Content */
 
+.pagetitle, .archivetitle, .datetitle, .tagtitle {
+	margin-left: 5px;
+}
+
 #content_wrap {
 	width: 990px;
 	margin: auto;
-	padding-top: 5px;
+	padding-top: 15px;
 }
 
 #content_left {
@@ -178,8 +202,8 @@ hr {
 	background-color: #fff;
 	border-radius: 3px;
 	-moz-border-radius: 3px;
-	margin-bottom: 25px;
-	padding: 0px 5px 5px 5px;
+	margin-bottom: 10px;
+	padding: 5px 5px 0px 5px;
 }
 
 .post_container ul {
@@ -225,21 +249,22 @@ ol {
 		font-size: 32px;
 		font-weight: 300;
 		margin-bottom: 5px;
-		color: #444;
+		color: #666;
 }
 
 .post { 
 		font-size: 14px;
 }
 
-.entry {
-	padding-top: 10px;
 
+.entry p {
+	clear: none;
 }
 
 .meta { 
 	color: #ababab;
 	font-size: 12px;
+	margin-bottom: 10px;
 }
 
 .post-edit-link {
@@ -250,24 +275,35 @@ ol {
 	font-size: 10px;
 }
 
-img.alignright {float:right; margin:0 0 1em 1em}
-img.alignleft {float:left; margin:0 1em 1em 0}
-img.aligncenter {display: block; margin-left: auto; margin-right: auto}
-a img.alignright {float:right; margin:0 0 1em 1em}
-a img.alignleft {float:left; margin: 1em 1em 1em 0}
-a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
-
-.aligncenter, div.aligncenter {
+.alignleft,
+img.alignleft {
+	display: inline;
+	float: left;
+  margin-right: 1.5em;
+}
+.alignright,
+img.alignright {
+	display: inline;
+	float: right;
+  margin-left: 1.5em;
+}
+.aligncenter,
+img.aligncenter {
+	clear: both;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 }
-.alignleft {
-	float: left;
+
+img.size-full {
+	max-width: 640px;
+	height: auto;
 }
-.alignright {
-	float: right;
+
+p {
+     clear: both;
 }
+
 .wp-caption {
 	background-color: #f3f3f3;
 	border: 1px solid #ddd;
@@ -295,8 +331,9 @@ a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 blockquote { 
 	background-color: #ccc;
 	margin: 10px;
-	padding: 3px;
-			 }
+	padding: 10px;
+	font-style: italic;
+}
 blockquote p { }
 
 .sticky { }
@@ -364,7 +401,6 @@ label[for="comment"] {display: block;}
 	height: 100%;
 	display: block;
 	padding-top: 5px;
-	border-left: 1px dotted #dadada;
 }
 
 
@@ -976,7 +1012,12 @@ ol.commentlist li.thread-odd { }
 
 form { }
 
-textarea { }
+textarea {
+	margin-top: 10px;
+	padding-bottom: 10px; 
+	width: 90%
+	
+}
 
 @media print {
 

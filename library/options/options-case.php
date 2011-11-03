@@ -431,7 +431,7 @@ case 'color1':
 <?php
 
 	if (isset($options[$themeslug.'_sitetitle_color']) == "") {
-			$picker = '717171';
+			$picker = 'FFF';
 	}		
 	
 	else {
@@ -536,7 +536,7 @@ case 'color4':
 <?php
 
 	if (isset($options[$themeslug.'_posttitle_color']) == "") {
-		$picker = '717171';
+		$picker = '000';
 	}		
 	else {
 		$picker = $options[$themeslug.'_posttitle_color']; 
