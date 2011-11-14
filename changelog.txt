@@ -4,6 +4,8 @@ Business Pro Changelog
 Version 2.1.1 (11-14-11)
 -Fixed menu dropdown bug. 
 -Fixed broken hide title option. 
+-Calling WP provided jQuery library now. 
+-General bug fixes. 
 
 Version 2.1 (11-02-11)
 -WordThumb image resizing now off by default, must be enabled on page options or blog options tab.
