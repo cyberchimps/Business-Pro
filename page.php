@@ -105,9 +105,9 @@
 			<div class="post_container">
 			
 				<div class="post" id="post-<?php the_ID(); ?>">
-
-					<h2 class="posts_title"><?php the_title(); ?></h2>
-
+					<?php if ($hidetitle == ""): ?>
+						<h2 class="posts_title"><?php the_title(); ?></h2>
+					<?php endif;?>
 					<div class="entry">
 
 						<?php the_content(); ?>
