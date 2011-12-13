@@ -1,6 +1,10 @@
 Business Pro Changelog
 
 ****************************
+
+Version 2.1.2 (12-12-11)
+-Visual fix to theme options for WordPress 3.3.
+
 Version 2.1.1 (11-14-11)
 -Fixed menu dropdown bug. 
 -Fixed broken hide title option. 
