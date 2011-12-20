@@ -40,7 +40,7 @@
 	
 	<div class="container_12">
 		
-		<div class="grid_4">
+		<div class="grid_6">
 				
 			<!-- Begin @Core header sitename hook -->
 				<?php chimps_header_sitename(); ?>
@@ -48,7 +48,7 @@
 				
 		</div>	
 			
-		<div class="grid_8" id="menu">
+		<div class="grid_6" id="menu">
 
 		<div id="nav" class="<?php echo $grid; ?>">
 		    <?php wp_nav_menu( array(
@@ -63,9 +63,26 @@
 				
 	<?php endif;?>
 
-
 <div class='clear'>&nbsp;</div>
+
 </header>
+
+<div id="headbar">	
+	<div class="container_12">
+		
+		<div class="grid_10">
+			<!-- Begin @Core header description hook -->
+				<?php chimps_header_site_description(); ?> 
+			<!-- End @Core header description hook -->
+		</div>
+			
+		<div class="grid_2">
+			<?php get_search_form(); ?>
+		</div>
+	</div>
+</div>
+
+
 
 <div class="container_12"><!--main wrap-->	
 <!-- Begin @Core after_header hook -->

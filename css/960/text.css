@@ -54,7 +54,8 @@ h6 {
 }
 
 .description {	
-	font-size: 16px;
+	font-size: 12px;
+	padding-top: 3px;
 }
 
 .sitename {
