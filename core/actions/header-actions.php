@@ -317,7 +317,7 @@ function chimps_nav() {
 	
 	<div class="container_12">
 
-	<div class="grid_12" id="menu">
+	<div class="grid_8" id="menu">
 
 		<div id="nav" class="<?php echo $grid; ?>">
 		    <?php wp_nav_menu( array(

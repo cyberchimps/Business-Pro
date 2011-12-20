@@ -34,21 +34,38 @@
 	<?php chimps_before_header(); ?> 
 <!-- End @Core before_header hook content -->
 			
-	<header>
+<header>
 		
 	<?php if ($options->get($themeslug.'_disable_header') != "0"):?>
 	
-		<!-- Begin @iFeature header content hook-->
-			<?php ifeature_header_content(); ?> 
-		<!-- End @iFeature header content hook -->	
+	<div class="container_12">
+		
+		<div class="grid_4">
+				
+			<!-- Begin @Core header sitename hook -->
+				<?php chimps_header_sitename(); ?>
+			<!-- End @Core header sitename hook -->
+				
+		</div>	
+			
+		<div class="grid_8" id="menu">
+
+		<div id="nav" class="<?php echo $grid; ?>">
+		    <?php wp_nav_menu( array(
+		    'theme_location' => 'header-menu', // Setting up the location for the main-menu, Main Navigation.
+		    'fallback_cb' => 'menu_fallback', //if wp_nav_menu is unavailable, WordPress displays wp_page_menu function, which displays the pages of your blog.
+		    )
+		);
+    	?>
+   		</div>
+		
+	</div>
 				
 	<?php endif;?>
 
-		<!-- Begin @Core navigation contact area hook -->
-			<?php chimps_navigation(); ?> 
-		<!-- End @Core navigation contact area hook -->
-				<div class='clear'>&nbsp;</div>
-			</header>
+
+<div class='clear'>&nbsp;</div>
+</header>
 
 <div class="container_12"><!--main wrap-->	
 <!-- Begin @Core after_header hook -->
