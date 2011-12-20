@@ -251,6 +251,12 @@ function ifeature_post_bar_content() {
 	
 	
 		<div class="postbar" class="grid_8">
+		<?php if (($hidden[$themeslug.'_hide_comments']) != '0'):?>
+		<div class="comments">
+				<?php comments_popup_link( __('No Comments &#187;', 'core' ), __('1 Comment &#187;', 'core' ), __('% Comments &#187;' , 'core' )); //need a filer here ?> 			<img src="<?php echo get_template_directory_uri(); ?>/images/Commentsgrey.png" height="21px" width="21px" alt="comments"/>&nbsp;
+
+		</div><!--end comments-->
+		<?php endif;?>
 		<?php if (($hidden[$themeslug.'_hide_share']) != '0'):?>
 			<div class="share">
 		<a href="http://www.facebook.com/share.php?u=<?php the_permalink() ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/share/facebook.png" alt="Share on Facebook" height="16px" width="16px" /></a> 
@@ -258,12 +264,6 @@ function ifeature_post_bar_content() {
 		<a href="http://reddit.com/submit?url=<?php the_permalink() ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/share/reddit.png" alt="Share on Reddit" height="16px" width="16px" /></a> <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php the_permalink() ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/share/linkedin.png" alt="Share on LinkedIn" height="16px" width="16px" /></a>	
 		</div><!--end share-->
 	<?php endif;?>		
-		<?php if (($hidden[$themeslug.'_hide_comments']) != '0'):?>
-		<div class="comments">
-			<img src="<?php echo get_template_directory_uri(); ?>/images/Commentsgrey.png" height="21px" width="21px" alt="comments"/>&nbsp;
-				<?php comments_popup_link( __('No Comments &#187;', 'core' ), __('1 Comment &#187;', 'core' ), __('% Comments &#187;' , 'core' )); //need a filer here ?>
-		</div><!--end comments-->
-		<?php endif;?>	
 	</div><!--end postmetadata--> <?php
 }
 
