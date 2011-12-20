@@ -2,7 +2,7 @@
 
 /*
 	Archive
-	Creates the Business Pro archive pages.
+	Creates the iFeature archive pages.
 	Copyright (C) 2011 CyberChimps
 	Version 2.0
 */
@@ -15,82 +15,58 @@
 
 ?>
 
-<div id="content_wrap">
+<div class="container_12">
 
-	<div id="content_left">
+	<div id="main">
 	
-	<?php if (function_exists('business_breadcrumbs') && $options['bu_disable_breadcrumbs'] != "1") business_breadcrumbs(); ?>
+		<div id="content" class="grid_8">
 		
-		<div class="content_padding">
+		<?php if (function_exists('chimps_breadcrumbs')) chimps_breadcrumbs(); ?>
+		
+		<!--Begin @Core before_archive hook-->
+			<?php chimps_before_archive(); ?>
+		<!--End @Core before_archive hook-->
 		
 		<?php if (have_posts()) : ?>
-
- 			<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
-
-			<?php /* If this is a category archive */ if (is_category()) { ?>
-				<h2 class="archivetitle"><font size="5">Archive for the &#8216;<?php single_cat_title(); ?>&#8217; Category:</font></h2><br />
-
-			<?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
-				<h2 class="tagtitle"><font size="5">Posts Tagged &#8216;<?php single_tag_title(); ?>&#8217;:</font></h2><br />
-
-			<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
-				<h2 class="datetitle"><font size="5">Archive for <?php the_time('F jS, Y'); ?>:</font></h2><br />
-
-			<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-				<h2 class="datetitle"><font size="5">Archive for <?php the_time('F, Y'); ?>:</font></h2><br />
-
-			<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
-				<h2 class="pagetitle"><font size="5">Archive for <?php the_time('Y'); ?>:</font></h2><br />
-
-			<?php /* If this is an author archive */ } elseif (is_author()) { ?>
-				<h2 class="pagetitle"><font size="5">Author Archive: </font></h2><br />
-
-			<?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-				<h2 class="pagetitle"><font size="5">Blog Archives:</font></h2><br />			
-			<?php } ?>
-
-			<?php while (have_posts()) : the_post(); ?>
-			
-			<div class="post_container">
-
-				<div <?php post_class() ?>>
-				
-						<h2 class="posts_title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-					
-						<?php get_template_part('meta', 'archive'); ?>
-
-						<div class="entry">
-							<?php the_content(); ?>
-						</div>
-						<div style="clear:both;"></div>
-				<div class="tags">
-								<?php the_tags('Tags: ', ', ', '<br />'); ?>
-							</div><!--end tags-->
-
-							<div class="postmetadata">
-										<?php get_template_part('share', 'index' ); ?>
-								
-							</div><!--end postmetadata--><br />
-							<hr>
-								
-				</div><!--end post-->
-			
-			</div><!--end post_container-->
-
-			<?php endwhile; ?>
-
-			<?php get_template_part('pagination', 'archive' ); ?>
-			
-	<?php else : ?>
+		
+			<!--Begin @Core archive hook-->
+			<?php chimps_archive_title(); ?>
+			<!--End @Core archive hook-->
+		
+		<?php while (have_posts()) : the_post(); ?>
+		
+			<!--Begin @Core archive hook-->
+				<?php chimps_archive(); ?>
+			<!--End @Core archive hook-->
+		
+		 <?php endwhile; ?>
+	 
+	 <?php else : ?>
 
 		<h2>Nothing found</h2>
 
 	<?php endif; ?>
-		</div><!--end content_padding-->
-	</div><!--end content_left-->
 
-	<div id="sidebar_right"><?php get_sidebar(); ?></div>
+		<!--Begin @Core pagination hook-->
+			<?php chimps_pagination(); ?>
+		<!--End @Core pagination hook-->
+		
+		<!--Begin @Core after_archive hook-->
+			<?php chimps_after_archive(); ?>
+		<!--End @Core after_archive hook-->
+	
+		</div><!--end content_padding-->
+		
+
+
+		<div id="sidebar" class="grid_4">
+				<?php get_sidebar(); ?>
+		</div>
+	
 </div><!--end content_wrap-->
 
-<div style=clear:both;></div>
+	</div><!--end content_left-->
+
+<div class='clear'>&nbsp;</div>
+
 <?php get_footer(); ?>

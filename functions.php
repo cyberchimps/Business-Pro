@@ -3,135 +3,125 @@
 /*
 	Functions
 	Author: Tyler Cunningham
-	Establishes the core Business Pro functions.
+	Establishes the core theme functions.
 	Copyright (C) 2011 CyberChimps
-	Version 2.0
+	Version 3.0
 */
+
 
 /* Define global variables. */	
 
-	$themename = 'business';
-	$themenamefull = 'Business Pro';
-	$themeslug = 'bu';
-	$options = get_option($themename);
+	$themename = 'ifeature';
+	$themenamefull = 'iFeature Pro';
+	$themeslug = 'if';
+	$root = get_template_directory_uri(); 
+	$slider_default = "$root/images/ifeaturefree.jpg";
+	
+	
+//Redirect after activation
+if ( is_admin() && isset($_GET['activated'] ) && $pagenow ==	"themes.php" )
+	wp_redirect( 'themes.php?page=ifeature' );
+	
+// Post formats support
+add_theme_support(
+	'post-formats',
+	array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat')
+);
 
-/* End global variables. */	
+//Gallery options 
 
-/* Begin breadcrumb function. */	
+function custom_gallery_post_format( $content ) {
+global $options, $themeslug, $post;
+$root = get_template_directory_uri(); 
+ob_start();
+?>
+		<?php if ($options->get($themeslug.'_post_formats') == '1') : ?>
+			<div class="postformats"><!--begin format icon-->
+				<img src="<?php echo get_template_directory_uri(); ?>/images/formats/gallery.png" />
+			</div><!--end format-icon-->
+		<?php endif;?>
+				<h2 class="posts_title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+					<!--Call @Core Meta hook-->
+			<?php chimps_post_byline(); ?>
+				<?php
+				if ( has_post_thumbnail() && $options->get($themeslug.'_show_featured_images') == '1' && !is_single() ) {
+ 		 			echo '<div class="featured-image">';
+ 		 			echo '<a href="' . get_permalink($post->ID) . '" >';
+ 		 				the_post_thumbnail();
+  					echo '</a>';
+  					echo '</div>';
+				}
+			?>	
+				<div class="entry" <?php if ( has_post_thumbnail() && $options->get($themeslug.'_show_featured_images') == '1' ) { echo 'style="min-height: 115px;" '; }?>>
+				
+				<?php if (!is_single()): ?>
+				<?php $images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
+					if ( $images ) :
+						$total_images = count( $images );
+						$image = array_shift( $images );
+						$image_img_tag = wp_get_attachment_image( $image->ID, 'thumbnail' );
+				?>
 
-function business_breadcrumbs() {
- 
-  $delimiter = '&raquo;';
-  $home = 'Home'; // text for the 'Home' link
-  $before = '<span class="current">'; // tag before the current crumb
-  $after = '</span>'; // tag after the current crumb
- 
-  if ( !is_home() && !is_front_page() || is_paged() ) {
- 
-    echo '<div id="crumbs">';
- 
-    global $post;
-    $homeLink = home_url();
-    echo '<a href="' . $homeLink . '">' . $home . '</a> ' . $delimiter . ' ';
- 
-    if ( is_category() ) {
-      global $wp_query;
-      $cat_obj = $wp_query->get_queried_object();
-      $thisCat = $cat_obj->term_id;
-      $thisCat = get_category($thisCat);
-      $parentCat = get_category($thisCat->parent);
-      if ($thisCat->parent != 0) echo(get_category_parents($parentCat, TRUE, ' ' . $delimiter . ' '));
-      echo $before . 'Archive for category "' . single_cat_title('', false) . '"' . $after;
- 
-    } elseif ( is_day() ) {
-      echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . ' ';
-      echo '<a href="' . get_month_link(get_the_time('Y'),get_the_time('m')) . '">' . get_the_time('F') . '</a> ' . $delimiter . ' ';
-      echo $before . get_the_time('d') . $after;
- 
-    } elseif ( is_month() ) {
-      echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . ' ';
-      echo $before . get_the_time('F') . $after;
- 
-    } elseif ( is_year() ) {
-      echo $before . get_the_time('Y') . $after;
- 
-    } elseif ( is_single() && !is_attachment() ) {
-      if ( get_post_type() != 'post' ) {
-        $post_type = get_post_type_object(get_post_type());
-        $slug = $post_type->rewrite;
-        echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a> ' . $delimiter . ' ';
-        echo $before . get_the_title() . $after;
-      } else {
-        $cat = get_the_category(); $cat = $cat[0];
-        echo get_category_parents($cat, TRUE, ' ' . $delimiter . ' ');
-        echo $before . get_the_title() . $after;
-      }
- 
-    } elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
-      $post_type = get_post_type_object(get_post_type());
-      echo $before . $post_type->labels->singular_name . $after;
- 
-    } elseif ( is_attachment() ) {
-      $parent = get_post($post->post_parent);
-      $cat = get_the_category($parent->ID); $cat = $cat[0];
-      echo get_category_parents($cat, TRUE, ' ' . $delimiter . ' ');
-      echo '<a href="' . get_permalink($parent) . '">' . $parent->post_title . '</a> ' . $delimiter . ' ';
-      echo $before . get_the_title() . $after;
- 
-    } elseif ( is_page() && !$post->post_parent ) {
-      echo $before . get_the_title() . $after;
- 
-    } elseif ( is_page() && $post->post_parent ) {
-      $parent_id  = $post->post_parent;
-      $breadcrumbs = array();
-      while ($parent_id) {
-        $page = get_page($parent_id);
-        $breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
-        $parent_id  = $page->post_parent;
-      }
-      $breadcrumbs = array_reverse($breadcrumbs);
-      foreach ($breadcrumbs as $crumb) echo $crumb . ' ' . $delimiter . ' ';
-      echo $before . get_the_title() . $after;
- 
-    } elseif ( is_search() ) {
-      echo $before . 'Search results for "' . get_search_query() . '"' . $after;
- 
-    } elseif ( is_tag() ) {
-      echo $before . 'Posts tagged "' . single_tag_title('', false) . '"' . $after;
- 
-    } elseif ( is_author() ) {
-       global $author;
-      $userdata = get_userdata($author);
-      echo $before . 'Articles posted by ' . $userdata->display_name . $after;
- 
-    } elseif ( is_404() ) {
-      echo $before . 'Error 404' . $after;
-    }
- 
-    if ( get_query_var('paged') ) {
-      if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ' (';
-      echo __( 'Page', 'ifeature') . ' ' . get_query_var('paged');
-      if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ')';
-    }
- 
-    echo '</div>';
- 
-  }
-} // end business_breadcrumbs()
+				<figure class="gallery-thumb">
+					<a href="<?php the_permalink(); ?>"><?php echo $image_img_tag; ?></a>
+					<br /><br />
+					This gallery contains <?php echo $total_images ; ?> images
+					<?php endif;?>
+				</figure><!-- .gallery-thumb -->
+				<?php endif;?>
+				
+				<?php if (is_single()): ?>
+					<?php the_content(); ?>
+				<?php endif;?>
+				</div><!--end entry-->
 
+				
+				<div style=clear:both;></div>
+	<?php	
+	$content = ob_get_clean();
+	
+	return $content;
+}
 
+add_filter('chimps_post_formats_gallery_content', 'custom_gallery_post_format' ); 
+	
+function mytheme_comment($comment, $args, $depth) {
+   $GLOBALS['comment'] = $comment; ?>
+   <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
+     <div id="comment-<?php comment_ID(); ?>">
+      <div class="comment-author vcard">
+         <?php echo get_avatar( $comment, 48 ); ?>
+
+         <?php printf(__('<cite class="fn">%s</cite> <span class="says"></span>'), get_comment_author_link()) ?>
+      </div>
+      <?php if ($comment->comment_approved == '0') : ?>
+         <em><?php _e('Your comment is awaiting moderation.') ?></em>
+         <br />
+      <?php endif; ?>
+
+      <div class="comment-meta commentmetadata"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'),'  ','') ?></div>
+
+      <?php comment_text() ?>
+
+      <div class="reply">
+         <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+      </div>
+     </div>
+<?php
+}
+	
 /* Begin custom excerpt functions. */	
 
 function new_excerpt_more($more) {
 
 	global $themename, $themeslug, $options;
     
-    	if ($options[$themeslug.'_excerpt_link_text'] == '') {
+    	if ($options->get($themeslug.'_excerpt_link_text') == '') {
     		$linktext = '(Read More...)';
    		}
     
     	else {
-    		$linktext = $options[$themeslug.'_excerpt_link_text'];
+    		$linktext = $options->get($themeslug.'_excerpt_link_text');
    		}
     
     global $post;
@@ -143,12 +133,12 @@ function new_excerpt_length($length) {
 
 	global $themename, $themeslug, $options;
 	
-		if ($options[$themeslug.'_excerpt_length'] == '') {
+		if ($options->get($themeslug.'_excerpt_length') == '') {
     		$length = '55';
     	}
     
     	else {
-    		$length = $options[$themeslug.'_excerpt_length'];
+    		$length = $options->get($themeslug.'_excerpt_length');
     	}
 
 	return $length;
@@ -158,209 +148,61 @@ add_filter('excerpt_length', 'new_excerpt_length');
 /* End excerpt functions. */
 
 /* Add auto-feed links support. */	
-	add_theme_support('automatic-feed-links');
+add_theme_support('automatic-feed-links');
 	
 /* Add post-thumb support. */
 
-	
+function init_featured_image() {	
 if ( function_exists( 'add_theme_support' ) ) {
 
-	global $themename, $themeslug, $options;
+ global $themename, $themeslug, $options;
 	
-		if($options[$themeslug.'_featured_image_height'] == "") {
+		if ($options->get($themeslug.'_featured_image_height') == '') {
 			$featureheight = '100';
 	}		
 	
 	else {
-		$featureheight = $options[$themeslug.'_featured_image_height']; 
+		$featureheight = $options->get($themeslug.'_featured_image_height'); 
 		
 	}
 	
-		if ($options[$themeslug.'_featured_image_width'] == "") {
+		if ($options->get($themeslug.'_featured_image_width') == "") {
 			$featurewidth = '100';
 	}		
 	
 	else {
-		$featurewidth = $options[$themeslug.'_featured_image_width']; 
-	}
-	add_theme_support( 'post-thumbnails' ); 
+		$featurewidth = $options->get($themeslug.'_featured_image_width'); 
+	} 
+	 
 	set_post_thumbnail_size( $featureheight, $featurewidth, true );
 }	
-	
-// This theme allows users to set a custom background
-	add_custom_background();
-	
+}
+add_action( 'init', 'init_featured_image', 11);	
+
+// Featured image support.
+add_theme_support( 'post-thumbnails' );
+
 // This theme styles the visual editor with editor-style.css to match the theme style.
-	add_editor_style();
-	
-// Load jQuery
-	if ( !is_admin() ) {
-	   wp_enqueue_script('jquery');
-	}
+add_editor_style();
+
 /**
 * Attach CSS3PIE behavior to elements
 * Add elements here that need PIE applied
 */   
 function render_ie_pie() { ?>
-<style type="text/css" media="screen">
-#header li a, .postmetadata, .post_container, .wp-caption, .sidebar-widget-style, .sidebar-widget-title, .boxes, .box1, .box2, .box3, .box-widget-title  {
-  behavior: url('<?php bloginfo('stylesheet_directory'); ?>/library/pie/PIE.htc');
-}
-</style>
+	
+	<style type="text/css" media="screen">
+		#wrapper input, textarea, #twitterbar, input[type=submit], input[type=reset], #imenu, .searchform, .post_container, .postformats, .postbar, .post-edit-link, .widget-container, .widget-title, .footer-widget-title, .comments_container, ol.commentlist li.even, ol.commentlist li.odd, .slider_nav, ul.metabox-tabs li, .tab-content, .list_item, .section-info, #of_container #header, .menu ul li a, .submit input, #of_container textarea, #of_container input, #of_container select, #of_container .screenshot img, #of_container .of_admin_bar, #of_container .subsection > h3, .subsection, #of_container #content .outersection .section, #carousel_list, #calloutwrap, #calloutbutton, .box1, .box2, .box3
+  		
+  			{
+  				behavior: url('<?php bloginfo('stylesheet_directory'); ?>/core/library/pie/PIE.htc');
+			}
+	</style>
 <?php
 }
 
 add_action('wp_head', 'render_ie_pie', 8);
 	
-//Checklist Shortcode
-	
-	function checklist($atts, $content = null) {
-    	return '<div class="checklist">'.$content.'</div>' ;
-}
-
-add_shortcode('checklist', 'checklist');
-
-
-	//Box Shortcode
-	
-	function box($atts, $content = null) {
-   		return '<div class="boxcode">'.$content.'</div>' ;  
-}
-	
-add_shortcode('box', 'box');
-
-	//Column Shortcode
-	
-	function one_third( $atts, $content = null ) {
-   return '<div class="one_third">' . do_shortcode($content) . '</div>';
-}
-
-add_shortcode('one_third', 'one_third');
- 
-function one_third_last( $atts, $content = null ) {
-   return '<div class="one_third last">' . do_shortcode($content) . '</div><div class="clearboth"></div>';
-}
-add_shortcode('one_third_last', 'one_third_last');
- 
-function two_third( $atts, $content = null ) {
-   return '<div class="two_third">' . do_shortcode($content) . '</div>';
-}
-add_shortcode('two_third', 'two_third');
- 
-function two_third_last( $atts, $content = null ) {
-   return '<div class="two_third last">' . do_shortcode($content) . '</div><div class="clearboth"></div>';
-}
-add_shortcode('two_third_last', 'two_third_last');
- 
-function one_half( $atts, $content = null ) {
-   return '<div class="one_half">' . do_shortcode($content) . '</div>';
-}
-add_shortcode('one_half', 'one_half');
- 
-function one_half_last( $atts, $content = null ) {
-   return '<div class="one_half last">' . do_shortcode($content) . '</div><div class="clearboth"></div>';
-}
-add_shortcode('one_half_last', 'one_half_last');
-
-function one_fourth( $atts, $content = null ) {
-   return '<div class="one_fourth">' . do_shortcode($content) . '</div>';
-}
-add_shortcode('one_fourth', 'one_fourth');
-
-function one_fourth_last( $atts, $content = null ) {
-   return '<div class="one_fourth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>';
-}
-add_shortcode('one_fourth_last', 'one_fourth_last');
-
-function three_fourth( $atts, $content = null ) {
-   return '<div class="three_fourth">' . do_shortcode($content) . '</div>';
-}
-add_shortcode('three_fourth', 'three_fourth');
-
-function three_fourth_last( $atts, $content = null ) {
-   return '<div class="three_fourth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>';
-}
-add_shortcode('three_fourth_last', 'three_fourth_last');
-
-function one_fifth( $atts, $content = null ) {
-   return '<div class="one_fifth">' . do_shortcode($content) . '</div>';
-}
-add_shortcode('one_fifth', 'one_fifth');
-
-function one_fifth_last( $atts, $content = null ) {
-   return '<div class="one_fifth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>';
-}
-add_shortcode('one_fifth_last', 'one_fifth_last');
-
-function two_fifth( $atts, $content = null ) {
-   return '<div class="two_fifth">' . do_shortcode($content) . '</div>';
-}
-add_shortcode('two_fifth', 'two_fifth');
-
-function two_fifth_last( $atts, $content = null ) {
-   return '<div class="two_fifth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>';
-}
-add_shortcode('two_fifth_last', 'two_fifth_last');
-
-function three_fifth( $atts, $content = null ) {
-   return '<div class="three_fifth">' . do_shortcode($content) . '</div>';
-}
-add_shortcode('three_fifth', 'three_fifth');
-
-function three_fifth_last( $atts, $content = null ) {
-   return '<div class="three_fifth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>';
-}
-add_shortcode('three_fifth_last', 'three_fifth_last');
-
-function four_fifth( $atts, $content = null ) {
-   return '<div class="four_fifth">' . do_shortcode($content) . '</div>';
-}
-add_shortcode('four_fifth', 'four_fifth');
-
-function four_fifth_last( $atts, $content = null ) {
-   return '<div class="four_fifth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>';
-}
-add_shortcode('four_fifth_last', 'four_fifth_last');
-
-
-	//Download Button Shortcode
-	
-function button( $atts, $content = null ) {
-    extract(shortcode_atts(array(
-    'link'	=> '#',
-    'target'	=> '',
-    'variation'	=> '',
-    'size'	=> '',
-    'align'	=> '',
-    ), $atts));
-
-	$style = ($variation) ? ' '.$variation. '_gradient' : '';
-	$align = ($align) ? ' align'.$align : '';
-	$size = ($size == 'large') ? ' large_button' : '';
-	$target = ($target == 'blank') ? ' target="_blank"' : '';
-
-	$out = '<a' .$target. ' class="button_link' .$style.$size.$align. '" href="' .$link. '"><span>' .do_shortcode($content). '</span></a>';
-
-    return $out;
-}
-
-
-add_shortcode('button', 'button');
-
-	//Slide Shortcode
-	
-	function slide($atts, $content = null) {
-	extract(shortcode_atts(array(
-		"title" => ''
-	), $atts));
-	return '<a class="slide">'.$title.'</a>
-
-'.$content.'
-
-';
-}
-add_shortcode('slide', 'slide');
-
 
 // Create custom post type for Slider
 
@@ -368,24 +210,41 @@ add_action( 'init', 'create_post_type' );
 
 function create_post_type() {
 
-	global $themename, $themeslug, $options;
+	global $themename, $themeslug, $options, $root;
 	
 	register_post_type( $themeslug.'_custom_slides',
 		array(
 			'labels' => array(
-				'name' => __( 'Custom Slides' ),
+				'name' => __( 'iFeature Slides' ),
 				'singular_name' => __( 'Slides' )
 			),
 			'public' => true,
 			'show_ui' => true, 
-			'supports' => array('title', 'editor','custom-fields'),
+			'supports' => array('custom-fields', 'title'),
 			'taxonomies' => array( 'slide_categories'),
 			'has_archive' => true,
+			'menu_icon' => "$root/images/pro/favicon.ico",
 			'rewrite' => array('slug' => 'slides')
 		)
 	);
-}
+	
+	register_post_type( $themeslug.'_featured_posts',
+		array(
+			'labels' => array(
+				'name' => __( 'Carousel' ),
+				'singular_name' => __( 'Posts' )
+			),
+			'public' => true,
+			'show_ui' => true, 
+			'supports' => array('custom-fields'),
+			'taxonomies' => array( 'carousel_categories'),
+			'has_archive' => true,
+			'menu_icon' => "$root/images/pro/favicon.ico",
+			'rewrite' => array('slug' => 'slides')
+		)
+	);
 
+}
 
 // Register custom category taxonomy for Slider
 
@@ -403,6 +262,17 @@ function custom_taxonomies() {
 			'rewrite' => array( 'slug' => 'slide_categories' ),	
 		)
 	);
+	
+	register_taxonomy(
+		'carousel_categories',		
+		$themeslug.'_carousel_categories',		
+		array(
+			'hierarchical' => true,
+			'label' => 'Carousel Categories',	
+			'query_var' => true,	
+			'rewrite' => array( 'slug' => 'carousel_categories' ),	
+		)
+	);
 }
 
 add_action('init', 'custom_taxonomies', 0);
@@ -417,7 +287,7 @@ function custom_taxonomy_default( $post_id, $post ) {
 
 		$defaults = array(
 
-			'slide_categories' => array( 'default' ),
+			'slide_categories' => array( 'default' ), 'carousel_categories' => array( 'default' ),
 
 			);
 
@@ -441,12 +311,27 @@ function custom_taxonomy_default( $post_id, $post ) {
 
 add_action( 'save_post', 'custom_taxonomy_default', 100, 2 );
 
+// Menu JS
+
+function menu_script(){
+	
+	$path =  get_template_directory_uri() ."/core/library/js";
+
+	$script = "
+		
+		<script type=\"text/javascript\" src=\"".$path."/menu.js\"></script>
+		";
+	
+	echo $script;
+}
+add_action('wp_footer', 'menu_script');
+
 
 // Nivo Slider 
 
 function nivoslider(){
 	 
-	$path =  get_template_directory_uri() ."/library/ns";
+	$path =  get_template_directory_uri() ."/core/library/ns";
 
 	$script = "
 		
@@ -457,11 +342,28 @@ function nivoslider(){
 }
 add_action('wp_head', 'nivoslider');
 
+// Carousel Javascript
+
+function carousel(){
+	 
+	$path =  get_template_directory_uri() ."/core/library/js";
+
+	$script = "
+		
+		<script type=\"text/javascript\" src=\"".$path."/captify.tiny.js\"></script>
+		<script type=\"text/javascript\" src=\"".$path."/jcarousellite_1.0.1.pack.js\"></script>
+		";
+	
+	echo $script;
+}
+add_action('wp_head', 'carousel');
+
+
 // + 1 Button 
 
 function plusone(){
 	
-	$path =  get_template_directory_uri() ."/library/js";
+	$path =  get_template_directory_uri() ."/core/library/js";
 
 	$script = "
 		
@@ -472,38 +374,36 @@ function plusone(){
 }
 add_action('wp_head', 'plusone');
 
+// Typekit
 
-	// Register superfish scripts
+function typekit_support() {
+	global $themename, $themeslug, $options;
 	
-function business_add_scripts() {
- 
-    if (!is_admin()) { // Add the scripts, but not to the wp-admin section.
-    // Adjust the below path to where scripts dir is, if you must.
-    $scriptdir = get_template_directory_uri() ."/library/sf/";
- 
-    // Register the Superfish javascript file
-    wp_register_script( 'superfish', $scriptdir.'sf.js', false, '1.4.8');
-    wp_register_script( 'sf-menu', $scriptdir.'sf-menu.js');
-    // Now the superfish CSS
-   
-    //load the scripts and style.
-	wp_enqueue_style('superfish-css');
-    wp_enqueue_script('superfish');
-    wp_enqueue_script('sf-menu');
-    } // end the !is_admin function
-} //end add_our_scripts function
- 
-//Add our function to the wp_head. You can also use wp_print_scripts.
-add_action( 'wp_head', 'business_add_scripts',0);
+	$embed = $options->get($themeslug.'_typekit');
+	
+	echo stripslashes($embed);
+
+}
+add_action('wp_head', 'typekit_support');
+	
+// Load jQuery
+function if_jquery() {
+	if ( !is_admin() ) {
+	   wp_deregister_script('jquery');
+	   wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"), false);
+	   wp_enqueue_script('jquery');
+	}
+}
+add_action('wp_enqueue_scripts', 'if_jquery');	
 	
 	// Register menu names
 	
-	function register_business_menus() {
+	function register_menus() {
 	register_nav_menus(
-	array( 'header-menu' => __( 'Header Menu' ))
+	array( 'header-menu' => __( 'Header Menu' ), 'footer-menu' => __( 'Footer Menu' ))
   );
 }
-	add_action( 'init', 'register_business_menus' );
+	add_action( 'init', 'register_menus' );
 	
 	// Menu fallback
 	
@@ -511,98 +411,105 @@ add_action( 'wp_head', 'business_add_scripts',0);
 	global $post; ?>
 	
 	<ul id="menu-nav" class="sf-menu">
-	<?php wp_list_pages( 'title_li=&sort_column=menu_order&depth=3'); ?>
+		<?php wp_list_pages( 'title_li=&sort_column=menu_order&depth=3'); ?>
 	</ul><?php
 }
 
-function business_sidebars() {
-
-    	register_sidebar(array(
-    		'name' => 'Sidebar Widgets',
-    		'id'   => 'sidebar-widgets',
-    		'description'   => 'These are widgets for the sidebar.',
-    		'before_widget' => '<div id="%1$s" class="sidebar-widget-style">',
-    		'after_widget'  => '</div>',
-    		'before_title'  => '<h2 class="sidebar-widget-title">',
-    		'after_title'   => '</h2>'
-    	));
+function ifp_widgets_init() {
+    register_sidebar(array(
+    	'name' => 'Sidebar Widgets',
+    	'id'   => 'sidebar-widgets',
+    	'description'   => 'These are widgets for the sidebar.',
+    	'before_widget' => '<div id="%1$s" class="widget-container">',
+    	'after_widget'  => '</div>',
+    	'before_title'  => '<h2 class="widget-title">',
+    	'after_title'   => '</h2>'
+    ));
+    register_sidebar(array(
+    	'name' => 'Sidebar Left',
+    	'id'   => 'sidebar-left',
+    	'description'   => 'These are widgets for the left sidebar.',
+    	'before_widget' => '<div id="%1$s" class="widget-container">',
+    	'after_widget'  => '</div>',
+    	'before_title'  => '<h2 class="widget-title">',
+    	'after_title'   => '</h2>'
+    ));    	
+    register_sidebar(array(
+    	'name' => 'Sidebar Right',
+    	'id'   => 'sidebar-right',
+    	'description'   => 'These are widgets for the right sidebar.',
+    	'before_widget' => '<div id="%1$s" class="widget-container">',
+    	'after_widget'  => '</div>',
+    	'before_title'  => '<h2 class="widget-title">',
+    	'after_title'   => '</h2>'
+   	));
     	
-    	register_sidebar(array(
-    		'name' => 'Sidebar Left',
-    		'id'   => 'sidebar-left',
-    		'description'   => 'These are widgets for the left sidebar.',
-    		'before_widget' => '<div id="%1$s" class="sidebar-left-widget-style">',
-    		'after_widget'  => '</div>',
-    		'before_title'  => '<h2 class="sidebar-left-widget-title">',
-    		'after_title'   => '</h2>'
-    	));
-    	
-    	  
-    	register_sidebar(array(
-    		'name' => 'Sidebar Right',
-    		'id'   => 'sidebar-right',
-    		'description'   => 'These are widgets for the right sidebar.',
-    		'before_widget' => '<div id="%1$s" class="sidebar-right-widget-style">',
-    		'after_widget'  => '</div>',
-    		'before_title'  => '<h2 class="sidebar-right-widget-title">',
-    		'after_title'   => '</h2>'
-    	));
-    	
-    	
-	register_sidebar(array(
-	'name' => 'Box Left',
-	'description'   => 'These are widgets for the left box.',
-	'before_widget' => '<div class="box1">',
-	'after_widget' => '</div>',
-	'before_title' => '<h3 class="box-widget-title">',
-	'after_title' => '</h3>',
+    register_sidebar(array(
+		'name' => 'Box Left',
+		'id' => 'box-left',
+		'description' => 'This is the left widget of the three-box section',
+		'before_widget' => '<div class="box1">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="box-widget-title">',
+		'after_title' => '</h3>',
 	));
-	
 	register_sidebar(array(
-	'name' => 'Box Middle',
-	'description'   => 'These are widgets for the middle box.',
-	'before_widget' => '<div class="box2">',
-	'after_widget' => '</div>',
-	'before_title' => '<h3 class="box-widget-title">',
-	'after_title' => '</h3>',
+		'name' => 'Box Middle',
+		'id' => 'box-middle',
+		'description' => 'This is the middle widget of the three-box section',
+		'before_widget' => '<div class="box2">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="box-widget-title">',
+		'after_title' => '</h3>',
 	));
-	
 	register_sidebar(array(
-	'name' => 'Box Right',
-	'description'   => 'These are widgets for the right box.',
-	'before_widget' => '<div class="box3">',
-	'after_widget' => '</div>',
-	'before_title' => '<h3 class="box-widget-title">',
-	'after_title' => '</h3>',
+		'name' => 'Box Right',
+		'id' => 'box-right',
+		'description' => 'This is the right widget of the three-box section',
+		'before_widget' => '<div class="box3">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="box-widget-title">',
+		'after_title' => '</h3>',
 	));
-
 	register_sidebar(array(
-	'name' => 'Footer',
-	'description'   => 'These are widgets for the footer.',
-	'before_widget' => '<div class="footer-widgets">',
-	'after_widget' => '</div>',
-	'before_title' => '<h3 class="footer-widget-title">',
-	'after_title' => '</h3>',
+		'name' => 'Footer',
+		'id' => 'footer-widgets',
+		'description' => 'These are the footer widgets',
+		'before_widget' => '<div class="grid_3 footer-widgets">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="footer-widget-title">',
+		'after_title' => '</h3>',
 	));
-	
 }
-add_action( 'widgets_init', 'business_sidebars' );	
+add_action ('widgets_init', 'ifp_widgets_init');
 
-function business_admin_link() {
+//Add link to theme settings in Admin bar
+
+function admin_link() {
 
 	global $wp_admin_bar;
 
-	$wp_admin_bar->add_menu( array( 'id' => 'Business Pro', 'title' => 'Business Pro Options', 'href' => admin_url('themes.php?page=theme_options')  ) ); 
+	$wp_admin_bar->add_menu( array( 'id' => 'iFeature', 'title' => 'iFeature Pro Options', 'href' => admin_url('themes.php?page=ifeature')  ) ); 
   
 }
-add_action( 'admin_bar_menu', 'business_admin_link', 113 );
-	
-    
+add_action( 'admin_bar_menu', 'admin_link', 113 );
 
-	//Business Pro options file
-	
-require_once ( get_template_directory() . '/library/options/options-core.php' );
-require_once ( get_template_directory() . '/library/options/options-themes.php' );
-require_once ( get_template_directory() . '/pro/meta-box.php' );
-require_once ( get_template_directory() . '/inc/update.php' );
+//Set content width
+
+if ( ! isset( $content_width ) ) $content_width = 608;
+
+//hooks
+
+require_once ( get_template_directory() . '/core/core-init.php' );
+
+do_action('chimps_init');
+
+// Call additional template files
+require_once ( get_template_directory() . '/inc/classy-options-init.php' );
+require_once ( get_template_directory() . '/inc/options-functions.php' );
+require_once ( get_template_directory() . '/inc/meta-box.php' );	
+require_once ( get_template_directory() . '/inc/update.php' ); // Include automatic updater
+require_once ( get_template_directory() . '/inc/theme-hooks.php' ); // Include automatic updater
+require_once ( get_template_directory() . '/inc/theme-actions.php' ); // Include automatic updater
+
 ?>

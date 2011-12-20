@@ -3,102 +3,103 @@
  /*
 	Index
 	
-	Creates the Business Pro default index page.
+	Creates the iFeature default index page.
 	
 	Copyright (C) 2011 CyberChimps
 */
 
-/* Call globals. */	
-
-	global $themename, $themeslug, $options;
-
-/* End globals. */	
-
-/* Define Variables. */	
-
-	$hideslider = $options[$themeslug.'_hide_slider_blog'];
-	$blogsidebar = $options[$themeslug.'_blog_sidebar'];
-	$blogslidersize = $options[$themeslug.'_slider_size'];
-	$title = get_post_meta($post->ID, 'seo_title' , true);
-	$pagedescription = get_post_meta($post->ID, 'seo_description' , true);
-	$keywords = get_post_meta($post->ID, 'seo_keywords' , true);
-	$enable = get_post_meta($post->ID, 'page_enable_slider' , true);
-	$size = get_post_meta($post->ID, 'page_slider_size' , true);
-	$hidetitle = get_post_meta($post->ID, 'hide_page_title' , true);
+	global $options, $themeslug, $post; // call globals
+	
+	$blogsidebar = $options->get($themeslug.'_blog_sidebar');
 	$sidebar = get_post_meta($post->ID, 'page_sidebar' , true);
+	
+	if ($sidebar == "1" OR $sidebar == "2" OR $blogsidebar == 'two-right' OR $blogsidebar == 'right-left' ) {
+		$content_grid = 'grid_6';
+	}
+	
+	elseif ($sidebar == "3" OR $blogsidebar == 'none' ) {
+		$content_grid = 'grid_12';
+	}
+	
+	else {
+		$content_grid = 'grid_8';
+	}
 
 ?>
 
 <?php get_header(); ?>
 
-<div id="content_wrap">
-		
-<?php if ($options[$themeslug.'_hide_slider_blog'] != '1' && $blogslidersize == "full"): ?>
-		<div id = "slider-wrapper">
-			<?php get_template_part('sliderblog', 'index' ); ?>
-		</div>
-	<?php endif;?>
-		
-	<?php if ($sidebar == "4" OR $blogsidebar == 'none'): ?>
-		<div id="content_fullwidth">
-	<?php endif;?>
-	
-	<?php if ($sidebar == "1" OR $blogsidebar == "right"): ?>
-		<div id="content_left">
-	<?php endif;?>
-	
-	<?php if ($sidebar == '' AND $blogsidebar == ''): ?>
-		<div id="content_left">
-	<?php endif;?>
-	
-	<?php if ($sidebar == "3" OR $blogsidebar == 'right-left' ): ?>
-		<?php get_sidebar('left'); ?>
-		<?php get_sidebar('right'); ?>
-	<?php endif;?>
-	
-	<?php if ($sidebar == "2"  OR $sidebar == "3" OR $blogsidebar == "two-right" OR $blogsidebar == "right-left"): ?>
-		<?php get_sidebar('right'); ?>
-		<div class="content_half">
-	<?php endif;?>
-	
-	<?php if ($options[$themeslug.'_hide_slider_blog'] != '1' && $blogslidersize != "full"): ?>
-		<div id = "slider-wrapper">
-			<?php get_template_part('sliderblog', 'page' ); ?>
-		</div>
-	<?php endif;?>
+<div class="container_12">
 
-	
-		<div class="content_padding">
+
+		<?php chimps_index_carousel_section() ?>	
+
+
+	<!--Begin @Core index entry hook-->
+		<?php chimps_index_before_entry(); ?>
+	<!--End @Core index entry hook-->
+
+		<div id="content" class="<?php echo $content_grid; ?>">
 		
+		<!--Begin @Core index entry hook-->
+		<?php chimps_index_entry(); ?>
+		<!--End @Core index entry hook-->
+
+
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 			
-				<!--Call the Loop-->
-			<?php get_template_part('loop', 'index' ); ?>
-		<?php endwhile; ?>
-
-		<?php get_template_part('pagination', 'index' ); ?>
-
-		<?php else : ?>
-
-			<h2>Not Found</h2>
-
-		<?php endif; ?>
-		</div> <!--end content_padding-->
-	</div> <!--end content_left-->
-
-	<?php if ($sidebar == '' AND $blogsidebar == ''): ?>
-	<?php get_sidebar(); ?>
-	<?php endif;?>
+			<div class="post_container">
+				<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
+		
+				<!--Begin @Core index loop hook-->
+					<?php chimps_index_loop(); ?>
+				<!--End @Core index loop hook-->	
+			
+				<!--Begin @Core link pages hook-->
+					<?php chimps_link_pages(); ?>
+				<!--End @Core link pages hook-->
+			
+				<!--Begin @Core post edit link hook-->
+					<?php chimps_edit_link(); ?>
+				<!--End @Core post edit link hook-->
+			
+				<!--Begin @Core FB like hook-->
+					<?php ifeature_fb_like_plus_one(); ?>
+				<!--End @Core FB like hook-->
+			
+				<!--Begin @Core post tags hook-->
+					<?php chimps_post_tags(); ?>
+				<!--End @Core post tags hook-->
+			
+				<!--Begin @iFeature post bar hook-->
+					<?php ifeature_post_bar(); ?>
+				<!--End @iFeature post bar hook-->
+			
+				</div><!--end post_class-->	
+		</div><!--end post container--> 
 	
-	<?php if ($sidebar == "1" OR $blogsidebar == 'right' ): ?>
-	<?php get_sidebar(); ?>
-	<?php endif;?>
-	<?php if ($sidebar == "2" OR $blogsidebar == 'two-right' ): ?>
-	<?php get_sidebar('left'); ?>
-	<?php endif;?>
+			<?php endwhile; ?>
+		
+			<?php else : ?>
+
+				<h2>Not Found</h2>
+
+			<?php endif; ?>
+			
+				<!--Begin @Core pagination hook-->
+			<?php chimps_pagination(); ?>
+			<!--End @Core pagination loop hook-->
+		
+		</div><!--end content-->
+
+	<!--Begin @Core index after entry hook-->
+	<?php chimps_index_after_entry(); ?>
+	<!--End @Core index after entry hook-->
 
 	
-</div><!--end content_wrap-->
-<div style="clear:both;"></div>
+
+</div><!--end container_12-->
+
+<div class='clear'>&nbsp;</div>
 
 <?php get_footer(); ?>
