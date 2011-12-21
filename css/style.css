@@ -63,13 +63,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', end
 	background: url(../images/noise.png);
 	height: 25px;
 	padding-top: 5px;
-	margin-bottom: 25px;
 	width: 100%;
-	border-bottom: 2px solid #ccc;
+	border-bottom: 2px solid #aaa;
+
 }
 
 
-#logo {margin-bottom: 5px;}
+#logo {margin-bottom: 10px;}
 
 /* Social Icons  */
 

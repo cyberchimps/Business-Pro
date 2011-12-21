@@ -83,12 +83,14 @@
 	<div class='clear'>&nbsp;</div>
 </div>
 
-<div id="headbar">	
-
-
-
-
-	<?php chimps_page_slider(); ?> 
+<div id="globalsliderwrap">	
+	<div class="container_12">	
+		<div class="grid_12">
+			<?php chimps_page_slider(); ?> 
+		</div>
+	</div>
+	<div class='clear'>&nbsp;</div>
+</div>
 
 
 
