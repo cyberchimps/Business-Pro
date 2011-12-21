@@ -24,12 +24,8 @@
 
 /* End define global variables. */
 
-/* Set slider hook based on page option */
-if ($size == "0") {
-	add_action ('chimps_page_slider', 'chimps_page_slider_content' );
-}
-
 if (preg_match("/page_slider/", $page_section_order ) && $size == "1" ) {
+	remove_action ('chimps_page_slider', 'chimps_page_slider_content' );
 	add_action ('chimps_page_content_slider', 'chimps_page_slider_content' );
 }
 /* End set slider hook*/

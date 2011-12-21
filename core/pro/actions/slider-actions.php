@@ -21,6 +21,8 @@
 
 add_action ('chimps_blog_slider', 'chimps_blog_slider_content' );
 
+add_action ('chimps_page_slider', 'chimps_page_slider_content' );
+
 /**
 * Extend slider functions
 */
