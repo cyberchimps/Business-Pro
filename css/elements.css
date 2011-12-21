@@ -89,8 +89,8 @@
 /* Custom Slider Styles */
 
 #globalsliderwrap {
-	background: #ccc;	
-	padding-top: 15px;
+	background: url(../images/fake_brick.png);	
+	padding-top: 20px;
 	margin-bottom: 25px;
 	width: 100%;
 	border-bottom: 2px solid #aaa;
@@ -101,7 +101,8 @@
     margin: auto;
     margin-bottom: 50px;
     height: 380px;
-	background: #ccc;
+	background: transparent;
+	box-shadow:0 0 5px #000;
 }
 
 .slider_nav {
@@ -139,7 +140,6 @@
 	position:relative;
     margin:auto;
 	background: #fff url(../images/slider/loading.gif) no-repeat 50% 50%;
-	border-bottom: 1px solid #bbb;
 }
 
 #slider img {
