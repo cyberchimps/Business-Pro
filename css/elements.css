@@ -120,7 +120,6 @@ background: -o-linear-gradient(top,  #45484d 0%,#000000 100%); /* Opera 11.10+ *
 background: -ms-linear-gradient(top,  #45484d 0%,#000000 100%); /* IE10+ */
 background: linear-gradient(top,  #45484d 0%,#000000 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
-
 }
 
 .nivo-controlNav {

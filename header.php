@@ -80,7 +80,15 @@
 			<?php get_search_form(); ?>
 		</div>
 	</div>
+	<div class='clear'>&nbsp;</div>
 </div>
+
+<div id="headbar">	
+
+
+
+
+	<?php chimps_page_slider(); ?> 
 
 
 
