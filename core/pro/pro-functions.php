@@ -1,6 +1,6 @@
 <?php
 /**
-* CyberChimps Core Framework Pro Extension functions
+* CyberChimps Synapse Core Framework Pro Extension functions
 *
 * Author: Tyler Cunningham
 * Copyright: © 2011
@@ -11,7 +11,7 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package Extend
+* @package Pro
 * @since 1.0
 */
 

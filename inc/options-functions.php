@@ -1,11 +1,18 @@
 <?php
-/* 
-	Options	Functions
-	Author: Tyler Cuningham
-	Establishes the theme options functions.
-	Copyright (C) 2011 CyberChimps
-	Version 2.0
-	
+/**
+* Functions related to the iFeature Theme Options.
+*
+* Author: Tyler Cunningham
+* Copyright: © 2011
+* {@link http://cyberchimps.com/ CyberChimps LLC}
+*
+* Released under the terms of the GNU General Public License.
+* You should have received a copy of the GNU General Public License,
+* along with this software. In the main directory, see: /licensing/
+* If not, see: {@link http://www.gnu.org/licenses/}.
+*
+* @package iFeature
+* @since 3.1
 */
 
 /* Widget Title Background*/
@@ -122,30 +129,13 @@ function background_option() {
 }
 add_action( 'wp_head', 'background_option');
 
-/* Disable breadcrumbs*/
- 
-function disable_breadcrumbs() {
-
-	global $options, $themeslug;
-	$root = get_template_directory_uri();
-	
-	if ($options->get($themeslug.'_disable_breadcrumbs') != "1") {
-		
-		echo '<style type="text/css">';
-		echo "#crumbs {display: none;}";
-		echo '</style>';
-
-	}
-}
-add_action( 'wp_head', 'disable_breadcrumbs');
-
 /* Plus 1 Allignment */
 
 function plusone_alignment() {
 
 	global $themename, $themeslug, $options;
 	
-	if ($options->get($themeslug.'_show_fb_like') == "1" AND $options->get($themeslug.'_show_gplus') == "1" ) {
+	if ($options->get($themeslug.'_show_fb_like') == "1" AND $options->get($themeslug.'_show_gplus') == "1" OR $options->get($themeslug.'_single_show_fb_like') == "1" AND $options->get($themeslug.'_single_show_gplus') == "1" ) {
 
 		echo '<style type="text/css">';
 		echo ".gplusone {float: right; margin-right: -38px;}";
@@ -271,7 +261,7 @@ function add_menu_color() {
 
 	global $themename, $themeslug, $options;
 
-	if ($options->get($themeslug.'_custom_menu_color') != '') {
+	if ($options->get($themeslug.'_custom_menu_color') != '' && $options->get($themeslug.'_custom_menu_color_toggle') != '0') {
 		$color = $options->get($themeslug.'_custom_menu_color'); 
 	
 
@@ -281,8 +271,6 @@ function add_menu_color() {
 	}
 }
 add_action( 'wp_head', 'add_menu_color');
-
-
 
 /* Menu Link Color */
 
@@ -294,7 +282,7 @@ function add_menulink_color() {
 		$sitelink = '#FFFFFF';
 	}
 	
-	else{ 
+	elseif ($options->get($themeslug.'_custom_menu_color_toggle') == '1'){ 
 		$sitelink = $options->get($themeslug.'_menulink_color'); 
 	}	
 		
@@ -303,6 +291,60 @@ function add_menulink_color() {
 		echo '</style>';
 }
 add_action( 'wp_head', 'add_menulink_color');
+
+/* Menu Dropdown Color */
+
+function add_menu_dropdown_color() {
+
+	global $themename, $themeslug, $options;
+
+	if (!$options->get($themeslug.'_custom_dropdown_color')) {
+		$dropdown = '#555';
+	}
+	
+	elseif ($options->get($themeslug.'_custom_menu_color_toggle') == '1'){ 
+		$dropdown = $options->get($themeslug.'_custom_dropdown_color'); 
+	}	
+		
+		echo '<style type="text/css">';
+		echo "#nav li ul a {background: $dropdown;}";
+		echo '</style>';
+}
+add_action( 'wp_head', 'add_menu_dropdown_color');
+
+/* Menu Hover Color */
+
+function add_menu_hover_color() {
+
+	global $themename, $themeslug, $options;
+
+	if (!$options->get($themeslug.'_menu_hover_color')) {
+		$hover = '#444';
+	}
+	
+	elseif ($options->get($themeslug.'_custom_menu_color_toggle') == '1'){ 
+		$hover = $options->get($themeslug.'_menu_hover_color'); 
+	}	
+		
+		echo '<style type="text/css">';
+		echo "#nav ul li a:hover {background: $hover;}";
+		echo '</style>';
+}
+add_action( 'wp_head', 'add_menu_hover_color');
+
+/* Corners */
+
+function menu_rounded_corners() {
+
+	global $themename, $themeslug, $options;
+
+	if ($options->get($themeslug.'_menu_corners') == '0') {
+		echo '<style type="text/css">';
+		echo "#imenu {-webkit-border-radius: 0px;border-radius: 0px;}";
+		echo '</style>';
+	}
+}
+add_action( 'wp_head', 'menu_rounded_corners');
 
 /* Tagline Color */
 

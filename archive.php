@@ -7,37 +7,49 @@
 	Version 2.0
 */
 
+	global $options, $themeslug, $post, $content_grid; // call globals
+	
 /* Header call. */
 
+	synapse_sidebar_init();
 	get_header(); 
 	
 /* End header. */
 
 ?>
 
-<div class="container_12">
+<div class="container">
+	<div class="row">
+		<?php if (function_exists('synapse_breadcrumbs') && ($options->get($themeslug.'_disable_breadcrumbs') == "1")) { synapse_breadcrumbs(); }?>
+	</div>
+	<div class="row">
+	<?php if (have_posts()) : ?>
+		
+			<!--Begin @synapse archive hook-->
+			<?php synapse_archive_title(); ?>
+			<!--End @synapse archive hook-->
 
-	<div id="main">
+	<!--Begin @synapse before content sidebar hook-->
+		<?php synapse_before_content_sidebar(); ?>
+	<!--End @synapse before content sidebar hook-->
 	
-		<div id="content" class="grid_8">
+		<div id="content" class="<?php echo $content_grid; ?>">
 		
-		<?php if (function_exists('chimps_breadcrumbs')) chimps_breadcrumbs(); ?>
-		
-		<!--Begin @Core before_archive hook-->
-			<?php chimps_before_archive(); ?>
-		<!--End @Core before_archive hook-->
-		
-		<?php if (have_posts()) : ?>
-		
-			<!--Begin @Core archive hook-->
-			<?php chimps_archive_title(); ?>
-			<!--End @Core archive hook-->
+		<!--Begin @synapse before_archive hook-->
+			<?php synapse_before_archive(); ?>
+		<!--End @synapse before_archive hook-->
 		
 		<?php while (have_posts()) : the_post(); ?>
 		
-			<!--Begin @Core archive hook-->
-				<?php chimps_archive(); ?>
-			<!--End @Core archive hook-->
+		<div class="post_container">
+			<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
+		
+			<!--Begin @synapse archive hook-->
+				<?php synapse_loop(); ?>
+			<!--End @synapse archive hook-->
+			
+			</div><!--end post_class-->	
+		</div><!--end post container--> 
 		
 		 <?php endwhile; ?>
 	 
@@ -47,26 +59,22 @@
 
 	<?php endif; ?>
 
-		<!--Begin @Core pagination hook-->
-			<?php chimps_pagination(); ?>
-		<!--End @Core pagination hook-->
+		<!--Begin @synapse pagination hook-->
+			<?php synapse_pagination(); ?>
+		<!--End @synapse pagination hook-->
 		
-		<!--Begin @Core after_archive hook-->
-			<?php chimps_after_archive(); ?>
-		<!--End @Core after_archive hook-->
+		<!--Begin @synapse after_archive hook-->
+			<?php synapse_after_archive(); ?>
+		<!--End @synapse after_archive hook-->
 	
 		</div><!--end content_padding-->
-		
 
-
-		<div id="sidebar" class="grid_4">
-				<?php get_sidebar(); ?>
-		</div>
+	<!--Begin @synapse after content sidebar hook-->
+		<?php synapse_after_content_sidebar(); ?>
+	<!--End @synapse after content sidebar hook-->
 	
-</div><!--end content_wrap-->
-
-	</div><!--end content_left-->
-
-<div class='clear'>&nbsp;</div>
+		</div><!--end content-->
+	</div><!--end row-->
+</div><!--end container-->
 
 <?php get_footer(); ?>

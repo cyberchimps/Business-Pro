@@ -1,6 +1,6 @@
 <?php
 /**
-* Callout actions used by the CyberChimps Core Framework Pro Extension
+* Callout section actions used by the CyberChimps Synapse Core Framework Pro Extension
 *
 * Author: Tyler Cunningham
 * Copyright: © 2011
@@ -18,88 +18,104 @@
 /**
 * Pro callout actions
 */
-add_action ( 'chimps_callout_section', 'chimps_callout_section_content' );
+add_action ( 'synapse_callout_section', 'synapse_callout_section_content' );
 
 /**
 * Retrieves the Callout Section options and sets up the HTML
 *
 * @since 1.0
 */
-function chimps_callout_section_content() {
+function synapse_callout_section_content() {
 
 	global $options, $themeslug, $post; //call globals
+	$root = get_template_directory_uri();  
 
 /* Define variables. */	
 
-	$root = get_template_directory_uri();  
-	$callout = get_post_meta($post->ID, 'enable_callout_section' , true);
-	$calloutbgcolor = get_post_meta($post->ID, 'callout_background_color' , true);
-	$bcolor = get_post_meta($post->ID, 'custom_callout_button_color' , true);
-	$tcolor = get_post_meta($post->ID, 'custom_callout_text_color' , true);
-	$ticolor = get_post_meta($post->ID, 'custom_callout_title_color' , true);
-	$title = get_post_meta($post->ID, 'callout_title' , true);
-	$text = get_post_meta($post->ID, 'callout_text' , true);
-	$btext = get_post_meta($post->ID, 'callout_button_text' , true);
-	$link = get_post_meta($post->ID, 'callout_url' , true);
-	$image = get_post_meta($post->ID, 'callout_image' , true);
-	$hidebutton = get_post_meta($post->ID, 'disable_callout_button' , true);
-	$customcalloutbgcolor = get_post_meta($post->ID, 'custom_callout_color' , true);
-	
-	if ($hidebutton != "on") {
-		$grid = 'grid_9';
+	if (is_page()) {
+		$callout = get_post_meta($post->ID, 'enable_callout_section' , true);
+		$calloutbgcolor = get_post_meta($post->ID, 'callout_background_color' , true);
+		$bcolor = get_post_meta($post->ID, 'custom_callout_button_color' , true);
+		$btcolor = get_post_meta($post->ID, 'custom_callout_button_text_color' , true);
+		$tcolor = get_post_meta($post->ID, 'custom_callout_text_color' , true);
+		$ticolor = get_post_meta($post->ID, 'custom_callout_title_color' , true);
+		$title = get_post_meta($post->ID, 'callout_title' , true);
+		$text = get_post_meta($post->ID, 'callout_text' , true);
+		$btext = get_post_meta($post->ID, 'callout_button_text' , true);
+		$link = get_post_meta($post->ID, 'callout_url' , true);
+		$image = get_post_meta($post->ID, 'callout_image' , true);
+		$hidebutton = get_post_meta($post->ID, 'disable_callout_button' , true);
+		$customcalloutbgcolor = get_post_meta($post->ID, 'custom_callout_color' , true);
 	}
 	
+	if (is_front_page()) {
+		$calloutbgcolor = $options->get($themeslug.'_blog_callout_bg_color');
+		$bcolor = $options->get($themeslug.'_blog_callout_button_color');
+		$btcolor = $options->get($themeslug.'_blog_callout_button_text_color');
+		$tcolor = $options->get($themeslug.'_blog_callout_text_color');
+		$ticolor = $options->get($themeslug.'_blog_callout_title_color');
+		$title = $options->get($themeslug.'_blog_callout_title');
+		$text = $options->get($themeslug.'_blog_callout_text');
+		$btext = $options->get($themeslug.'_blog_callout_button_text');
+		$link = $options->get($themeslug.'_blog_callout_button_url');
+		$image = $options->get($themeslug.'_blog_custom_callout_button');
+		$hidebutton = $options->get($themeslug.'_blog_callout_button');
+		$customcalloutbgcolor = $options->get($themeslug.'_blog_callout_bg_color');
+	}
+	
+	if ($hidebutton == "on" OR $hidebutton == "1") {
+		$grid = 'eight columns';
+	}
 	else {
-		$grid = 'grid_12';
+		$grid = 'twelve columns';
 	}
 	
-
 /* End variable definition. */	
 
 /* Echo custom button color. */
 
 	if ($bcolor != "") {
-	
 		echo '<style type="text/css" media="screen">';
-		echo ".calloutbutton {background: $bcolor ;}";
+		echo "#calloutbutton {background: $bcolor ;}";
 		echo '</style>';
-	
 	}
 	
+/* End custom button color. */
 
+/* Echo custom button text color. */
+
+	if ($bcolor != "") {
+		echo '<style type="text/css" media="screen">';
+		echo "#calloutbutton a {color: $btcolor ;}";
+		echo '</style>';
+	}
+	
 /* End custom button color. */
 
 /* Echo custom text color. */
 
 	if ($tcolor != "") {
-	
 		echo '<style type="text/css" media="screen">';
-		echo ".callout_text {color: $tcolor ;}";
+		echo "#callout_text {color: $tcolor ;}";
 		echo '</style>';
-	
 	}
 	
 /* Echo custom title color. */
 
 	if ($ticolor != "") {
-	
 		echo '<style type="text/css" media="screen">';
 		echo ".callout_title {color: $ticolor ;}";
 		echo '</style>';
-	
 	}
-	
 
 /* End custom text color. */
 
 /* Echo background color CSS. */	
 
 	if ($customcalloutbgcolor != ''){
-	
 		echo '<style type="text/css" media="screen">';
 		echo "#calloutwrap {background: $customcalloutbgcolor ;}";
 		echo '</style>';
-	
 	}
 		
 /* End CSS. */	
@@ -109,7 +125,6 @@ function chimps_callout_section_content() {
 	if ($title == '') {
 		$callouttitle = 'This is the Callout Section';
 	}
-
 	else {
 		$callouttitle = $title;
 	}
@@ -119,9 +134,8 @@ function chimps_callout_section_content() {
 /* Define Callout text. */	
 
 	if ($text == '') {
-		$callouttext = 'CyberChimps gives you the tools to turn WordPress into a modern feature rich Content Management System (CMS)';
+		$callouttext = 'Cybersynapse gives you the tools to turn WordPress into a modern feature rich Content Management System (CMS)';
 	}
-
 	else {
 		$callouttext = $text;
 	}
@@ -133,7 +147,6 @@ function chimps_callout_section_content() {
 	if ($btext == '') {
 		$calloutbuttontext = 'Buy Now';
 	}
-
 	else {
 		$calloutbuttontext = $btext;
 	}
@@ -151,9 +164,8 @@ function chimps_callout_section_content() {
 /* Define Callout button link. */
 
 	if ($link == '') {
-		$calloutlink = 'http://cyberchimps.com';
+		$calloutlink = 'http://cybersynapse.com';
 	}
-
 	else {
 		$calloutlink = $link;
 	}
@@ -161,33 +173,30 @@ function chimps_callout_section_content() {
 /* End define Callout button link. */	
 
 ?>
-
-<div id="calloutwrap"><!--id="calloutwrap"-->
+	<div class="row">
+	<div id="calloutwrap" class="twelve columns"><!--id="calloutwrap"-->
 
 	<div id="callout_text" class="<?php echo $grid; ?>">
-		<h2 class="callout_title"><?php echo $callouttitle ?></h2>
+		<h2 class="callout_title" ><?php echo $callouttitle ?></h2>
 		<p><?php echo $callouttext  ?></p>
 	</div>
 		
-<?php if ($image == '' && $hidebutton != 'on'): ?>
-	<div id="calloutbutton" class="grid_2">
+<?php if ($image == '' && $hidebutton == 'on' OR $image == '' && $hidebutton == '1'): ?>
+	<div id="calloutbutton" class="three columns">
 		<a href="<?php echo $calloutlink ?>"><?php echo $calloutbuttontext ;?></a>
 	</div>
 <?php endif;?>
 
 <?php if ($image != ''): ?>
-	<div id="calloutimg" class="grid_2">
+	<div id="calloutimg" class="three columns">
 		<a href="<?php echo $calloutlink ?>"><img src="<?php echo $image?>" alt="Callout" /></a>
 	</div>
 <?php endif;?>
 
-</div><!--end calloutwrap--><?php
-
+</div><!--end calloutwrap-->
+</div><?php
+	
 }
-
-
-
-add_shortcode ('callout', 'chimps_callout_section_content' );
 
 /**
 * End

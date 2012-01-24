@@ -1,6 +1,6 @@
 <?php
 /**
-* Initializes the CyberChimps Core Framework Pro Extension 
+* Initializes the CyberChimps Synapse Core Framework Pro Extension 
 *
 * Author: Tyler Cunningham
 * Copyright: © 2011
@@ -18,46 +18,53 @@
 /** 
 * Box Section
 */
-function chimps_box_section() {
-	do_action ('chimps_box_section');
+function synapse_box_section() {
+	do_action ('synapse_box_section');
 }
 
 /** 
 * Callout Section
 */
-function chimps_callout_section() {
-	do_action ('chimps_callout_section');
+function synapse_callout_section() {
+	do_action ('synapse_callout_section');
 }
 
 /** 
 * Carousel Section
 */
-function chimps_index_carousel_section() {
-	do_action ('chimps_index_carousel_section');
+function synapse_index_carousel_section() {
+	do_action ('synapse_index_carousel_section');
 }
 
-function chimps_carousel_section() {
-	do_action ('chimps_carousel_section');
+function synapse_carousel_section() {
+	do_action ('synapse_carousel_section');
 }
 
 /** 
 * Entry 
 */
-function chimps_index_before_entry() {
-	do_action('chimps_index_before_entry');
+function synapse_pro_before_entry() {
+	do_action('synapse_pro_before_entry');
+}
+
+function synapse_pro_entry() {
+	do_action('synapse_pro_entry');
 }
 
 /** 
 * Slider
 */
-function chimps_blog_slider() {
-	do_action ('chimps_blog_slider');
+function synapse_blog_slider() {
+	do_action ('synapse_blog_slider');
 }
-function chimps_page_slider() {
-	do_action ('chimps_page_slider');
+function synapse_blog_content_slider() {
+	do_action ('synapse_blog_content_slider');
 }
-function chimps_page_content_slider() {
-	do_action ('chimps_page_content_slider');
+function synapse_page_slider() {
+	do_action ('synapse_page_slider');
+}
+function synapse_page_content_slider() {
+	do_action ('synapse_page_content_slider');
 }
 
 /**

@@ -2,13 +2,24 @@ iFeature Pro Changelog
 
 ****************************
 
-Version 3.0.5 (12-13-11)
+Version 3.1.1 (01-08-12)
+-Called missing globals in page.php.
+-CSS fix related to page options.
+
+Version 3.1 (01-04-12)
 -Changes to CyberChimps Core Framework. 
+-Revised metabox code/styling. 
+-Removed border-left on OL comment lists.
+-Added Dutch, German, and Portuguese translation files. 
+-Added rel=me to social icon URLs.
+-Fix for comment pingbacks, moved custom comment function to Core functions file.
+-Fixed callout color options, added option for callout button text color. 
+-Breadcrumbs no longer blowing out pages with two sidebars, properly hiding breadcrumbs if disabled in options.
 -Additional visual tweaks for WordPress 3.3.
 -Moved menu JavaScript code. 
 -Removed extra localization function in theme functions file. 
 -Minor tweak to comments hook. 
--Minor HTML markup tweak.
+-Minor HTML markup tweaks.
 -Removed 404 image.
 -Fixed slider caption bug on index page. 
 -Fixed BBPress bug.

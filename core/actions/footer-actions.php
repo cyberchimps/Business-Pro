@@ -1,6 +1,6 @@
 <?php
 /**
-* Footer actions used by the CyberChimps Core Framework 
+* Footer actions used by the CyberChimps Synapse Core Framework
 *
 * Author: Tyler Cunningham
 * Copyright: © 2011
@@ -11,19 +11,19 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package Core
+* @package Synapse
 * @since 1.0
 */
 
 /**
-* Core footer actions
+* Synapse footer actions
 */
-add_action ( 'chimps_footer', 'chimps_footer_widgets' );
-add_action ( 'chimps_footer', 'chimps_analytics' );
+add_action ( 'synapse_footer', 'synapse_footer_widgets' );
+add_action ( 'synapse_footer', 'synapse_analytics' );
 
-add_action ( 'chimps_afterfooter', 'chimps_afterfooter_copyright' );
-add_action ( 'chimps_afterfooter', 'chimps_afterfooter_menu' );
-add_action ( 'chimps_afterfooter', 'chimps_afterfooter_credit' );
+add_action ( 'synapse_secondary_footer', 'synapse_secondary_footer_copyright' );
+add_action ( 'synapse_secondary_footer', 'synapse_secondary_footer_menu' );
+add_action ( 'synapse_secondary_footer', 'synapse_secondary_footer_credit' );
 
 
 /**
@@ -31,32 +31,32 @@ add_action ( 'chimps_afterfooter', 'chimps_afterfooter_credit' );
 *
 * @since 1.0
 */
-function chimps_footer_widgets() { 
+function synapse_footer_widgets() { 
 
    	if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Footer") ) { ?>
 		
-		<div class="grid_3 footer-widgets">
+		<div class="three columns footer-widgets">
 			<h3 class="footer-widget-title"><?php printf( __( 'Recent Posts', 'core' )); ?></h3>
 			<ul>
 				<?php wp_get_archives('type=postbypost&limit=4'); ?>
 			</ul>
 		</div>
 		
-		<div class="grid_3 footer-widgets">
+		<div class="three columns footer-widgets">
 			<h3 class="footer-widget-title"><?php printf( __( 'Archives', 'core' )); ?></h3>
 			<ul>
 				<?php wp_get_archives('type=monthly&limit=16'); ?>
 			</ul>
 		</div>
 
-		<div class="grid_3 footer-widgets">
+		<div class="three columns footer-widgets">
 			<h3 class="footer-widget-title"><?php printf( __( 'Links', 'core' )); ?></h3>
 			<ul>
 				<?php wp_list_bookmarks('categorize=0&title_li='); ?>
 			</ul>
 		</div>
 
-		<div class="grid_3 footer-widgets">
+		<div class="three columns footer-widgets">
 			<h3 class="footer-widget-title"><?php printf( __( 'WordPress', 'core' )); ?></h3>
 			<ul>
     		<?php wp_register(); ?>
@@ -76,7 +76,7 @@ function chimps_footer_widgets() {
 *
 * @since 1.0
 */
-function chimps_analytics() {
+function synapse_analytics() {
 	global $options, $themeslug; //call globals
 	
 	echo stripslashes ($options->get($themeslug.'_ga_code'));
@@ -87,7 +87,7 @@ function chimps_analytics() {
 *
 * @since 1.0
 */
-function chimps_afterfooter_copyright() {
+function synapse_secondary_footer_copyright() {
 	global $options, $themeslug; //call globals
 		
 	if ($options->get($themeslug.'_footer_text') == "") {
@@ -97,7 +97,7 @@ function chimps_afterfooter_copyright() {
 		$copyright = $options->get($themeslug.'_footer_text');
 	}
 	
-	echo "<div id='afterfootercopyright'>";
+	echo "<div id='afterfootercopyright' class='four columns'>";
 		echo "&copy; $copyright";
 	echo "</div>";
 }
@@ -107,8 +107,8 @@ function chimps_afterfooter_copyright() {
 *
 * @since 1.0
 */
-function chimps_afterfooter_menu() {
-	echo "<div id='afterfootermenu'>";
+function synapse_secondary_footer_menu() {
+	echo "<div id='afterfootermenu' class='four columns'>";
 	wp_nav_menu( array(
 		'theme_location' => 'footer-menu', 
 	)); 
@@ -116,14 +116,14 @@ function chimps_afterfooter_menu() {
 }
 
 /**
-* Adds the CyberChimps credit.
+* Adds the Cybersynapse credit.
 *
 * @since 1.0
 */
-function chimps_afterfooter_credit() { ?>
+function synapse_secondary_footer_credit() { ?>
 		
-	<div class="credit">
-		<a href="http://cyberchimps.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/achimps.png" alt="credit" /></a>
+	<div class="four columns credit">
+		<a href="http://cybersynapse.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/achimps.png" alt="credit" /></a>
 	</div> <?php 
 }
 /**

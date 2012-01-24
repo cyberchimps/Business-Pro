@@ -16,6 +16,8 @@
 	$themeslug = 'if';
 	$root = get_template_directory_uri(); 
 	$slider_default = "$root/images/ifeaturefree.jpg";
+	$pagedocs = 'http://cyberchimps.com/question/using-the-ifeature-pro-page-options/';
+	$sliderdocs = 'http://cyberchimps.com/question/how-to-use-the-ifeature-pro-3-slider/';
 	
 	
 //Redirect after activation
@@ -28,7 +30,7 @@ add_theme_support(
 	array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat')
 );
 
-//Gallery options 
+//Custom gallery post formating.  
 
 function custom_gallery_post_format( $content ) {
 global $options, $themeslug, $post;
@@ -84,31 +86,6 @@ ob_start();
 }
 
 add_filter('chimps_post_formats_gallery_content', 'custom_gallery_post_format' ); 
-	
-function mytheme_comment($comment, $args, $depth) {
-   $GLOBALS['comment'] = $comment; ?>
-   <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
-     <div id="comment-<?php comment_ID(); ?>">
-      <div class="comment-author vcard">
-         <?php echo get_avatar( $comment, 48 ); ?>
-
-         <?php printf(__('<cite class="fn">%s</cite> <span class="says"></span>'), get_comment_author_link()) ?>
-      </div>
-      <?php if ($comment->comment_approved == '0') : ?>
-         <em><?php _e('Your comment is awaiting moderation.') ?></em>
-         <br />
-      <?php endif; ?>
-
-      <div class="comment-meta commentmetadata"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'),'  ','') ?></div>
-
-      <?php comment_text() ?>
-
-      <div class="reply">
-         <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-      </div>
-     </div>
-<?php
-}
 	
 /* Begin custom excerpt functions. */	
 
@@ -174,7 +151,7 @@ if ( function_exists( 'add_theme_support' ) ) {
 		$featurewidth = $options->get($themeslug.'_featured_image_width'); 
 	} 
 	 
-	set_post_thumbnail_size( $featureheight, $featurewidth, true );
+	set_post_thumbnail_size( $featurewidth, $featureheight, true );
 }	
 }
 add_action( 'init', 'init_featured_image', 11);	
@@ -311,6 +288,36 @@ function custom_taxonomy_default( $post_id, $post ) {
 
 add_action( 'save_post', 'custom_taxonomy_default', 100, 2 );
 
+// Foundation JS
+
+function foundation_script(){
+	
+	$path =  get_template_directory_uri() ."/core/library/js";
+
+	$script = "
+		
+		<script type=\"text/javascript\" src=\"".$path."/foundation.js\"></script>
+		";
+	
+	echo $script;
+}
+add_action('wp_head', 'foundation_script');
+
+// Foundation App JS
+
+function app_script(){
+	
+	$path =  get_template_directory_uri() ."/core/library/js";
+
+	$script = "
+		
+		<script type=\"text/javascript\" src=\"".$path."/app.js\"></script>
+		";
+	
+	echo $script;
+}
+add_action('wp_head', 'app_script');
+
 // Menu JS
 
 function menu_script(){
@@ -329,18 +336,18 @@ add_action('wp_footer', 'menu_script');
 
 // Nivo Slider 
 
-function nivoslider(){
+function orbit(){
 	 
-	$path =  get_template_directory_uri() ."/core/library/ns";
+	$path =  get_template_directory_uri() ."/core/library/js";
 
 	$script = "
 		
-		<script type=\"text/javascript\" src=\"".$path."/jquery.nivo.slider.js\"></script>
+		<script type=\"text/javascript\" src=\"".$path."/jquery.orbit.min.js\"></script>
 		";
 	
 	echo $script;
 }
-add_action('wp_head', 'nivoslider');
+add_action('wp_head', 'orbit');
 
 // Carousel Javascript
 
@@ -350,8 +357,8 @@ function carousel(){
 
 	$script = "
 		
-		<script type=\"text/javascript\" src=\"".$path."/captify.tiny.js\"></script>
-		<script type=\"text/javascript\" src=\"".$path."/jcarousellite_1.0.1.pack.js\"></script>
+		<script type=\"text/javascript\" src=\"".$path."/jquery.elastislide.js\"></script>
+		<script type=\"text/javascript\" src=\"".$path."/jquery.easing.1.3.js\"></script>
 		";
 	
 	echo $script;
@@ -504,10 +511,13 @@ require_once ( get_template_directory() . '/core/core-init.php' );
 
 do_action('chimps_init');
 
+//Call extend (this is only tempoaray)
+require_once ( get_template_directory() . '/core/pro/pro-init.php' );
+
 // Call additional template files
 require_once ( get_template_directory() . '/inc/classy-options-init.php' );
 require_once ( get_template_directory() . '/inc/options-functions.php' );
-require_once ( get_template_directory() . '/inc/meta-box.php' );	
+require_once ( get_template_directory() . '/inc/meta-box.php' );		
 require_once ( get_template_directory() . '/inc/update.php' ); // Include automatic updater
 require_once ( get_template_directory() . '/inc/theme-hooks.php' ); // Include automatic updater
 require_once ( get_template_directory() . '/inc/theme-actions.php' ); // Include automatic updater

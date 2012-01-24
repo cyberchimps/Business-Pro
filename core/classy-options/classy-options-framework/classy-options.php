@@ -1,4 +1,6 @@
 <?php
+global $options, $themeslug, $themenamefull;
+
 class ClassyOptions {
 	function __construct($id, $name = false) {
 		$this->id = $id;
@@ -11,7 +13,9 @@ class ClassyOptions {
 	}
 
 	function admin_menu() {
-		$page = add_theme_page( 'iFeature Pro Options', 'iFeature Pro Options', 'edit_theme_options', $this->id, array( $this, 'render' ) );
+		global $themenamefull;
+		
+		$page = add_theme_page( $themenamefull.' Options', $themenamefull.' Options', 'edit_theme_options', $this->id, array( $this, 'render' ) );
 
 		add_action( "admin_print_styles-$page", array($this, 'load_styles') );
 		add_action( "admin_print_scripts-$page",  array($this, 'load_scripts') );
@@ -35,6 +39,7 @@ class ClassyOptions {
 		
 		// Enqueued scripts
 		wp_enqueue_script('jquery-ui-core');
+		wp_enqueue_script('jquery-ui-sortable');
 		wp_enqueue_script('thickbox');
 		wp_enqueue_script('color-picker', CLASSY_OPTIONS_FRAMEWORK_URL.'js/colorpicker.js', array('jquery'));
 		wp_enqueue_script('options-custom', CLASSY_OPTIONS_FRAMEWORK_URL.'js/options-custom.js', array('jquery'));
@@ -66,6 +71,7 @@ class ClassyOptions {
 	}
 
 	function render() {
+		global $themenamefull;
 		settings_errors(); ?>
 <div class="wrap">
 
@@ -75,7 +81,7 @@ class ClassyOptions {
 
 			<div id="header">
 				<div class="logo">
-				<h2>iFeature Pro Options</h2>
+				<h2><?php echo $themenamefull; ?> Options</h2>
 				</div>
 				<div class="clear"></div>
 					<p class="submit">
@@ -204,6 +210,7 @@ class ClassyOptions {
 				if ( has_filter( 'cof_sanitize_' . $option['type'] ) && isset( $input[$id] ) ) {
 					$clean[$id] = apply_filters( 'cof_sanitize_' . $option['type'], $input[$id], $option );
 				}
+
 			}
 
 			add_settings_error( $this->id, 'save_options', __( 'Options saved.', 'optionsframework' ), 'updated fade' );
@@ -526,6 +533,43 @@ class ClassyOptions {
 			case "close_outersection":
 				$output .= "</div>";
 			break;
+
+			case "section_order":
+				$root = get_template_directory_uri();  
+				$values = explode(",", $val);
+				$output .=  "<div class='section_order' id=" . esc_attr($value['id']) . ">";
+				$output .=  "<div class='left_list'>";
+				$output .=  "<div class='inactive'>Inactive Elements</div>";
+				$output .=  "<div class='list_items'>";
+				foreach($value['options'] as $k => $v) {
+					if(in_array($k, $values)) continue;
+					$output .=  "<div class='list_item'>";
+					$output .=  "<img src='$root/images/minus.png' class='action' title='Remove'/>";
+					$output .=  "<span data-key='{$k}'>{$v}</span>";
+					$output .=  "</div>";
+				}
+				$output .=  "</div>";
+				$output .=  "</div>";
+				$output .=  "<div class='arrow'><img src='$root/images/arrowdrag.png' /></div>";
+				$output .=  "<div class='right_list'>";
+				$output .=  "<div class='active'>Active Elements</div>";
+				$output .=  "<div class='drag'>Drag & Drop Elements</div>";
+				$output .=  "<div class='list_items'>";
+				foreach($values as $k) {
+					if(!$k) continue;
+					$val = $value['options'][$k];
+					$output .=  "<div class='list_item'>";
+					$output .=  "<img src='$root/images/minus.png' class='action' title='Remove'/>";
+					$output .=  "<span data-key='{$k}'>{$val}</span>";
+					$output .=  "</div>";
+				}
+				$output .=  "</div>";
+				$output .=  "</div>";
+				$output .=  "<input type='hidden' id='{$value['id']}' name='{$option_name}[{$value['id']}]' />";
+				$output .=  "</div>";
+
+			break;
+
 			}
 
 			if ( ($value['type'] != "heading") && ($value['type'] != "info" && $value['type'] != "subsection" && $value['type'] != "subsection_end") && $value['type'] != "open_outersection" && $value['type'] != "close_outersection" ) {
@@ -618,6 +662,11 @@ class ClassyOptions {
 
 	function select( $key, $label = "", $options = array() ) {
 		$this->add( $options + array( 'id' => $key, 'type' => 'select', 'name' => $label ) );
+		return $this;
+	}
+
+	function section_order( $key, $label = "", $options = array() ) {
+		$this->add( $options + array( 'id' => $key, 'type' => 'section_order', 'name' => $label ) );
 		return $this;
 	}
 
