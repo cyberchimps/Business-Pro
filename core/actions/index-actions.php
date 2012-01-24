@@ -68,12 +68,13 @@ function synapse_index_content() {
 				<!--Begin @Core post tags hook-->
 					<?php synapse_post_tags(); ?>
 				<!--End @Core post tags hook-->
+				
+				<!--Begin @iFeature post bar hook-->
+				<?php synapse_post_bar(); ?>
+				<!--End @iFeature post bar hook-->
 			
 				</div><!--end post_class-->
 			</div><!--end post container-->
-			<!--Begin @iFeature post bar hook-->
-				<?php synapse_post_bar(); ?>
-			<!--End @iFeature post bar hook-->
 	
 			<?php endwhile; ?>
 		

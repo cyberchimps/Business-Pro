@@ -149,7 +149,7 @@ function ifeature_header_standard_content() {
 <div class="container" style="">
 		<div class="row">
 		
-			<div class="eight columns">
+			<div class="four columns">
 				
 				<!-- Begin @Core header sitename hook -->
 					<?php synapse_header_sitename(); ?> 
@@ -158,11 +158,11 @@ function ifeature_header_standard_content() {
 				
 			</div>	
 			
-			<div class="four columns">
+			<div class="eight columns">
 				
-			<!-- Begin @Core header social icon hook -->
-				<?php synapse_header_social_icons(); ?> 
-			<!-- End @Core header contact social icon hook -->	
+			<!-- Begin @Core header nav hook -->
+				<?php synapse_navigation(); ?> 
+			<!-- End @Core header nav hook -->	
 				
 			</div>	
 		</div><!--end row-->
