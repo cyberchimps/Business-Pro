@@ -2,8 +2,8 @@
 
 #title-area {
 	margin-bottom: 10px;
-	padding-top: 20px;
-	height: 60px;
+	padding-top: 10px;
+	height: 30px;
 	color: #fff;
 	border-bottom: 2px solid #ccc;
 	background:#f8f8f8;background: -moz-linear-gradient(top, #f8f8f8 0%, #efefef 50%, #e5e5e5 100%);
@@ -17,6 +17,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', end
 
 #title-area h2 {
 	color: #222;
+	font-size: 16px;
 }
 
 #sliderarea {
@@ -180,10 +181,11 @@ header {
 /* Post Container Styling  */
 
 .post_container {
-	padding: 0px;
+	padding: 10px;
 	background: #fff;
 	margin-bottom: 30px;
-	border-bottom: 1px dotted #ccc;
+	border: 3px solid #e7e7e7;
+	border-radius: 3px;
 }
 
 .post_container ul {list-style: disc;margin-left: 21px;list-style-position: inside;}
@@ -260,9 +262,10 @@ ol, ul {list-style-position: inside;margin-left: 21px;}
 .widget-container {
 	color: #222;
 	margin-bottom: 10px;
-	padding: 0px 10px 10px 10px;
-	border: 1px solid #e8e8e8;
+	padding: 10px 10px 10px 10px;
+	border: 3px solid #e7e7e7;
 	border-radius: 3px;
+	background: #fff;
 }
 
 .widget-container li {list-style: none;}
@@ -277,7 +280,7 @@ ol, ul {list-style-position: inside;margin-left: 21px;}
 
 #sidebar240 .widget-container th {padding-right: 18px}
 
-.widget-title{font-size:18px;color:#444;padding:3px;}
+.widget-title{font-size:16px;color:#000;margin-bottom: 0px;font-weight: 600;}
 .widget-container ul{padding-top:10px; margin-left: 0px;}
 
 /* Blog and Post Styles */
