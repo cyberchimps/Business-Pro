@@ -64,13 +64,8 @@
 #twitterbar {
 	background: #f8f8f8;
 	background: #fff;
-	border-top: 1px solid #CCC;
-	border-left: 1px solid #CCC;
-	border-right: 1px solid #BBB;
-	border-bottom: 1px solid #BBB;
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-	box-shadow:inset 0 0 2px #ccc;
+	border-top: 1px dotted #CCC;
+	border-bottom: 1px dotted #ccc;
 	overflow: hidden;
 	margin-top: 10px;
 	margin: auto;
@@ -95,13 +90,9 @@
 	margin-top: 15px;
 	margin-bottom: 15px;
 	background: #fff;
-	border-top: 1px solid #CCC;
-	border-left: 1px solid #CCC;
-	border-right: 1px solid #BBB;
-	border-bottom: 1px solid #BBB;
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-	box-shadow:inset 0 0 2px #ccc;}
+	border-top: 1px dotted #CCC;
+	border-bottom: 1px dotted #ccc;
+	}
 
 #callout_text {
 	float: left;
@@ -176,13 +167,6 @@
 	margin-bottom: 15px;
 	color: #222;
 	background: #fff;
-	border-top: 1px solid #CCC;
-	border-left: 1px solid #CCC;
-	border-right: 1px solid #BBB;
-	border-bottom: 1px solid #BBB;
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-	box-shadow:inset 0 0 2px #ccc;
 }
 
 #box2 {
@@ -195,13 +179,6 @@
 	margin-bottom: 15px;
 	color: #222;
 	background: #fff;
-	border-top: 1px solid #CCC;
-	border-left: 1px solid #CCC;
-	border-right: 1px solid #BBB;
-	border-bottom: 1px solid #BBB;
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-	box-shadow:inset 0 0 2px #ccc;
 }
 
 #box3 {
@@ -214,13 +191,6 @@
 	margin-bottom: 15px;
 	color: #222;
 	background: #fff;
-	border-top: 1px solid #CCC;
-	border-left: 1px solid #CCC;
-	border-right: 1px solid #BBB;
-	border-bottom: 1px solid #BBB;
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-	box-shadow:inset 0 0 2px #ccc;
 }
 
 .boxes ul { padding-left: 15px; }
