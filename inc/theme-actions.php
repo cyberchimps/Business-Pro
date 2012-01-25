@@ -146,7 +146,7 @@ function ifeature_link_rel() {
 */
 function ifeature_header_standard_content() {
 ?>
-<div class="container" style="">
+<div class="container">
 		<div class="row">
 		
 			<div class="four columns">

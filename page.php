@@ -33,7 +33,7 @@ if (preg_match("/page_slider/", $page_section_order ) && $size == "1" ) {
 /* End set slider hook*/
 ?>
 
-<div class="container" id="title">
+<div class="container" id="sliderarea">
 	<div class="row">
 	<?php synapse_page_slider(); ?> 
 	</div>
