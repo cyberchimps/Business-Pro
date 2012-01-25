@@ -35,7 +35,7 @@ if (preg_match("/page_slider/", $page_section_order ) && $size == "1" ) {
 
 <div class="container" id="title">
 	<div class="row">
-		title
+	<?php synapse_page_slider(); ?> 
 	</div>
 </div>
 
