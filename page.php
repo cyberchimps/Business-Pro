@@ -33,6 +33,12 @@ if (preg_match("/page_slider/", $page_section_order ) && $size == "1" ) {
 /* End set slider hook*/
 ?>
 
+<div class="container" id="title">
+	<div class="row">
+		title
+	</div>
+</div>
+
 <div class="container">
 	<div class="row">
 		<?php if (function_exists('synapse_breadcrumbs') && ($options->get($themeslug.'_disable_breadcrumbs') == "1")) { synapse_breadcrumbs(); }?>
