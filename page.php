@@ -21,7 +21,7 @@
 	if(!$page_section_order) {
 		$page_section_order = 'page_section';
 	}
-
+	
 /* End define global variables. */
 
 /* Set slider hook based on page option */
@@ -32,12 +32,6 @@ if (preg_match("/page_slider/", $page_section_order ) && $size == "1" ) {
 }
 /* End set slider hook*/
 ?>
-
-<div class="container" id="sliderarea">
-	<div class="row">
-	<?php synapse_page_slider(); ?> 
-	</div>
-</div>
 
 <div class="container">
 	<div class="row">

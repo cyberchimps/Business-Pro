@@ -43,6 +43,7 @@ class ClassyOptions {
 		wp_enqueue_script('thickbox');
 		wp_enqueue_script('color-picker', CLASSY_OPTIONS_FRAMEWORK_URL.'js/colorpicker.js', array('jquery'));
 		wp_enqueue_script('options-custom', CLASSY_OPTIONS_FRAMEWORK_URL.'js/options-custom.js', array('jquery'));
+		wp_enqueue_script('theme-options-custom', get_template_directory_uri().'/library/js/theme-options-custom.js', array('jquery'));
 		wp_enqueue_script('media-uploader', CLASSY_OPTIONS_FRAMEWORK_URL.'js/of-medialibrary-uploader.js', array('jquery'));
 	}
 
@@ -61,11 +62,20 @@ class ClassyOptions {
 		do_action( 'optionsframework_custom_scripts' );
 	}
 
-	function get($key) {
-		return isset( $this->data[$key] ) ? $this->data[$key] :
-			( isset( $this->options[$key] ) ? $this->options[$key]['default'] : null );
+	function get($id) {
+		$option = $this->find_option_by_id($id);
+		return isset( $this->data[$id] ) ? $this->data[$id] :
+			(( $option && isset($option['default'] )) ? $option['default'] : null);
 	}
 
+	function find_option_by_id($id) {
+		foreach($this->options as $option) {
+			if(isset($option['id']) && $option['id'] == $id) {
+				return $option;
+			}
+		}
+		return false;
+	}
 	function add( $option ) {
 		$this->options[] = $option;
 	}
@@ -113,7 +123,7 @@ class ClassyOptions {
 				<div class="clear"></div>
 			</div>
 			<div class="of_admin_bar">
-   			    <div id="top"><a href='#TOP'><img src="<?php echo get_template_directory_uri() ;?>/images/options/top.png" /></a></div>
+			    <div id="top"><a href='#TOP'><img src="<?php echo get_template_directory_uri() ;?>/images/options/top.png" /></a></div>
 				<input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Restore Defaults' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Click OK to reset. Any theme settings will be lost!' ) ); ?>' );" />
 				<div class="chimps"><a href="http://cyberchimps.com/" target="_blank"><img src="<?php echo get_template_directory_uri() ;?>/images/options/cyberchimpsmini.png" /></a></div>
 			</div>
@@ -192,16 +202,16 @@ class ClassyOptions {
 
 				if ( 'upload' == $option['type'] ) {
 					if ($_FILES[$id]['name'] != '') {
-					  $overrides = array('test_form' => false); 
-					  $file = wp_handle_upload($_FILES[$id], $overrides);
-					  $clean[$id] = $file;
+						$overrides = array('test_form' => false); 
+						$file = wp_handle_upload($_FILES[$id], $overrides);
+						$clean[$id] = $file;
 					} 
-				   
+
 					elseif(isset($_POST["{$id}_text"]) && $_POST["{$id}_text"] != '') {
 						$input['file'] = array('url' => $_POST["{$id}_text"]);
 						$clean[$id] = array('url' => $_POST["{$id}_text"]);				    } 
-				    
-				    else {
+
+					else {
 						$clean[$id] = null;
 					}
 				}
@@ -230,14 +240,14 @@ class ClassyOptions {
 		$counter = 0;
 		$menu = '';
 		$output = '';
-		
+
 		foreach ($options as $value) {
-		   
+
 			$counter++;
 			$val = '';
 			$select_value = '';
 			$checked = '';
-			
+
 			// Wrap all options
 			if ( ($value['type'] != "heading") && ($value['type'] != "info" && $value['type'] != "subsection" && $value['type'] != "subsection_end") && $value['type'] != "open_outersection" && $value['type'] != "close_outersection" ) {
 
@@ -517,7 +527,8 @@ class ClassyOptions {
 				break;
 
 			case "subsection":
-				$output .= "<div class='subsection'><h3>{$value['name']}<span class='plus'>"
+				$id = strtolower(preg_replace("/\W/", "", $value['name']));
+				$output .= "<div class='subsection' id='subsection-{$id}'><h3>{$value['name']}<span class='plus'>"
 					// . "<img src='" . CLASSY_OPTIONS_FRAMEWORK_URL . "/images/downarrow.png'>"
 					. "</span></h3><div class='subsection-items'>";
 			break;

@@ -222,7 +222,8 @@
 	
 	
 	
-	img, object, embed { max-width: 100%; height: auto; }
+	img { max-width: 100%; height: auto; }
+	object, embed { max-width: 100%; }
 	img { -ms-interpolation-mode: bicubic; }
 	 
 	 /* Nicolas Gallagher's micro clearfix */
@@ -595,35 +596,6 @@
 #orbitDemo img, #orbitDemo div { display: none; }
 #orbitDemo.orbit img, #orbitDemo.orbit div { display: block;}
 
-@media handheld, only screen and (max-width: 767px) {
-
-    #orbitDemo { height: 165px; }
-    #orbitDemo.orbit { height: auto; }
-
-    dl.nice.tabs.mobile { margin-bottom: 0px; }
-    .nice.tabs.mobile dd a { padding: 12px 20px; }
-    
-    div.foundation-header h1 { font-size: 32px; font-size: 3.2rem; }
-    
-    .searchform, #home {display: none;}
-    
-    #nav ul ul li:hover ul, #nav ul ul ul li:hover ul {margin: 0px !important;}
-    
-    #nav ul ul .parent > a, #nav ul ul .parent:hover > a:hover, #nav ul ul li:hover ul .parent > a, #nav ul ul li:hover ul .parent > a:hover{background-image:url(../../images/arrow.png) !important;background-position:right !important;background-repeat:no-repeat !important;}
-}
-
-#featured { 
-	width: 1px;
-	height: 340px;
-	background: #000 url('orbit/loading.gif') no-repeat center center;
-	overflow: hidden; }
-#featured>img,  
-#featured>div,
-#featured>a { display: none; }
-
-
-
-
 /* CONTAINER
    ================================================== */
 
@@ -741,7 +713,7 @@ span.pause.active {
     z-index: 1000;
     color: #fff;
 	text-align: center;
-	padding: 7px 0;
+	padding: 7px 0px;
     font-size: 13px;
     position: absolute;
     right: 0;
@@ -752,26 +724,31 @@ span.pause.active {
 /* DIRECTIONAL NAV
    ================================================== */
 
+/* DIRECTIONAL NAV
+   ================================================== */
+
 div.slider-nav {
     display: block }
 
 div.slider-nav span {
-    width: 78px;
-    height: 100px;
+    width: 40px;
+    height: 40px;
     text-indent: -9999px;
     position: absolute;
     z-index: 1000;
     top: 50%;
-    margin-top: -50px;
+    margin-top: -20px;
     cursor: pointer; }
 
 div.slider-nav span.right {
-    background: url(orbit/right-arrow.png);
+    background: url(orbit/next.png) no-repeat;
     right: 0; }
 
 div.slider-nav span.left {
-    background: url(orbit/left-arrow.png);
+    background: url(orbit/prev.png) no-repeat;
+    margin-left: 20px;
     left: 0; }
+
 
 /* BULLET NAV
    ================================================== */
@@ -824,18 +801,17 @@ div.slider-nav span.left {
     position: absolute;
     z-index: 1000;
     list-style: none;
-    bottom: -50px;
     left: 50%;
 	margin-left: -50px;
     padding: 0; }
 
 .orbit-bullets li {
     float: left;
-    margin-left: 5px;
+    margin-left: 10px;
     cursor: pointer;
     color: #999;
     text-indent: -9999px;
-    background: url(orbit/bullets.jpg) no-repeat 4px 0;
+    background: url(orbit/bullets2.png) no-repeat 0px 0;
     width: 13px;
     height: 12px;
     overflow: hidden; }
@@ -848,12 +824,13 @@ div.slider-nav span.left {
 
 .orbit-bullets li.active {
     color: #222;
-    background-position: -8px 0; }
+    background-position: -12px 0; }
 
 .orbit-bullets li.active.has-thumb {
     background-position: 0 0;
     border: 2px solid #000; }
-/*	--------------------------------------------------
+    
+    /*	--------------------------------------------------
 	Reveal Modals
 	-------------------------------------------------- */
 		

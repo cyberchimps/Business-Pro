@@ -91,4 +91,7 @@ $(document).ready(function () {
 	/* DISABLED BUTTONS ------------- */
 	/* Gives elements with a class of 'disabled' a return: false; */
 
+	jQuery(document).ready(function($){
+		jQuery('.ifeature-tabbed-wrap').tabs();
+	});
 });

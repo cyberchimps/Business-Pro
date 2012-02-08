@@ -48,7 +48,7 @@ function synapse_callout_section_content() {
 		$customcalloutbgcolor = get_post_meta($post->ID, 'custom_callout_color' , true);
 	}
 	
-	if (is_front_page()) {
+	else {
 		$calloutbgcolor = $options->get($themeslug.'_blog_callout_bg_color');
 		$bcolor = $options->get($themeslug.'_blog_callout_button_color');
 		$btcolor = $options->get($themeslug.'_blog_callout_button_text_color');
@@ -134,7 +134,7 @@ function synapse_callout_section_content() {
 /* Define Callout text. */	
 
 	if ($text == '') {
-		$callouttext = 'Cybersynapse gives you the tools to turn WordPress into a modern feature rich Content Management System (CMS)';
+		$callouttext = 'CyberChimps gives you the tools to turn WordPress into a modern feature rich Content Management System (CMS)';
 	}
 	else {
 		$callouttext = $text;
@@ -164,7 +164,7 @@ function synapse_callout_section_content() {
 /* Define Callout button link. */
 
 	if ($link == '') {
-		$calloutlink = 'http://cybersynapse.com';
+		$calloutlink = 'http://cyberchimps.com';
 	}
 	else {
 		$calloutlink = $link;
@@ -174,7 +174,7 @@ function synapse_callout_section_content() {
 
 ?>
 	<div class="row">
-	<div id="calloutwrap" class="twelve columns"><!--id="calloutwrap"-->
+	<div id="calloutwrap"><!--id="calloutwrap"-->
 
 	<div id="callout_text" class="<?php echo $grid; ?>">
 		<h2 class="callout_title" ><?php echo $callouttitle ?></h2>
@@ -182,8 +182,10 @@ function synapse_callout_section_content() {
 	</div>
 		
 <?php if ($image == '' && $hidebutton == 'on' OR $image == '' && $hidebutton == '1'): ?>
-	<div id="calloutbutton" class="three columns">
-		<a href="<?php echo $calloutlink ?>"><?php echo $calloutbuttontext ;?></a>
+	<div id="button_wrap" class="three columns">
+		<div id="calloutbutton" >
+			<h3 class="callout_link"><a href="<?php echo $calloutlink ?>"><?php echo $calloutbuttontext ;?></a></h3>
+		</div>
 	</div>
 <?php endif;?>
 
@@ -194,7 +196,10 @@ function synapse_callout_section_content() {
 <?php endif;?>
 
 </div><!--end calloutwrap-->
-</div><?php
+
+</div>
+
+<?php
 	
 }
 

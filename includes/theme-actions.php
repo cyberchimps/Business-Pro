@@ -19,7 +19,14 @@
 * iFeature Actions
 */
 
+add_action( 'ifeature_header_content', 'ifeature_header_standard_content');
 add_action( 'ifeature_header_contact_area', 'ifeature_header_contact_area_content' );
+add_action( 'ifeature_sitename_register', 'ifeature_sitename_register_content');
+add_action( 'ifeature_sitename_contact', 'ifeature_sitename_contact_content');
+add_action( 'ifeature_description_icons', 'ifeature_description_icons_content');
+add_action( 'ifeature_logo_menu', 'ifeature_logo_menu_content');
+add_action( 'ifeature_logo_description', 'ifeature_logo_description_content');
+add_action( 'ifeature_banner', 'ifeature_banner_content');
 
 remove_action( 'synapse_head_tag', 'synapse_link_rel' );
 add_action( 'synapse_head_tag', 'ifeature_link_rel' );
@@ -66,16 +73,16 @@ function ifeature_box_section_content() {
 	<div id="box_container" class="twelve columns"> <!--box container-->
 		<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Left") ) : ?>
 			<div id="box1" class="four columns">
-				<h2 class="box-widget-title">iFeature Pro Slider</h2>
+				<h2 class="box-widget-title">Responsive iFeature Pro Slider</h2>
 					<img src="<?php echo $root ; ?>/images/icons/slidericon.png" height="100" alt="slider" class="aligncenter" />
-					<p>The iFeature Pro Slider includes auto-image resizing, new transitions, thumbnails, custom categories, improved captions, and the ability to have a slider on every page.</p>
+					<p>The Responsive iFeature Pro Slider now adjusts dynamically when being viewed by a mobile device such as an iPhone or iPad. It also includes image resizing, and thumbnails.</p>
 			</div><!--end box1-->
 			<?php endif; ?>
 			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Middle") ) : ?>
 			<div id="box2" class="four columns">
-				<h2 class="box-widget-title">New Design</h2>
+				<h2 class="box-widget-title">Responsive Design</h2>
 					<img src="<?php echo $root ; ?>/images/icons/blueprint.png" height="100" alt="blueprint" class="aligncenter" />
-					<p>With <a href="http://cybersynapse.com/ifeaturepro/">iFeature Pro</a> we’ve done the design work for you, all you need to do is pick a color scheme, select your options, and add your content.</p>
+					<p>With Responsive Design, and <a href="http://cybersynapse.com/ifeaturepro/">iFeature Pro</a> your website will now magically adjust to mobile devices such as the iPhone, iPad, and Android devices.</p>
 			</div><!--end box2-->
 			<?php endif; ?>
 			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Right") ) : ?>
@@ -126,9 +133,9 @@ function ifeature_link_rel() {
 <link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/core/css/app.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/core/css/ie.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/shortcode.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/style.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/color/<?php echo $color; ?>.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/elements.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/style.css" type="text/css" />
 
 <?php if (is_child_theme()) :  //add support for child themes?>
 	<link rel="stylesheet" href="<?php echo bloginfo('stylesheet_directory') ; ?>/style.css" type="text/css" />
@@ -140,16 +147,18 @@ function ifeature_link_rel() {
 }
 
 /**
-* Header content standard
+* Sitename/Register
 *
 * @since 3.0
 */
-function ifeature_header_standard_content() {
+function ifeature_sitename_register_content() {
+global $current_user;
 ?>
-<div class="container">
+
+	<div class="container">
 		<div class="row">
 		
-			<div class="four columns">
+			<div class="seven columns">
 				
 				<!-- Begin @Core header sitename hook -->
 					<?php synapse_header_sitename(); ?> 
@@ -158,94 +167,218 @@ function ifeature_header_standard_content() {
 				
 			</div>	
 			
-			<div class="eight columns">
-				
-			<!-- Begin @Core header nav hook -->
-				<?php synapse_navigation(); ?> 
-			<!-- End @Core header nav hook -->	
+			<div id="register" class="five columns">
+			
+			<?php if(!is_user_logged_in()) :?>
+
+		<li><?php wp_loginout(); ?></li> <?php wp_meta(); ?><li> |<?php wp_register(); ?>  </li>
+
+			<?php else :?>
+
+			Welcome back <strong><?php global $current_user; get_currentuserinfo(); echo ($current_user->user_login); ?></strong> | <?php wp_loginout(); ?>
+
+		<?php endif;?>
 				
 			</div>	
 		</div><!--end row-->
-		
-	</div><!--end container-->
-
+	</div>
 
 <?php
 }
 
 /**
-* Header content extra
+* Sitename/Contact
 *
 * @since 3.0
 */
-function ifeature_header_extra_content() {
-global $options, $themeslug;?>
-	
-	<div class="container_12">
+function ifeature_sitename_contact_content() {
+?>
+	<div class="container">
+		<div class="row">
 		
-		<div class="grid_6">
+			<div class="seven columns">
 				
-			<!-- Begin @Core header sitename hook -->
-				<?php synapse_header_sitename(); ?> 
-			<!-- End @Core header sitename hook -->
-				
-		</div>	
+				<!-- Begin @Core header sitename hook -->
+					<?php synapse_header_sitename(); ?> 
+				<!-- End @Core header sitename hook -->
 			
-				<div id="header_contact" class="grid_6">
-				&nbsp;
-			<?php if ($options->get($themeslug.'_enable_header_contact') == '1'	): ?>
-
-		<!-- Begin @Core header contact area hook -->
+				
+			</div>	
+			
+			<div class="five columns">
+			
+			<!-- Begin @Core header contact area hook -->
 			<?php ifeature_header_contact_area(); ?>
 		<!-- End @Core header contact area hook -->
-					<?php endif ; ?>
-		</div>	
-		
+						
+			</div>	
+		</div><!--end row-->
 	</div>
+	
+<?php
+}
+
+/**
+* Full-Width Logo
+*
+* @since 3.0
+*/
+function ifeature_banner_content() {
+global $themeslug, $options, $root; //Call global variables
+$banner = $options->get($themeslug.'_banner'); //Calls the logo URL from the theme options
+$default = "$root/images/pro/banner.jpg";
+
+?>
+	<div class="container">
+		<div class="row">
 		
-	<div class='clear'>&nbsp;</div>
+			<div class="twelve columns">
+			<div id="banner">
+			
+			<?php if ($banner != ""):?>
+				<a href="<?php echo home_url(); ?>/"><img src="<?php echo stripslashes($banner['url']); ?>" alt="logo"></a>		
+			<?php endif; ?>
+			
+			<?php if ($banner == ""):?>
+				<a href="<?php echo home_url(); ?>/"><img src="<?php echo $default; ?>" alt="logo"></a>		
+			<?php endif; ?>
+			
+			</div>		
+			</div>	
+		</div><!--end row-->
+	</div>	
+
+<?php
+}
+
+/**
+* Logo/Description
+*
+* @since 3.0
+*/
+function ifeature_logo_description_content() {
+?>
+	<div class="container">
+		<div class="row">
 		
-	<div class="container" id="head2">
+			<div class="seven columns">
 				
-		<div class="grid_6">
-		&nbsp;
-			<?php if ($options->get($themeslug.'_show_description') == '1'	): ?>
+			<!-- Begin @Core header sitename hook -->
+					<?php synapse_header_sitename(); ?> 
+			<!-- End @Core header sitename hook -->
+			
+				
+			</div>	
+			
+			<div class="five columns" style="text-align: right;">
+			
 			<!-- Begin @Core header description hook -->
 				<?php synapse_header_site_description(); ?> 
 			<!-- End @Core header description hook -->
-			<?php endif; ?>
-		</div>
+						
+			</div>	
+		</div><!--end row-->
+	</div>	
+
+<?php
+}
+
+/**
+* Description/Icons
+*
+* @since 3.0
+*/
+function ifeature_description_icons_content() {
+?>
+	<div class="container">
+		<div class="row">
+		
+			<div class="five columns">
+				
+			<!-- Begin @Core header description hook -->
+				<?php synapse_header_site_description(); ?> 
+			<!-- End @Core header description hook -->
 			
-		<div class="grid_6">
+				
+			</div>	
+			
+			<div class="seven columns">
 			
 			<!-- Begin @Core header social icon hook -->
 				<?php synapse_header_social_icons(); ?> 
 			<!-- End @Core header contact social icon hook -->	
-				
-		</div>
-			
-	</div>
-		
-	<div class='clear'>&nbsp;</div>
+						
+			</div>	
+		</div><!--end row-->
+	</div>	
 
 <?php
 }
 
 /**
-* Define header contact based on theme options
+* Description/Icons
 *
 * @since 3.0
 */
-function ifeature_header_content_init() {
-	global $options, $themeslug;
+function ifeature_logo_menu_content() {
+?>
 	
-	if ($options->get($themeslug.'_enable_header_contact') != '1' && $options->get($themeslug.'_show_description') != '1') {
-	
-			add_action( 'ifeature_header_content', 'ifeature_header_standard_content');
-	}
-	
-	if ($options->get($themeslug.'_enable_header_contact') == '1' OR $options->get($themeslug.'_show_description') == '1') {
-	
-			add_action( 'ifeature_header_content', 'ifeature_header_extra_content');
-	}
+	<div class="container">
+		<div class="row">	
+			
+			<div class="five columns">
+				
+				<!-- Begin @Core header sitename hook -->
+					<?php synapse_header_sitename(); ?> 
+				<!-- End @Core header sitename hook -->
+			
+			</div>	
+			
+			<div class="seven columns">
+			<div id="halfnav">
+			<?php wp_nav_menu( array(
+		    'theme_location' => 'sub-menu' // Setting up the location for the main-menu, Main Navigation.
+			    )
+			);
+	    	?>
+			</div>					
+			</div>	
+		
+		</div><!--end row-->
+	</div>
+<?php
 }
+
+/**
+* Header content standard
+*
+* @since 3.0
+*/
+function ifeature_header_standard_content() {
+?>
+	<div class="container">
+		<div class="row">
+		
+			<div class="seven columns">
+				
+				<!-- Begin @Core header sitename hook -->
+					<?php synapse_header_sitename(); ?> 
+				<!-- End @Core header sitename hook -->
+			
+				
+			</div>	
+			
+			<div id ="register" class="five columns">
+				
+			<!-- Begin @Core header social icon hook -->
+				<?php synapse_header_social_icons(); ?> 
+			<!-- End @Core header contact social icon hook -->	
+				
+			</div>	
+		</div><!--end row-->
+	</div>
+
+<?php
+}
+
+?>

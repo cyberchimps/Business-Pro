@@ -229,7 +229,8 @@ input.button-primary {font-size:14px !important;}
 	float: right;
 }
 #of_container .controls textarea {
-	width: 345px;
+	width: 450px;
+	height: 300px;
 	float: right;
 }
 #of_container input[type=text] {

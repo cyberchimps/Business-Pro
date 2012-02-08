@@ -31,7 +31,7 @@ class iFeature_Tabbed_Widget extends WP_Widget {
 	function widget($args, $instance) {
 		global $wpdb;
 
-		$title = apply_filters('widget_title', $instance['title']);
+		
 
 		$tab1 = $instance['tab1'];
 		$tab2 = $instance['tab2'];
@@ -40,12 +40,7 @@ class iFeature_Tabbed_Widget extends WP_Widget {
 
 		echo $args['before_widget'];
 
-		if($title) {
-			echo $args['before_title'];
-			echo $title;
-			echo $args['after_title'];
-		}
-		
+				
 
 ?>
 <div class="ifeature-tabbed-widget">
@@ -65,13 +60,13 @@ class iFeature_Tabbed_Widget extends WP_Widget {
 
 					?>
 						<li>
-							<div class="image">
+							<div class="tab-image">
 								<a href="<?php the_permalink() ?>"><?php the_post_thumbnail("ifeature-tabbed") ?>
 							</div>
 
 							<div class="details">
-								<h5><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
-								<span class="date">
+								<h5 class="tabbed-title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
+								<span class="tabbed-date">
 									<?php the_time(get_option('date_format')) ?>,
 									<?php comments_popup_link(__('No comments', 'ifeature'), __('1 Comment', 'ifeature'), __('% Comments', 'ifeature')); ?>
 								</span>
@@ -92,13 +87,13 @@ class iFeature_Tabbed_Widget extends WP_Widget {
 
 					?>
 						<li>
-							<div class="image">
+							<div class="tab-image" >
 								<a href="<?php the_permalink() ?>"><?php the_post_thumbnail("ifeature-tabbed") ?>
 							</div>
 
 							<div class="details">
-								<h5><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
-								<span class="date">
+								<h5 class="tabbed-title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
+								<span class="tabbed-date">
 									<?php the_time(get_option('date_format')) ?>,
 									<?php comments_popup_link(__('No comments', 'ifeature'), __('1 Comment', 'ifeature'), __('% Comments', 'ifeature')); ?>
 								</span>
@@ -111,16 +106,16 @@ class iFeature_Tabbed_Widget extends WP_Widget {
 		</div><!-- #tab-2 -->
 
 		<div class="ifeature-tabbed-tab" id="tab-3">
-			<ul>
+			<ul class="ifeature-tabbed-comments"> 
 				<?php foreach(get_comments(array('number' => 5)) as $comment): ?>
 					<?php $post = get_post($comment->comment_post_ID); ?>
 					<li>
-						<div class="image">
+						<div class="tab-image">
 						<a href="<?php echo get_permalink($post->ID); ?>#comment-<?php echo $comment->comment_ID; ?>" title="<?php echo strip_tags($comment->comment_author); ?> <?php _e('on ', 'ifeature'); ?><?php echo $post->post_title; ?>"><?php echo get_avatar( $comment, '45' ); ?></a>
 						</div>
 
 						<div class="details">
-						<h5><a href="<?php echo get_permalink($post->ID); ?>#comment-<?php echo $comment->comment_ID; ?>" title="<?php echo strip_tags($comment->comment_author); ?> <?php _e('on ', 'ifeature'); ?><?php echo $post->post_title; ?>"><?php echo strip_tags($comment->comment_author); ?>: <?php echo substr(strip_tags($comment->comment_content), 0, 50); ?></a></h5>
+						<h5 class="tabbed-title"><a href="<?php echo get_permalink($post->ID); ?>#comment-<?php echo $comment->comment_ID; ?>" title="<?php echo strip_tags($comment->comment_author); ?> <?php _e('on ', 'ifeature'); ?><?php echo $post->post_title; ?>"><?php echo strip_tags($comment->comment_author); ?>: <?php echo substr(strip_tags($comment->comment_content), 0, 50); ?></a></h5>
 						</div>
 					</li>
 				<?php endforeach; ?>
@@ -139,7 +134,7 @@ class iFeature_Tabbed_Widget extends WP_Widget {
 	function update($new_instance, $old_instance) {
 		$instance = $old_instance;
 
-		$instance['title'] = strip_tags($new_instance['title']);
+		
 
 		$instance['tab1'] = $new_instance['tab1'];
 		$instance['tab2'] = $new_instance['tab2'];
@@ -151,7 +146,7 @@ class iFeature_Tabbed_Widget extends WP_Widget {
 
 	function form($instance) {
 		$defaults = array(
-			'title' => '',
+			
 			'tab1' => 'Popular',
 			'tab2' => 'Recent',
 			'tab3' => 'Comments',
@@ -160,10 +155,7 @@ class iFeature_Tabbed_Widget extends WP_Widget {
 
 		$instance = wp_parse_args((array) $instance, $defaults);
 		?>
-			<p>
-				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title:') ?></label>
-				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" />
-			</p>
+			
 
 			<p>
 				<label for="<?php echo $this->get_field_id( 'tab1' ); ?>"><?php _e('Popular Title:') ?></label>

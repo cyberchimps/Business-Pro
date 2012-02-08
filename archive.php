@@ -23,17 +23,16 @@
 		<?php if (function_exists('synapse_breadcrumbs') && ($options->get($themeslug.'_disable_breadcrumbs') == "1")) { synapse_breadcrumbs(); }?>
 	</div>
 	<div class="row">
+	<!--Begin @synapse before content sidebar hook-->
+		<?php synapse_before_content_sidebar(); ?>
+	<!--End @synapse before content sidebar hook-->
 	<?php if (have_posts()) : ?>
+	
+		<div id="content" class="<?php echo $content_grid; ?>">
 		
 			<!--Begin @synapse archive hook-->
 			<?php synapse_archive_title(); ?>
 			<!--End @synapse archive hook-->
-
-	<!--Begin @synapse before content sidebar hook-->
-		<?php synapse_before_content_sidebar(); ?>
-	<!--End @synapse before content sidebar hook-->
-	
-		<div id="content" class="<?php echo $content_grid; ?>">
 		
 		<!--Begin @synapse before_archive hook-->
 			<?php synapse_before_archive(); ?>
@@ -50,7 +49,10 @@
 			
 			</div><!--end post_class-->	
 		</div><!--end post container--> 
-		
+		<!--Begin @iFeature post bar hook-->
+				<?php synapse_post_bar(); ?>
+			<!--End @iFeature post bar hook-->
+
 		 <?php endwhile; ?>
 	 
 	 <?php else : ?>

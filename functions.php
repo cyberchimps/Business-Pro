@@ -1,5 +1,4 @@
 <?php
-
 /*
 	Functions
 	Author: Tyler Cunningham
@@ -8,9 +7,9 @@
 	Version 3.0
 */
 
-
-/* Define global variables. */	
-
+/**
+* Define global theme functions.
+*/ 
 	$themename = 'ifeature';
 	$themenamefull = 'iFeature Pro';
 	$themeslug = 'if';
@@ -18,25 +17,50 @@
 	$slider_default = "$root/images/ifeaturefree.jpg";
 	$pagedocs = 'http://cyberchimps.com/question/using-the-ifeature-pro-page-options/';
 	$sliderdocs = 'http://cyberchimps.com/question/how-to-use-the-ifeature-pro-3-slider/';
+
+/**
+* Basic theme setup.
+*/ 
+function if_theme_setup() {
+	if ( ! isset( $content_width ) ) $content_width = 608; //Set content width
 	
-	
-//Redirect after activation
-if ( is_admin() && isset($_GET['activated'] ) && $pagenow ==	"themes.php" )
+	add_theme_support(
+		'post-formats',
+		array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat')
+	);
+
+	add_theme_support( 'post-thumbnails' );
+	add_theme_support('automatic-feed-links');
+	add_editor_style();
+}
+add_action( 'after_setup_theme', 'if_theme_setup' );
+
+/**
+* Redirect user to theme options page after activation.
+*/ 
+if ( is_admin() && isset($_GET['activated'] ) && $pagenow =="themes.php" ) {
 	wp_redirect( 'themes.php?page=ifeature' );
-	
-// Post formats support
-add_theme_support(
-	'post-formats',
-	array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat')
-);
+}
 
-//Custom gallery post formating.  
+/**
+* Add link to theme options in Admin bar.
+*/ 
+function admin_link() {
+	global $wp_admin_bar;
 
+	$wp_admin_bar->add_menu( array( 'id' => 'iFeature', 'title' => 'iFeature Pro Options', 'href' => admin_url('themes.php?page=ifeature')  ) ); 
+}
+add_action( 'admin_bar_menu', 'admin_link', 113 );
+
+/**
+* Custom markup for gallery posts in main blog index.
+*/ 
 function custom_gallery_post_format( $content ) {
-global $options, $themeslug, $post;
-$root = get_template_directory_uri(); 
-ob_start();
-?>
+	global $options, $themeslug, $post;
+	$root = get_template_directory_uri(); 
+	
+	ob_start();?>
+	
 		<?php if ($options->get($themeslug.'_post_formats') == '1') : ?>
 			<div class="postformats"><!--begin format icon-->
 				<img src="<?php echo get_template_directory_uri(); ?>/images/formats/gallery.png" />
@@ -44,7 +68,7 @@ ob_start();
 		<?php endif;?>
 				<h2 class="posts_title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 					<!--Call @Core Meta hook-->
-			<?php chimps_post_byline(); ?>
+			<?php synapse_post_byline(); ?>
 				<?php
 				if ( has_post_thumbnail() && $options->get($themeslug.'_show_featured_images') == '1' && !is_single() ) {
  		 			echo '<div class="featured-image">';
@@ -77,35 +101,35 @@ ob_start();
 				<?php endif;?>
 				</div><!--end entry-->
 
-				
 				<div style=clear:both;></div>
 	<?php	
 	$content = ob_get_clean();
 	
 	return $content;
 }
-
-add_filter('chimps_post_formats_gallery_content', 'custom_gallery_post_format' ); 
+add_filter('synapse_post_formats_gallery_content', 'custom_gallery_post_format' ); 
 	
-/* Begin custom excerpt functions. */	
-
+/**
+* Set custom post excerpt link text based on theme option.
+*/ 
 function new_excerpt_more($more) {
 
-	global $themename, $themeslug, $options;
+	global $themename, $themeslug, $options, $post;
     
     	if ($options->get($themeslug.'_excerpt_link_text') == '') {
     		$linktext = '(Read More...)';
    		}
-    
     	else {
     		$linktext = $options->get($themeslug.'_excerpt_link_text');
    		}
-    
-    global $post;
+
 	return '<a href="'. get_permalink($post->ID) . '"> <br /><br /> '.$linktext.'</a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
+/**
+* Set custom post excerpt length based on theme option.
+*/ 
 function new_excerpt_length($length) {
 
 	global $themename, $themeslug, $options;
@@ -113,78 +137,59 @@ function new_excerpt_length($length) {
 		if ($options->get($themeslug.'_excerpt_length') == '') {
     		$length = '55';
     	}
-    
     	else {
     		$length = $options->get($themeslug.'_excerpt_length');
     	}
-
+    	
 	return $length;
 }
 add_filter('excerpt_length', 'new_excerpt_length');
 
-/* End excerpt functions. */
-
-/* Add auto-feed links support. */	
-add_theme_support('automatic-feed-links');
-	
-/* Add post-thumb support. */
-
+/**
+* Custom featured image size based on theme options.
+*/ 
 function init_featured_image() {	
-if ( function_exists( 'add_theme_support' ) ) {
-
- global $themename, $themeslug, $options;
+	if ( function_exists( 'add_theme_support' ) ) {
 	
-		if ($options->get($themeslug.'_featured_image_height') == '') {
-			$featureheight = '100';
+	global $themename, $themeslug, $options;
+	
+	if ($options->get($themeslug.'_featured_image_height') == '') {
+		$featureheight = '100';
 	}		
-	
 	else {
 		$featureheight = $options->get($themeslug.'_featured_image_height'); 
-		
 	}
-	
-		if ($options->get($themeslug.'_featured_image_width') == "") {
+	if ($options->get($themeslug.'_featured_image_width') == "") {
 			$featurewidth = '100';
 	}		
-	
 	else {
 		$featurewidth = $options->get($themeslug.'_featured_image_width'); 
 	} 
-	 
 	set_post_thumbnail_size( $featurewidth, $featureheight, true );
-}	
+	}	
 }
 add_action( 'init', 'init_featured_image', 11);	
 
-// Featured image support.
-add_theme_support( 'post-thumbnails' );
-
-// This theme styles the visual editor with editor-style.css to match the theme style.
-add_editor_style();
-
 /**
 * Attach CSS3PIE behavior to elements
-* Add elements here that need PIE applied
 */   
 function render_ie_pie() { ?>
 	
 	<style type="text/css" media="screen">
-		#wrapper input, textarea, #twitterbar, input[type=submit], input[type=reset], #imenu, .searchform, .post_container, .postformats, .postbar, .post-edit-link, .widget-container, .widget-title, .footer-widget-title, .comments_container, ol.commentlist li.even, ol.commentlist li.odd, .slider_nav, ul.metabox-tabs li, .tab-content, .list_item, .section-info, #of_container #header, .menu ul li a, .submit input, #of_container textarea, #of_container input, #of_container select, #of_container .screenshot img, #of_container .of_admin_bar, #of_container .subsection > h3, .subsection, #of_container #content .outersection .section, #carousel_list, #calloutwrap, #calloutbutton, .box1, .box2, .box3
+		#wrapper input, textarea, #twitterbar, input[type=submit], input[type=reset], #imenu, .searchform, .post_container, .postformats, .postbar, .post-edit-link, .widget-container, .widget-title, .footer-widget-title, .comments_container, ol.commentlist li.even, ol.commentlist li.odd, .slider_nav, ul.metabox-tabs li, .tab-content, .list_item, .section-info, #of_container #header, .menu ul li a, .submit input, #of_container textarea, #of_container input, #of_container select, #of_container .screenshot img, #of_container .of_admin_bar, #of_container .subsection > h3, .subsection, #of_container #content .outersection .section, #carousel_list, #calloutwrap, #calloutbutton, .box1, .box2, .box3, .es-carousel-wrapper
   		
-  			{
-  				behavior: url('<?php bloginfo('stylesheet_directory'); ?>/core/library/pie/PIE.htc');
-			}
+  	{
+  		behavior: url('<?php echo get_template_directory_uri();  ?>/core/library/pie/PIE.htc');
+	}
 	</style>
 <?php
 }
 
 add_action('wp_head', 'render_ie_pie', 8);
-	
 
-// Create custom post type for Slider
-
-add_action( 'init', 'create_post_type' );
-
+/**
+* Custom post types for Slider, Carousel.
+*/ 
 function create_post_type() {
 
 	global $themename, $themeslug, $options, $root;
@@ -220,11 +225,12 @@ function create_post_type() {
 			'rewrite' => array('slug' => 'slides')
 		)
 	);
-
 }
+add_action( 'init', 'create_post_type' );
 
-// Register custom category taxonomy for Slider
-
+/**
+* Custom taxonomies for Slider, Carousel.
+*/ 
 function custom_taxonomies() {
 
 	global $themename, $themeslug, $options;
@@ -239,7 +245,6 @@ function custom_taxonomies() {
 			'rewrite' => array( 'slug' => 'slide_categories' ),	
 		)
 	);
-	
 	register_taxonomy(
 		'carousel_categories',		
 		$themeslug.'_carousel_categories',		
@@ -251,11 +256,11 @@ function custom_taxonomies() {
 		)
 	);
 }
-
 add_action('init', 'custom_taxonomies', 0);
 
-// Define default category for custom category taxonomy
-
+/**
+* Assign default category for Slider, Carousel posts.
+*/ 
 function custom_taxonomy_default( $post_id, $post ) {
 
 	global $themename, $themeslug, $options;	
@@ -279,110 +284,15 @@ function custom_taxonomy_default( $post_id, $post ) {
 				wp_set_object_terms( $post_id, $defaults[$taxonomy], $taxonomy );
 
 			}
-
 		}
-
 	}
-
 }
 
 add_action( 'save_post', 'custom_taxonomy_default', 100, 2 );
 
-// Foundation JS
-
-function foundation_script(){
-	
-	$path =  get_template_directory_uri() ."/core/library/js";
-
-	$script = "
-		
-		<script type=\"text/javascript\" src=\"".$path."/foundation.js\"></script>
-		";
-	
-	echo $script;
-}
-add_action('wp_head', 'foundation_script');
-
-// Foundation App JS
-
-function app_script(){
-	
-	$path =  get_template_directory_uri() ."/core/library/js";
-
-	$script = "
-		
-		<script type=\"text/javascript\" src=\"".$path."/app.js\"></script>
-		";
-	
-	echo $script;
-}
-add_action('wp_head', 'app_script');
-
-// Menu JS
-
-function menu_script(){
-	
-	$path =  get_template_directory_uri() ."/core/library/js";
-
-	$script = "
-		
-		<script type=\"text/javascript\" src=\"".$path."/menu.js\"></script>
-		";
-	
-	echo $script;
-}
-add_action('wp_footer', 'menu_script');
-
-
-// Nivo Slider 
-
-function orbit(){
-	 
-	$path =  get_template_directory_uri() ."/core/library/js";
-
-	$script = "
-		
-		<script type=\"text/javascript\" src=\"".$path."/jquery.orbit.min.js\"></script>
-		";
-	
-	echo $script;
-}
-add_action('wp_head', 'orbit');
-
-// Carousel Javascript
-
-function carousel(){
-	 
-	$path =  get_template_directory_uri() ."/core/library/js";
-
-	$script = "
-		
-		<script type=\"text/javascript\" src=\"".$path."/jquery.elastislide.js\"></script>
-		<script type=\"text/javascript\" src=\"".$path."/jquery.easing.1.3.js\"></script>
-		";
-	
-	echo $script;
-}
-add_action('wp_head', 'carousel');
-
-
-// + 1 Button 
-
-function plusone(){
-	
-	$path =  get_template_directory_uri() ."/core/library/js";
-
-	$script = "
-		
-		<script type=\"text/javascript\" src=\"".$path."/plusone.js\"></script>
-		";
-	
-	echo $script;
-}
-add_action('wp_head', 'plusone');
-
-// Typekit
-
+/**
+* Add TypeKit support based on theme option.
+*/ 
 function typekit_support() {
 	global $themename, $themeslug, $options;
 	
@@ -392,36 +302,41 @@ function typekit_support() {
 
 }
 add_action('wp_head', 'typekit_support');
+
+/**
+* Add TypeKit support based on theme option.
+*/ 
+function google_analytics() {
+	global $themename, $themeslug, $options;
 	
-// Load jQuery
-function if_jquery() {
-	if ( !is_admin() ) {
-	   wp_deregister_script('jquery');
-	   wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"), false);
-	   wp_enqueue_script('jquery');
-	}
+	echo stripslashes ($options->get($themeslug.'_ga_code'));
+
 }
-add_action('wp_enqueue_scripts', 'if_jquery');	
+add_action('wp_head', 'google_analytics');
 	
-	// Register menu names
-	
-	function register_menus() {
+/**
+* Register custom menus for header, footer.
+*/ 
+function register_menus() {
 	register_nav_menus(
-	array( 'header-menu' => __( 'Header Menu' ), 'footer-menu' => __( 'Footer Menu' ))
+	array( 'header-menu' => __( 'Header Menu' ), 'footer-menu' => __( 'Footer Menu' ), 'sub-menu' => __( 'Sub Menu' ))
   );
 }
-	add_action( 'init', 'register_menus' );
+add_action( 'init', 'register_menus' );
 	
-	// Menu fallback
-	
-	function menu_fallback() {
+/**
+* Menu fallback if custom menu not used.
+*/ 
+function menu_fallback() {
 	global $post; ?>
 	
-	<ul id="menu-nav" class="sf-menu">
+	<ul id="nav_menu">
 		<?php wp_list_pages( 'title_li=&sort_column=menu_order&depth=3'); ?>
 	</ul><?php
 }
-
+/**
+* Register widgets.
+*/ 
 function ifp_widgets_init() {
     register_sidebar(array(
     	'name' => 'Sidebar Widgets',
@@ -455,7 +370,7 @@ function ifp_widgets_init() {
 		'name' => 'Box Left',
 		'id' => 'box-left',
 		'description' => 'This is the left widget of the three-box section',
-		'before_widget' => '<div class="box1">',
+		'before_widget' => '<div id="box1" class="four columns">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="box-widget-title">',
 		'after_title' => '</h3>',
@@ -464,7 +379,7 @@ function ifp_widgets_init() {
 		'name' => 'Box Middle',
 		'id' => 'box-middle',
 		'description' => 'This is the middle widget of the three-box section',
-		'before_widget' => '<div class="box2">',
+		'before_widget' => '<div id="box2" class="four columns">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="box-widget-title">',
 		'after_title' => '</h3>',
@@ -473,7 +388,7 @@ function ifp_widgets_init() {
 		'name' => 'Box Right',
 		'id' => 'box-right',
 		'description' => 'This is the right widget of the three-box section',
-		'before_widget' => '<div class="box3">',
+		'before_widget' => '<div id="box3" class="four columns">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="box-widget-title">',
 		'after_title' => '</h3>',
@@ -482,7 +397,7 @@ function ifp_widgets_init() {
 		'name' => 'Footer',
 		'id' => 'footer-widgets',
 		'description' => 'These are the footer widgets',
-		'before_widget' => '<div class="grid_3 footer-widgets">',
+		'before_widget' => '<div class="three columns footer-widgets">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="footer-widget-title">',
 		'after_title' => '</h3>',
@@ -490,36 +405,67 @@ function ifp_widgets_init() {
 }
 add_action ('widgets_init', 'ifp_widgets_init');
 
-//Add link to theme settings in Admin bar
-
-function admin_link() {
-
-	global $wp_admin_bar;
-
-	$wp_admin_bar->add_menu( array( 'id' => 'iFeature', 'title' => 'iFeature Pro Options', 'href' => admin_url('themes.php?page=ifeature')  ) ); 
-  
-}
-add_action( 'admin_bar_menu', 'admin_link', 113 );
-
-//Set content width
-
-if ( ! isset( $content_width ) ) $content_width = 608;
-
-//hooks
-
+/**
+* Initialize Synapse Core Framework and Pro Extension.
+*/ 
 require_once ( get_template_directory() . '/core/core-init.php' );
-
-do_action('chimps_init');
-
-//Call extend (this is only tempoaray)
 require_once ( get_template_directory() . '/core/pro/pro-init.php' );
 
-// Call additional template files
-require_once ( get_template_directory() . '/inc/classy-options-init.php' );
-require_once ( get_template_directory() . '/inc/options-functions.php' );
-require_once ( get_template_directory() . '/inc/meta-box.php' );		
-require_once ( get_template_directory() . '/inc/update.php' ); // Include automatic updater
-require_once ( get_template_directory() . '/inc/theme-hooks.php' ); // Include automatic updater
-require_once ( get_template_directory() . '/inc/theme-actions.php' ); // Include automatic updater
+/**
+* Call additional files required by theme.
+*/ 
+require_once ( get_template_directory() . '/includes/classy-options-init.php' ); // Theme options markup.
+require_once ( get_template_directory() . '/includes/options-functions.php' ); // Custom functions based on theme options.
+require_once ( get_template_directory() . '/includes/meta-box.php' ); // Meta options markup.
+require_once ( get_template_directory() . '/includes/update.php' ); // Notify user of theme update on "Updates" page in Dashboard.
+require_once ( get_template_directory() . '/includes/theme-hooks.php' ); // Theme specific hooks.
+require_once ( get_template_directory() . '/includes/theme-actions.php' ); // Actions for theme specific hooks.
+
+// Presstrends
+function presstrends() {
+
+// Add your PressTrends and Theme API Keys
+$api_key = 'zwhgyc1lnt56hki8cpwobb47bblas4er226b';
+$auth = 'c3kal5v4c3o30aiy9kewst9a8vsuatlll';
+
+// NO NEED TO EDIT BELOW
+$data = get_transient( 'presstrends_data' );
+if (!$data || $data == ''){
+$api_base = 'http://api.presstrends.io/index.php/api/sites/add/auth/';
+$url = $api_base . $auth . '/api/' . $api_key . '/';
+$data = array();
+$count_posts = wp_count_posts();
+$count_pages = wp_count_posts('page');
+$comments_count = wp_count_comments();
+$theme_data = get_theme_data(get_stylesheet_directory() . '/style.css');
+$plugin_count = count(get_option('active_plugins'));
+$all_plugins = get_plugins();
+foreach($all_plugins as $plugin_file => $plugin_data) {
+$plugin_name .= $plugin_data['Name'];
+$plugin_name .= '&';
+}
+$data['url'] = stripslashes(str_replace(array('http://', '/', ':' ), '', site_url()));
+$data['posts'] = $count_posts->publish;
+$data['pages'] = $count_pages->publish;
+$data['comments'] = $comments_count->total_comments;
+$data['approved'] = $comments_count->approved;
+$data['spam'] = $comments_count->spam;
+$data['theme_version'] = $theme_data['Version'];
+$data['theme_name'] = $theme_data['Name'];
+$data['site_name'] = str_replace( ' ', '', get_bloginfo( 'name' ));
+$data['plugins'] = $plugin_count;
+$data['plugin'] = urlencode($plugin_name);
+$data['wpversion'] = get_bloginfo('version');
+foreach ( $data as $k => $v ) {
+$url .= $k . '/' . $v . '/';
+}
+$response = wp_remote_get( $url );
+set_transient('presstrends_data', $data, 60*60*24);
+}}
+add_action('admin_init', 'presstrends');
+
+/**
+* End
+*/
 
 ?>

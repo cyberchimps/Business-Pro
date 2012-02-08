@@ -2,6 +2,31 @@ iFeature Pro Changelog
 
 ****************************
 
+Version 4.0.2 (02-07-12)
+-Better handling of slider responsive breaking point widths (fixes FireFox bug).
+-Fixed default afterfooter menu item spacing.
+-Fixed five slide limit for sliders using blog posts.
+
+Version 4.0.1 (02-06-12)
+-Fixed custom slide category bug for pages.
+-Fixed slider thumbs not displaying on blog index. 
+-Fixed postbar bug on single pages.
+-Fixed default social icons bug.
+-Replaced slider arrows with previous style.
+-Added option to disable slider timer.
+-Fixed media embed CSS bug.
+-Various responsive design style tweaks.
+
+Version 4.0 (02-03-12)
+-Added Foundation CSS grid, offering both responsive and static design.
+-Drag and Drop Header and Blog elements added.
+-Added WordPress Template Options (404, Search, Archive, Single)
+-Replaced NivoSlider with Orbit.
+-Added new responsive Carousel.
+-Added Left-Sidebar option.
+-New design options.
+-General bug and style fixes.
+
 Version 3.1.1 (01-08-12)
 -Called missing globals in page.php.
 -CSS fix related to page options.

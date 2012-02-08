@@ -26,11 +26,6 @@
 
 <?php get_header(); ?>
 
-<div class="container" id="title-area">
-	<div class="row">
-		<h2>Blog</h2>
-	</div>
-</div>
 <div class="container">
 		<?php
 			foreach(explode(",", $options->get($themeslug.'_blog_section_order')) as $fn) {

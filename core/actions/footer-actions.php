@@ -19,10 +19,9 @@
 * Synapse footer actions
 */
 add_action ( 'synapse_footer', 'synapse_footer_widgets' );
-add_action ( 'synapse_footer', 'synapse_analytics' );
 
-add_action ( 'synapse_secondary_footer', 'synapse_secondary_footer_copyright' );
 add_action ( 'synapse_secondary_footer', 'synapse_secondary_footer_menu' );
+add_action ( 'synapse_secondary_footer', 'synapse_secondary_footer_copyright' );
 add_action ( 'synapse_secondary_footer', 'synapse_secondary_footer_credit' );
 
 
@@ -36,6 +35,13 @@ function synapse_footer_widgets() {
    	if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Footer") ) { ?>
 		
 		<div class="three columns footer-widgets">
+			<h3 class="footer-widget-title"><?php printf( __( 'Footer Widgets', 'core' )); ?></h3>
+			<ul>
+				<li>To customize this widget area login to your admin account, go to Appearance, then Widgets and drag new widgets into Footer Widgets</li>
+			</ul>
+		</div>
+
+		<div class="three columns footer-widgets">
 			<h3 class="footer-widget-title"><?php printf( __( 'Recent Posts', 'core' )); ?></h3>
 			<ul>
 				<?php wp_get_archives('type=postbypost&limit=4'); ?>
@@ -46,13 +52,6 @@ function synapse_footer_widgets() {
 			<h3 class="footer-widget-title"><?php printf( __( 'Archives', 'core' )); ?></h3>
 			<ul>
 				<?php wp_get_archives('type=monthly&limit=16'); ?>
-			</ul>
-		</div>
-
-		<div class="three columns footer-widgets">
-			<h3 class="footer-widget-title"><?php printf( __( 'Links', 'core' )); ?></h3>
-			<ul>
-				<?php wp_list_bookmarks('categorize=0&title_li='); ?>
 			</ul>
 		</div>
 
@@ -69,17 +68,6 @@ function synapse_footer_widgets() {
 			<?php }
 			
 			echo "<div class='clear'></div> ";
-}
-
-/**
-* Inserts the Google Analytics script from the theme options.
-*
-* @since 1.0
-*/
-function synapse_analytics() {
-	global $options, $themeslug; //call globals
-	
-	echo stripslashes ($options->get($themeslug.'_ga_code'));
 }
 
 /**

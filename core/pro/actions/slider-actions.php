@@ -38,7 +38,24 @@ function synapse_slider_content() {
     $tmp_query = $wp_query; 
 	$root = get_template_directory_uri(); 
 	
-	if (is_front_page()) {
+	if (is_page()) {
+		$size = get_post_meta($post->ID, 'page_slider_size' , true);
+		$size2 = get_post_meta($post->ID, 'page_sidebar' , true);
+		$type = get_post_meta($post->ID, 'page_slider_type' , true);
+		$category = get_post_meta($post->ID, 'slider_blog_category' , true);
+		$customcategory = get_post_meta($post->ID, 'slider_category' , true);
+		$postnumber  = get_post_meta($post->ID, 'slider_blog_posts_number' , true);
+		$sliderheight = get_post_meta($post->ID, 'slider_height' , true);
+		$sliderdelay = get_post_meta($post->ID, 'slider_delay' , true);
+		$slideranimation = get_post_meta($post->ID, 'page_slider_animation' , true);
+		$captionstyle = get_post_meta($post->ID, 'page_slider_caption_style' , true);
+		$navigationstyle = get_post_meta($post->ID, 'page_slider_navigation_style' , true);
+		$hidenav = get_post_meta($post->ID, 'hide_arrows' , true);
+		$wordenable = get_post_meta($post->ID, 'enable_wordthumb' , true);	
+		$timer = get_post_meta($post->ID, 'slider_timer' , true);	
+	}
+	
+	else {
 		$size = $options->get($themeslug.'_slider_size');
 		$size2 = $options->get($themeslug.'_blog_sidebar');
 		$type = $options->get($themeslug.'_slider_type'); 
@@ -52,22 +69,10 @@ function synapse_slider_content() {
 		$postnumber = $options->get($themeslug.'_slider_posts_number');
 		$sliderdelay = $options->get($themeslug.'_slider_delay');
 		$navigationstyle = $options->get($themeslug.'_slider_nav');
+		$timer = $options->get($themeslug.'_slider_timer');
 		
 	}
-	if (is_page()) {
-		$size = get_post_meta($post->ID, 'page_slider_size' , true);
-		$size2 = get_post_meta($post->ID, 'page_sidebar' , true);
-		$type = get_post_meta($post->ID, 'page_slider_type' , true);
-		$category = get_post_meta($post->ID, 'slider_blog_category' , true);
-		$postnumber  = get_post_meta($post->ID, 'slider_blog_posts_number' , true);
-		$sliderheight = get_post_meta($post->ID, 'slider_height' , true);
-		$sliderdelay = get_post_meta($post->ID, 'slider_delay' , true);
-		$slideranimation = get_post_meta($post->ID, 'page_slider_animation' , true);
-		$captionstyle = get_post_meta($post->ID, 'page_slider_caption_style' , true);
-		$navigationstyle = get_post_meta($post->ID, 'page_slider_navigation_style' , true);
-		$hidenav = get_post_meta($post->ID, 'hide_arrows' , true);
-		$wordenable = get_post_meta($post->ID, 'enable_wordthumb' , true);	
-	}
+
 	
 /* Row div variable. */	
 if ($size == 'key2' OR $size == '0' ) {
@@ -140,14 +145,19 @@ else {
 
 /* Define slider caption style */      
 
-	if ($captionstyle == 'key3' OR $captionstyle == '3') { ?>
+	if ($captionstyle == 'key2' OR $captionstyle == '3') { ?>
 		<style type="text/css">
 		.orbit-caption {height: <?php echo $height ?>px; width: 30% !important;}
 		</style> <?php
 	}
-	elseif ($captionstyle == 'key2' OR $captionstyle == '2') { ?>
+	elseif ($captionstyle == 'key3' OR $captionstyle == '2') { ?>
 		<style type="text/css">
-		.orbit-caption {position: relative; float: right; height: <?php echo $height ?>px; width: 30% !important;}
+		.orbit-caption {position: relative !important; float: left; height: <?php echo $height ?>px; width: 30% !important; top: -375px;}
+		</style><?php
+	}    
+	elseif ($captionstyle == '0') { ?>
+		<style type="text/css">
+		.orbit-caption {display: none !important;}
 		</style><?php
 	}    
 
@@ -169,23 +179,29 @@ else {
 
 	if ($size == 'key2' OR $size == '0' ) {
 	  	$csWidth = '980';
+	  	$imgwidth = '980';
+	  	$defaultimage = "$root/images/pro/slider-980.jpg";
 	}		
 	elseif ($size2 == 'right-left' && $size != 'key2' OR $size2 == 'two-right' && $size != 'key2' OR $size2 == '1' && $size != '0' OR $size2 == '2' && $size != '0') {
 		$csWidth = '470';
+		$imgwidth = '470';
+		$defaultimage = "$root/images/pro/slider-470.jpg";
 	}  	
 	else {
 		$csWidth = '640';
+		$imgwidth = '640';
+		$defaultimage = "$root/images/pro/slider-640.jpg";
 	}
 
 /* End slider width variable */ 
 
 /* Query posts based on theme/meta options */
 
-	if ($options->get($themeslug.'_slider_type') == '') {
-		$usecustomslides = 'posts';
+	if ($type == 'custom' OR $type == '0' OR $type= "") {
+		$usecustomslides = 'custom';
 	}	
 	else {
-		$usecustomslides = $options->get($themeslug.'_slider_type');
+		$usecustomslides = 'posts';
 	}
 
 /* Query posts based on theme/meta options */
@@ -204,7 +220,7 @@ else {
 	if (have_posts()) :
 	    $out = "<div id='orbitDemo'>"; 
 	    $i = 0;
-	if ($options->get($themeslug.'_slider_posts_number') == '' OR $postnumber == '' && $type != '0') {
+	if ($usecustomslides == 'posts' AND $postnumber == '' OR $type != '0' AND $postnumber == '') {
 	    $no = '5';    	
 	}   	
 	elseif ($usecustomslides == 'custom' OR $type == '0') {
@@ -213,7 +229,8 @@ else {
 	else {
 		$no = $postnumber;
 	}
-
+	
+	var_dump($no);
 /* End post counter */	    	
 
 /* Initialize slide creation */	
@@ -291,20 +308,38 @@ else {
 	    		$image = $customsized;
 	    		$thumbnail = "$root/images/pro/sliderthumb.jpg";
 	    	}  	
-	    	elseif ($customimage == '' && $wordenable != '1' OR $customimage == '' && $size == "0" && $wordenable != 'on'){ // No custom image, no custom thumb, full-width slider, WordThumb enabled. 
+	    	elseif ($customimage == '' && $wordenable != '1' OR $customimage == '' && $wordenable != 'on'){ // No custom image, no custom thumb, full-width slider, WordThumb enabled. 
 
-	    		$image = "$root/images/pro/slider-640.jpg";
+	    		$image = $defaultimage;
 	    		$thumbnail = "$root/images/pro/sliderthumb.jpg";
 	    	}
+	    	
+	    	elseif ($customimage == '' && $wordenable == '1' OR $customimage == '' && $wordenable == 'on'){ // No custom image, no custom thumb, full-width slider, WordThumb enabled. 
+
+	    		$image = $defaultimage;
+	    		$thumbnail = "$root/images/pro/sliderthumb.jpg";
+	    	}
+
 
 		    /* End image/thumb */	
 
 	     	/* Markup for slides */
 
-	    	$out .= "<a href='$link' $caption data-thumb='$thumbnail'>
+	    	
+	    $out .= "
+	    	<!--[if !IE]> -->
+	    	<a href='$link' $caption data-thumb='$thumbnail'>
+	    				<img src='$image' width='$imgwidth' alt='Slider' />
+	    						<span class='orbit-caption' id='htmlCaption$i'>$title <br /> $text</span>
+	    				</a>
+	    	<!-- <![endif]-->
+	    	
+	    	<!--[if IE]>
+			<a href='$link' $caption data-thumb='$thumbnail'>
 	    				<img src='$image' alt='Slider' />
 	    						<span class='orbit-caption' id='htmlCaption$i'>$title <br /> $text</span>
 	    				</a>
+			<![endif]-->
 	    			";
 
 	    	/* End slide markup */
@@ -330,7 +365,7 @@ To create a Custom Slide please go to the Custom Slides tab in WP-Admin. Once yo
 
 /* Define slider delay variable */ 
     
-	if ($sliderdelay == '') {
+	if ($sliderdelay == "") {
 	    $delay = '3500';
 	}    
 
@@ -342,14 +377,18 @@ To create a Custom Slide please go to the Custom Slides tab in WP-Admin. Once yo
 
 /* Define slider navigation variable */ 
   	
-	if ($navigationstyle == 'key1' OR $navigationstyle == '0') {
+	if ($navigationstyle == 'key1' OR $navigationstyle == 'key2' OR $navigationstyle == '0'  OR $navigationstyle == '1' OR $navigationstyle == '') {
 	    $dots = 'true';
 	}
 	else {
 		$dots = 'false';
 	}
 	if ($navigationstyle == 'key2' OR $navigationstyle == '1') {
-	    $thumbs = 'true';
+	    $thumbs = 'true'; ?>
+	    
+	    <style type="text/css">
+		.orbit-bullets {bottom: -50px !important;}
+		</style> <?php
 	}
 	else {
 		$thumbs = 'false';
@@ -368,6 +407,19 @@ To create a Custom Slide please go to the Custom Slides tab in WP-Admin. Once yo
 
 <!-- End style -->
 
+<?php if ($navigationstyle == 'key3' OR $navigationstyle == '2') :?>
+	<style type="text/css" media="screen">
+		.slider_nav {display: none;}
+		#orbitDemo {margin-bottom: 0px;}
+	</style>
+<?php endif;?>
+
+<?php if ($timer == '0' OR $timer == 'off') :?>
+	<style type="text/css" media="screen">
+		div.timer {display: none;}
+	</style>
+<?php endif;?>
+
 	<?php
 	
 /* End slider navigation style */ 
@@ -381,7 +433,7 @@ To create a Custom Slide please go to the Custom Slides tab in WP-Admin. Once yo
    $(window).load(function() {
     $('#orbitDemo').orbit({
          animation: '$animation',
-         advanceSpeed: $sliderdelay,
+         advanceSpeed: $delay,
          captionAnimation: 'slideOpen',		// fade, slideOpen, none
          captionAnimationSpeed: 800,  
          bullets: $dots,
@@ -393,7 +445,7 @@ OUT;
 
 /* End NivoSlider javascript */ 
 
-echo $out; ?>
+echo $out; ?> <div class="slider_nav"></div>
 
 <?php echo $closerow; 
 

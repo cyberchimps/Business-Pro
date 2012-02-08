@@ -108,7 +108,7 @@ function initialize_the_meta_boxes() {
 			->select('page_slider_navigation_style', 'Slider Navigation Style', '', array('options' => array('Dots (default)', 'Thumbnails', 'None')) )
 			->select('page_slider_caption_style', 'Slider Caption Style', '', array('options' => array('None (default)', 'Bottom', 'Left', 'Right')) )
 			->checkbox('hide_arrows', 'Navigation Arrows', '', array('std' => 'on'))
-			->checkbox('disable_autohide', 'Navigation Arrows Autohide', '', array('std' => 'on'))
+			->checkbox('slider_timer', 'Slider Timer', '', array('std' => 'on'))
 			->checkbox('enable_wordthumb', 'WordThumb Image Resizing', '', array('std' => 'off'))
 			->sliderhelp('', 'Need Help?', '')
 		->tab("Callout Options")

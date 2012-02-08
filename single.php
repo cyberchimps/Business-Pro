@@ -24,6 +24,9 @@ get_header(); ?>
 	<!--Begin @Core post area-->
 		<?php synapse_index(); ?>
 	<!--End @Core post area-->
+	
+
+
 	</div>
 </div><!--end container-->
 

@@ -267,7 +267,7 @@ function synapse_header_social_icons_content() {
 	<div id="social">
 
 		<div class="icons">
-
+	
 		<?php if ($hidefacebook == '1' AND $facebook != '' OR $hidefacebook == '' AND $facebook != '' ):?>
 			<a href="<?php echo $facebook ?>" target="_blank" rel="me"><img src="<?php echo get_template_directory_uri(); ?>/images/social/<?php echo $folder; ?>/facebook.png" alt="Facebook" /></a>
 		<?php endif;?>
@@ -345,20 +345,30 @@ function synapse_nav() {
 	}
 	
 	?>
-	
+		
 	<div class="container">
 		<div class="row">
 
 			<div class="twelve columns" id="imenu">
 
 			<div id="nav" class="<?php echo $grid; ?>">
+			<?php if ($options->get($themeslug.'_hide_home_icon') != "0"):?><div id="home"><a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri() ;?>/images/home.png" alt="home" /></a></div><?php endif;?>
+			<?php if ($options->get($themeslug.'_hide_home_icon') == "0"):?>
+			<div id="nohome"></div>
+			<?php endif;?>
 		    <?php wp_nav_menu( array(
 		    'theme_location' => 'header-menu', // Setting up the location for the main-menu, Main Navigation.
 		    'fallback_cb' => 'menu_fallback', //if wp_nav_menu is unavailable, WordPress displays wp_page_menu function, which displays the pages of your blog.
+		    'items_wrap'      => '<ul id="nav_menu">%3$s</ul>',
 			    )
 			);
 	    	?>
    			</div>
+   			<?php if ($options->get($themeslug.'_hide_search') != "0"):?>
+			<div class="three columns">
+				<?php get_search_form(); ?>
+			</div>
+			<?php endif;?>
 		</div>
 	</div>
 </div>

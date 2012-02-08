@@ -12,8 +12,6 @@
 
 	global $themename, $themeslug, $options;
 	
-	ifeature_header_content_init();
-
 /* End globals. */
 	
 ?>

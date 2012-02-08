@@ -17,11 +17,12 @@
 
 ?>
 
+	
+<div class="container">
+	<div class="row">
 	<!--Begin @synapse before content sidebar hook-->
 		<?php synapse_before_content_sidebar(); ?>
 	<!--End @synapse before content sidebar hook-->
-<div class="container">
-	<div class="row">
 	<div id="content" class="<?php echo $content_grid; ?>">
 		<div class="content_padding">
 		

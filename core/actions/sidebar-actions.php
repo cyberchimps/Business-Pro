@@ -35,17 +35,20 @@ function synapse_sidebar_init_content() {
 	if (is_single()) {
 	$sidebar = $options->get($themeslug.'_single_sidebar');
 	}
-	if (is_archive()) {
+	elseif (is_archive()) {
 	$sidebar = $options->get($themeslug.'_archive_sidebar');
 	}
-	if (is_search()) {
+	elseif (is_404()) {
+	$sidebar = $options->get($themeslug.'_404_sidebar');
+	}
+	elseif (is_search()) {
 	$sidebar = $options->get($themeslug.'_search_sidebar');
 	}
-	if (is_front_page()) {
-	$sidebar = $options->get($themeslug.'_blog_sidebar');
-	}
-	if (is_page()) {
+	elseif (is_page()) {
 	$sidebar = get_post_meta($post->ID, 'page_sidebar' , true);
+	}
+	else {
+	$sidebar = $options->get($themeslug.'_blog_sidebar');
 	}
 	
 	if ($sidebar == 'two-right' OR $sidebar == 'right-left' OR $sidebar == "1" OR $sidebar == "2") {

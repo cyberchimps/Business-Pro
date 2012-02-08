@@ -16,6 +16,20 @@
 */
 
 /**
+* Load jQuery and register additional scripts.
+*/ 
+function synapse_pro_scripts() {	
+	$path =  get_template_directory_uri() ."/core/pro/library/";
+	
+	wp_register_script( 'easing' ,$path.'js/jquery.easing.1.3.js');
+	wp_register_script( 'elastislide' ,$path.'js/jquery.elastislide.js');
+	
+	wp_enqueue_script ('easing');
+	wp_enqueue_script ('elastislide');
+}
+add_action('wp_enqueue_scripts', 'synapse_pro_scripts');	
+
+/**
 * End
 */
 		    

@@ -40,12 +40,12 @@ function synapse_loop_content($content) {
 		 $featured_images = $options->get($themeslug.'_single_show_featured_images');
 		 $excerpts = $options->get($themeslug.'_single_show_excerpts');
 	}
-	if (is_archive()) {
+	elseif (is_archive()) {
 		 $post_formats = $options->get($themeslug.'_archive_post_formats');
 		 $featured_images = $options->get($themeslug.'_archive_show_featured_images');
 		 $excerpts = $options->get($themeslug.'_archive_show_excerpts');
 	}
-	if (is_front_page()) {
+	else {
 		 $post_formats = $options->get($themeslug.'_post_formats');
 		 $featured_images = $options->get($themeslug.'_show_featured_images');
 		 $excerpts = $options->get($themeslug.'_show_excerpts');
@@ -60,6 +60,11 @@ function synapse_loop_content($content) {
 		
 		<?php ob_start(); ?>
 			
+			<?php if ($post_formats != '0') : ?>
+			<div class="postformats"><!--begin format icon-->
+				<img src="<?php echo get_template_directory_uri(); ?>/images/formats/<?php echo $format ;?>.png" alt="formats" />
+			</div><!--end format-icon-->
+			<?php endif; ?>
 				<h2 class="posts_title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 					<!--Call @Core Meta hook-->
 			<?php synapse_post_byline(); ?>
@@ -103,10 +108,10 @@ function synapse_post_bar_content() {
 	if (is_single()) {
 		$hidden = $options->get($themeslug.'_single_hide_byline'); 
 	}
-	if (is_archive()) {
+	elseif (is_archive()) {
 		$hidden = $options->get($themeslug.'_archive_hide_byline'); 
 	}
-	if (is_front_page()) {
+	else {
 		$hidden = $options->get($themeslug.'_hide_byline'); 
 	}?>
 	
@@ -137,15 +142,15 @@ function synapse_post_byline_content() {
 	if (is_single()) {
 		$hidden = $options->get($themeslug.'_single_hide_byline'); 
 	}
-	if (is_archive()) {
+	elseif (is_archive()) {
 		$hidden = $options->get($themeslug.'_archive_hide_byline'); 
 	}
-	if (is_front_page()) {
+	else {
 		$hidden = $options->get($themeslug.'_hide_byline'); 
 	}?>
 	
 	<div class="meta">
-		<?php if (($hidden[$themeslug.'_hide_date']) != '0'):?> <?php printf( __( 'Published on', 'core' )); ?> <a href="<?php the_permalink() ?>"><?php the_time('F jS, Y') ?></a><?php endif;?>
+		<?php if (($hidden[$themeslug.'_hide_date']) != '0'):?> <?php printf( __( 'Published on', 'core' )); ?> <a href="<?php the_permalink() ?>"><?php echo get_the_date(); ?></a><?php endif;?>
 		<?php if (($hidden[$themeslug.'_hide_author']) != '0'):?><?php printf( __( 'by', 'core' )); ?> <?php the_author_posts_link(); ?> <?php endif;?> 
 		<?php if (($hidden[$themeslug.'_hide_categories']) != '0'):?><?php printf( __( 'in', 'core' )); ?> <?php the_category(', ') ?> <?php endif;?>
 	</div> <?php
@@ -170,10 +175,10 @@ function synapse_post_tags_content() {
 	if (is_single()) {
 		$hidden = $options->get($themeslug.'_single_hide_byline'); 
 	}
-	if (is_archive()) {
+	elseif (is_archive()) {
 		$hidden = $options->get($themeslug.'_archive_hide_byline'); 
 	}
-	if (is_front_page()) {
+	else {
 		$hidden = $options->get($themeslug.'_hide_byline'); 
 	}?>
 
@@ -197,11 +202,11 @@ function synapse_fb_like_plus_one_content() {
 		 $fb = $options->get($themeslug.'_single_show_fb_like');
 		 $gplus = $options->get($themeslug.'_single_show_gplus');
 	}
-	if (is_archive()) {
+	elseif (is_archive()) {
 		 $fb = $options->get($themeslug.'_archive_show_fb_like');
 		 $gplus = $options->get($themeslug.'_archive_show_gplus');
 	}
-	if (is_front_page()) {
+	else {
 		 $fb = $options->get($themeslug.'_show_fb_like');
 		 $gplus = $options->get($themeslug.'_show_gplus');
 	}?>
