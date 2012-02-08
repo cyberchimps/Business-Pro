@@ -1,4 +1,4 @@
-/* iFeature Pro 4 Style.css */
+/* Business Pro 3 Style.css */
 
 /* Reset and Design Constant Styles */
 
@@ -51,7 +51,9 @@ a:hover {color: #5ca9d6;}
 
 /* Header  */
 
-header {margin-top: 15px;}
+header {}
+
+#subheader {background:url(../images/brick.png;height:30px;}
 
 #header_contact{ text-align:right;}
 
@@ -63,7 +65,7 @@ header {margin-top: 15px;}
 
 #social {margin-bottom: 0px;}
 
-.icons {text-align:right;margin-top: 10px;}
+.icons {text-align:right;margin-top: 5px;}
 
 .icons a img {opacity:.6; padding-left: 3px;}
 
@@ -604,7 +606,8 @@ h1.description, h1.sitename {margin-bottom: 0px;}
 
 .description {	
 	font-size: 16px;
-	margin-top:25px;
+	margin-top:5px;
+	color: #f8f8f8;
 }
 
 .sitename {
