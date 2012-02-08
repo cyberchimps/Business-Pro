@@ -189,7 +189,7 @@ else {
 	}  	
 	else {
 		$csWidth = '640';
-		$imgwidth = '640';
+		$imgwidth = '760';
 		$defaultimage = "$root/images/pro/slider-640.jpg";
 	}
 
@@ -220,7 +220,7 @@ else {
 	if (have_posts()) :
 	    $out = "<div id='orbitDemo'>"; 
 	    $i = 0;
-	if ($usecustomslides == 'posts' AND $postnumber == '' OR $type != '0' AND $postnumber == '') {
+	if ($usecustomslides == 'posts' OR $postnumber == '' && $type != '0') {
 	    $no = '5';    	
 	}   	
 	elseif ($usecustomslides == 'custom' OR $type == '0') {
@@ -230,7 +230,6 @@ else {
 		$no = $postnumber;
 	}
 	
-	var_dump($no);
 /* End post counter */	    	
 
 /* Initialize slide creation */	

@@ -357,7 +357,6 @@ ol, ul {list-style-position: inside;margin-left: 21px;}
 
 #afterfootermenu li {
 	display: inline; 
-	margin-right: 5px;
 }
 
 #credit { height: 22px; z-index: 99; margin-top: 5px; text-align: center;}
@@ -674,7 +673,6 @@ figure {
     .callout_title {text-align: center;}
     #calloutbutton {width: 200px; margin: auto; margin-bottom: 30px;}
     #banner {margin-top: 10px;}
-    #orbitDemo.orbit img {width: 710px !important;}
 }
 
 @media handheld, only screen and (max-width: 400px) {
@@ -695,3 +693,4 @@ figure {
 	#mobileMenu_nav_menu {float: right; margin-top: 10px; margin-right: 10px;}
 	#imenu {height: 35px;}
 }
+
