@@ -3,7 +3,24 @@
 #title-area {
 	margin-bottom: 10px;
 	padding-top: 10px;
-	height: 30px;
+	height: 60px;
+	color: #fff;
+	border-bottom: 2px solid #ccc;
+background: #eeeeee;
+background: -moz-linear-gradient(top,  #eeeeee 0%, #cccccc 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc));
+background: -webkit-linear-gradient(top,  #eeeeee 0%,#cccccc 100%);
+background: -o-linear-gradient(top,  #eeeeee 0%,#cccccc 100%);
+background: -ms-linear-gradient(top,  #eeeeee 0%,#cccccc 100%);
+background: linear-gradient(top,  #eeeeee 0%,#cccccc 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
+
+}
+
+#title-area-white {
+	margin-bottom: 10px;
+	padding-top: 10px;
+	height: 60px;
 	color: #fff;
 	border-bottom: 2px solid #ccc;
 	background:#f8f8f8;background: -moz-linear-gradient(top, #f8f8f8 0%, #efefef 50%, #e5e5e5 100%);
@@ -17,7 +34,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', end
 
 #title-area h2 {
 	color: #222;
-	font-size: 16px;
 }
 
 #sliderarea {
@@ -182,10 +198,8 @@ header {
 
 .post_container {
 	padding: 10px;
-	background: #fff;
 	margin-bottom: 30px;
-	border: 3px solid #e7e7e7;
-	border-radius: 3px;
+	border-bottom: 2px dotted #ccc;
 }
 
 .post_container ul {list-style: disc;margin-left: 21px;list-style-position: inside;}
@@ -263,9 +277,7 @@ ol, ul {list-style-position: inside;margin-left: 21px;}
 	color: #222;
 	margin-bottom: 10px;
 	padding: 10px 10px 10px 10px;
-	border: 3px solid #e7e7e7;
-	border-radius: 3px;
-	background: #fff;
+
 }
 
 .widget-container li {list-style: none;}
