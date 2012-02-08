@@ -342,7 +342,7 @@ function ifeature_logo_menu_content() {
 	</div>	
 </div>
 
-<div style="padding-top: 30px;border-bottom: 2px solid #fff;box-shadow:inset 0 0 2px #ccc;height: 70px;
+<div style="padding-top: 30px;border-bottom: 1px solid #ccc;box-shadow:inset 0 0 2px #ccc;height: 70px;
 background: #f3f3f3;
 background: -moz-linear-gradient(top,  #f3f3f3 0%, #dadada 100%);
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#dadada));

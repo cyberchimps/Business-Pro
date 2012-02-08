@@ -56,7 +56,7 @@ header {}
 #subheader {
 	background:url(../images/brick.png);
 	height:30px;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid #ccc;
 }
 
 #header_contact{ text-align:right;}
