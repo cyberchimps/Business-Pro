@@ -53,7 +53,11 @@ a:hover {color: #5ca9d6;}
 
 header {}
 
-#subheader {background:url(../images/brick.png;height:30px;}
+#subheader {
+	background:url(../images/brick.png);
+	height:30px;
+	border-bottom: 1px solid #ddd;
+}
 
 #header_contact{ text-align:right;}
 
@@ -65,7 +69,7 @@ header {}
 
 #social {margin-bottom: 0px;}
 
-.icons {text-align:right;margin-top: 5px;}
+.icons {text-align:right;margin-top: 7px;}
 
 .icons a img {opacity:.6; padding-left: 3px;}
 
@@ -293,7 +297,7 @@ ol, ul {list-style-position: inside;margin-left: 21px;}
 /* Footer  */
 
 #footer {
-	background: #222;
+	background:url(../images/brick.png);
 	border-top: 2px solid #ccc;
 }
 
@@ -605,8 +609,8 @@ h6 {
 h1.description, h1.sitename {margin-bottom: 0px;}
 
 .description {	
-	font-size: 16px;
-	margin-top:5px;
+	font-size: 12px;
+	margin-top:10px;
 	color: #f8f8f8;
 }
 

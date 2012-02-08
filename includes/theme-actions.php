@@ -342,11 +342,19 @@ function ifeature_logo_menu_content() {
 	</div>	
 </div>
 
-<div style="background:#000;">
+<div style="padding-top: 30px;border-bottom: 2px solid #fff;box-shadow:inset 0 0 2px #ccc;height: 70px;
+background: #f3f3f3;
+background: -moz-linear-gradient(top,  #f3f3f3 0%, #dadada 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#dadada));
+background: -webkit-linear-gradient(top,  #f3f3f3 0%,#dadada 100%);
+background: -o-linear-gradient(top,  #f3f3f3 0%,#dadada 100%);
+background: -ms-linear-gradient(top,  #f3f3f3 0%,#dadada 100%);
+background: linear-gradient(top,  #f3f3f3 0%,#dadada 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#dadada',GradientType=0 );">
 	<div class="container">
 		<div class="row">	
 			
-			<div class="five columns" style="height:90px;">
+			<div class="five columns"">
 				
 				<!-- Begin @Core header sitename hook -->
 					<?php synapse_header_sitename(); ?> 
