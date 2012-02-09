@@ -73,23 +73,23 @@ function ifeature_box_section_content() {
 	<div id="box_container" class="twelve columns"> <!--box container-->
 		<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Left") ) : ?>
 			<div id="box1" class="four columns">
-				<h2 class="box-widget-title">Responsive iFeature Pro Slider</h2>
-					<img src="<?php echo $root ; ?>/images/icons/slidericon.png" height="100" alt="slider" class="aligncenter" />
-					<p>The Responsive iFeature Pro Slider now adjusts dynamically when being viewed by a mobile device such as an iPhone or iPad. It also includes image resizing, and thumbnails.</p>
+				<img src="<?php echo $root ; ?>/images/icons/blue.png" height="160" alt="slider" class="boximg" />
+				<h2 class="box-widget-title">Responsive iFeature Pro Slider</h2>	
+				<p class="boxtext">We kind of like responsive sliders!</p>
 			</div><!--end box1-->
 			<?php endif; ?>
 			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Middle") ) : ?>
 			<div id="box2" class="four columns">
+				<img src="<?php echo $root ; ?>/images/icons/purple.png" height="160" alt="blueprint" class="boximg" />
 				<h2 class="box-widget-title">Responsive Design</h2>
-					<img src="<?php echo $root ; ?>/images/icons/blueprint.png" height="100" alt="blueprint" class="aligncenter" />
-					<p>With Responsive Design, and <a href="http://cybersynapse.com/ifeaturepro/">iFeature Pro</a> your website will now magically adjust to mobile devices such as the iPhone, iPad, and Android devices.</p>
+				<p class="boxtext">We kind of like responsive design!</p>
 			</div><!--end box2-->
 			<?php endif; ?>
 			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Right") ) : ?>
 			<div id="box3" class="four columns">
+				<img src="<?php echo $root ; ?>/images/icons/green.png" height="160" alt="docs" class="boximg" />
 				<h2 class="box-widget-title">Excellent Support</h2>
-				<img src="<?php echo $root ; ?>/images/icons/docs.png" height="100" alt="docs" class="aligncenter" />
-				<p>We designed iFeature Pro to be as easy to design with as possible, if you do run into trouble we provide a <a href="http://cybersynapse.com/forum">support forum</a>, and <a href="http://www.cybersynapse.com/ifeaturepro/docs/">precise documentation</a>.</p>
+				<p class="boxtext">This shit be broke.</p>
 			</div><!--end box3-->
 		<?php endif; ?>
 </div>

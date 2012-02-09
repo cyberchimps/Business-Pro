@@ -71,9 +71,9 @@ header {}
 
 .icons {text-align:right;margin-top: 7px;}
 
-.icons a img {opacity:.6; padding-left: 3px;}
+.icons a img {opacity:1; padding-left: 3px;}
 
-.icons a:hover img {opacity:1;}
+.icons a:hover img {opacity:.6;}
 
 /* Nav  */
 

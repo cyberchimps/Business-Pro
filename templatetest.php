@@ -36,7 +36,7 @@ if (preg_match("/page_slider/", $page_section_order ) && $size == "1" ) {
 </div><!--end container-->
 </div>
 
-<div style="background:#ccc;">
+<div class="elementsbg">
 <div class="container">
 	<div class="row"> 
 		<?php synapse_callout_section(); ?> 
@@ -52,5 +52,20 @@ if (preg_match("/page_slider/", $page_section_order ) && $size == "1" ) {
 </div><!--end container-->
 </div>
 
+<div class="elementsbg">
+<div class="container">
+	<div class="row"> 
+		<?php synapse_twitterbar_section(); ?> 
+	</div><!--end row-->
+</div><!--end container-->
+</div>
+
+<div class="elementsbg">
+<div class="container">
+	<div class="row"> 
+		<?php synapse_carousel_section(); ?> 
+	</div><!--end row-->
+</div><!--end container-->
+</div>
 
 <?php get_footer(); ?>
