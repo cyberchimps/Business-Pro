@@ -48,7 +48,9 @@ function synapse_index_content() {
 							
 			<div class="post_container">
 						
-				<div class="two columns" id="sidemeta"><?php the_time('j M') ?></div>
+				<div class="two columns" id="sidemeta"><?php the_time('j M Y') ?>
+								<?php synapse_post_byline(); ?>
+				</div>
 						
 				<div class="ten columns" <?php post_class() ?> id="post-<?php the_ID(); ?>">
 		
@@ -77,8 +79,6 @@ function synapse_index_content() {
 					<?php synapse_post_pagination(); ?>
 				<!--End @Core post pagination hook-->			
 				<?php endif;?>
-				
-				<?php synapse_post_byline(); ?>
 			
 				</div><!--end post_class-->
 			</div><!--end post container-->

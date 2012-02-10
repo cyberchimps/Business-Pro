@@ -149,10 +149,8 @@ function synapse_post_byline_content() {
 	}?>
 	
 	<div class="meta">
-		<?php if (($hidden[$themeslug.'_hide_date']) != '0'):?> <?php printf( __( '', 'core' )); ?> <a href="<?php the_permalink() ?>"><?php echo get_the_date(); ?></a><?php endif;?>
 		<?php if (($hidden[$themeslug.'_hide_author']) != '0'):?><?php printf( __( 'by', 'core' )); ?> <?php the_author_posts_link(); ?> <?php endif;?> 
-		<?php if (($hidden[$themeslug.'_hide_categories']) != '0'):?><?php printf( __( 'in', 'core' )); ?> <?php the_category(', ') ?> <?php endif;?>
-		&nbsp;|&nbsp;<?php if (($hidden[$themeslug.'_hide_comments']) != '0'):?><?php comments_popup_link( __('No Comments', 'core' ), __('1 Comment', 'core' ), __('% Comments' , 'core' )); //need a filer here ?><?php endif;?>
+		<br /><?php if (($hidden[$themeslug.'_hide_comments']) != '0'):?><?php comments_popup_link( __('No Comments', 'core' ), __('1 Comment', 'core' ), __('% Comments' , 'core' )); //need a filer here ?><?php endif;?>
 	</div> <?php
 }
 
