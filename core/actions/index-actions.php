@@ -34,25 +34,20 @@ function synapse_index_content() {
 		<?php synapse_sidebar_init(); ?>
 	<!--End @Core sidebar init-->
 	<div class="row">
-	<!--Begin @Core before content sidebar hook-->
+<!--Begin @Core before content sidebar hook-->
 		<?php synapse_before_content_sidebar(); ?>
 	<!--End @Core before content sidebar hook-->
 
-		<div id="content" class="nine columns">
+		<div id="content" class="<?php echo $content_grid; ?>">
 		
 		<!--Begin @Core index entry hook-->
 		<?php synapse_blog_content_slider(); ?>
 		<!--End @Core index entry hook-->
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-							
+			
 			<div class="post_container">
-						
-				<div class="two columns" id="sidemeta"><?php the_time('j M Y') ?>
-								<?php synapse_post_byline(); ?>
-				</div>
-						
-				<div class="ten columns" <?php post_class() ?> id="post-<?php the_ID(); ?>">
+				<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
 		
 				<!--Begin @Core index loop hook-->
 					<?php synapse_loop(); ?>
@@ -82,6 +77,9 @@ function synapse_index_content() {
 			
 				</div><!--end post_class-->
 			</div><!--end post container-->
+			<!--Begin @iFeature post bar hook-->
+				<?php synapse_post_bar(); ?>
+			<!--End @iFeature post bar hook-->
 			
 			<?php if (is_single()):?>
 			<?php comments_template(); ?>
