@@ -655,7 +655,6 @@ div.orbit>a {
 div.timer {
     width: 40px;
     height: 40px;
-    overflow: hidden;
     position: absolute;
     top: 10px;
     right: 10px;
@@ -693,12 +692,13 @@ span.mask.move {
     background: url(orbit/timer-black.png) repeat 0 0; }
 
 span.pause {
+	
     display: block;
     width: 40px;
     height: 40px;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50px;
     background: url(../../images/orbit/pause-black.png) no-repeat;
     z-index: 4;
     opacity: 1; }
