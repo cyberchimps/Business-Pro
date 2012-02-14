@@ -342,7 +342,7 @@ else {
 	    	}
 	    	
 	    	else {
-	    		$mediacontent = $media;
+	    		$mediacontent = str_replace('"',"'",$media);
 	    	}
 
 			$textimg = "
