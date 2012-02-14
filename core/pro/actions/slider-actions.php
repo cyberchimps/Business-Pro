@@ -275,7 +275,7 @@ else {
 	   		
 	   		elseif ($align == '1') {
 	   			$textalign = 'right';
-	   			$imagealighn = 'left';
+	   			$imagealign = 'left';
 	   		}
 
 	    	/* End slide title */
