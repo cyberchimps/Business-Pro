@@ -1,6 +1,6 @@
 <?php
 /**
-* Custom hooks used by the iFeature Pro WordPress Theme
+* Custom hooks used by the Business Pro WordPress Theme
 *
 * Author: Tyler Cunningham
 * Copyright: © 2011
@@ -11,7 +11,7 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package iFeature Pro
+* @package Business Pro
 * @since 3.0
 */
 
@@ -21,8 +21,8 @@
 *
 * @since 3.0
 */
-function ifeature_header_content() {
-	do_action('ifeature_header_content');
+function business_header_content() {
+	do_action('business_header_content');
 }
 
 /**
@@ -30,30 +30,30 @@ function ifeature_header_content() {
 *
 * @since 3.0.5
 */
-function ifeature_header_contact_area() {
-	do_action('ifeature_header_contact_area');
+function business_header_contact_area() {
+	do_action('business_header_contact_area');
 }
 
-function ifeature_sitename_register() {
-	do_action('ifeature_sitename_register');
+function business_sitename_register() {
+	do_action('business_sitename_register');
 }
 
-function ifeature_sitename_contact() {
-	do_action('ifeature_sitename_contact');
+function business_sitename_contact() {
+	do_action('business_sitename_contact');
 }
 
-function ifeature_description_icons() {
-	do_action('ifeature_description_icons');
+function business_description_icons() {
+	do_action('business_description_icons');
 }
 
-function ifeature_logo_menu() {
-	do_action('ifeature_logo_menu');
+function business_logo_menu() {
+	do_action('business_logo_menu');
 }
 
-function ifeature_logo_description() {
-	do_action('ifeature_logo_description');
+function business_logo_description() {
+	do_action('business_logo_description');
 }
 
-function ifeature_banner() {
-	do_action('ifeature_banner');
+function business_banner() {
+	do_action('business_banner');
 }

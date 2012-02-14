@@ -1,6 +1,6 @@
 <?php
 /**
-* Initializes the iFeature Pro Theme Options
+* Initializes the Business Pro Theme Options
 *
 * Author: Tyler Cunningham
 * Copyright: © 2011
@@ -11,7 +11,7 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package iFeature Pro
+* @package Business Pro
 * @since 3.0
 */
 
@@ -59,7 +59,7 @@ $terms2 = get_terms('category', 'hide_empty=0');
 
 $options
 	->section("Welcome")
-		->info("<h1>iFeature Pro 4</h1>
+		->info("<h1>Business Pro 4</h1>
 		
 <p><strong>A Responsive Drag & Drop Premium WordPress Theme</strong></p>
 
@@ -114,7 +114,7 @@ $options
 			->close_outersection()
 	->section("Header")
 		->open_outersection()
-			->section_order("header_section_order", "Drag drop sections for the Header", array('options' => array("ifeature_header_content" => "Logo + Icons", "ifeature_sitename_contact" => "Logo + Contact", "ifeature_description_icons" => "Description + Icons", "ifeature_logo_menu" => "Logo + Menu", "ifeature_logo_Description" => "Logo + Description", "ifeature_banner" => "Banner", "synapse_navigation" => "iMenu", "ifeature_sitename_register" => "Logo + Login"), 'default' => 'ifeature_header_content,synapse_navigation'))
+			->section_order("header_section_order", "Drag drop sections for the Header", array('options' => array("business_header_content" => "Logo + Icons", "business_sitename_contact" => "Logo + Contact", "business_description_icons" => "Description + Icons", "business_logo_menu" => "Logo + Menu", "business_logo_Description" => "Logo + Description", "business_banner" => "Banner", "synapse_navigation" => "iMenu", "business_sitename_register" => "Logo + Login"), 'default' => 'business_header_content,synapse_navigation'))
 			->upload($themeslug."_banner", "Banner Image")
 			->textarea($themeslug."_header_contact", "Contact Information")
 		->close_outersection()
@@ -163,7 +163,7 @@ TEMPLATE_URL . '/images/social/thumbs/icons-default.png' ), 'default' => 'defaul
 		->subsection_end()
 	->section("Blog")
 		->open_outersection()
-			->section_order($themeslug."_blog_section_order", "Blog Page Re-Order", array('options' => array("synapse_index" => "Post Page", "synapse_blog_slider" => "iFeature Slider", "synapse_callout_section" => "Callout Section", "synapse_twitterbar_section" => "Twitter Bar", "synapse_index_carousel_section" => "Carousel", "synapse_box_section" => "Boxes"), "default" => 'synapse_blog_slider,synapse_index'))
+			->section_order($themeslug."_blog_section_order", "Blog Page Re-Order", array('options' => array("synapse_index" => "Post Page", "synapse_blog_slider" => "Business Slider", "synapse_callout_section" => "Callout Section", "synapse_twitterbar_section" => "Twitter Bar", "synapse_index_carousel_section" => "Carousel", "synapse_box_section" => "Boxes"), "default" => 'synapse_blog_slider,synapse_index'))
 		->close_outersection()
 		->subsection("Blog Options")
 			->images($themeslug."_blog_sidebar", "Select the Sidebar Type", array( 'options' => array("left" => TEMPLATE_URL . '/images/options/left.png', "two-right" => TEMPLATE_URL . '/images/options/tworight.png', "right-left" => TEMPLATE_URL . '/images/options/rightleft.png', "none" => TEMPLATE_URL . '/images/options/none.png', "right" => TEMPLATE_URL . '/images/options/right.png'), 'default' => 'right'))

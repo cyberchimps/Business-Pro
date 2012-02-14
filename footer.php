@@ -1,9 +1,8 @@
 <?php
 
 /*
-	
 	Footer
-	Establishes the widgetized footer and static post-footer section of iFeature. 
+	Establishes the widgetized footer and static post-footer section of Business Pro. 
 	Copyright (C) 2011 CyberChimps
 	Version 2.0
 	

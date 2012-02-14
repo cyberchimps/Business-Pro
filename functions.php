@@ -10,11 +10,10 @@
 /**
 * Define global theme functions.
 */ 
-	$themename = 'ifeature';
-	$themenamefull = 'iFeature Pro';
-	$themeslug = 'if';
+	$themename = 'business';
+	$themenamefull = 'Business Pro';
+	$themeslug = 'bu';
 	$root = get_template_directory_uri(); 
-	$slider_default = "$root/images/ifeaturefree.jpg";
 	$pagedocs = 'http://cyberchimps.com/question/using-the-ifeature-pro-page-options/';
 	$sliderdocs = 'http://cyberchimps.com/question/how-to-use-the-ifeature-pro-3-slider/';
 
@@ -39,7 +38,7 @@ add_action( 'after_setup_theme', 'if_theme_setup' );
 * Redirect user to theme options page after activation.
 */ 
 if ( is_admin() && isset($_GET['activated'] ) && $pagenow =="themes.php" ) {
-	wp_redirect( 'themes.php?page=ifeature' );
+	wp_redirect( 'themes.php?page=business' );
 }
 
 /**
@@ -48,7 +47,7 @@ if ( is_admin() && isset($_GET['activated'] ) && $pagenow =="themes.php" ) {
 function admin_link() {
 	global $wp_admin_bar;
 
-	$wp_admin_bar->add_menu( array( 'id' => 'iFeature', 'title' => 'iFeature Pro Options', 'href' => admin_url('themes.php?page=ifeature')  ) ); 
+	$wp_admin_bar->add_menu( array( 'id' => 'Business', 'title' => 'Business Pro Options', 'href' => admin_url('themes.php?page=business')  ) ); 
 }
 add_action( 'admin_bar_menu', 'admin_link', 113 );
 
@@ -197,7 +196,7 @@ function create_post_type() {
 	register_post_type( $themeslug.'_custom_slides',
 		array(
 			'labels' => array(
-				'name' => __( 'iFeature Slides' ),
+				'name' => __( 'Content Slides' ),
 				'singular_name' => __( 'Slides' )
 			),
 			'public' => true,

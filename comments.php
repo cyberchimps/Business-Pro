@@ -2,7 +2,7 @@
 
 /*
 	Comments
-	Creates the Synapse comments section.
+	Creates the Business Pro comments section.
 	Copyright (C) 2011 CyberChimps
 	Version 2.0
 */

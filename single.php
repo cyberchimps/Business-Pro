@@ -3,16 +3,13 @@
 /*
 	Single
 	
-	Establishes the single post template of iFeature. 
+	Establishes the single post template of Business Pro. 
 	
 	Copyright (C) 2011 CyberChimps
 */
-
-
 	global $options, $themeslug, $post; // call globals
 
 /* End variable definition. */	
-
 
 get_header(); ?>
 

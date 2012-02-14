@@ -1,6 +1,6 @@
 <?php
 /**
-* Custom actions used by the iFeature Pro WordPress Theme
+* Custom actions used by the Business Pro WordPress Theme
 *
 * Author: Tyler Cunningham
 * Copyright: © 2011
@@ -11,35 +11,35 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package iFeature Pro
+* @package Business Pro
 * @since 3.0
 */
 
 /**
-* iFeature Actions
+* Business Actions
 */
 
-add_action( 'ifeature_header_content', 'ifeature_header_standard_content');
-add_action( 'ifeature_header_contact_area', 'ifeature_header_contact_area_content' );
-add_action( 'ifeature_sitename_register', 'ifeature_sitename_register_content');
-add_action( 'ifeature_sitename_contact', 'ifeature_sitename_contact_content');
-add_action( 'ifeature_description_icons', 'ifeature_description_icons_content');
-add_action( 'ifeature_logo_menu', 'ifeature_logo_menu_content');
-add_action( 'ifeature_logo_description', 'ifeature_logo_description_content');
-add_action( 'ifeature_banner', 'ifeature_banner_content');
+add_action( 'business_header_content', 'business_header_standard_content');
+add_action( 'business_header_contact_area', 'business_header_contact_area_content' );
+add_action( 'business_sitename_register', 'business_sitename_register_content');
+add_action( 'business_sitename_contact', 'business_sitename_contact_content');
+add_action( 'business_description_icons', 'business_description_icons_content');
+add_action( 'business_logo_menu', 'business_logo_menu_content');
+add_action( 'business_logo_description', 'business_logo_description_content');
+add_action( 'business_banner', 'business_banner_content');
 
 remove_action( 'synapse_head_tag', 'synapse_link_rel' );
-add_action( 'synapse_head_tag', 'ifeature_link_rel' );
+add_action( 'synapse_head_tag', 'business_link_rel' );
 
 remove_action( 'synapse_box_section', 'synapse_box_section_content' );
-add_action( 'synapse_box_section', 'ifeature_box_section_content' );
+add_action( 'synapse_box_section', 'business_box_section_content' );
 
 /**
 * Sets up the header contact area
 *
 * @since 1.0
 */
-function ifeature_header_contact_area_content() { 
+function business_header_contact_area_content() { 
 	global $themeslug, $options; 
 	$contactdefault = apply_filters( 'synapse_header_contact_default_text', 'Enter Contact Information Here' ); 
 	
@@ -63,7 +63,7 @@ function ifeature_header_contact_area_content() {
 *
 * @since 3.1
 */
-function ifeature_box_section_content() { 
+function business_box_section_content() { 
 	global $post; //call globals
 	
 	$enableboxes = get_post_meta($post->ID, 'enable_box_section' , true);
@@ -74,7 +74,7 @@ function ifeature_box_section_content() {
 		<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Left") ) : ?>
 			<div id="box1" class="four columns">
 				<img src="<?php echo $root ; ?>/images/icons/blue.png" height="160" alt="slider" class="boximg" />
-				<h2 class="box-widget-title">Responsive iFeature Pro Slider</h2>	
+				<h2 class="box-widget-title">Responsive business Pro Slider</h2>	
 				<p class="boxtext">We kind of like responsive sliders!</p>
 			</div><!--end box1-->
 			<?php endif; ?>
@@ -102,7 +102,7 @@ function ifeature_box_section_content() {
 *
 * @since 3.0.2
 */
-function ifeature_link_rel() {
+function business_link_rel() {
 	global $themeslug, $options; //Call global variables
 	$favicon = $options->get($themeslug.'_favicon'); //Calls the favicon URL from the theme options 
 	
@@ -151,7 +151,7 @@ function ifeature_link_rel() {
 *
 * @since 3.0
 */
-function ifeature_sitename_register_content() {
+function business_sitename_register_content() {
 global $current_user;
 ?>
 
@@ -191,7 +191,7 @@ global $current_user;
 *
 * @since 3.0
 */
-function ifeature_sitename_contact_content() {
+function business_sitename_contact_content() {
 ?>
 	<div class="container">
 		<div class="row">
@@ -208,7 +208,7 @@ function ifeature_sitename_contact_content() {
 			<div class="five columns">
 			
 			<!-- Begin @Core header contact area hook -->
-			<?php ifeature_header_contact_area(); ?>
+			<?php business_header_contact_area(); ?>
 		<!-- End @Core header contact area hook -->
 						
 			</div>	
@@ -223,7 +223,7 @@ function ifeature_sitename_contact_content() {
 *
 * @since 3.0
 */
-function ifeature_banner_content() {
+function business_banner_content() {
 global $themeslug, $options, $root; //Call global variables
 $banner = $options->get($themeslug.'_banner'); //Calls the logo URL from the theme options
 $default = "$root/images/pro/banner.jpg";
@@ -256,7 +256,7 @@ $default = "$root/images/pro/banner.jpg";
 *
 * @since 3.0
 */
-function ifeature_logo_description_content() {
+function business_logo_description_content() {
 ?>
 	<div class="container">
 		<div class="row">
@@ -288,7 +288,7 @@ function ifeature_logo_description_content() {
 *
 * @since 3.0
 */
-function ifeature_description_icons_content() {
+function business_description_icons_content() {
 ?>
 	<div class="container">
 		<div class="row">
@@ -320,7 +320,7 @@ function ifeature_description_icons_content() {
 *
 * @since 3.0
 */
-function ifeature_logo_menu_content() {
+function business_logo_menu_content() {
 ?>
 <div id="subheader">
 
@@ -375,7 +375,7 @@ function ifeature_logo_menu_content() {
 *
 * @since 3.0
 */
-function ifeature_header_standard_content() {
+function business_header_standard_content() {
 ?>
 	<div class="container">
 		<div class="row">

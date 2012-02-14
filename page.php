@@ -2,7 +2,7 @@
 
 /*
 	Page
-	Establishes the iFeature Pro page tempate.
+	Establishes the Business Pro page tempate.
 	Version: 3.0
 	Copyright (C) 2011 CyberChimps
 

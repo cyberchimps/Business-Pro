@@ -4,8 +4,8 @@
     
 		<div class="widget-container">    
 		<h2 class="widget-title">Business Pro 3</h2>
-		<p>Thank you for purchasing iFeature Pro 4.</p>
-		<p>We designed iFeature Pro 4 to be as user friendly as possible, but if you do run into trouble we provide a <a href="http://cyberchimps.com/forum">support forum</a>, and <a href="http://www.cyberchimps.com/ifeature-pro/docs/">precise documentation</a>.</p>
+		<p>Thank you for purchasing Business Pro 3.</p>
+		<p>We designed Business Pro 3 to be as user friendly as possible, but if you do run into trouble we provide a <a href="http://cyberchimps.com/forum">support forum</a>, and <a href="http://www.cyberchimps.com/ifeature-pro/docs/">precise documentation</a>.</p>
 
     	</div>
 		
