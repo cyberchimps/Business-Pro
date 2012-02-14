@@ -73,6 +73,7 @@ function initialize_the_meta_boxes() {
 			->select('slider_type', 'Select Slider Type', '', array('options' => array('Text/Image', 'Full Image', 'Full Text')) )
 			->textarea('slider_caption', 'Custom Slide Caption', '')
 			->single_image('slider_image', 'Custom Slide Image', '')
+			->textarea('slider_media', 'Slider Media', '')
 			->select('slider_text_align', 'Text Align', '', array('options' => array('Left', 'Right')) )
 			->text('slider_url', 'Custom Slide Link', '')			
 			->checkbox('slider_hidetitle', 'Slide Title Bar', '', array('std' => 'on'))

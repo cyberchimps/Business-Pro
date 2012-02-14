@@ -589,7 +589,7 @@
    ================================================== */
    
 #orbitDemo {  margin-bottom: 45px; }
-#orbitDemo.orbit { height: auto; }
+#orbitDemo.orbit { height: 330px !important; }
 #orbitDemo img, #orbitDemo div { display: none; }
 #orbitDemo.orbit img, #orbitDemo.orbit div { display: block;}
 

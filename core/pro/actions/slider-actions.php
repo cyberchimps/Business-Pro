@@ -244,6 +244,7 @@ else {
 	    	$customimage 		= get_post_meta($post->ID, 'slider_image' , true);  /* Gets slide custom image from page/post meta option */
 	    	$slidertype			= get_post_meta($post->ID, 'slider_type' , true);  /* Gets slide custom image from page/post meta option */
 	    	$customtext 		= get_post_meta($post->ID, 'slider_caption' , true);  /* Gets slide custom image from page/post meta option */
+	    	$media		 		= get_post_meta($post->ID, 'slider_media' , true);  /* Gets slide custom image from page/post meta option */
 	    	$align				= get_post_meta($post->ID, 'slider_text_align' , true);  /* Gets slide custom image from page/post meta option */
 	    	$customlink 		= get_post_meta($post->ID, 'slider_url' , true); /* Gets link from custom slide meta option */
 	    	$permalink 			= get_permalink(); /* Gets post URL for blog post slides */
@@ -274,7 +275,7 @@ else {
 	   		
 	   		elseif ($align == '1') {
 	   			$textalign = 'right';
-	   			$imagealighn = 'left';
+	   			$imagealign = 'left';
 	   		}
 
 	    	/* End slide title */
@@ -334,6 +335,15 @@ else {
 	    		$image = $defaultimage;
 	    		$thumbnail = "$root/images/pro/sliderthumb.jpg";
 	    	}
+	    	
+	    	if ($media == '') {
+	    		$mediacontent = "<img src='$image' width='$imgwidth' height='240' alt='Slider' />";
+
+	    	}
+	    	
+	    	else {
+	    		$mediacontent = $media;
+	    	}
 
 			$textimg = "
 	  					<div class='slider_content'>
@@ -342,7 +352,7 @@ else {
 	  							<font size='4'>$customtext</font>
 	  						</div>
 	  						<div class='content_image' style='width: 420px; float: $imagealign; padding-top:40px; padding-right:20px; '>
-	  							<img src='$image' width='$imgwidth' height='240' alt='Slider' />
+	  							$mediacontent	  						
 	  						</div>
 	    				</div>
 	    
@@ -357,6 +367,20 @@ else {
 	    
 	    		";
 	    		
+	    	$fulltext = "
+	  					<div class='slider_content' style='height: 330px;'>
+	  							 			
+	  						<div class='content_text' style='text-align: center; height: 330px;'>
+	  							<font size='7'>$title</font><br />
+	  							<font size='4'>$customtext</font>
+	  						</div>
+
+
+	  						
+	    				</div>
+	    
+	    		";
+	    		
 	    		
 	    	if ($slidertype == '0' or $slidertype == '') {
 	    		$type = $textimg;
@@ -364,6 +388,10 @@ else {
 	    	
 	    	elseif ($slidertype == '1') {
 	    		$type = $fullimg;
+	    	}
+	    	
+	    	elseif ($slidertype == '2') {
+	    		$type = $fulltext;
 	    	}
 
 
