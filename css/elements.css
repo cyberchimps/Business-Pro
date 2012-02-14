@@ -10,11 +10,15 @@ div.orbit-wrapper {
 	
 }
 
-#orbitDemo {
-	border: 3px solid #fff;
-	border-radius: 3px;
-	box-shadow: 0 3px 25px #000;
+.slider_content {
+	background:url(../images/backgrounds/noise.jpg);
+}
 
+#orbitDemo.orbit img {
+	}
+
+#orbitDemo.orbit div {
+	display: inline !important;
 }
 
 .slider_nav {
