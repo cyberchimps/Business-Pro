@@ -62,9 +62,15 @@ a:hover {color: #5ca9d6;}
 
 header {}
 
+#headernu {
+	border-bottom: 1px solid #ccc;
+	height: 80px;
+	background: #eaeaea url(../images/headerbg.png);
+}
+
 #subheader {
-	background:url(../images/brick.png);
-	height:30px;
+	background:url(../images/broken_noise.png);
+	height:35px;
 	border-bottom: 1px solid #ccc;
 }
 
@@ -78,7 +84,7 @@ header {}
 
 #social {margin-bottom: 0px;}
 
-.icons {text-align:right;margin-top: 7px;}
+.icons {text-align:right;margin-top: 10px;}
 
 .icons a img {opacity:1; padding-left: 3px;}
 
@@ -590,14 +596,15 @@ h6 {
 h1.description, h1.sitename {margin-bottom: 0px;}
 
 .description {	
-	font-size: 12px;
-	margin-top:10px;
-	color: #f8f8f8;
+	font-size: 11px;
+	margin-top:12px;
+	color: #666;
 }
 
 .sitename {
 	font-size: 32px;
 	font-weight: bolder;
+	margin-top: 20px;
 }
 
 

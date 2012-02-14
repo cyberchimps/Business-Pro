@@ -1,5 +1,5 @@
 .elementsbg {
-	background: #fff; 
+	background: #f8f8f8; 
 }
 
 
@@ -26,7 +26,8 @@ div.orbit-wrapper {
 }
 
 #sliderbg {
-		background:url(../images/sliderbg.png);
+		border-top: 1px solid #999;
+		background: #bbb; url(../images/sliderbg1.png);
 }
 
 /*============================*/
