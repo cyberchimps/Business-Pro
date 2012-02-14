@@ -77,7 +77,7 @@ function synapse_before_content_sidebar_markup() {
 	<?php endif; ?>
 	
 	<?php if ($sidebar == 'left' OR $sidebar == "4"): ?>
-	<div id="sidebar" class="three columns">
+	<div id="sidebar" class="four columns">
 		<?php get_sidebar(); ?>
 	</div>
 	<?php endif;
@@ -92,7 +92,7 @@ function synapse_after_content_sidebar_markup() {
 	global $options, $themeslug, $post, $sidebar; // call globals ?>
 	
 	<?php if ($sidebar == 'right' OR $sidebar == '0' OR $sidebar == '' ): ?>
-	<div id="sidebar" class="three columns">
+	<div id="sidebar" class="four columns">
 		<?php get_sidebar(); ?>
 	</div>
 	<?php endif;?>
