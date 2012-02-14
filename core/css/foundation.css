@@ -664,7 +664,7 @@ div.timer {
     z-index: 1001; }
 
 span.rotator {
-    display: block;
+    display: none;
     width: 40px;
     height: 40px;
     position: absolute;
@@ -687,6 +687,7 @@ span.rotator.move {
     left: 0 }
 
 span.mask.move {
+	display: none;
     width: 40px;
     left: 0;
     background: url(orbit/timer-black.png) repeat 0 0; }
