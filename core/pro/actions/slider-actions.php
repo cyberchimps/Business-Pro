@@ -347,11 +347,11 @@ else {
 
 			$textimg = "
 	  					<div class='slider_content'>
-	  						<div class='content_text' style='width:460px; float: $textalign; padding-left:20px;'>
+	  						<div id='content_text' class='six columns'>
 	  							<font size='7'>$title</font><br />
 	  							<font size='4'>$customtext</font>
 	  						</div>
-	  						<div class='content_image' style='width: 420px; float: $imagealign; padding-top:40px; padding-right:20px; '>
+	  						<div id='content_image' class='six columns' style='padding-top:40px;  '>
 	  							$mediacontent	  						
 	  						</div>
 	    				</div>
