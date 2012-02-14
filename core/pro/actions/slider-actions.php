@@ -347,12 +347,12 @@ else {
 
 			$textimg = "
 	  					<div class='slider_content'>
-	  						<div id='content_text' class='six columns'>
-	  							<font size='7'>$title</font><br />
-	  							<font size='4'>$customtext</font>
+	  						<div id='text_container' class='six columns'>
+	  							<span class='content_title'>$title</span><br />
+	  							<span class='content_text'>$customtext</span>
 	  						</div>
-	  						<div id='content_image' class='six columns' style='padding-top:40px;  '>
-	  							$mediacontent	  						
+	  						<div id='image_container' class='six columns' style='padding-top:40px;  '>
+	  							$mediacontent	 						
 	  						</div>
 	    				</div>
 	    
@@ -370,9 +370,9 @@ else {
 	    	$fulltext = "
 	  					<div class='slider_content' style='height: 330px;'>
 	  							 			
-	  						<div class='content_text' style='text-align: center; height: 330px;'>
-	  							<font size='7'>$title</font><br />
-	  							<font size='4'>$customtext</font>
+	  						<div id='text_container' class='twelve columns'>
+	  							<span class='content_title'>$title</span><br />
+	  							<span class='content_text'>$customtext</span>
 	  						</div>
 
 

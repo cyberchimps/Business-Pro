@@ -21,6 +21,10 @@ div.orbit-wrapper {
 	display: inline !important;
 }
 
+.content_title {font-size: 20px;}
+
+.content_text {font-size: 16px;}
+
 .slider_nav {
 	height: 50px;
 	width: 99.8%;
