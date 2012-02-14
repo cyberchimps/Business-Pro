@@ -339,7 +339,7 @@ else {
 
 	    	
 	    $out .= "
-	  					<div class='content' style='background-color: white'>
+	  					<div class='slider_content'>
 	  						<div class='content_text' style='width:460px; float: $textalign; padding-left:20px;'>
 	  						
 	  							<font size='7'>$title</font><br />
@@ -347,7 +347,7 @@ else {
 	  							
 	  						</div>
 	  						
-	  							<div class='content_image' style='width: 420px; float: $imagealign; padding-top:50px; padding-right:20px; '><img src='$image' width='$imgwidth' height='240' alt='Slider' /></div>
+	  							<div class='content_image' style='width: 420px; float: $imagealign; padding-top:40px; padding-right:20px; '><img src='$image' width='$imgwidth' height='240' alt='Slider' /></div>
 	  						
 	  						
 	    				</div>

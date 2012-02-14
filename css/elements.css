@@ -10,6 +10,10 @@ div.orbit-wrapper {
 	
 }
 
+.slider_content {
+	background:url(../images/backgrounds/noise.jpg);
+}
+
 #orbitDemo.orbit img {
 	border: 4px solid #2e2e2e;
 }
