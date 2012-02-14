@@ -31,7 +31,7 @@ a:hover {color: #5ca9d6;}
 
 /* Half Nav  */
 
-#halfnav{float:right;}
+#halfnav{float:right;margin-top:20px;}
 #halfnav ul, #halfnav ul li{display:inline;list-style:none;padding:0;margin:0}
 #halfnav ul li a{
 	display:inline-block;
