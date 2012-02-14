@@ -70,11 +70,11 @@ function initialize_the_meta_boxes() {
 	$mb = new Chimps_Metabox('slides', 'Custom Feature Slides', array('pages' => array($themeslug.'_custom_slides')));
 	$mb
 		->tab("Custom Slide Options")
-			->text('slider_caption', 'Custom Slide Caption', '')
-			->text('slider_url', 'Custom Slide Link', '')
+			->textarea('slider_caption', 'Custom Slide Caption', '')
 			->single_image('slider_image', 'Custom Slide Image', '')
+			->select('slider_text_align', 'Text Align', '', array('options' => array('Left', 'Right')) )
+			->text('slider_url', 'Custom Slide Link', '')			
 			->checkbox('slider_hidetitle', 'Slide Title Bar', '', array('std' => 'on'))
-			->single_image('slider_custom_thumb', 'Custom Thumbnail', '')
 			->sliderhelp('', 'Need Help?', '')
 			->reorder('reorder_id', 'Reorder Name', 'Reorder Desc' )
 		->end();

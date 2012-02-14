@@ -164,7 +164,7 @@ else {
 /* Define wordthumb default height and widths. */		
 
 	if ($size == "key2" OR $size == '0') {
-		$wordthumb = "h=$height&w=980";
+		$wordthumb = "h=240&w=420";
 	}
 	elseif ($size2 == "two-right" OR $size2 == "right-left" OR $size2 == "1" OR $size2 == "2") {
 		$wordthumb = "h=$height&w=480";
@@ -179,7 +179,7 @@ else {
 
 	if ($size == 'key2' OR $size == '0' ) {
 	  	$csWidth = '980';
-	  	$imgwidth = '980';
+	  	$imgwidth = '420';
 	  	$defaultimage = "$root/images/pro/slider-980.jpg";
 	}		
 	elseif ($size2 == 'right-left' && $size != 'key2' OR $size2 == 'two-right' && $size != 'key2' OR $size2 == '1' && $size != '0' OR $size2 == '2' && $size != '0') {
@@ -241,7 +241,8 @@ else {
 	    	/* Post-specific variables */	
 
 	    	$customimage 		= get_post_meta($post->ID, 'slider_image' , true);  /* Gets slide custom image from page/post meta option */
-	    	$customtext 		=  $post->post_content; /* Gets slide caption from custom slide meta option */
+	    	$customtext 		= get_post_meta($post->ID, 'slider_caption' , true);  /* Gets slide custom image from page/post meta option */
+	    	$align				= get_post_meta($post->ID, 'slider_text_align' , true);  /* Gets slide custom image from page/post meta option */
 	    	$customlink 		= get_post_meta($post->ID, 'slider_url' , true); /* Gets link from custom slide meta option */
 	    	$permalink 			= get_permalink(); /* Gets post URL for blog post slides */
 	   		$blogtext 			= get_post_meta($post->ID, 'slider_text' , true); /* Gets slide caption from post meta option */  		
@@ -259,6 +260,18 @@ else {
 	   		}
 	   		else {
 	   			$caption = '';
+	   		}
+	   		
+	   		/* Slider Text Align */	
+	   		
+	   		if ($align == '0' OR $align == '') {
+	   			$textalign = 'left';
+	   			$imagealign = 'right';
+	   		}
+	   		
+	   		elseif ($align == '1') {
+	   			$textalign = 'right';
+	   			$imagealighn = 'left';
 	   		}
 
 	    	/* End slide title */
@@ -326,20 +339,21 @@ else {
 
 	    	
 	    $out .= "
-	    	<!--[if !IE]> -->
-	    	<a href='$link' $caption data-thumb='$thumbnail'>
-	    				<img src='$image' width='$imgwidth' alt='Slider' />
-	    						<span class='orbit-caption' id='htmlCaption$i'>$title <br /> $text</span>
-	    				</a>
-	    	<!-- <![endif]-->
+	  					<div class='content' style='background-color: white'>
+	  						<div class='content_text' style='width:460px; float: $textalign; padding-left:20px;'>
+	  						
+	  							<font size='7'>$title</font><br />
+	  							<font size='4'>$customtext</font>
+	  							
+	  						</div>
+	  						
+	  							<div class='content_image' style='width: 420px; float: $imagealign; padding-top:50px; padding-right:20px; '><img src='$image' width='$imgwidth' height='240' alt='Slider' /></div>
+	  						
+	  						
+	    				</div>
+	    				
 	    	
-	    	<!--[if IE]>
-			<a href='$link' $caption data-thumb='$thumbnail'>
-	    				<img src='$image' alt='Slider' />
-	    						<span class='orbit-caption' id='htmlCaption$i'>$title <br /> $text</span>
-	    				</a>
-			<![endif]-->
-	    			";
+	    	";
 
 	    	/* End slide markup */
 	      	$i++;
