@@ -352,7 +352,7 @@ else {
 	  							<span class='content_text'>$customtext</span>
 	  						</div>
 	  						<div id='image_container' class='six columns' style='padding-top:40px; float: $imagealign;  '>
-	  							$mediacontent	 						
+	  							$mediacontent 						
 	  						</div>
 	    				</div>
 	    

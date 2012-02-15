@@ -29,7 +29,7 @@ function synapse_pro_secondary_footer_credit() {
 	if ($options->get($themeslug.'_hide_link') == "1") {?>
 		
 		<div id="credit" class="four columns">
-			<a href="http://cybersynapse.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/achimps.png" alt="credit" /></a>
+			<a href="http://cyberchimps.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/achimps.png" alt="credit" /></a>
 		</div> 
 	
 	<?php }
