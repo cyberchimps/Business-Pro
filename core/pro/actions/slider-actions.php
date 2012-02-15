@@ -165,7 +165,7 @@ else {
 
 	if ($size == "key2" OR $size == '0') {
 		$wordthumb = "h=240&w=420";
-		$wordthumb2 = "h=330&w=980";
+		$wordthumb2 = "h=330&w=1000";
 	}
 	elseif ($size2 == "two-right" OR $size2 == "right-left" OR $size2 == "1" OR $size2 == "2") {
 		$wordthumb = "h=$height&w=480";
@@ -179,7 +179,7 @@ else {
 /* Define slider width variable */ 
 
 	if ($size == 'key2' OR $size == '0' ) {
-	  	$csWidth = '980';
+	  	$csWidth = '1000';
 	  	$imgwidth = '420';
 	  	$defaultimage = "$root/images/pro/slider-980.jpg";
 	}		
