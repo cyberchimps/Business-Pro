@@ -11,7 +11,7 @@ div.orbit-wrapper {
 }
 
 .slider_content {
-	background:transparent;
+	background: #bbb url(../images/sliderbg3.png);
 }
 
 #orbitDemo.orbit img {
@@ -33,7 +33,8 @@ div.orbit-wrapper {
 
 #sliderbg {
 		border-top: 1px solid #999;
-		background: #bbb url(../images/sliderbg.png);
+		border-bottom: 3px solid #999;
+		background: #bbb url(../images/sliderbg3.png);
 }
 
 /*============================*/
