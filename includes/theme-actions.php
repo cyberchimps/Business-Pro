@@ -290,38 +290,6 @@ function business_logo_description_content() {
 */
 function business_description_icons_content() {
 ?>
-	<div class="container">
-		<div class="row">
-		
-			<div class="five columns">
-				
-			<!-- Begin @Core header description hook -->
-				<?php synapse_header_site_description(); ?> 
-			<!-- End @Core header description hook -->
-			
-				
-			</div>	
-			
-			<div class="seven columns">
-			
-			<!-- Begin @Core header social icon hook -->
-				<?php synapse_header_social_icons(); ?> 
-			<!-- End @Core header contact social icon hook -->	
-						
-			</div>	
-		</div><!--end row-->
-	</div>	
-
-<?php
-}
-
-/**
-* Description/Icons
-*
-* @since 3.0
-*/
-function business_logo_menu_content() {
-?>
 <div id="subheader">
 
 	<div class="container">
@@ -341,6 +309,17 @@ function business_logo_menu_content() {
 		</div><!--end row-->
 	</div>	
 </div>
+
+<?php
+}
+
+/**
+* Description/Icons
+*
+* @since 3.0
+*/
+function business_logo_menu_content() {
+?>
 
 <div id="headernu">
 	<div class="container">
