@@ -43,6 +43,7 @@ jQuery(document).ready(function($) {
 	$("#subsection-Custom-Slide-Options > h4").click();
 	$("#subsection-Featured-Post-Carousel-Options > h4").click();
 	$("#subsection-Slider-Options > h4").click();
+	$("#subsection-Portfolio-Options > h4").click();
 	$("#subsection-Page-Options > h4").click();
 	var page_subsection_map = {
 		page_slider: "subsection-Business-Pro-Slider-Options",
