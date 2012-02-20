@@ -27,7 +27,7 @@
 	<?php query_posts( array ('post_type' => $themeslug.'_portfolio', 'showposts' => 20, true ));
 			
 	if (have_posts()) :
-	  	 $out = " <div id='gallery'><ul>"; 
+	  	 $out = " <div class='row'><div id='gallery' class='twelve columns'><ul>"; 
 
 	  	$i = 0;
 		$no = '50';
@@ -45,9 +45,9 @@
 
 	    	$out .= "
 	    	
-				<li>
+				<li class='three columns'>
 	    			<a href='$image'>	
-	    				<img src='$image' height='100' width='100' alt='$title'/>
+	    				<img src='$image'  alt='$title'/>
 	    			</a>
 	  	    	</li>
 	    	
@@ -57,7 +57,7 @@
 
 	      	$i++;
 	      	endwhile;
-	      	$out .= "</ul></div>";	 
+	      	$out .= "</ul></div></div>";	 
 	      	
 	      	else:
 	      
