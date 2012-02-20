@@ -336,6 +336,7 @@ function business_logo_menu_content() {
 			<div class="seven columns">
 			<div id="halfnav">
 			<?php wp_nav_menu( array(
+			'items_wrap'      => '<ul id="nav_menu">%3$s</ul>',
 		    'theme_location' => 'sub-menu' // Setting up the location for the main-menu, Main Navigation.
 			    )
 			);
