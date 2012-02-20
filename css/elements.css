@@ -294,6 +294,29 @@ li.ui-state-default  {
  * @license CCAttribution-ShareAlike 2.5 Brazil - http://creativecommons.org/licenses/by-sa/2.5/br/deed.en_US
  * @example Visit http://leandrovieira.com/projects/jquery/lightbox/ for more informations about this jQuery plugin
  */
+ 
+#gallery {
+	background-color: #444;
+	padding: 10px;
+}
+
+#gallery ul { list-style: none; }
+
+#gallery ul li { display: inline; }
+
+#gallery ul img {
+	border: 5px solid #3e3e3e;
+	border-width: 5px 5px 20px;
+}
+	
+#gallery ul a:hover img {
+	border: 5px solid #fff;
+	border-width: 5px 5px 20px;
+	color: #fff;
+}
+
+#gallery ul a:hover { color: #fff; }
+	
 #jquery-overlay {
 	position: absolute;
 	top: 0;
