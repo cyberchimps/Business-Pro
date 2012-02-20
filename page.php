@@ -37,7 +37,8 @@ if (preg_match("/page_slider/", $page_section_order ) && $size == "1" ) {
 	<div class="row">
 		<?php if (function_exists('synapse_breadcrumbs') && ($options->get($themeslug.'_disable_breadcrumbs') == "1")) { synapse_breadcrumbs(); }?>
 	</div>
-	<div class="row"> 
+</div><!--end container-->
+
 		<?php
 			foreach(explode(",", $page_section_order) as $key) {
 				$fn = 'synapse_' . $key;
@@ -46,6 +47,6 @@ if (preg_match("/page_slider/", $page_section_order ) && $size == "1" ) {
 				}
 			}
 		?>	
-	</div><!--end row-->
-</div><!--end container-->
+
+
 <?php get_footer(); ?>
