@@ -44,7 +44,7 @@ if (preg_match("/page_slider/", $page_section_order ) && $size == "1" ) {
 </div><!--end container-->
 </div>
 
-<div style="background:#f8f8f8;">
+<div style="background:#fff;">
 <div class="container">
 	<div class="row"> 
 		<?php synapse_box_section(); ?> 

@@ -69,10 +69,10 @@ function business_box_section_content() {
 	$enableboxes = get_post_meta($post->ID, 'enable_box_section' , true);
 	$root = get_template_directory_uri(); ?>
 
-<div class="row">
+<div class="row" style="margin-top:15px;border-bottom: 1px dotted #C8C8C8;">
 	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Left") ) : ?>
 		<div id="box1" class="four columns">
-			<h2 class="box-widget-title">Responsive business Pro Slider</h2>	
+			<h2 class="box-widget-title">Responsive Pro Slider</h2>	
 			<img src="<?php echo $root ; ?>/images/icons/blue.png" height="120" alt="slider" class="boximg" />
 			<p class="boxtext">We kind of like responsive sliders!</p>
 		</div><!--end box1-->
