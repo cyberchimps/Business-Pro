@@ -164,14 +164,14 @@ query_posts( array ('post_type' => $themeslug.'_featured_posts', 'showposts' => 
     
     $out .= <<<OUT
 	<script type="text/javascript">
-			
+			jQuery(document).ready(function ($) {	
 			$('#carousel').elastislide({
 				imageW 		: 140,
 				speed 		: $speed,
 				margin		: 8,
 				minItems 	: 5
 			});
-			
+			});
 		</script>
 OUT;
 
