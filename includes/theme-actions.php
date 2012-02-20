@@ -69,26 +69,29 @@ function business_box_section_content() {
 	$enableboxes = get_post_meta($post->ID, 'enable_box_section' , true);
 	$root = get_template_directory_uri(); ?>
 
-<div class="row">
-	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Left") ) : ?>
-		<div id="box1" class="four columns">
-			<h2 class="box-widget-title">Responsive business Pro Slider</h2>	
-			<img src="<?php echo $root ; ?>/images/icons/blue.png" height="120" alt="slider" class="boximg" />
-			<p class="boxtext">We kind of like responsive sliders!</p>
+<div class="row" style="margin-top:15px;border-bottom: 1px dotted #C8C8C8;">
+	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box 1") ) : ?>
+		<div id="box1" class="three columns">
+			<h2 class="box-widget-title">Responsive Pro Slider</h2>	
+			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/iphone.png" height="24" alt="slider" class="alignleft" />"Again, you can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future." -Steve Jobs</p>
 		</div><!--end box1-->
 		<?php endif; ?>
-	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Middle") ) : ?>
-		<div id="box2" class="four columns">
+	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box 2") ) : ?>
+		<div id="box2" class="three columns">
 			<h2 class="box-widget-title">Responsive Design</h2>
-			<img src="<?php echo $root ; ?>/images/icons/purple.png" height="120" alt="blueprint" class="boximg" />
-			<p class="boxtext">We kind of like responsive design!</p>
+			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/home.png" height="24" alt="slider" class="alignleft" />"Again, you can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future." -Steve Jobs</p>
 		</div><!--end box2-->
 		<?php endif; ?>
-	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Right") ) : ?>
-		<div id="box3" class="four columns">
+	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box 3") ) : ?>
+		<div id="box3" class="three columns">
 			<h2 class="box-widget-title">Excellent Support</h2>
-			<img src="<?php echo $root ; ?>/images/icons/green.png" height="120" alt="docs" class="boximg" />
-			<p class="boxtext">This shit be broke.</p>
+			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/cogs.png" height="24" alt="slider" class="alignleft" />"Again, you can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future." -Steve Jobs</p>
+		</div><!--end box3-->
+		<?php endif; ?>
+	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box 4") ) : ?>
+		<div id="box4" class="three columns">
+			<h2 class="box-widget-title">Excellent Support</h2>
+			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/search.png" height="24" alt="slider" class="alignleft" />"Again, you can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future." -Steve Jobs</p>
 		</div><!--end box3-->
 		<?php endif; ?>
 </div>

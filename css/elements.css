@@ -1,5 +1,5 @@
 .elementsbg {
-	background: #f8f8f8; 
+	background: #fff; 
 }
 
 
@@ -183,38 +183,37 @@ div.orbit-wrapper {
 
 .boximg {
 	margin: auto;
-	padding-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 .boxtext {
 	text-align: left;
 	color: #444;
+	margin-bottom: 15px;
+	font-size: 14px;
 }
 
 .box-widget-title {
 	color: #222;
-	height: 25px;
 	font-size: 18px;
 	font-weight: bold;
 	text-align: left;
+	margin-bottom: 15px;
 }
 
 #box1 {
 	min-height: 180px;
 	color: #222;
-	background: #fff;
 }
 
 #box2 {
 	min-height: 180px;
 	color: #222;
-	background: #fff;
 }
 
 #box3 {
 	min-height: 180px;
 	color: #222;
-	background: #fff;
 }
 
 .boxes ul { padding-left: 15px; }
