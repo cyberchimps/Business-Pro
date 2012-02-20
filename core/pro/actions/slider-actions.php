@@ -490,6 +490,7 @@ To create a Custom Slide please go to the Custom Slides tab in WP-Admin. Once yo
     
     $out .= <<<OUT
 <script type="text/javascript">
+	 jQuery(document).ready(function ($) {
    $(window).load(function() {
     $('#orbitDemo').orbit({
          animation: '$animation',
@@ -498,6 +499,7 @@ To create a Custom Slide please go to the Custom Slides tab in WP-Admin. Once yo
          captionAnimationSpeed: 800,  
          bullets: $dots,
          bulletThumbs: $thumbs
+     });
      });
      });
 </script>
