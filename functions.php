@@ -287,25 +287,35 @@ add_action('init', 'custom_taxonomies', 0);
 /**
 * Edit columns for portfolio post type.
 */ 
-add_filter('manage_edit-bu_portfolio_columns', 'portfolio_columns');
-function portfolio_columns($columns) {
-	$columns['images'] = 'Images';
-	return $columns;
+add_filter("manage_edit-bu_portfolio_columns", "portfolio_edit_columns");
+add_action("manage_posts_custom_column",  "portfolio_columns_display");
+
+function portfolio_edit_columns($portfolio_columns){
+    $portfolio_columns = array(
+        "cb" => "<input type=\"checkbox\" />",
+        "title" => _x('Title', 'column name'),
+        "image" => __('Image'),
+        "categories" => __('Categories'),
+        "author" => __('Author'),
+        "date" => __('Date'),
+    );
+   
+    return $portfolio_columns;
 }
-add_action( 'manage_posts_custom_column' , 'custom_portfolio_columns' );
-
-function custom_portfolio_columns( $column ) {
+function portfolio_columns_display($portfolio_columns){
 	global $post;
-
-	switch ( $column )
-	{
-	case 'images':
-		$images = get_post_meta($post->ID, 'portfolio_image' , true);
-		echo '<img src="';
-		echo $images;
-		echo '" style="height: 50px;">';
-	break;
-	}	
+    switch ($portfolio_columns)
+    {
+        // Code from: http://wpengineer.com/display-post-thumbnail-post-page-overview
+        case "image":
+        
+        $images = get_post_meta($post->ID, 'portfolio_image' , true);
+        echo '<img src="';
+        echo $images;
+        echo '"style="height: 50px; width: 50px;">';
+        
+        break;
+	}
 }
 
 /**
