@@ -285,6 +285,30 @@ function custom_taxonomies() {
 add_action('init', 'custom_taxonomies', 0);
 
 /**
+* Edit columns for portfolio post type.
+*/ 
+add_filter('manage_edit-bu_portfolio_columns', 'portfolio_columns');
+function portfolio_columns($columns) {
+	$columns['images'] = 'Images';
+	return $columns;
+}
+add_action( 'manage_posts_custom_column' , 'custom_portfolio_columns' );
+
+function custom_portfolio_columns( $column ) {
+	global $post;
+
+	switch ( $column )
+	{
+	case 'images':
+		$images = get_post_meta($post->ID, 'portfolio_image' , true);
+		echo '<img src="';
+		echo $images;
+		echo '" style="height: 50px;">';
+	break;
+	}	
+}
+
+/**
 * Assign default category for Slider, Carousel posts.
 */ 
 function custom_taxonomy_default( $post_id, $post ) {
