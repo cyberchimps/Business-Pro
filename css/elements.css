@@ -309,6 +309,7 @@ li.ui-state-default  {
 #gallery ul img {
 	border: 5px solid #3e3e3e;
 	border-width: 5px 5px 20px;
+	margin-bottom: 5px;
 }
 	
 #gallery ul a:hover img {

@@ -46,7 +46,7 @@
 	    	$out .= "
 	    	
 				<li class='three columns'>
-	    			<a href='$image'>	
+	    			<a href='$image' title='$title'>	
 	    				<img src='$image'  alt='$title'/>
 	    			</a>
 	  	    	</li>
