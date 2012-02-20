@@ -224,6 +224,23 @@ function create_post_type() {
 			'rewrite' => array('slug' => 'slides')
 		)
 	);
+	
+	register_post_type( $themeslug.'_portfolio',
+		array(
+			'labels' => array(
+				'name' => __( 'Portfolio' ),
+				'singular_name' => __( 'Images' )
+			),
+			'public' => true,
+			'show_ui' => true, 
+			'supports' => array('custom-fields'),
+			'taxonomies' => array( 'portfolio_categories'),
+			'has_archive' => true,
+			'menu_icon' => "$root/images/pro/favicon.ico",
+			'rewrite' => array('slug' => 'portfolio')
+		)
+	);
+
 }
 add_action( 'init', 'create_post_type' );
 
@@ -254,6 +271,16 @@ function custom_taxonomies() {
 			'rewrite' => array( 'slug' => 'carousel_categories' ),	
 		)
 	);
+	register_taxonomy(
+		'portfolio_categories',		
+		$themeslug.'_portfolio_categories',		
+		array(
+			'hierarchical' => true,
+			'label' => 'Portfolio Categories',	
+			'query_var' => true,	
+			'rewrite' => array( 'slug' => 'portfolio_categories' ),	
+		)
+	);
 }
 add_action('init', 'custom_taxonomies', 0);
 
@@ -268,7 +295,7 @@ function custom_taxonomy_default( $post_id, $post ) {
 
 		$defaults = array(
 
-			'slide_categories' => array( 'default' ), 'carousel_categories' => array( 'default' ),
+			'slide_categories' => array( 'default' ), 'carousel_categories' => array( 'default' ), 'portfolio_categories' => array( 'default' ),
 
 			);
 
