@@ -122,7 +122,7 @@ div.orbit-wrapper {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	border: 1px dotted #ccc;
-	background: #f8f8f8;
+	background: #fff;
 	border-radius: 2px;
 }
 
@@ -183,55 +183,36 @@ div.orbit-wrapper {
 
 .boximg {
 	margin: auto;
+	padding-bottom: 15px;
 }
 
 .boxtext {
-	text-align: center;
-	background: #e8e8e8;
-	padding-bottom: 5px;
-	margin-top: -10px;
-	color: #666;
+	text-align: left;
+	color: #444;
 }
 
 .box-widget-title {
-	color: #444;
+	color: #222;
 	height: 25px;
-	padding: 5px 0px 0px 0px;
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: bold;
-	text-align: center;
-	background: #e8e8e8;
+	text-align: left;
 }
 
 #box1 {
-	float: left;
-	width: 290px;
-	min-height: 200px;
-	padding: 10px;
-	margin-left: 0px;
-	margin-right: 22px;
+	min-height: 180px;
 	color: #222;
 	background: #fff;
 }
 
 #box2 {
-	float: left;
-	width: 290px;
-	min-height: 200px;
-	padding: 10px;
-	margin-left: 0px;
-	margin-right: 22px;
+	min-height: 180px;
 	color: #222;
 	background: #fff;
 }
 
 #box3 {
-	float: left;
-	width: 290px;
-	min-height: 200px;
-	padding: 10px;
-	margin-left: 0px;
-	margin-right: 0px;
+	min-height: 180px;
 	color: #222;
 	background: #fff;
 }
