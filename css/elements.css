@@ -300,6 +300,8 @@ li.ui-state-default  {
 	padding: 10px;
 }
 
+#gallery li.three.columns {margin-left:0px; margin-right: 3.3%;}
+
 #gallery ul { list-style: none; }
 
 #gallery ul li { display: inline; }
