@@ -68,32 +68,31 @@ function business_box_section_content() {
 	
 	$enableboxes = get_post_meta($post->ID, 'enable_box_section' , true);
 	$root = get_template_directory_uri(); ?>
-	
+
 <div class="row">
-	<div id="box_container" class="twelve columns"> <!--box container-->
-		<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Left") ) : ?>
-			<div id="box1" class="four columns">
-				<img src="<?php echo $root ; ?>/images/icons/blue.png" height="160" alt="slider" class="boximg" />
-				<h2 class="box-widget-title">Responsive business Pro Slider</h2>	
-				<p class="boxtext">We kind of like responsive sliders!</p>
-			</div><!--end box1-->
-			<?php endif; ?>
-			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Middle") ) : ?>
-			<div id="box2" class="four columns">
-				<img src="<?php echo $root ; ?>/images/icons/purple.png" height="160" alt="blueprint" class="boximg" />
-				<h2 class="box-widget-title">Responsive Design</h2>
-				<p class="boxtext">We kind of like responsive design!</p>
-			</div><!--end box2-->
-			<?php endif; ?>
-			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Right") ) : ?>
-			<div id="box3" class="four columns">
-				<img src="<?php echo $root ; ?>/images/icons/green.png" height="160" alt="docs" class="boximg" />
-				<h2 class="box-widget-title">Excellent Support</h2>
-				<p class="boxtext">This shit be broke.</p>
-			</div><!--end box3-->
+	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Left") ) : ?>
+		<div id="box1" class="four columns">
+			<h2 class="box-widget-title">Responsive business Pro Slider</h2>	
+			<img src="<?php echo $root ; ?>/images/icons/blue.png" height="120" alt="slider" class="boximg" />
+			<p class="boxtext">We kind of like responsive sliders!</p>
+		</div><!--end box1-->
+		<?php endif; ?>
+	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Middle") ) : ?>
+		<div id="box2" class="four columns">
+			<h2 class="box-widget-title">Responsive Design</h2>
+			<img src="<?php echo $root ; ?>/images/icons/purple.png" height="120" alt="blueprint" class="boximg" />
+			<p class="boxtext">We kind of like responsive design!</p>
+		</div><!--end box2-->
+		<?php endif; ?>
+	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box Right") ) : ?>
+		<div id="box3" class="four columns">
+			<h2 class="box-widget-title">Excellent Support</h2>
+			<img src="<?php echo $root ; ?>/images/icons/green.png" height="120" alt="docs" class="boximg" />
+			<p class="boxtext">This shit be broke.</p>
+		</div><!--end box3-->
 		<?php endif; ?>
 </div>
-	</div><!--end box_container--><?php
+<?php
 }
 
 
