@@ -79,7 +79,7 @@ function background_option() {
 	if ($options->get($themeslug.'_background_image') == "" OR $options->get($themeslug.'_background_image') == "default" && $options->get($themeslug.'_custom_background') != "1")  {
 	
 		echo '<style type="text/css">';
-		echo "body {background-image: url('$root/images/backgrounds/noise.jpg'); background-repeat: repeat; background-position: top left; background-attachment: fixed;}";
+		echo "body {background: #f8f8f8;}";
 		echo '</style>';
 	}
 	
