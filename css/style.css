@@ -67,8 +67,9 @@ a:hover {color: #5ca9d6;}
 header {}
 
 #headernu {
-	border-bottom: 1px solid #ccc;
-	height: 80px;
+	border-top: 4px solid #e1e1e1;	
+	border-bottom: 4px solid #e1e1e1;
+	min-height: 80px;
 	background: #eaeaea url(../images/headerbg.png);
 }
 
@@ -282,7 +283,7 @@ list-style-position: inside;}
 
 #footer {
 	background:url(../images/footer.png);
-	border-top: 1px solid #999;
+	border-top: 4px solid #2E2F30;
 }
 
 .footer-widgets {
