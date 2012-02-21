@@ -67,7 +67,7 @@ a:hover {color: #5ca9d6;}
 header {}
 
 #headernu {
-	border-bottom: 2px solid #999;
+	border-bottom: 1px solid #999;
 	height: 80px;
 	background: #eaeaea url(../images/headerbg.png);
 }
@@ -75,7 +75,7 @@ header {}
 #subheader {
 	background:url(../images/broken_noise.png);
 	height:35px;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #e1e1e1;
 }
 
 #header_contact{ text-align:right;}

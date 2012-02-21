@@ -32,8 +32,7 @@ div.orbit-wrapper {
 }
 
 #sliderbg {
-		border-top: 1px solid #999;
-		border-bottom: 3px solid #999;
+		border-bottom: 1px solid #E1E1E1;
 		background: #bbb url(../images/sliderbg3.png);
 }
 
@@ -42,7 +41,7 @@ div.orbit-wrapper {
 /*============================*/
 /* Elastislide Style */
 .es-carousel-wrapper{
-	padding:10px 37px;
+	padding:20px 0px 20px 0px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
@@ -100,18 +99,23 @@ div.orbit-wrapper {
 #twitterbar {
 	overflow: hidden;
 	margin: auto;
-	margin-bottom: 10px;
-	margin-top: 10px;
+	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 #twittertext {
-	padding: 10px 15px 10px 15px;
 	font-size: 14px;
 }
 
 /*============================*/
 /*===== Callout Section ======*/
 /*============================*/
+
+.calloutbg {
+		background: #eaeaea url(../images/calloutbg.png);
+		min-height: 80px;
+		border-bottom: 1px solid #e1e1e1;
+}
 
 #calloutwrap {
 	min-height: 80px;
@@ -129,12 +133,13 @@ div.orbit-wrapper {
 #callout_text {
 	font-size: 14px;
 	margin-left: 0;
-	padding: 10px 15px 10px 15px;
+	padding: 25px 0px 20px 0px;
 }
 
 .callout_title {
-	font-size: 24px;
-	font-weight: bold;
+	font-size: 20px;
+	font-weight: 400;
+	color: #444;
 }
 
 #calloutbutton {

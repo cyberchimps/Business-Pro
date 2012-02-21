@@ -21,15 +21,10 @@
 
 /* End set slider hook*/
 ?>
-<div id="sliderbg">
-<div class="container">
-	<div class="row"> 
-		<?php synapse_page_slider(); ?> 
-	</div><!--end row-->
-</div><!--end container-->
-</div>
 
-<div class="elementsbg">
+<?php synapse_page_slider(); ?>
+		
+<div class="calloutbg">
 <div class="container">
 	<div class="row"> 
 		<?php synapse_callout_section(); ?> 
@@ -37,7 +32,7 @@
 </div><!--end container-->
 </div>
 
-<div style="background:#fff;">
+<div style="background:#fff;margin-top:20px;">
 <div class="container">
 	<div class="row"> 
 		<?php synapse_box_section(); ?> 

@@ -69,7 +69,7 @@ function business_box_section_content() {
 	$enableboxes = get_post_meta($post->ID, 'enable_box_section' , true);
 	$root = get_template_directory_uri(); ?>
 
-<div class="row" style="margin-top:15px;border-bottom: 1px dotted #C8C8C8;">
+<div class="row" style="margin-top:20px;margin-bottom:20px;border-bottom: 1px dotted #C8C8C8;">
 	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box 1") ) : ?>
 		<div id="box1" class="three columns">
 			<h2 class="box-widget-title">Responsive Pro Slider</h2>	

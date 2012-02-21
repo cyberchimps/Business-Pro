@@ -174,11 +174,9 @@ function synapse_callout_section_content() {
 
 ?>
 	<div class="row">
-	<div id="calloutwrap"><!--id="calloutwrap"-->
 
-	<div id="callout_text" class="<?php echo $grid; ?>">
-		<h2 class="callout_title" ><?php echo $callouttitle ?></h2>
-		<p><?php echo $callouttext  ?></p>
+	<div id="callout_text" class="twelve columns">
+		<h2 class="callout_title" >"It's really hard to design products by focus groups. A lot of times, people don't know what they want until you show it to them." -Steve Jobs</h2>
 	</div>
 		
 <?php if ($image == '' && $hidebutton == 'on' OR $image == '' && $hidebutton == '1'): ?>
@@ -194,8 +192,6 @@ function synapse_callout_section_content() {
 		<a href="<?php echo $calloutlink ?>"><img src="<?php echo $image?>" alt="Callout" /></a>
 	</div>
 <?php endif;?>
-
-</div><!--end calloutwrap-->
 
 </div>
 
