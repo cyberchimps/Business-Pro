@@ -47,7 +47,7 @@ a{outline:none}
 
 /* Fonts  */
 
-.meta {color: #999;font-size: 10px;font-weight: 500;padding-bottom: 3px;}
+.meta {color: #999;font-size: 12px;font-weight: 500;padding-bottom: 3px;}
 
 .meta a{color: #555;}
 
@@ -67,7 +67,7 @@ a:hover {color: #5ca9d6;}
 header {}
 
 #headernu {
-	border-bottom: 1px solid #999;
+	border-bottom: 1px solid #ccc;
 	height: 80px;
 	background: #eaeaea url(../images/headerbg.png);
 }
@@ -178,15 +178,6 @@ header {}
 	background: #dedede;
 	height: 46px;
 	width: 50px;
-}
-
-#sidemeta{
-	background: #eee;
-	text-align: center;
-	color: #555;
-	border-radius: 1px;
-	padding-top:3px;
-	font-size: 13px;
 }
 
 #comments {padding-top: 3px;font-size: 12px;}
