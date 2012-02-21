@@ -21,7 +21,7 @@
 	
 /* End define global variables. */
 ?>
-<div class="container">
+<div id="portfolio" class="container">
 	<div class="row">
 	
 	<?php query_posts( array ('post_type' => $themeslug.'_portfolio', 'showposts' => 20, true ));
