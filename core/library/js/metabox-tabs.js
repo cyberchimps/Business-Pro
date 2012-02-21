@@ -115,7 +115,7 @@ jQuery(document).ready(function($) {
     });
 
     $('#checkbox-extra_callout_options').change(function(){
-	    var items = $("tr.callout_image, tr.custom_callout_color, tr.custom_callout_title_color, tr.custom_callout_text_color, tr.custom_callout_button_color, tr.custom_callout_button_text_color");
+	    var items = $(" tr.custom_callout_text_color, tr.custom_callout_link_color");
 		if($(this).is(':checked')) {
 			items.show();
 		} else {
