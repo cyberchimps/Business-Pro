@@ -349,14 +349,16 @@ function slider_edit_columns($portfolio_columns){
 function slides_columns_display($portfolio_columns, $post_id){
 	global $post;
 	$cat = get_the_terms($post->ID, 'slide_categories');
+	$images = get_post_meta($post->ID, 'slider_image' , true);
 	
     switch ($portfolio_columns)
     {
         case "image":
-        	$images = get_post_meta($post->ID, 'slider_image' , true);
-        	echo '<img src="';
-        	echo $images;
-        	echo '"style="height: 50px; width: 50px;">';
+        	if ( !empty( $images ) ) {
+        		echo '<img src="';
+        		echo $images;
+        		echo '"style="height: 50px; width: 50px;">';
+        	}
         break;
         
         case "category":
