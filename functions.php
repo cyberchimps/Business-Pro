@@ -303,8 +303,9 @@ function portfolio_edit_columns($portfolio_columns){
     return $portfolio_columns;
 }
 function portfolio_columns_display($portfolio_columns, $post_id){
-	global $post, $wpdb;
+	global $post;
 	$cat = get_the_terms($post->ID, 'portfolio_categories');
+	
     switch ($portfolio_columns)
     {
         case "image":
