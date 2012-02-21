@@ -209,11 +209,11 @@ function create_post_type() {
 		)
 	);
 	
-	register_post_type( $themeslug.'_featured_posts',
+	register_post_type( $themeslug.'_carousel',
 		array(
 			'labels' => array(
-				'name' => __( 'Carousel' ),
-				'singular_name' => __( 'Posts' )
+				'name' => __( 'Image Carousel' ),
+				'singular_name' => __( 'Carousel' )
 			),
 			'public' => true,
 			'show_ui' => true, 
@@ -283,6 +283,38 @@ function custom_taxonomies() {
 	);
 }
 add_action('init', 'custom_taxonomies', 0);
+
+/**
+* Assign default category for Slider, Carousel posts.
+*/ 
+function custom_taxonomy_default( $post_id, $post ) {
+
+	global $themename, $themeslug, $options;	
+
+	if( 'publish' === $post->post_status ) {
+
+		$defaults = array(
+
+			'slide_categories' => array( 'default' ), 'carousel_categories' => array( 'default' ), 'portfolio_categories' => array( 'default' ),
+
+			);
+
+		$taxonomies = get_object_taxonomies( $post->post_type );
+
+		foreach( (array) $taxonomies as $taxonomy ) {
+
+			$terms = wp_get_post_terms( $post_id, $taxonomy );
+
+			if( empty( $terms ) && array_key_exists( $taxonomy, $defaults ) ) {
+
+				wp_set_object_terms( $post_id, $defaults[$taxonomy], $taxonomy );
+
+			}
+		}
+	}
+}
+
+add_action( 'save_post', 'custom_taxonomy_default', 100, 2 );
 
 /**
 * Edit columns for portfolio post type.
@@ -374,38 +406,51 @@ function slides_columns_display($portfolio_columns, $post_id){
 	}
 }
 
-
 /**
-* Assign default category for Slider, Carousel posts.
+* Edit columns for slider post type.
 */ 
-function custom_taxonomy_default( $post_id, $post ) {
+add_filter('manage_edit-bu_carousel_columns', 'carousel_edit_columns');
+add_action('manage_bu_carousel_posts_custom_column',  'carousel_columns_display', 10, 2);
 
-	global $themename, $themeslug, $options;	
-
-	if( 'publish' === $post->post_status ) {
-
-		$defaults = array(
-
-			'slide_categories' => array( 'default' ), 'carousel_categories' => array( 'default' ), 'portfolio_categories' => array( 'default' ),
-
-			);
-
-		$taxonomies = get_object_taxonomies( $post->post_type );
-
-		foreach( (array) $taxonomies as $taxonomy ) {
-
-			$terms = wp_get_post_terms( $post_id, $taxonomy );
-
-			if( empty( $terms ) && array_key_exists( $taxonomy, $defaults ) ) {
-
-				wp_set_object_terms( $post_id, $defaults[$taxonomy], $taxonomy );
-
-			}
-		}
+function carousel_edit_columns($portfolio_columns){
+    $portfolio_columns = array(
+        "cb" => "<input type=\"checkbox\" />",
+        "title" => _x('Title', 'column name'),
+        "image" => __('Image'),
+        "category" => __('Categories'),
+        "author" => __('Author'),
+        "date" => __('Date'),
+    );
+   
+    return $portfolio_columns;
+}
+function carousel_columns_display($portfolio_columns, $post_id){
+	global $post;
+	$cat = get_the_terms($post->ID, 'carousel_categories');
+	$images = get_post_meta($post->ID, 'post_image' , true);
+	
+    switch ($portfolio_columns)
+    {
+        case "image":
+        	if ( !empty( $images ) ) {
+        		echo '<img src="';
+        		echo $images;
+        		echo '"style="height: 50px; width: 50px;">';
+        	}
+        break;
+        
+        case "category":
+        	if ( !empty( $cat ) ) {
+                $out = array();
+                foreach ( $cat as $c )
+                    $out[] = "<a href='edit.php?carousel_categories=$c->slug'> " . esc_html(sanitize_term_field('name', $c->name, $c->term_id, 'carousel_categories', 'display')) . "</a>";
+                echo join( ', ', $out );
+            } else {
+                _e('No Category.');  //No Taxonomy term defined
+            }
+        break;
 	}
 }
-
-add_action( 'save_post', 'custom_taxonomy_default', 100, 2 );
 
 /**
 * Add TypeKit support based on theme option.
