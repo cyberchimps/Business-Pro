@@ -16,6 +16,7 @@
 
 /* Define global variables. */
 	global $options, $post, $themeslug, $root;
+	$tmp_query = $wp_query; 
 	$image = get_post_meta($post->ID, 'portfolio_image' , true);
 
 	
