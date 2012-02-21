@@ -172,7 +172,7 @@ function featured_image_alignment() {
 	else {
 
 		echo '<style type="text/css">';
-		echo ".featured-image {float: left;}";
+		echo ".featured-image {float: none;}";
 		echo '</style>';
 		
 	}

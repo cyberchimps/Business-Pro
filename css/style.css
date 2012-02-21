@@ -168,7 +168,9 @@ header {}
 
 .post_container {
 	background: #fff;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+	border-bottom: 1px dotted #eee;
+	width: 90%;
 }
 
 .post_container ul {list-style: disc;margin-left: 21px;list-style-position: inside;}
@@ -350,7 +352,7 @@ list-style-position: inside;}
 
 /* WordPress Styles  */
 
-.featured-image {margin-top:4px;margin-right: 12px;margin-bottom: 10px;}
+.featured-image {float:none;margin-top:10px;margin-right: 15px;margin-bottom: 10px;}
 
 .alignnone {
 	display: block;

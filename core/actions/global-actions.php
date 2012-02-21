@@ -77,7 +77,7 @@ function synapse_loop_content($content) {
 			?>	
 			<!--Call @Core Meta hook-->
 			<?php synapse_post_byline(); ?>
-				<div class="entry" <?php if ( has_post_thumbnail() && $featured_images == '1' && !is_single()  ) { echo 'style="min-height: 115px;" '; }?>>
+				<div class="entry">
 					<?php 
 						if ($excerpts == '1' && !is_single() ) {
 						the_excerpt();
