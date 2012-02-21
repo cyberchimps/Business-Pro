@@ -285,6 +285,50 @@ function custom_taxonomies() {
 add_action('init', 'custom_taxonomies', 0);
 
 /**
+* Edit columns for portfolio post type.
+*/ 
+add_filter('manage_edit-bu_portfolio_columns', 'portfolio_edit_columns');
+add_action('manage_bu_portfolio_posts_custom_column',  'portfolio_columns_display', 10, 2);
+
+function portfolio_edit_columns($portfolio_columns){
+    $portfolio_columns = array(
+        "cb" => "<input type=\"checkbox\" />",
+        "title" => _x('Title', 'column name'),
+        "image" => __('Image'),
+        "category" => __('Categories'),
+        "author" => __('Author'),
+        "date" => __('Date'),
+    );
+   
+    return $portfolio_columns;
+}
+function portfolio_columns_display($portfolio_columns, $post_id){
+	global $post;
+	$cat = get_the_terms($post->ID, 'portfolio_categories');
+	
+    switch ($portfolio_columns)
+    {
+        case "image":
+        	$images = get_post_meta($post->ID, 'portfolio_image' , true);
+        	echo '<img src="';
+        	echo $images;
+        	echo '"style="height: 50px; width: 50px;">';
+        break;
+        
+        case "category":
+        	if ( !empty( $cat ) ) {
+                $out = array();
+                foreach ( $cat as $c )
+                    $out[] = "<a href='edit.php?portfolio_categories=$c->slug'> " . esc_html(sanitize_term_field('name', $c->name, $c->term_id, 'portfolio_categories', 'display')) . "</a>";
+                echo join( ', ', $out );
+            } else {
+                _e('No Category.');  //No Taxonomy term defined
+            }
+        break;
+	}
+}
+
+/**
 * Assign default category for Slider, Carousel posts.
 */ 
 function custom_taxonomy_default( $post_id, $post ) {
