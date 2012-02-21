@@ -99,8 +99,9 @@ div.orbit-wrapper {
 #twitterbar {
 	overflow: hidden;
 	margin: auto;
-	margin-bottom: 20px;
-	margin-top: 20px;
+	padding-top: 20px;
+	padding-bottom:20px;
+	
 }
 
 #twittertext {
