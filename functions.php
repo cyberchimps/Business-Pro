@@ -304,7 +304,7 @@ function portfolio_edit_columns($portfolio_columns){
 }
 function portfolio_columns_display($portfolio_columns, $post_id){
 	global $post, $wpdb;
-	$tags = get_the_terms($post->ID, 'portfolio_categories');
+	$cat = get_the_terms($post->ID, 'portfolio_categories');
     switch ($portfolio_columns)
     {
         case "image":
@@ -315,9 +315,9 @@ function portfolio_columns_display($portfolio_columns, $post_id){
         break;
         
         case "category":
-        	if ( !empty( $tags ) ) {
+        	if ( !empty( $cat ) ) {
                 $out = array();
-                foreach ( $tags as $c )
+                foreach ( $cat as $c )
                     $out[] = "<a href='edit.php?portfolio_categories=$c->slug'> " . esc_html(sanitize_term_field('name', $c->name, $c->term_id, 'portfolio_categories', 'display')) . "</a>";
                 echo join( ', ', $out );
             } else {
