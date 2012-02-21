@@ -76,8 +76,9 @@ function synapse_loop_content($content) {
 				}
 			?>	
 			<!--Call @Core Meta hook-->
-			<?php synapse_post_byline(); ?>
-				<div class="entry">
+			<div class="row">
+			<div class="three columns"><?php synapse_post_byline(); ?></div>
+				<div class="entry nine columns">
 					<?php 
 						if ($excerpts == '1' && !is_single() ) {
 						the_excerpt();
@@ -87,6 +88,7 @@ function synapse_loop_content($content) {
 						}
 					 ?>
 				</div><!--end entry-->
+			</div><!--end row-->
 				
 				<div class='clear'>&nbsp;</div>
 			<?php	
@@ -150,10 +152,16 @@ function synapse_post_byline_content() {
 	}?>
 	
 	<div class="meta">
-		<?php if (($hidden[$themeslug.'_hide_date']) != '0'):?> <?php printf( __( '', 'core' )); ?> <a href="<?php the_permalink() ?>"><?php echo get_the_date(); ?></a><?php endif;?>
-		<?php if (($hidden[$themeslug.'_hide_author']) != '0'):?><?php printf( __( 'by', 'core' )); ?> <?php the_author_posts_link(); ?> <?php endif;?> 
-		<?php if (($hidden[$themeslug.'_hide_categories']) != '0'):?><?php printf( __( 'in', 'core' )); ?> <?php the_category(', ') ?> <?php endif;?>
-		<?php if (($hidden[$themeslug.'_hide_comments']) != '0'):?><?php comments_popup_link( __('No Comments', 'core' ), __('1 Comment', 'core' ), __('% Comments' , 'core' )); //need a filer here ?>&nbsp;&nbsp;<img src="<?php echo get_template_directory_uri(); ?>/images/Commentsgrey.png" alt="comments"/>&nbsp;<?php endif;?>
+		
+		
+		
+		<?php if (($hidden[$themeslug.'_hide_date']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/cal.png" />&nbsp;&nbsp;<?php printf( __( '', 'core' )); ?><a href="<?php the_permalink() ?>"><?php echo get_the_date(); ?></a><?php endif;?>
+		<br />
+		<?php if (($hidden[$themeslug.'_hide_author']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/author.png" />&nbsp;&nbsp;<?php printf( __( '', 'core' )); ?><?php the_author_posts_link(); ?><?php endif;?> 
+		<br />
+		<?php if (($hidden[$themeslug.'_hide_comments']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/comments.png" alt="comments"/>&nbsp;&nbsp;<?php comments_popup_link( __('No Comments', 'core' ), __('1 Comment', 'core' ), __('% Comments' , 'core' )); //need a filer here ?><?php endif;?>
+		<br />
+		<?php if (($hidden[$themeslug.'_hide_categories']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/cal.png" />&nbsp;&nbsp;<?php printf( __( '', 'core' )); ?> <?php the_category(', ') ?><?php endif;?>
 	</div> <?php
 }
 
