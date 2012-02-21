@@ -288,8 +288,8 @@ list-style-position: inside;}
 /* Footer  */
 
 #footer {
-	background:url(../images/brick.png);
-	border-top: 2px solid #ccc;
+	background:url(../images/footer.png);
+	border-top: 1px solid #999;
 }
 
 .footer-widgets {
@@ -316,9 +316,8 @@ list-style-position: inside;}
 
 #afterfooter {
 	width: 100%; 
-	background: black; 
+	background: #222; 
 	color: white;
-	border-top: 2px solid #333;
 }
 
 #afterfooterwrap {
