@@ -588,8 +588,8 @@
 /* PUT IN YOUR SLIDER ID AND SIZE TO MAKE LOAD BEAUTIFULLY
    ================================================== */
    
-#orbitDemo {  margin-bottom: 45px; }
-#orbitDemo.orbit { min-height: 330px !important; }
+#orbitDemo { background: url(orbit/spinner.gif) no-repeat center center #3c3c3c; height: 300px !important;  }
+#orbitDemo.orbit { height: 300px !important; }
 #orbitDemo img, #orbitDemo div { display: none; }
 #orbitDemo.orbit img, #orbitDemo.orbit div { display: block;}
 
