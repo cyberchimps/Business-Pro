@@ -321,9 +321,6 @@ list-style-position: inside;}
 }
 
 #afterfootercopyright {
-	float: right;
-	position: relative;
-	margin-top: 5px;
 	text-align: right;
 }
 
@@ -682,10 +679,9 @@ figure {
 	#header_contact {text-align: center;}
 	#halfnav {text-align: center; float: none;}
 	#afterfootermenu {display:none;}
-	#credit {float:right;margin-right:15px;margin-top:4px;}
-	#afterfootercopyright {float: left;margin-left:15px;margin-bottom:2px;}
-	#mobileMenu_nav_menu {float: right; margin-top: 10px; margin-right: 10px;}
-	#imenu {height: 35px;}
+	#credit {float:left;margin-left:15px;margin-top:-2px;}
+	#afterfootercopyright {float: right;margin-right:15px;margin-bottom:2px;}
+	#mobileMenu_nav_menu {margin-top: 10px; margin-right: 10px;}
 	.content_title {font-size: 14px;}
 	.content_text {font-size: 12px;}
 }
