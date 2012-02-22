@@ -323,7 +323,7 @@ function business_description_icons_content() {
 function business_logo_menu_content() {
 ?>
 
-<div id="headernu">
+<div id="header">
 	<div class="container">
 		<div class="row">	
 			
