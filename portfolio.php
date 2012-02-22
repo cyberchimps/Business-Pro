@@ -46,7 +46,7 @@
 
 	    	$out .= "
 	    	
-				<li id='portfolio_wrap' class='three columns'>
+				<li id='portfolio_wrap' class='four columns'>
 					
 					
 	    				<a href='$image' title='$title'><img src='$image'  alt='$title'/>
