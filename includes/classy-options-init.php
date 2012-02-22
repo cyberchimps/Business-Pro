@@ -82,7 +82,7 @@ $options
 	->section("Design")
 		->open_outersection()
 			->checkbox($themeslug."_responsive_design", "Responsive Design", array('default' => true))
-			->select($themeslug."_color_scheme", "Select a Color Scheme", array( 'options' => array("blue" => "Blue (default)", "black" => "Black", "darkblue" => "Dark Blue", "green" => "Green", "grey" => "Grey", "orange" => "Orange", "pink" => "Pink", "red" => "Red", "white" => "White"), 'default' => 'blue'))
+			->select($themeslug."_color_scheme", "Select a Skin Color", array( 'options' => array("lite" => "Lite (default)", "dark" => "Dark", "blue" => "Blue", "brown" => "Brown", "red" => "Red", ), 'default' => 'lite'))
 		->close_outersection()
 		->subsection("Typopgraphy")
 			->select($themeslug."_font", "Choose a Font", array( 'options' => array("Arial" => "Arial (default)", "Courier New" => "Courier New", "Georgia" => "Georgia", "Helvetica" => "Helvetica", "Lucida Grande" => "Lucida Grande", "Tahoma" => "Tahoma", "Times New Roman" => "Times New Roman", "Verdana" => "Verdana", "Actor" => "Actor", "Coda" => "Coda", "Maven+Pro" => "Maven Pro", "Metrophobic" => "Metrophobic", "News+Cycle" => "News Cycle", "Nobile" => "Nobile", "Tenor+Sans" => "Tenor Sans", "Quicksand" => "Quicksand", "Ubuntu" => "Ubuntu", 'custom' => "Custom")))
