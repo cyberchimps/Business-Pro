@@ -1,8 +1,8 @@
-/* Blue */
+/* Red */
 
-a {color: #0085CF;}
+a {color: #9c0000;}
 
-a:hover {color: #5ca9d6;}
+a:hover {color: #c40000;}
 
 #header {
 	border-top: 4px solid #e1e1e1;	
@@ -12,7 +12,6 @@ a:hover {color: #5ca9d6;}
 }
 
 /* Nav  */
-
 
 #nav{position:relative;float:right;margin-top:20px;z-index:2000}
 #nav .parent > a, #nav .parent > a:hover{background-image:url(../images/arrow.png);background-position:right;background-repeat:no-repeat}
