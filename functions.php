@@ -153,13 +153,13 @@ function init_featured_image() {
 	global $themename, $themeslug, $options;
 	
 	if ($options->get($themeslug.'_featured_image_height') == '') {
-		$featureheight = '100';
+		$featureheight = '200';
 	}		
 	else {
 		$featureheight = $options->get($themeslug.'_featured_image_height'); 
 	}
 	if ($options->get($themeslug.'_featured_image_width') == "") {
-			$featurewidth = '100';
+			$featurewidth = '650';
 	}		
 	else {
 		$featurewidth = $options->get($themeslug.'_featured_image_width'); 
