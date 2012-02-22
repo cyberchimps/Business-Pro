@@ -725,8 +725,9 @@ figure {
 	#afterfootermenu {display:none;}
 	#credit {float:left;margin-left:15px;margin-top:-2px;}
 	#afterfootercopyright {float: right;margin-right:15px;margin-bottom:2px;}
-	#mobileMenu_nav_menu {margin-top: 10px; margin-right: 10px;}
+	#mobileMenu_nav_menu {margin-top: 10px; margin-right: 10px; text-align:center;}
 	.content_title {font-size: 14px;}
 	.content_text {font-size: 12px;}
+	#gallery ul img {max-height: 300px;}
+	#nav {float: center; margin: auto; width: 100px;}
 }
-
