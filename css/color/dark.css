@@ -5,10 +5,14 @@ a {color: #0085CF;}
 a:hover {color: #5ca9d6;}
 
 #header {
-	border-top: 4px solid #e1e1e1;	
-	border-bottom: 4px solid #e1e1e1;
+	border-top: 4px solid #2E2F30;	
+	border-bottom: 4px solid #2E2F30;
 	min-height: 80px;
-	background: #eaeaea url(../images/headerbg.png);
+	background: #eaeaea url(../../images/headerbgdark.png);
+}
+
+.slider_content {
+	background: #3c3c3c url(../../images/sliderbg.png);
 }
 
 /* Nav  */
