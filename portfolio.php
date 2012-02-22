@@ -48,9 +48,9 @@
 	    	
 				<li id='portfolio_wrap' class='three columns'>
 					
-					<div class='portfolio_image'>	
-	    			<a href='$image' title='$title'><img src='$image'  alt='$title'/>
-	    			</div>	
+					
+	    				<a href='$image' title='$title'><img src='$image'  alt='$title'/>
+	    		
 	    				<div class='portfolio_caption'>$title</div>
 	    			</a>
 	    			

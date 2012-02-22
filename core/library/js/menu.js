@@ -4,10 +4,16 @@ jQuery(document).ready(function($){
 
 jQuery(document).ready(function($){
 	
-
-	$(".portfolio_image img").hover(function(){
-		$(this).fadeTo("slow", 0.2); // This should set the opacity to 100% on hover
+	$("#portfolio_wrap img").hover(function(){
+		$(this).fadeTo("fast", 0.2); 
 	},function(){
-   		$(this).fadeTo("slow", 1.0); // This should set the opacity back to 60% on mouseout
+   		$(this).fadeTo("fast", 1.0); 
 	});
+	
+	$("#portfolio_wrap .portfolio_caption").hover(function(){
+		$(this).fadeTo("fast", 1.0); 
+	},function(){
+   		$(this).fadeTo("fast", 0); 
+	});
+
 });
