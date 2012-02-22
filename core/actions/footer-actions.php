@@ -20,7 +20,6 @@
 */
 add_action ( 'synapse_footer', 'synapse_footer_widgets' );
 
-add_action ( 'synapse_secondary_footer', 'synapse_secondary_footer_menu' );
 add_action ( 'synapse_secondary_footer', 'synapse_secondary_footer_copyright' );
 add_action ( 'synapse_secondary_footer', 'synapse_secondary_footer_credit' );
 
@@ -85,21 +84,8 @@ function synapse_secondary_footer_copyright() {
 		$copyright = $options->get($themeslug.'_footer_text');
 	}
 	
-	echo "<div id='afterfootercopyright' class='four columns'>";
+	echo "<div id='afterfootercopyright' class='six columns'>";
 		echo "&copy; $copyright";
-	echo "</div>";
-}
-
-/**
-* Adds the afterfooter menu.
-*
-* @since 1.0
-*/
-function synapse_secondary_footer_menu() {
-	echo "<div id='afterfootermenu' class='four columns'>";
-	wp_nav_menu( array(
-		'theme_location' => 'footer-menu', 
-	)); 
 	echo "</div>";
 }
 
@@ -110,7 +96,7 @@ function synapse_secondary_footer_menu() {
 */
 function synapse_secondary_footer_credit() { ?>
 		
-	<div class="four columns credit">
+	<div class="six columns credit">
 		<a href="http://cyberchimps.com/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/achimps.png" alt="credit" /></a>
 	</div> <?php 
 }

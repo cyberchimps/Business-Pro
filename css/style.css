@@ -350,7 +350,7 @@ list-style-position: inside;}
 	display: inline; 
 }
 
-#credit { height: 22px; z-index: 99; margin-top: 5px; text-align: center;}
+#credit {z-index: 99;text-align: left;}
 
 /* WordPress Styles  */
 

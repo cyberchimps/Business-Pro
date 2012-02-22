@@ -23,14 +23,8 @@
 ?>
 
 <?php synapse_page_slider(); ?>
-		
-<div class="calloutbg">
-<div class="container">
-	<div class="row"> 
-		<?php synapse_callout_section(); ?> 
-	</div><!--end row-->
-</div><!--end container-->
-</div>
+
+<?php synapse_callout_section(); ?> 
 
 <div style="background:#fff;margin-top:20px;">
 <div class="container">

@@ -43,7 +43,7 @@ a:hover {color: #5ca9d6;}
 }
 #nav ul li a:hover{border: 1px solid #666;box-shadow:inner 0 0 5px #444;background:#f8f8f8;box-shadow: 0 1px 3px rgba(0, 0, 0, .20);}
 #nav .current-menu-item a{border: 1px solid #666;}
-#nav .current-menu-item .sub-menu a{color:#fff;}
+#nav .current-menu-item .sub-menu a{color:#555;}
 #nav .menu > li:first-child a:hover{border-radius:0}
 #nav .menu .sub-menu li a:hover{border-radius:0}
 #nav ul #first a:hover{border-radius:5px 0 0 5px}
