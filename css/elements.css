@@ -304,7 +304,7 @@ li.ui-state-default  {
 
 #portfolio {background: #3c3c3c url(../images/sliderbg.png);}
 
-.portfolio_caption {text-align: center; bottom: 16px; left: 5px; background: rgba(0, 0, 0, .6); color: white; width: 100%; position: relative; }
+.portfolio_caption {text-align: center; bottom: 100px; left: 5px; color: white; width: 100%; position: relative; font-size: 18px;}
 
 #gallery li.three.columns {margin-left:0px; margin-right: 3.3%;}
 #gallery li.four.columns {margin-left:0px; margin-right: 2.3%;}

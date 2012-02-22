@@ -51,7 +51,7 @@
 					
 	    				<a href='$image' title='$title'><img src='$image'  alt='$title'/>
 	    		
-	    				
+	    				<div class='portfolio_caption'>$title</div>
 	    			</a>
 	    			
 	    			
