@@ -3,8 +3,6 @@ jQuery(document).ready(function($){
 });
 
 jQuery(document).ready(function($){
-
-
 	
 	$("#portfolio_wrap img").hover(function(){
 		$(this).fadeTo("fast", 0.2); 

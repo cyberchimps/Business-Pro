@@ -313,13 +313,13 @@ li.ui-state-default  {
 #gallery ul li { display: inline; }
 
 #gallery ul img {
-	border: 5px solid #3e3e3e;
+	border: 5px solid #ddd;
 	border-width: 5px;
 	margin-bottom: -10px;
 }
 	
 #gallery ul a:hover img {
-	border: 5px solid #fff;
+	border: 5px solid #ddd;
 	border-width: 5px;
 	color: #fff;
 	opacity: .5;
