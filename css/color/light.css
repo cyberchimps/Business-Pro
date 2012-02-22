@@ -11,6 +11,10 @@ a:hover {color: #5ca9d6;}
 	background: #eaeaea url(../../images/headerbg.png);
 }
 
+.slider_content {
+	background: #3c3c3c url(../../images/sliderbg.png);
+}
+
 /* Nav  */
 
 
