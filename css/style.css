@@ -63,13 +63,6 @@ a:hover {color: #5ca9d6;}
 
 /* Header  */
 
-#header {
-	border-top: 4px solid #e1e1e1;	
-	border-bottom: 4px solid #e1e1e1;
-	min-height: 80px;
-	background: #eaeaea url(../images/headerbg.png);
-}
-
 #subheader {
 	background:url(../images/broken_noise.png);
 	height:35px;
