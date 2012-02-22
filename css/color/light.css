@@ -41,7 +41,7 @@ a:hover {color: #5ca9d6;}
 	border: 1px solid #aaa;	
 	border-radius: 3px;
 }
-#nav ul li a:hover{border: 1px solid #444;box-shadow:inner 0 0 5px #444;background:#eee;}
+#nav ul li a:hover{border: 1px solid #666;box-shadow:inner 0 0 5px #444;background:#f8f8f8;box-shadow: 0 1px 3px rgba(0, 0, 0, .20);}
 #nav .current-menu-item a{border: 1px solid #666;}
 #nav .current-menu-item .sub-menu a{color:#fff;}
 #nav .menu > li:first-child a:hover{border-radius:0}
@@ -49,12 +49,12 @@ a:hover {color: #5ca9d6;}
 #nav ul #first a:hover{border-radius:5px 0 0 5px}
 #nav ul li{position:relative}
 #nav li ul{display:none;position:absolute;top:25px;left:15px}
-#nav li ul a{background:#f8f8f8;border-radius:0}
+#nav li ul a{background:#fff;border-radius:0;}
 #nav ul ul li:hover ul, #nav ul ul ul li:hover ul{left:0}
 #nav ul li:hover ul{display:inline-block}
 #nav ul ul, #nav ul li:hover ul ul, #nav ul ul li:hover ul ul{display:none}
 #nav ul li:hover ul, #nav ul ul li:hover ul, #nav ul ul ul li:hover ul{display:block}
 #nav ul li:hover ul li a, #nav ul ul li:hover ul li a, #nav ul ul ul li:hover ul li a{margin:-1px 0 0 -11px}
-#nav ul li:hover ul li a{width:150px;padding:0 14px}
-#nav ul ul li:hover ul li a{width:145px;padding:0 14px 0 19px}
-#nav ul ul ul li:hover ul li a{width:140px;padding:0 14px 0 24px}
+#nav ul li:hover ul li a{width:150px;padding:0 14px;border: 1px solid #888;}
+#nav ul ul li:hover ul li a{width:145px;padding:0 13px 0 20px;margin-top:-7px;background:#eee}
+#nav ul ul ul li:hover ul li a{width:140px;padding:0 13px 0 25px;margin-top:-7px;background:#ccc}
