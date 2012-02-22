@@ -16,13 +16,11 @@ a:hover {color: #5ca9d6;}
 }
 
 #sliderbg {
-		border-bottom: 1px solid #E1E1E1;
+		border-bottom: 1px solid #2E2F30;
 		background: #bbb url(../../images/sliderbglight.png);
 }
 
-.calloutbg {
-	background: #3b3b3b url(../../images/headerbgdark.png);
-}
+.calloutbg {background: #3b3b3b url(../../images/headerbgdark.png);border-bottom:1px solid #2E2F30;}
 
 .callout_title {
 	color: #f8f8f8;
