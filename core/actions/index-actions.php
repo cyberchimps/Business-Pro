@@ -92,7 +92,7 @@ function synapse_index_content() {
 			<?php endif; ?>
 			
 				<!--Begin @Core pagination hook-->
-			<?php synapse_pagination(); ?>
+			<?php custom_pagination(); ?>
 			<!--End @Core pagination loop hook-->
 		
 		</div><!--end content-->
