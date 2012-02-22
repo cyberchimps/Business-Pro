@@ -15,8 +15,7 @@
 * @since 1.0
 */
 
-remove_action ( 'synapse_secondary_footer', 'synapse_secondary_footer_credit' );
-add_action ( 'synapse_secondary_footer', 'synapse_pro_secondary_footer_credit' );
+
 
 /**
 * Adds the CyberChimps Pro credit link.
