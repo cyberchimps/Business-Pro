@@ -64,10 +64,6 @@ function synapse_index_content() {
 				<!--Begin @Core FB like hook-->
 					<?php synapse_fb_like_plus_one(); ?>
 				<!--End @Core FB like hook-->
-			
-				<!--Begin @Core post tags hook-->
-					<?php synapse_post_tags(); ?>
-				<!--End @Core post tags hook-->
 				
 				<?php if (is_single() && $options->get($themeslug.'_post_pagination') == "1") : ?>
 				<!--Begin @Core post pagination hook-->

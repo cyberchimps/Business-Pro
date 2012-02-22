@@ -162,6 +162,8 @@ function synapse_post_byline_content() {
 		<?php if (($hidden[$themeslug.'_hide_comments']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/comments.png" alt="comments"/>&nbsp;&nbsp;<?php comments_popup_link( __('No Comments', 'core' ), __('1 Comment', 'core' ), __('% Comments' , 'core' )); //need a filer here ?><?php endif;?>
 		<br />
 		<?php if (($hidden[$themeslug.'_hide_categories']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/cal.png" />&nbsp;&nbsp;<?php printf( __( '', 'core' )); ?> <?php the_category(', ') ?><?php endif;?>
+		<br />
+		<img src="<?php echo get_template_directory_uri(); ?>/images/icons/tags.png" />&nbsp;&nbsp;<?php synapse_post_tags(); ?>
 	</div> <?php
 }
 
