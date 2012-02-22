@@ -29,6 +29,7 @@ function if_theme_setup() {
 	);
 
 	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 650, 200, true );
 	add_theme_support('automatic-feed-links');
 	add_editor_style();
 }
@@ -143,31 +144,6 @@ function new_excerpt_length($length) {
 	return $length;
 }
 add_filter('excerpt_length', 'new_excerpt_length');
-
-/**
-* Custom featured image size based on theme options.
-*/ 
-function init_featured_image() {	
-	if ( function_exists( 'add_theme_support' ) ) {
-	
-	global $themename, $themeslug, $options;
-	
-	if ($options->get($themeslug.'_featured_image_height') == '') {
-		$featureheight = '200';
-	}		
-	else {
-		$featureheight = $options->get($themeslug.'_featured_image_height'); 
-	}
-	if ($options->get($themeslug.'_featured_image_width') == "") {
-			$featurewidth = '650';
-	}		
-	else {
-		$featurewidth = $options->get($themeslug.'_featured_image_width'); 
-	} 
-	set_post_thumbnail_size( $featurewidth, $featureheight, true );
-	}	
-}
-add_action( 'init', 'init_featured_image', 11);	
 
 /**
 * Attach CSS3PIE behavior to elements
