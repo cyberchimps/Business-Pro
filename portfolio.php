@@ -46,12 +46,14 @@
 
 	    	$out .= "
 	    	
-				<li class='three columns'>
-				
-	    			<a href='$image' title='$title'>	
-	    				<img src='$image'  alt='$title'/>
+				<li id='portfolio_wrap' class='three columns'>
+					
+					<div class='portfolio_image'>	
+	    			<a href='$image' title='$title'><img src='$image'  alt='$title'/>
+	    			</div>	
 	    				<div class='portfolio_caption'>$title</div>
 	    			</a>
+	    			
 	    			
 	  	    	</li>
 	    	
