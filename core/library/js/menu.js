@@ -10,10 +10,4 @@ jQuery(document).ready(function($){
    		$(this).fadeTo("fast", 1.0); 
 	});
 	
-	$("#portfolio_wrap .portfolio_caption").hover(function(){
-		$(this).fadeTo("fast", 1.0); 
-	},function(){
-   		$(this).fadeTo("fast", 0); 
-	});
-
 });
