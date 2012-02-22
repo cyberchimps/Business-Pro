@@ -39,7 +39,6 @@ global $options, $themeslug;
 		<!-- Begin @synapse afterfooter hook content-->
 			<?php synapse_secondary_footer(); ?>
 		<!-- End @synapse afterfooter hook content-->
-				
 		</div>  <!--end afterfooterwrap-->	
 	</div> <!--end afterfooter-->	
 		</div> 	
