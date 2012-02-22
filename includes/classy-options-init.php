@@ -114,7 +114,7 @@ $options
 			->close_outersection()
 	->section("Header")
 		->open_outersection()
-			->section_order("header_section_order", "Drag drop sections for the Header", array('options' => array("business_header_content" => "Logo + Icons", "business_sitename_contact" => "Logo + Contact", "business_description_icons" => "Description + Icons", "business_logo_menu" => "Logo + Menu", "business_logo_Description" => "Logo + Description", "business_banner" => "Banner", "synapse_navigation" => "iMenu", "business_sitename_register" => "Logo + Login"), 'default' => 'business_header_content,synapse_navigation'))
+			->section_order("header_section_order", "Drag drop sections for the Header", array('options' => array("business_logo_menu" => "Logo + Menu", "business_subheader" => "Search + Icons"), 'default' => 'business_logo_menu'))
 			->upload($themeslug."_banner", "Banner Image")
 			->textarea($themeslug."_header_contact", "Contact Information")
 		->close_outersection()
