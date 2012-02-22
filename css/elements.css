@@ -298,7 +298,7 @@ li.ui-state-default  {
  */
  
 #gallery {
-	
+	margin-bottom:40px;
 	padding: 10px;
 }
 
@@ -307,6 +307,8 @@ li.ui-state-default  {
 .portfolio_caption {text-align: center; bottom: 16px; left: 5px; background: rgba(0, 0, 0, .6); color: white; width: 100%; position: relative; }
 
 #gallery li.three.columns {margin-left:0px; margin-right: 3.3%;}
+#gallery li.four.columns {margin-left:0px; margin-right: 2.3%;}
+#gallery li.six.columns {margin-left:0px; margin-right: 2.3%;}
 
 #gallery ul { list-style: none; }
 
