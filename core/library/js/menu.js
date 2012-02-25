@@ -10,4 +10,10 @@ jQuery(document).ready(function($){
    		$(this).fadeTo("fast", 1.0); 
 	});
 	
+	$(".featured-image img").hover(function(){
+		$(this).fadeTo("fast", 0.7); 
+	},function(){
+   		$(this).fadeTo("fast", 1.0); 
+	});
+	
 });
