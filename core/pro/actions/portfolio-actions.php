@@ -28,8 +28,12 @@ function synapse_portfolio_element_content() {
 	if (is_page()){
 		$category = get_post_meta($post->ID, 'portfolio_category' , true);
 		$num = get_post_meta($post->ID, 'portfolio_row_number' , true);
-		
-		if ($num == '1') {
+	}
+	else {
+	
+	}
+	
+	if ($num == '1') {
 			$number = 'six';
 		}
 		elseif ($num == '2') {
@@ -38,16 +42,13 @@ function synapse_portfolio_element_content() {
 		else {
 			$number = 'four';
 		}
-	}
-	else {
-	
-	}
+
 	?>
 
 <div id="portfolio" class="container">
 	<div class="row">
 	
-	<?php query_posts( array ('post_type' => $themeslug.'_portfolio', 'showposts' => 20, true ));
+	<?php query_posts( array ('post_type' => $themeslug.'_portfolio', 'showposts' => 20, 'portfolio_categories' => $category ));
 			
 	if (have_posts()) :
 	  	 $out = " <div class='row'><div id='gallery' class='twelve columns'><ul>"; 
