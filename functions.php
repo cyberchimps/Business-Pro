@@ -454,15 +454,14 @@ add_action('wp_head', 'google_analytics');
 
 function business_lazy_load() {
 	global $root;
-    $placeholdergif = "$root/images/grey.gif";
+    $placeholder = "$root/images/grey.gif";
     echo <<<EOF
 <script type="text/javascript">
-jQuery(document).ready(function($){
-  if (navigator.platform == "iPad") return;
-  jQuery("img").not("#orbitDemo img, .es-carousel img").lazyload({
-    effect:"fadeIn",
-    placeholder: "$placeholdergif"
-  });
+	jQuery(document).ready(function($){
+  	jQuery("img").not("#orbitDemo img, .es-carousel img").lazyload({
+    	effect:"fadeIn",
+    	placeholder: "$placeholder"
+  	});
 });
 </script>
 EOF;
