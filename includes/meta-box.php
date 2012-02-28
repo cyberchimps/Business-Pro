@@ -75,7 +75,7 @@ function initialize_the_meta_boxes() {
 			->reorder('reorder_id', 'Reorder Name', 'Reorder Desc' )
 		->end();
 		
-	$mb = new Chimps_Metabox('Portfolio', 'Portfolio', array('pages' => array($themeslug.'_portfolio')));
+	$mb = new Chimps_Metabox('Portfolio', 'Portfolio Elements', array('pages' => array($themeslug.'_portfolio')));
 	$mb
 		->tab("Portfolio Options")
 			->single_image('portfolio_image', 'Portfolio Image', '')
