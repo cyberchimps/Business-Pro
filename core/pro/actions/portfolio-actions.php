@@ -28,6 +28,7 @@ function synapse_portfolio_element_content() {
 	if (is_page()){
 		$category = get_post_meta($post->ID, 'portfolio_category' , true);
 		$num = get_post_meta($post->ID, 'portfolio_row_number' , true);
+		$title = get_post_meta($post->ID, 'portfolio_title' , true);;
 	}
 	else {
 		$category = $options->get($themeslug.'_portfolio_category');
@@ -52,7 +53,7 @@ function synapse_portfolio_element_content() {
 	<?php query_posts( array ('post_type' => $themeslug.'_portfolio', 'showposts' => 50, 'portfolio_categories' => $category ));
 			
 	if (have_posts()) :
-	  	 $out = " <div class='row'><div id='gallery' class='twelve columns'><h1 class='portfolio_title'>Portfolio</h1><ul>"; 
+	  	 $out = " <div class='row'><div id='gallery' class='twelve columns'><h1 class='portfolio_title'>$title</h1><ul>"; 
 
 	  	$i = 0;
 		$no = '50';
