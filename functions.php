@@ -459,7 +459,7 @@ function business_lazy_load() {
 <script type="text/javascript">
 jQuery(document).ready(function($){
   if (navigator.platform == "iPad") return;
-  jQuery("img").not(".cycle img").lazyload({
+  jQuery("img").not("#orbitDemo img").lazyload({
     effect:"fadeIn",
     placeholder: "$placeholdergif"
   });
