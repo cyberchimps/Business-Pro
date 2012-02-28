@@ -23,7 +23,26 @@ add_action( 'synapse_portfolio_element', 'synapse_portfolio_element_content' );
 function synapse_portfolio_element_content() {	
 	global $options, $post, $themeslug, $root;
 	$tmp_query = $wp_query; 
-	$image = get_post_meta($post->ID, 'portfolio_image' , true);?>
+	$image = get_post_meta($post->ID, 'portfolio_image' , true);
+	
+	if (is_page()){
+		$category = get_post_meta($post->ID, 'portfolio_category' , true);
+		$num = get_post_meta($post->ID, 'portfolio_row_number' , true);
+		
+		if ($num == '1') {
+			$number = 'six';
+		}
+		elseif ($num == '2') {
+			$number = 'three';
+		}
+		else {
+			$number = 'four';
+		}
+	}
+	else {
+	
+	}
+	?>
 
 <div id="portfolio" class="container">
 	<div class="row">
@@ -49,7 +68,7 @@ function synapse_portfolio_element_content() {
 
 	    	$out .= "
 	    	
-				<li id='portfolio_wrap' class='four columns'>
+				<li id='portfolio_wrap' class='$number columns'>
 					
 					
 	    				<a href='$image' title='$title'><img src='$image'  alt='$title'/>
