@@ -53,10 +53,6 @@ background: #3279BB;
 color:#fff;
 }
 
-.meta ul{
-	list-style: none;margin-left:0px;
-}
-
 #register {text-align: right; list-style: none;}
 
 #register li {float: right; display: block; padding-left: 5px;}
@@ -219,7 +215,6 @@ a:hover {color: #5ca9d6;}
 
 .post_container {
 	background: #fff;
-	
 	border-bottom: 1px dotted #eee;
 }
 
@@ -251,6 +246,8 @@ a:hover {color: #5ca9d6;}
 .gplusone {margin-bottom: 10px;}
 
 .post-edit-link {background-color: #757575;padding: 2px 3px;color: white;font-size: 10px;border-radius: 3px;-moz-border-radius: 3px;}
+
+.meta ul{list-style: none;margin-left:0px;}
 
 /* Posts Navigation */
 
