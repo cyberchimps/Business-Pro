@@ -152,19 +152,15 @@ function synapse_post_byline_content() {
 	}?>
 	
 	<div class="meta">
-		
-		
-		
-		<?php if (($hidden[$themeslug.'_hide_date']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/cal.png" />&nbsp;&nbsp;<?php printf( __( '', 'core' )); ?><a href="<?php the_permalink() ?>"><?php echo get_the_date(); ?></a><?php endif;?>
-		<br />
-		<?php if (($hidden[$themeslug.'_hide_author']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/author.png" />&nbsp;&nbsp;<?php printf( __( '', 'core' )); ?><?php the_author_posts_link(); ?><?php endif;?> 
-		<br />
-		<?php if (($hidden[$themeslug.'_hide_comments']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/comments.png" alt="comments"/>&nbsp;&nbsp;<?php comments_popup_link( __('No Comments', 'core' ), __('1 Comment', 'core' ), __('% Comments' , 'core' )); //need a filer here ?><?php endif;?>
-		<br />
-		<?php if (($hidden[$themeslug.'_hide_categories']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/cal.png" />&nbsp;&nbsp;<?php printf( __( '', 'core' )); ?> <?php the_category(', ') ?><?php endif;?>
-		<br />
-		<img src="<?php echo get_template_directory_uri(); ?>/images/icons/tags.png" />&nbsp;&nbsp;<?php synapse_post_tags(); ?>
-	</div> <?php
+	
+	<ul>
+		<li><?php if (($hidden[$themeslug.'_hide_date']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/cal.png" />&nbsp;&nbsp;<?php printf( __( '', 'core' )); ?><a href="<?php the_permalink() ?>"><?php echo get_the_date(); ?></a><?php endif;?></li>
+		<li><?php if (($hidden[$themeslug.'_hide_author']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/author.png" />&nbsp;&nbsp;<?php printf( __( '', 'core' )); ?><?php the_author_posts_link(); ?><?php endif;?></li>
+		<li><?php if (($hidden[$themeslug.'_hide_comments']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/comments.png" alt="comments"/>&nbsp;&nbsp;<?php comments_popup_link( __('No Comments', 'core' ), __('1 Comment', 'core' ), __('% Comments' , 'core' )); //need a filer here ?><?php endif;?></li>
+		<li><?php if (($hidden[$themeslug.'_hide_categories']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/cal.png" />&nbsp;&nbsp;<?php printf( __( '', 'core' )); ?> <?php the_category(', ') ?><?php endif;?></li>
+		<li><img src="<?php echo get_template_directory_uri(); ?>/images/icons/tags.png" />&nbsp;&nbsp;<?php synapse_post_tags(); ?></li>
+	</ul>
+		</div> <?php
 }
 
 /**
