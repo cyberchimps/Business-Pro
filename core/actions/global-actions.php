@@ -65,7 +65,6 @@ function synapse_loop_content($content) {
 				<img src="<?php echo get_template_directory_uri(); ?>/images/formats/<?php echo $format ;?>.png" alt="formats" />
 			</div><!--end format-icon-->
 			<?php endif; ?>
-				<h2 class="posts_title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 			<?php
 				if ( has_post_thumbnail() && $featured_images == '1'  && !is_single()) {
  		 			echo '<div class="featured-image">';
@@ -79,6 +78,7 @@ function synapse_loop_content($content) {
 			<div class="row">
 			<div class="three columns"><?php synapse_post_byline(); ?></div>
 				<div class="entry nine columns">
+					<h2 class="posts_title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 					<?php 
 						if ($excerpts == '1' && !is_single() ) {
 						the_excerpt();
