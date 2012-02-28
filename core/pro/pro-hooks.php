@@ -52,6 +52,13 @@ function synapse_pro_entry() {
 }
 
 /** 
+* Portfolio
+*/
+function synapse_portfolio_element() {
+	do_action('synapse_portfolio_element');
+}
+
+/** 
 * Slider
 */
 function synapse_blog_slider() {

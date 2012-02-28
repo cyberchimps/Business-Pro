@@ -104,6 +104,7 @@ function initialize_the_meta_boxes() {
 					'page_section' => 'Page',
 					'breadcrumbs' => 'Breadcrumbs',
 					'page_slider' => 'Content Slider',
+					'portfolio_element' => 'Portfolio',
 					'callout_section' => 'Callout',
 					'twitterbar_section' => 'Twitter Bar',
 					'box_section' => 'Boxes',
