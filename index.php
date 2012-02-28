@@ -26,7 +26,6 @@
 
 <?php get_header(); ?>
 
-<div class="container">
 		<?php
 			foreach(explode(",", $options->get($themeslug.'_blog_section_order')) as $fn) {
 				if(function_exists($fn)) {
@@ -34,5 +33,5 @@
 				}
 			}
 		?>
-</div><!--end container-->
+
 <?php get_footer(); ?>
