@@ -31,20 +31,13 @@ if (preg_match("/page_slider/", $page_section_order ) && $size == "1" ) {
 	add_action ('synapse_page_content_slider', 'synapse_slider_content' );
 }
 /* End set slider hook*/
+
+	foreach(explode(",", $page_section_order) as $key) {
+		$fn = 'synapse_' . $key;
+		if(function_exists($fn)) {
+			call_user_func_array($fn, array());
+		}
+	}
+		
+get_footer(); 
 ?>
-
-<div class="container">
-	<div class="row">
-
-		<?php
-			foreach(explode(",", $page_section_order) as $key) {
-				$fn = 'synapse_' . $key;
-				if(function_exists($fn)) {
-					call_user_func_array($fn, array());
-				}
-			}
-		?>	
-
-	</div>
-</div><!--end container-->
-<?php get_footer(); ?>
