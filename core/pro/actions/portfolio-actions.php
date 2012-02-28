@@ -52,7 +52,7 @@ function synapse_portfolio_element_content() {
 	<?php query_posts( array ('post_type' => $themeslug.'_portfolio', 'showposts' => 50, 'portfolio_categories' => $category ));
 			
 	if (have_posts()) :
-	  	 $out = " <div class='row'><div id='gallery' class='twelve columns'><ul>"; 
+	  	 $out = " <div class='row'><div id='gallery' class='twelve columns'><h1 class='portfolio_title'>Portfolio</h1><ul>"; 
 
 	  	$i = 0;
 		$no = '50';
