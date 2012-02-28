@@ -30,25 +30,26 @@ function synapse_portfolio_element_content() {
 		$num = get_post_meta($post->ID, 'portfolio_row_number' , true);
 	}
 	else {
-	
+		$category = $options->get($themeslug.'_portfolio_category');
+		$num = $options->get($themeslug.'_portfolio_number');
 	}
 	
-	if ($num == '1') {
-			$number = 'six';
-		}
-		elseif ($num == '2') {
-			$number = 'three';
-		}
-		else {
-			$number = 'four';
-		}
+	if ($num == '1' OR $num == 'key2') {
+		$number = 'six';
+	}
+	elseif ($num == '2' OR $num == 'key3') {
+		$number = 'three';
+	}
+	else {
+		$number = 'four';
+	}
 
 	?>
 
 <div id="portfolio" class="container">
 	<div class="row">
 	
-	<?php query_posts( array ('post_type' => $themeslug.'_portfolio', 'showposts' => 20, 'portfolio_categories' => $category ));
+	<?php query_posts( array ('post_type' => $themeslug.'_portfolio', 'showposts' => 50, 'portfolio_categories' => $category ));
 			
 	if (have_posts()) :
 	  	 $out = " <div class='row'><div id='gallery' class='twelve columns'><ul>"; 

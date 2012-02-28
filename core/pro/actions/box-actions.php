@@ -28,7 +28,6 @@ add_action( 'synapse_box_section', 'synapse_box_section_content' );
 function synapse_box_section_content() { 
 	global $post; //call globals
 	
-	$enableboxes = get_post_meta($post->ID, 'enable_box_section' , true);
 	$root = get_template_directory_uri(); ?>
 	
 <div class="row">

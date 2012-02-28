@@ -33,6 +33,16 @@ $carouselterms2 = get_terms('carousel_categories', 'hide_empty=0');
         	$customcarousel[$carouselterm->slug] = $carouselterm->name;
 
         }
+        
+$portfolioterms2 = get_terms('portfolio_categories', 'hide_empty=0');
+
+	$customportfolio = array();
+                                    
+    	foreach($portfolioterms2 as $portfolioterm) {
+
+        	$customportfolio[$portfolioterm->slug] = $portfolioterm->name;
+
+        }
 
 $customterms2 = get_terms('slide_categories', 'hide_empty=0');
 
@@ -146,7 +156,7 @@ TEMPLATE_URL . '/images/social/thumbs/icons-default.png' ), 'default' => 'defaul
 		->subsection_end()
 	->section("Blog")
 		->open_outersection()
-			->section_order($themeslug."_blog_section_order", "Blog Page Re-Order", array('options' => array("synapse_index" => "Post Page", "synapse_callout_section" => "Callout Section", "synapse_twitterbar_section" => "Twitter Bar", "synapse_index_carousel_section" => "Carousel", "synapse_box_section" => "Boxes"), "default" => 'synapse_index'))
+			->section_order($themeslug."_blog_section_order", "Blog Page Re-Order", array('options' => array("synapse_index" => "Post Page", "synapse_callout_section" => "Callout Section", "synapse_twitterbar_section" => "Twitter Bar", "synapse_index_carousel_section" => "Carousel", "synapse_portfolio_element" => "Portfolio", "synapse_box_section" => "Boxes"), "default" => 'synapse_index'))
 		->close_outersection()
 		->subsection("Blog Options")
 			->images($themeslug."_blog_sidebar", "Select the Sidebar Type", array( 'options' => array("left" => TEMPLATE_URL . '/images/options/left.png', "two-right" => TEMPLATE_URL . '/images/options/tworight.png', "right-left" => TEMPLATE_URL . '/images/options/rightleft.png', "none" => TEMPLATE_URL . '/images/options/none.png', "right" => TEMPLATE_URL . '/images/options/right.png'), 'default' => 'right'))
@@ -196,6 +206,10 @@ TEMPLATE_URL . '/images/social/thumbs/icons-default.png' ), 'default' => 'defaul
 		->subsection("Carousel Options")
 			->select($themeslug.'_carousel_category', 'Select the carousel category', array( 'options' => $customcarousel ))
 			->text($themeslug."_carousel_speed", "Carousel Animation Speed (ms)", array('default' => '750'))
+		->subsection_end()
+		->subsection("Portfolio Options")
+			->select($themeslug."_portfolio_number", "Images per row", array( 'options' => array("key1" => "Three (default)", "key2" => "Two", "key3" => "Four")))
+			->select($themeslug.'_portfolio_category', 'Select the carousel category', array( 'options' => $customportfolio ))
 		->subsection_end()
 		->subsection("SEO")
 			->textarea($themeslug."_home_description", "Home Description")
