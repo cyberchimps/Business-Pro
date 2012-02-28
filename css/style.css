@@ -710,6 +710,11 @@ figure {
     .callout_title {text-align: center;}
     #calloutbutton {width: 200px; margin: auto; margin-bottom: 30px;}
     #banner {margin-top: 10px;}
+    div.slider-nav span.right {
+    right: 0px; }
+	div.slider-nav span.left {
+    margin-left: 0px; }
+    #orbitDemo.orbit, #orbitDemo {height: 450px !important;}
 }
 
 @media handheld, only screen and (max-width: 400px) {
