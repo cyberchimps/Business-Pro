@@ -16,4 +16,11 @@ jQuery(document).ready(function($){
    		$(this).fadeTo("fast", 1.0); 
 	});
 	
+	$(".es-carousel img").hover(function(){
+		$(this).fadeTo("fast", 0.7); 
+	},function(){
+   		$(this).fadeTo("fast", 1.0); 
+	});
+
+	
 });
