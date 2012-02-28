@@ -28,6 +28,14 @@ jQuery(document).ready(function($) {
       toShow.hide();
     }
   }).change();
+  $("#bu_portfolio_title_toggle").change(function() {
+    var toShow = $("#section-bu_portfolio_title");
+    if($(this).is(':checked')) {
+      toShow.show();
+    } else {
+      toShow.hide();
+    }
+  }).change();
   $("#bu_show_featured_images").change(function() {
     var toShow = $("#section-bu_featured_image_align, #section-bu_featured_image_height, #section-bu_featured_image_width");
     if($(this).is(':checked')) {

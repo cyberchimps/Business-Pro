@@ -210,6 +210,8 @@ TEMPLATE_URL . '/images/social/thumbs/icons-default.png' ), 'default' => 'defaul
 		->subsection("Portfolio Options")
 			->select($themeslug."_portfolio_number", "Images per row", array( 'options' => array("key1" => "Three (default)", "key2" => "Two", "key3" => "Four")))
 			->select($themeslug.'_portfolio_category', 'Select the carousel category', array( 'options' => $customportfolio ))
+			->checkbox($themeslug."_portfolio_title_toggle", "Portfolio Title")
+			->text($themeslug."_portfolio_title", "Title", array('default' => 'Portfolio'))
 		->subsection_end()
 		->subsection("SEO")
 			->textarea($themeslug."_home_description", "Home Description")

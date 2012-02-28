@@ -34,6 +34,8 @@ function synapse_portfolio_element_content() {
 	else {
 		$category = $options->get($themeslug.'_portfolio_category');
 		$num = $options->get($themeslug.'_portfolio_number');
+		$title_enable = $options->get($themeslug.'_portfolio_title_toggle');
+		$title = $num = $options->get($themeslug.'_portfolio_title');
 	}
 	
 	if ($num == '1' OR $num == 'key2') {
@@ -46,9 +48,10 @@ function synapse_portfolio_element_content() {
 		$number = 'four';
 	}
 	
-	if ($title_enable != 'off' OR $title_enable == '1') {
+	if ($title_enable == 'on' OR $title_enable == '1') {
 		$title_output = "<h1 class='portfolio_title'>$title</h1>";
 	}
+	
 	?>
 
 <div id="portfolio" class="container">
