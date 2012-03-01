@@ -92,13 +92,13 @@ color:#fff;
 
 .metadate {background: url(../images/icons/cal.png) no-repeat left center;padding-left: 25px;padding-top:2px;}
 
-.metaauthor {background: url(../images/icons/author.png) no-repeat left center;padding-left: 25px;padding-top:2px;}
+.metaauthor {background: url(../images/icons/author.png) no-repeat left center;padding-left: 25px;padding-top:3px;}
 
-.metacomments {background: url(../images/icons/comments.png) no-repeat left center;padding-left: 25px;padding-top:2px;}
+.metacomments {background: url(../images/icons/comments.png) no-repeat left center;padding-left: 25px;padding-top:1px;}
 
-.metacat {background: url(../images/icons/cat.png) no-repeat left center;padding-left: 25px;padding-top:2px;}
+.metacat {background: url(../images/icons/cat.png) no-repeat left top;padding-left: 25px;padding-top:2px;}
 
-.metatags {background: url(../images/icons/tags.png) no-repeat left center;padding-left: 25px;padding-top:2px;}
+.metatags {background: url(../images/icons/tags.png) no-repeat left top;padding-left: 25px;padding-top:2px;}
 
 .entry {}
 
