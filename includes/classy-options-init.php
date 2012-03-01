@@ -174,7 +174,7 @@ TEMPLATE_URL . '/images/social/thumbs/icons-default.png' ), 'default' => 'defaul
 			->checkbox($themeslug."_front_custom_callout_options", "Custom Callout Options")
 			->color($themeslug."_front_callout_text_color", "Custom Callout Text Color")
 		->subsection_end()
-		->subsection("Twtterbar Options")
+		->subsection("Front Page Twtterbar Options")
 			->text($themeslug."_front_twitter", "Enter your Twitter handle")
 			->info('Requires the <a href="http://wordpress.org/extend/plugins/twitter-for-wordpress/" target="_blank">Twitter for WordPress</a> plugin')
 		->subsection_end()
