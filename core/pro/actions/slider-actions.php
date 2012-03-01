@@ -347,16 +347,16 @@ else {
 
 			$textimg = "
 	  					<div class='slider_content'>
-	  						<div id='text_container' class='six columns' style='float: $textalign;'>
-	  							<span class='content_title'>$title</span><br />
-	  							<span class='content_text'>$customtext</span>
+	  						<div id='text_container' class='six columns' style='float: $textalign; '>
+	  							<div class='content_title' style='padding-left: 15px; padding-right: 15px;'>$title</div><br />
+	  							<div class='content_text' style='padding-left: 15px; padding-right: 15px;'>$customtext</div>
 	  						</div>
 	  						<div id='image_container' class='six columns' style='padding-top:40px; float: $imagealign;  '>
-	  							$mediacontent 						
+	  							<div class='media_content'>$mediacontent</div> 						
 	  						</div>
 	    				</div>
-	    
-	    			";
+	    			   
+	    			   ";
 	    			
 	    	$fullimg = "
 	  					<div class='slider_content'>

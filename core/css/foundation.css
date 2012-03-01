@@ -698,7 +698,6 @@ span.pause {
     height: 40px;
     position: absolute;
     top: 0;
-    left: 50px;
     background: url(../../images/orbit/pause-black.png) no-repeat;
     z-index: 4;
     opacity: 1; }
