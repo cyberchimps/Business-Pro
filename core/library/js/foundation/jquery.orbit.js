@@ -46,10 +46,11 @@
     timerRunning: null,
     degrees: 0,
     wrapperHTML: '<div class="orbit-wrapper" />',
-    timerHTML: '<div class="timer"><span class="mask"><span class="rotator"></span></span><span class="pause"></span></div>',
-    captionHTML: '<div class="orbit-caption"></div>',
+      captionHTML: '<div class="orbit-caption"></div>',
     directionalNavHTML: '<div class="slider-nav"><span class="right">Right</span><span class="left">Left</span></div>',
     bulletHTML: '<ul class="orbit-bullets"></ul>',
+      timerHTML: '<div class="timer"><span class="mask"><span class="rotator"></span></span><span class="pause"></span></div>',
+
     
     init: function (element, options) {
       var $imageSlides,
@@ -118,12 +119,7 @@
       this.setDimentionsFromLargestSlide();
       this.updateOptionsIfOnlyOneSlide();
       this.setupFirstSlide();
-      
-      if (this.options.timer) {
-        this.setupTimer();
-        this.startClock();
-      }
-      
+          
       if (this.options.captions) {
         this.setupCaptions();
       }
@@ -132,10 +128,19 @@
         this.setupDirectionalNav();
       }
       
+        
+       if (this.options.timer) {
+        this.setupTimer();
+        this.startClock();
+      }
+      
       if (this.options.bullets) {
         this.setupBulletNav();
         this.setActiveBullet();
       }
+      
+     
+
     },
     
     currentSlide: function () {
