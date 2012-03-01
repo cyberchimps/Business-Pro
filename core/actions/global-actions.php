@@ -115,11 +115,11 @@ function synapse_post_byline_content() {
 	
 	<div class="meta">
 	<ul>
-		<li><?php if (($hidden[$themeslug.'_hide_date']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/cal.png" />&nbsp;&nbsp;<?php printf( __( '', 'core' )); ?><a href="<?php the_permalink() ?>"><?php echo get_the_date(); ?></a><?php endif;?></li>
-		<li><?php if (($hidden[$themeslug.'_hide_author']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/author.png" />&nbsp;&nbsp;<?php printf( __( '', 'core' )); ?><?php the_author_posts_link(); ?><?php endif;?></li>
-		<li><?php if (($hidden[$themeslug.'_hide_comments']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/comments.png" alt="comments"/>&nbsp;&nbsp;<?php comments_popup_link( __('No Comments', 'core' ), __('1 Comment', 'core' ), __('% Comments' , 'core' )); //need a filer here ?><?php endif;?></li>
-		<li><?php if (($hidden[$themeslug.'_hide_categories']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/cal.png" />&nbsp;&nbsp;<?php printf( __( '', 'core' )); ?> <?php the_category(', ') ?><?php endif;?></li>
-		<li><img src="<?php echo get_template_directory_uri(); ?>/images/icons/tags.png" />&nbsp;&nbsp;<?php synapse_post_tags(); ?></li>
+		<li class="metadate"><?php if (($hidden[$themeslug.'_hide_date']) != '0'):?><?php printf( __( '', 'core' )); ?><a href="<?php the_permalink() ?>"><?php echo get_the_date(); ?></a><?php endif;?></li>
+		<li class="metaauthor"><?php if (($hidden[$themeslug.'_hide_author']) != '0'):?><?php printf( __( '', 'core' )); ?><?php the_author_posts_link(); ?><?php endif;?></li>
+		<li class="metacomments"><?php if (($hidden[$themeslug.'_hide_comments']) != '0'):?><?php comments_popup_link( __('No Comments', 'core' ), __('1 Comment', 'core' ), __('% Comments' , 'core' )); //need a filer here ?><?php endif;?></li>
+		<li class="metacat"><?php if (($hidden[$themeslug.'_hide_categories']) != '0'):?><?php printf( __( '', 'core' )); ?> <?php the_category(', ') ?><?php endif;?></li>
+		<li class="metatags"><?php synapse_post_tags(); ?></li>
 	</ul>
 	</div> <?php
 }
@@ -151,9 +151,7 @@ function synapse_post_tags_content() {
 	}?>
 
 	<?php if (has_tag() AND ($hidden[$themeslug.'_hide_tags']) != '0'):?>
-	<div class="tags">
 			<?php the_tags('', ', ', ''); ?>
-	</div><!--end tags--> 
 	<?php endif;
 }
 
