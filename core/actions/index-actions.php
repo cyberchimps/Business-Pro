@@ -34,7 +34,7 @@ function synapse_index_content() {
 		<?php synapse_sidebar_init(); ?>
 	<!--End @Core sidebar init-->
 	<div class="row">
-<!--Begin @Core before content sidebar hook-->
+	<!--Begin @Core before content sidebar hook-->
 		<?php synapse_before_content_sidebar(); ?>
 	<!--End @Core before content sidebar hook-->
 
