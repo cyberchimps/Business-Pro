@@ -27,7 +27,7 @@
 <?php get_header(); ?>
 
 		<?php
-			foreach(explode(",", $options->get($themeslug.'_blog_section_order')) as $fn) {
+			foreach(explode(",", $options->get($themeslug.'_front_section_order')) as $fn) {
 				if(function_exists($fn)) {
 					call_user_func_array($fn, array());
 				}
