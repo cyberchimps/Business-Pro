@@ -84,7 +84,7 @@ color:#fff;
 
 /* Fonts  */
 
-.meta {color: #ccc;font-size: 12px;font-weight: 500;padding-bottom: 10px;}
+.meta {color: #ccc;font-size: 12px;font-weight: 500;padding-bottom: 10px;margin-top: 7px;}
 
 .meta a{color: #aaa;}
 
@@ -215,14 +215,13 @@ a:hover {color: #5ca9d6;}
 
 .post_container {
 	background: #fff;
-	border-bottom: 1px dotted #eee;
+	margin-bottom: 45px;
 }
 
 .post_container ul {list-style: disc;margin-left: 21px;list-style-position: inside;}
 
 .postformats {
-	float:left;
-	background: #dedede;
+	background: #fff;
 	height: 46px;
 	width: 50px;
 }
@@ -307,7 +306,7 @@ list-style-position: inside;}
 
 #sidebar240 .widget-container th {padding-right: 18px}
 
-.widget-title{font-size:16px;font-weight:600;color:#555;padding-bottom: 2px;border-bottom: 1px dotted #eee;}
+.widget-title{font-size:16px;font-weight:600;color:#555;padding-bottom: 2px;}
 .widget-container ul{margin-left: 0px;}
 
 /* Blog and Post Styles */

@@ -57,14 +57,7 @@ function synapse_loop_content($content) {
 	else {
 		$format = get_post_format();
 	} ?>
-		
-		<?php ob_start(); ?>
-			
-			<?php if ($post_formats != '0') : ?>
-			<div class="postformats"><!--begin format icon-->
-				<img src="<?php echo get_template_directory_uri(); ?>/images/formats/<?php echo $format ;?>.png" alt="formats" />
-			</div><!--end format-icon-->
-			<?php endif; ?>
+	<?php ob_start(); ?>
 			<?php
 				if ( has_post_thumbnail() && $featured_images == '1'  && !is_single()) {
  		 			echo '<div class="featured-image">';
@@ -76,7 +69,13 @@ function synapse_loop_content($content) {
 			?>	
 			<!--Call @Core Meta hook-->
 			<div class="row">
-			<div class="three columns"><?php synapse_post_byline(); ?></div>
+			<div class="three columns"><?php synapse_post_byline(); ?>
+		<?php if ($post_formats != '0') : ?>
+			<div class="postformats"><!--begin format icon-->
+				<img src="<?php echo get_template_directory_uri(); ?>/images/formats/<?php echo $format ;?>.png" alt="formats" />
+			</div><!--end format-icon-->
+			<?php endif; ?>
+			</div>
 				<div class="entry nine columns">
 					<h2 class="posts_title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 					<?php 
@@ -89,49 +88,12 @@ function synapse_loop_content($content) {
 					 ?>
 				</div><!--end entry-->
 			</div><!--end row-->
-				
-				<div class='clear'>&nbsp;</div>
 			<?php	
 		
 		$content = ob_get_clean();
 		$content = apply_filters( 'synapse_post_formats_'.$format.'_content', $content );
 	
 		echo $content; 
-}
-
-/**
-* Sets up the HTML for the postbar area.
-*
-* @since 3.1
-*/
-function synapse_post_bar_content() { 
-	global $options, $themeslug; 
-	
-	if (is_single()) {
-		$hidden = $options->get($themeslug.'_single_hide_byline'); 
-	}
-	elseif (is_archive()) {
-		$hidden = $options->get($themeslug.'_archive_hide_byline'); 
-	}
-	else {
-		$hidden = $options->get($themeslug.'_hide_byline'); 
-	}?>
-	
-		<div id="postbar">
-				<div class="six columns" id="share">
-					<?php if (($hidden[$themeslug.'_hide_share']) != '0'):?>
-					&nbsp;<a href="http://www.facebook.com/share.php?u=<?php the_permalink() ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/share/facebook.png" alt="Share on Facebook" height="16px" width="16px" /></a> 
-					<a href="http://twitter.com/home?status=<?php the_permalink() ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/share/twitter.png" alt="Share on Twitter" height="16px" width="16px" /></a> 
-					<a href="http://reddit.com/submit?url=<?php the_permalink() ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/share/reddit.png" alt="Share on Reddit" height="16px" width="16px" /></a> <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php the_permalink() ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/share/linkedin.png" alt="Share on LinkedIn" height="16px" width="16px" /></a>	
-					<?php endif;?>
-				</div><!--end share-->
-				<div class="six columns" id="comments">
-					<?php if (($hidden[$themeslug.'_hide_comments']) != '0'):?>
-					<?php comments_popup_link( __('No Comments', 'core' ), __('1 Comment', 'core' ), __('% Comments' , 'core' )); //need a filer here ?>&nbsp;&nbsp;<img src="<?php echo get_template_directory_uri(); ?>/images/Commentsgrey.png" alt="comments"/>&nbsp;
-					<?php endif;?>
-				</div><!--end comments-->
-		</div><!--end postbar--> 
-	<?php
 }
 
 /**
@@ -152,7 +114,6 @@ function synapse_post_byline_content() {
 	}?>
 	
 	<div class="meta">
-	
 	<ul>
 		<li><?php if (($hidden[$themeslug.'_hide_date']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/cal.png" />&nbsp;&nbsp;<?php printf( __( '', 'core' )); ?><a href="<?php the_permalink() ?>"><?php echo get_the_date(); ?></a><?php endif;?></li>
 		<li><?php if (($hidden[$themeslug.'_hide_author']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/author.png" />&nbsp;&nbsp;<?php printf( __( '', 'core' )); ?><?php the_author_posts_link(); ?><?php endif;?></li>
@@ -160,7 +121,7 @@ function synapse_post_byline_content() {
 		<li><?php if (($hidden[$themeslug.'_hide_categories']) != '0'):?><img src="<?php echo get_template_directory_uri(); ?>/images/icons/cal.png" />&nbsp;&nbsp;<?php printf( __( '', 'core' )); ?> <?php the_category(', ') ?><?php endif;?></li>
 		<li><img src="<?php echo get_template_directory_uri(); ?>/images/icons/tags.png" />&nbsp;&nbsp;<?php synapse_post_tags(); ?></li>
 	</ul>
-		</div> <?php
+	</div> <?php
 }
 
 /**
@@ -191,8 +152,7 @@ function synapse_post_tags_content() {
 
 	<?php if (has_tag() AND ($hidden[$themeslug.'_hide_tags']) != '0'):?>
 	<div class="tags">
-			<?php the_tags('Tags: ', ', ', '<br />'); ?>
-		
+			<?php the_tags('', ', ', ''); ?>
 	</div><!--end tags--> 
 	<?php endif;
 }
