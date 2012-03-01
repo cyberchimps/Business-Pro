@@ -364,8 +364,7 @@ else {
 	  							<img src='$fullsized' alt='Slider' />
 	  						
 	    				</div>
-	    
-	    		";
+	    				";
 	    		
 	    	$fulltext = "
 	  					<div class='slider_content' style='height: 330px;'>
@@ -374,12 +373,8 @@ else {
 	  							<span class='content_title'>$title</span><br />
 	  							<span class='content_text'>$customtext</span>
 	  						</div>
-
-
-	  						
 	    				</div>
-	    
-	    		";
+	    				";
 	    		
 	    		
 	    	if ($slidertype == '0' or $slidertype == '') {
