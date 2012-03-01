@@ -237,6 +237,7 @@ a:hover {color: #5ca9d6;}
 	width: 25px;
 	border: 1px solid #999;
 	margin-top: 7px;
+	border-radius: 2px;
 }
 
 #comments {padding-top: 3px;font-size: 12px;}
