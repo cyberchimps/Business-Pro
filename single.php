@@ -19,8 +19,6 @@ get_header(); ?>
 		<?php synapse_index(); ?>
 	<!--End @Core post area-->
 	
-
-
 	</div>
 <?php if ($options->get($themeslug.'_single_breadcrumbs') == "1") { synapse_breadcrumbs();}?>
 </div><!--end container-->

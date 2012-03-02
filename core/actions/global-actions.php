@@ -59,7 +59,7 @@ function synapse_loop_content($content) {
 	} ?>
 	<?php ob_start(); ?>
 			<?php
-				if ( has_post_thumbnail() && $featured_images == '1'  && !is_single()) {
+				if ( has_post_thumbnail() && $featured_images == '1' ) {
  		 			echo '<div class="featured-image">';
  		 			echo '<a href="' . get_permalink($post->ID) . '" >';
  		 				the_post_thumbnail();

@@ -68,10 +68,9 @@ function synapse_index_content() {
 			</div><!--end post container-->
 			
 			<?php if (is_single()):?>
-			<?php comments_template(); ?>
+				<?php comments_template(); ?>
 			<?php endif ?>
 			
-	
 			<?php endwhile; ?>
 		
 			<?php else : ?>
