@@ -30,6 +30,9 @@ function synapse_twitterbar_section_content() {
 	if (is_page()) {
 	$handle = get_post_meta($post->ID, 'twitter_handle' , true); 
 	}
+	if (is_front_page()) {
+	$handle = $options->get($themeslug.'_front_twitter');
+	}
 	else {
 	$handle = $options->get($themeslug.'_blog_twitter');
 	}?>
