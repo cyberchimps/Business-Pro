@@ -50,9 +50,7 @@ function synapse_slider_content() {
 	}
 	
 	if (is_front_page()) {
-		$category = $options->get($themeslug.'_front_slider_category'); 
 		$customcategory = $options->get($themeslug.'_front_customslider_category');
-		$captionstyle = $options->get($themeslug.'_front_caption_style');
 		$sliderheight = $options->get($themeslug.'_front_slider_height');
 		$hidenav = $options->get($themeslug.'_front_hide_slider_arrows');
 		$wordenable = $options->get($themeslug.'_front_enable_wordthumb');
@@ -62,20 +60,14 @@ function synapse_slider_content() {
 	}
 
 	else {
-		$size = $options->get($themeslug.'_slider_size');
-		$size2 = $options->get($themeslug.'_blog_sidebar');
-		$type = $options->get($themeslug.'_slider_type'); 
-		$category = $options->get($themeslug.'_slider_category'); 
 		$customcategory = $options->get($themeslug.'_customslider_category');
 		$captionstyle = $options->get($themeslug.'_caption_style');
 		$sliderheight = $options->get($themeslug.'_slider_height');
 		$hidenav = $options->get($themeslug.'_hide_slider_arrows');
 		$wordenable = $options->get($themeslug.'_enable_wordthumb');
 		$slideranimation = $options->get($themeslug.'_slider_animation');
-		$postnumber = $options->get($themeslug.'_slider_posts_number');
 		$sliderdelay = $options->get($themeslug.'_slider_delay');
 		$navigationstyle = $options->get($themeslug.'_slider_nav');
-		$timer = $options->get($themeslug.'_slider_timer');	
 	}
 
 	
