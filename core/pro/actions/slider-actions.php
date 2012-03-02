@@ -39,12 +39,7 @@ function synapse_slider_content() {
 	$root = get_template_directory_uri(); 
 	
 	if (is_page()) {
-		$size = get_post_meta($post->ID, 'page_slider_size' , true);
-		$size2 = get_post_meta($post->ID, 'page_sidebar' , true);
-		$type = get_post_meta($post->ID, 'page_slider_type' , true);
-		$category = get_post_meta($post->ID, 'slider_blog_category' , true);
 		$customcategory = get_post_meta($post->ID, 'slider_category' , true);
-		$postnumber  = get_post_meta($post->ID, 'slider_blog_posts_number' , true);
 		$sliderheight = get_post_meta($post->ID, 'slider_height' , true);
 		$sliderdelay = get_post_meta($post->ID, 'slider_delay' , true);
 		$slideranimation = get_post_meta($post->ID, 'page_slider_animation' , true);
@@ -52,7 +47,6 @@ function synapse_slider_content() {
 		$navigationstyle = get_post_meta($post->ID, 'page_slider_navigation_style' , true);
 		$hidenav = get_post_meta($post->ID, 'hide_arrows' , true);
 		$wordenable = get_post_meta($post->ID, 'enable_wordthumb' , true);	
-		$timer = get_post_meta($post->ID, 'slider_timer' , true);	
 	}
 	
 	if (is_front_page()) {
@@ -116,112 +110,21 @@ function synapse_slider_content() {
 
 /* End animation styles. */		
 
-/* Slider navigation options */
-
-	if ($hidenav == '0' OR $hidenav == "off") { ?>
-		<style type="text/css">
-		div.slider-nav {display: none;}
-		</style> <?php
-	}
-	
-	
-/* End navigation options */
-
-
-/* Define blog category */
-
-	if ($category != 'all') {
-		$blogcategory = $category;
-	}
-	else {
-		$blogcategory = "";
-	}
-	
-/* End blog category */
-
-/* Define slider height */      
-
-	if ($sliderheight == '') {
-	    $height = '330';
-	}    
-
-	else {
-		$height = $sliderheight;
-	}
-
-/* End slider height */ 
-
-/* Define slider caption style */      
-
-	if ($captionstyle == 'key2' OR $captionstyle == '3') { ?>
-		<style type="text/css">
-		.orbit-caption {height: <?php echo $height ?>px; width: 30% !important;}
-		</style> <?php
-	}
-	elseif ($captionstyle == 'key3' OR $captionstyle == '2') { ?>
-		<style type="text/css">
-		.orbit-caption {position: relative !important; float: left; height: <?php echo $height ?>px; width: 30% !important; top: -375px;}
-		</style><?php
-	}    
-	elseif ($captionstyle == '0') { ?>
-		<style type="text/css">
-		.orbit-caption {display: none !important;}
-		</style><?php
-	}    
-
-/* Define wordthumb default height and widths. */		
-
-	if ($size == "key2" OR $size == '0') {
-		$wordthumb = "h=240&w=420";
-		$wordthumb2 = "h=330&w=1000";
-	}
-	elseif ($size2 == "two-right" OR $size2 == "right-left" OR $size2 == "1" OR $size2 == "2") {
-		$wordthumb = "h=$height&w=480";
-	}
-	else {
-		$wordthumb = "h=$height&w=640";
-	}
+	$wordthumb = "h=240&w=420";
+	$wordthumb2 = "h=330&w=980";
 
 /* End define wordthumb. */
 
 /* Define slider width variable */ 
 
-	if ($size == 'key2' OR $size == '0' ) {
-	  	$csWidth = '1000';
-	  	$imgwidth = '420';
-	  	$defaultimage = "$root/images/pro/slider-980.jpg";
-	}		
-	elseif ($size2 == 'right-left' && $size != 'key2' OR $size2 == 'two-right' && $size != 'key2' OR $size2 == '1' && $size != '0' OR $size2 == '2' && $size != '0') {
-		$csWidth = '470';
-		$imgwidth = '470';
-		$defaultimage = "$root/images/pro/slider-470.jpg";
-	}  	
-	else {
-		$csWidth = '640';
-		$imgwidth = '760';
-		$defaultimage = "$root/images/pro/slider-640.jpg";
-	}
+	$csWidth = '1000';
+	$imgwidth = '420';
+	$defaultimage = "$root/images/pro/slider-980.jpg";
 
 /* End slider width variable */ 
 
-/* Query posts based on theme/meta options */
-
-	if ($type == 'custom' OR $type == '0' OR $type= "") {
-		$usecustomslides = 'custom';
-	}	
-	else {
-		$usecustomslides = 'posts';
-	}
-
-/* Query posts based on theme/meta options */
-
-	if ( $type == 'custom' OR $type == '0') {
-    	query_posts( array ('post_type' => $themeslug.'_custom_slides', 'showposts' => 20,  'slide_categories' => $customcategory  ) );
-    }
-    else {
-    	query_posts('category_name='.$blogcategory.'&showposts=50');
-	}
-
+	query_posts( array ('post_type' => $themeslug.'_custom_slides', 'showposts' => 20,  'slide_categories' => $customcategory  ) );
+ 
 /* End query posts based on theme/meta options */
     	
 /* Establish post counter */  
