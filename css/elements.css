@@ -322,7 +322,7 @@ li.ui-state-default  {
 #gallery li.four.columns {margin-left:0px; margin-right: 2.3%;}
 #gallery li.six.columns {margin-left:0px; margin-right: 2.3%;}
 
-#gallery ul { list-style: none; }
+#gallery ul { list-style: none; margin: 0px; }
 
 #gallery ul li { display: inline; }
 
