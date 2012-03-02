@@ -268,10 +268,6 @@ a:hover {color: #5ca9d6;}
 	color: #000;
 }
 
-.more-link a:hover{
-	color: #555;
-}
-
 /* Posts Navigation */
 
 .next-posts {float: left;padding: 5px 0 5px 0; }
@@ -657,7 +653,7 @@ h6 {
 	margin-bottom: 10px;
 }
 
-h1.description, h1.sitename {margin-bottom: 0px;margin-top:5px;}
+h1.description, h1.sitename {margin-bottom: 0px;}
 
 .description {	
 	font-size: 11px;
@@ -666,9 +662,10 @@ h1.description, h1.sitename {margin-bottom: 0px;margin-top:5px;}
 }
 
 .sitename {
-	font-size: 32px;
-	font-weight: bolder;
+	font-size: 34px;
+	font-weight: bold;
 	margin-top: 20px;
+	line-height: 40px;
 }
 
 /* `Spacing
