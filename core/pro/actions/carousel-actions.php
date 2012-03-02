@@ -37,6 +37,10 @@ function synapse_carousel_section_content() {
 		$speed = get_post_meta($post->ID, 'carousel_speed' , true);
 
 	}
+	elseif (is_front_page()) {
+		$customcategory = $options->get($themeslug.'_front_carousel_category');
+		$speed = $options->get($themeslug.'_front_carousel_speed');
+	}
 	else {
 		$customcategory = $options->get($themeslug.'_carousel_category');
 		$speed = $options->get($themeslug.'_carousel_speed');

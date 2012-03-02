@@ -33,34 +33,16 @@ function synapse_callout_section_content() {
 /* Define variables. */	
 
 	if (is_page()) {
-		$callout = get_post_meta($post->ID, 'enable_callout_section' , true);
-		$calloutbgcolor = get_post_meta($post->ID, 'callout_background_color' , true);
-		$bcolor = get_post_meta($post->ID, 'custom_callout_button_color' , true);
-		$btcolor = get_post_meta($post->ID, 'custom_callout_button_text_color' , true);
 		$tcolor = get_post_meta($post->ID, 'custom_callout_text_color' , true);
-		$ticolor = get_post_meta($post->ID, 'custom_callout_title_color' , true);
-		$title = get_post_meta($post->ID, 'callout_title' , true);
 		$text = get_post_meta($post->ID, 'callout_text' , true);
-		$btext = get_post_meta($post->ID, 'callout_button_text' , true);
-		$link = get_post_meta($post->ID, 'callout_url' , true);
-		$image = get_post_meta($post->ID, 'callout_image' , true);
-		$hidebutton = get_post_meta($post->ID, 'disable_callout_button' , true);
-		$customcalloutbgcolor = get_post_meta($post->ID, 'custom_callout_color' , true);
 	}
-	
+	elseif is_front_page()) {
+		$tcolor = $options->get($themeslug.'_front_callout_text_color');
+		$title = $options->get($themeslug.'_front_callout_title');
+	}
 	else {
-		$calloutbgcolor = $options->get($themeslug.'_blog_callout_bg_color');
-		$bcolor = $options->get($themeslug.'_blog_callout_button_color');
-		$btcolor = $options->get($themeslug.'_blog_callout_button_text_color');
 		$tcolor = $options->get($themeslug.'_blog_callout_text_color');
-		$ticolor = $options->get($themeslug.'_blog_callout_title_color');
-		$title = $options->get($themeslug.'_blog_callout_title');
 		$text = $options->get($themeslug.'_blog_callout_text');
-		$btext = $options->get($themeslug.'_blog_callout_button_text');
-		$link = $options->get($themeslug.'_blog_callout_button_url');
-		$image = $options->get($themeslug.'_blog_custom_callout_button');
-		$hidebutton = $options->get($themeslug.'_blog_callout_button');
-		$customcalloutbgcolor = $options->get($themeslug.'_blog_callout_bg_color');
 	}
 	
 	if ($hidebutton == "on" OR $hidebutton == "1") {
