@@ -43,7 +43,6 @@ function synapse_slider_content() {
 		$sliderheight = get_post_meta($post->ID, 'slider_height' , true);
 		$sliderdelay = get_post_meta($post->ID, 'slider_delay' , true);
 		$slideranimation = get_post_meta($post->ID, 'page_slider_animation' , true);
-		$captionstyle = get_post_meta($post->ID, 'page_slider_caption_style' , true);
 		$navigationstyle = get_post_meta($post->ID, 'page_slider_navigation_style' , true);
 		$hidenav = get_post_meta($post->ID, 'hide_arrows' , true);
 		$wordenable = get_post_meta($post->ID, 'enable_wordthumb' , true);	
@@ -354,16 +353,8 @@ To create a Custom Slide please go to the Custom Slides tab in WP-Admin. Once yo
 
 /* End slider navigation variable */ 
 
-	?>
+?>
 	
-<!-- Apply slider CSS based on user settings -->
-
-	<style type="text/css" media="screen">
-				#slider { width: <?php echo $csWidth ?>px; height: <?php echo $height ?>px; margin: auto; }
-	</style>
-
-<!-- End style -->
-
 <?php if ($navigationstyle == 'key3' OR $navigationstyle == '2') :?>
 	<style type="text/css" media="screen">
 		.slider_nav {display: none;}
@@ -371,13 +362,7 @@ To create a Custom Slide please go to the Custom Slides tab in WP-Admin. Once yo
 	</style>
 <?php endif;?>
 
-<?php if ($timer == '0' OR $timer == 'off') :?>
-	<style type="text/css" media="screen">
-		div.timer {display: none;}
-	</style>
-<?php endif;?>
-
-	<?php
+<?php
 	
 /* End slider navigation style */ 
 	
@@ -404,7 +389,7 @@ OUT;
 
 /* End NivoSlider javascript */ 
 
-echo $out; ?> <div class="slider_nav"></div>
+echo $out; ?>
 
 <?php echo $closerow; 
 
