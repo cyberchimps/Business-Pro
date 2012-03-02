@@ -143,7 +143,7 @@ jQuery(function($) {
 	$("input[name='business[bu_blog_section_order]']").change(function(){
 		var show = $(this).val().split(",");
 		var map = {
-			synapse_blog_slider: "subsection-blogslider",
+			synapse_page_slider: "subsection-blogslider",
 			synapse_callout_section: "subsection-calloutoptions",
 			synapse_portfolio_element: "subsection-portfoliooptions",
 			synapse_twitterbar_section: "subsection-twtterbaroptions",
