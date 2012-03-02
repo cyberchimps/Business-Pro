@@ -110,7 +110,7 @@ function initialize_the_meta_boxes() {
 					'box_section' => 'Boxes',
 					'carousel_section' => 'Carousel',			
 					),
-					'std' => 'page_section, breadcrumbs'
+					'std' => 'page_section,breadcrumbs'
 				))
 
 			->pagehelp('', 'Need Help?', '')
