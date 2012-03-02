@@ -114,7 +114,7 @@ function synapse_slider_content() {
 
 /* End slider width variable */ 
 
-	query_posts( array ('post_type' => $themeslug.'_custom_slides', 'showposts' => 20,  'slide_categories' => $customcategory  ) );
+	query_posts( array ('post_type' => $themeslug.'_custom_slides', 'showposts' => 50,  'slide_categories' => $customcategory  ) );
  
 /* End query posts based on theme/meta options */
     	
@@ -123,15 +123,8 @@ function synapse_slider_content() {
 	if (have_posts()) :
 	    $out = "<div id='orbitDemo'>"; 
 	    $i = 0;
-	if ($usecustomslides == 'posts' OR $postnumber == '' && $type != '0') {
-	    $no = '5';    	
-	}   	
-	elseif ($usecustomslides == 'custom' OR $type == '0') {
-	    $no = '20';
-	}
-	else {
-		$no = $postnumber;
-	}
+		$no = '50';
+	
 	
 /* End post counter */	    	
 
@@ -160,13 +153,6 @@ function synapse_slider_content() {
 			/* End variables */	
 
 			/* Controls slide title based on page meta setting */	
-
-			if ($hidetitlebar == 'on' AND $captionstyle != 'key4') {
-	   			$caption = "data-caption='#htmlCaption$i'";
-	   		}
-	   		else {
-	   			$caption = '';
-	   		}
 	   		
 	   		/* Slider Text Align */	
 	   		
@@ -180,28 +166,8 @@ function synapse_slider_content() {
 	   			$imagealign = 'left';
 	   		}
 
-	    	/* End slide title */
-
-	    	/* Controls slide link */
-
-	    	if ( $type == 'custom' OR $type == '0') {
-	    		$link = get_post_meta($post->ID, 'slider_url' , true);
-	    	}
-	    	else {
-	    		$link = get_permalink();
-	    	}
-
-	    	/* End slide link */
-	    	
-	    	/* Establish slider text */
-	    	
-	    	if ($type == 'custom' OR $type == '0') {
-	    		$text = $customtext;
-	    	}
-	    	else {
-	    		$text = $blogtext;
-	    	}
-	    	
+	    	/* End slider text align */
+	    		    	
 	    	/* End slider text */	
 
 	    	/* Controls slide image and thumbnails */
