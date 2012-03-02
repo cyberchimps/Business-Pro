@@ -59,27 +59,25 @@ function custom_gallery_post_format( $content ) {
 	global $options, $themeslug, $post;
 	$root = get_template_directory_uri(); 
 	
-	ob_start();?>
-	
-		<?php if ($options->get($themeslug.'_post_formats') == '1') : ?>
-			<div class="postformats"><!--begin format icon-->
-				<img src="<?php echo get_template_directory_uri(); ?>/images/formats/gallery.png" />
-			</div><!--end format-icon-->
-		<?php endif;?>
-				<h2 class="posts_title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-					<!--Call @Core Meta hook-->
-			<?php synapse_post_byline(); ?>
-				<?php
-				if ( has_post_thumbnail() && $options->get($themeslug.'_show_featured_images') == '1' && !is_single() ) {
- 		 			echo '<div class="featured-image">';
- 		 			echo '<a href="' . get_permalink($post->ID) . '" >';
- 		 				the_post_thumbnail();
-  					echo '</a>';
-  					echo '</div>';
-				}
-			?>	
-				<div class="entry" <?php if ( has_post_thumbnail() && $options->get($themeslug.'_show_featured_images') == '1' ) { echo 'style="min-height: 115px;" '; }?>>
-				
+	 ob_start(); 
+		if ( has_post_thumbnail() && $featured_images == '1'  && !is_single()) {
+ 		 	echo '<div class="featured-image">';
+ 		 	echo '<a href="' . get_permalink($post->ID) . '" >';
+ 		 		the_post_thumbnail();
+  			echo '</a>';
+  			echo '</div>';
+		}
+		?>	
+			<div class="row">
+			<div class="three columns"><?php synapse_post_byline(); ?></div>
+				<div class="entry nine columns">
+					<?php if ($options->get($themeslug.'_post_formats') == '1') : ?>
+						<div class="postformats"><!--begin format icon-->
+							<img src="<?php echo get_template_directory_uri(); ?>/images/formats/gallery.png" />
+						</div><!--end format-icon-->
+					<?php endif;?>
+					<h2 class="posts_title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+									
 				<?php if (!is_single()): ?>
 				<?php $images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
 					if ( $images ) :
@@ -99,13 +97,20 @@ function custom_gallery_post_format( $content ) {
 				<?php if (is_single()): ?>
 					<?php the_content(); ?>
 				<?php endif;?>
+				
+				<!--Begin @Core link pages hook-->
+					<?php synapse_link_pages(); ?>
+				<!--End @Core link pages hook-->
+			
+				<!--Begin @Core post edit link hook-->
+					<?php synapse_edit_link(); ?>
+				<!--End @Core post edit link hook-->
 				</div><!--end entry-->
-
-				<div style=clear:both;></div>
-	<?php	
-	$content = ob_get_clean();
-	
-	return $content;
+			</div><!--end row-->
+			<?php	
+		
+		$content = ob_get_clean();	
+		return $content; 
 }
 add_filter('synapse_post_formats_gallery_content', 'custom_gallery_post_format' ); 
 	
