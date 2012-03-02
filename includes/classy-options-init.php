@@ -169,7 +169,7 @@ TEMPLATE_URL . '/images/social/thumbs/icons-default.png' ), 'default' => 'defaul
 			->checkbox($themeslug."_front_slider_timer", "Slider Timer", array('default' => true))
 			->checkbox($themeslug."_front_enable_wordthumb", "WordThumb Image Resizing")
 		->subsection_end()
-		->subsection("Callout Options")
+		->subsection("Front Page Callout Options")
 			->textarea($themeslug."_front_callout_text", "Enter your Callout text")
 			->checkbox($themeslug."_front_custom_callout_options", "Custom Callout Options")
 			->color($themeslug."_front_callout_text_color", "Custom Callout Text Color")
