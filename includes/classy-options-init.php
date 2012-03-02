@@ -195,7 +195,7 @@ TEMPLATE_URL . '/images/social/thumbs/icons-default.png' ), 'default' => 'defaul
 			->images($themeslug."_blog_sidebar", "Select the Sidebar Type", array( 'options' => array("left" => TEMPLATE_URL . '/images/options/left.png', "two-right" => TEMPLATE_URL . '/images/options/tworight.png', "right-left" => TEMPLATE_URL . '/images/options/rightleft.png', "none" => TEMPLATE_URL . '/images/options/none.png', "right" => TEMPLATE_URL . '/images/options/right.png'), 'default' => 'right'))
 			->checkbox($themeslug."_post_formats", "Post Format Icons",  array('default' => true))
 			->checkbox($themeslug."_show_excerpts", "Post Excerpts")
-			->text($themeslug."_excerpt_link_text", "Excerpt Link Text", array('default' => '(More)…'))
+			->text($themeslug."_excerpt_link_text", "Excerpt Link Text", array('default' => 'Continue Reading…'))
 			->text($themeslug."_excerpt_length", "Excerpt Character Length", array('default' => '55'))
 			->checkbox($themeslug."_show_featured_images", "Featured Images")
 			->multicheck($themeslug."_hide_byline", "Post Byline Elements", array( 'options' => array($themeslug."_hide_author" => "Author" , $themeslug."_hide_categories" => "Categories", $themeslug."_hide_date" => "Date", $themeslug."_hide_comments" => "Comments", $themeslug."_hide_share" => "Share", $themeslug."_hide_tags" => "Tags"), 'default' => array( $themeslug."_hide_tags" => true, $themeslug."_hide_share" => true, $themeslug."_hide_author" => true, $themeslug."_hide_date" => true, $themeslug."_hide_comments" => true, $themeslug."_hide_categories" => true ) ) )
