@@ -4,12 +4,7 @@ jQuery(document).ready(function($){
 
 jQuery(document).ready(function($){
 		
-	$(".featured-image img").hover(function(){
-		$(this).fadeTo("fast", 0.7); 
-	},function(){
-   		$(this).fadeTo("fast", 1.0); 
-	});
-	
+		
 	$(".es-carousel img").hover(function(){
 		$(this).fadeTo("fast", 0.7); 
 	},function(){
@@ -35,7 +30,7 @@ jQuery(document).ready(function($){
 	});
 	
 	$(".featured-image img").hover(function(){
-		$(this).fadeTo("fast", 0.7); 
+		$(this).fadeTo("fast", 0.75); 
 	},function(){
    		$(this).fadeTo("fast", 1.0); 
 	});
