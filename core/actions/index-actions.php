@@ -58,14 +58,16 @@ function synapse_index_content() {
 					<?php synapse_fb_like_plus_one(); ?>
 				<!--End @Core FB like hook-->
 				
-				<?php if (is_single() && $options->get($themeslug.'_post_pagination') == "1") : ?>
+				
+			
+				</div><!--end post_class-->
+			</div><!--end post container-->
+			
+			<?php if (is_single() && $options->get($themeslug.'_post_pagination') == "1") : ?>
 				<!--Begin @Core post pagination hook-->
 					<?php synapse_post_pagination(); ?>
 				<!--End @Core post pagination hook-->			
 				<?php endif;?>
-			
-				</div><!--end post_class-->
-			</div><!--end post container-->
 			
 			<?php if (is_single()):?>
 				<?php comments_template(); ?>
