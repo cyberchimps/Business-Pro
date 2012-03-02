@@ -71,10 +71,12 @@ function synapse_callout_section_content() {
 
 ?>
 	<div class="calloutbg">
+		<div class="container">
 		<div class="row">
 			<div id="callout_text" class="twelve columns">
 				<?php echo $callouttext ?>
 			</div>
+		</div>
 		</div>
 	</div>
 

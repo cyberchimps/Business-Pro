@@ -33,6 +33,7 @@ global $options, $themeslug;
 
 	<div id="afterfooter">
 		<div id="afterfooterwrap">
+		<div class="container">
 		<div class="row">	
 		<!-- Begin @synapse afterfooter hook content-->
 			<?php synapse_secondary_footer(); ?>
@@ -40,6 +41,7 @@ global $options, $themeslug;
 		</div>  <!--end afterfooterwrap-->	
 	</div> <!--end afterfooter-->	
 		</div> 	
+		</div>
 	<?php endif;?>
 	
 	<?php wp_footer(); ?>	

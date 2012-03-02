@@ -68,7 +68,7 @@ function business_box_section_content() {
 	
 	$enableboxes = get_post_meta($post->ID, 'enable_box_section' , true);
 	$root = get_template_directory_uri(); ?>
-
+<div class="container">
 <div class="row boxes">
 	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box 1") ) : ?>
 		<div id="box1" class="three columns">
@@ -94,6 +94,7 @@ function business_box_section_content() {
 			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/search.png" height="24" alt="slider" class="alignleft" />"Again, you can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future." -Steve Jobs</p>
 		</div><!--end box3-->
 		<?php endif; ?>
+</div>
 </div>
 <?php
 }
