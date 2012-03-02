@@ -93,19 +93,12 @@ function synapse_portfolio_element_content() {
 	     	/* Markup for portfolio */
 
 	    	$out .= "
-	    	
 				<li id='portfolio_wrap' class='$number columns'>
-					
-					
-	    				<a href='$image' title='$title'><img src='$image'  alt='$title'/>
-	    		
+	    			<a href='$image' title='$title'><img src='$image'  alt='$title'/>
 	    				<div class='portfolio_caption'>$title</div>
-	    			</a>
-	    			
-	    			
+	    			</a>	
 	  	    	</li>
-	    	
-	    	";
+	    			";
 
 	    	/* End slide markup */	
 
@@ -116,39 +109,25 @@ function synapse_portfolio_element_content() {
 	      	else:
 	      
 	      	$out .= "	
-	    	<ul>
-	      			<li>
-	      				
-	    				<img src='$default' alt='Post 1'/>
-	    				
+	    		<div id='gallery' class='twelve columns'><ul>
+	      			<li id='portfolio_wrap' class='four columns'>
+	    				<a href='$root/images/portfolio.jpg' title='Image 1'><img src='$root/images/portfolio.jpg'  alt='Image 1'/>
+	    					<div class='portfolio_caption'>Image 1</div>
+	    				</a>
 	    			</li>
-					<li>
-	    				<img src='$default' alt='Post 2' />
+	    		
+	  	    		<li id='portfolio_wrap' class='four columns'>
+	    				<a href='$root/images/portfolio.jpg' title='Image 2'><img src='$root/images/portfolio.jpg'  alt='Image 2'/>
+	    					<div class='portfolio_caption'>Image 2</div>
+	    				</a>
 	    			</li>
-					<li>
-	    				<img src='$default' alt='Post 3' />
+	    		
+					<li id='portfolio_wrap' class='four columns'>
+	    				<a href='$root/images/portfolio.jpg' title='Image 3'><img src='$root/images/portfolio.jpg'  alt='Image 3'/>
+	    					<div class='portfolio_caption'>Image 3</div>
+	    				</a>
 	    			</li>
-					<li>
-	    				<img src='$default' alt='Post 4' />
-	    			</li>
-					<li>
-	    				<img src='$default' alt='Post 5' />
-	    			</li>
-	    			
-	    			<li>
-	    				<img src='$default' alt='Post 6' />
-	    			</li>
-	    			
-	    			<li>
-	    				<img src='$default' alt='Post 6' />
-	    			</li>
-
-					<li>
-	    				<img src='$default' alt='Post 6' />
-	    			</li>
-		
-	    	</ul>
-	    				
+	    	 	</ul></div>	
 	    				
 	    			";
      
