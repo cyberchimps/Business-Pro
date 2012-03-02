@@ -264,8 +264,12 @@ a:hover {color: #5ca9d6;}
 
 .meta ul{list-style: none;margin-left:0px;}
 
-.more-link {
+.more-link a{
 	color: #000;
+}
+
+.more-link a:hover{
+	color: #555;
 }
 
 /* Posts Navigation */
