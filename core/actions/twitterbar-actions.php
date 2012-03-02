@@ -36,12 +36,14 @@ function synapse_twitterbar_section_content() {
 	else {
 	$handle = $options->get($themeslug.'_blog_twitter');
 	}?>
+	<div class="container">
 	<div class="row">
 		<div id="twitterbar" class="twelve columns"><!--id="twitterbar"-->
 			<div id="twittertext">
 				<a href=" http://twitter.com/<?php echo $handle ; ?>" > <img src="<?php echo "$root/images/twitterbird.png" ?>" /> <?php echo $handle ;?> - </a><?php twitter_messages($handle); ?>
 			</div>
 		</div><!--end twitterbar--> 
+	</div>
 	</div>
 		<?php
 }	
