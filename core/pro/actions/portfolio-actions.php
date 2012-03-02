@@ -21,7 +21,7 @@
 add_action( 'synapse_portfolio_element', 'synapse_portfolio_element_content' );
 	
 function synapse_portfolio_element_content() {	
-	global $options, $post, $themeslug, $root;
+	global $options, $post, $themeslug, $root, $wp_query;
 	$tmp_query = $wp_query; 
 	$image = get_post_meta($post->ID, 'portfolio_image' , true);
 	
@@ -54,8 +54,18 @@ function synapse_portfolio_element_content() {
 		$number = 'four';
 	}
 	
+	if ($title == '') {
+		$title = 'Portfolio';
+	}
+	else {
+		$title = $title;
+	}
 	if ($title_enable == 'on' OR $title_enable == '1') {
 		$title_output = "<h1 class='portfolio_title'>$title</h1>";
+	}
+	
+	else {
+		$title_output = '';
 	}
 	
 	?>

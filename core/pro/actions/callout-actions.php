@@ -44,35 +44,8 @@ function synapse_callout_section_content() {
 		$tcolor = $options->get($themeslug.'_blog_callout_text_color');
 		$text = $options->get($themeslug.'_blog_callout_text');
 	}
-	
-	if ($hidebutton == "on" OR $hidebutton == "1") {
-		$grid = 'eight columns';
-	}
-	else {
-		$grid = 'twelve columns';
-	}
-	
+		
 /* End variable definition. */	
-
-/* Echo custom button color. */
-
-	if ($bcolor != "") {
-		echo '<style type="text/css" media="screen">';
-		echo "#calloutbutton {background: $bcolor ;}";
-		echo '</style>';
-	}
-	
-/* End custom button color. */
-
-/* Echo custom button text color. */
-
-	if ($bcolor != "") {
-		echo '<style type="text/css" media="screen">';
-		echo "#calloutbutton a {color: $btcolor ;}";
-		echo '</style>';
-	}
-	
-/* End custom button color. */
 
 /* Echo custom text color. */
 
@@ -81,37 +54,8 @@ function synapse_callout_section_content() {
 		echo "#callout_text {color: $tcolor ;}";
 		echo '</style>';
 	}
-	
-/* Echo custom title color. */
-
-	if ($ticolor != "") {
-		echo '<style type="text/css" media="screen">';
-		echo ".callout_title {color: $ticolor ;}";
-		echo '</style>';
-	}
-
-/* End custom text color. */
-
-/* Echo background color CSS. */	
-
-	if ($customcalloutbgcolor != ''){
-		echo '<style type="text/css" media="screen">';
-		echo "#calloutwrap {background: $customcalloutbgcolor ;}";
-		echo '</style>';
-	}
-		
+			
 /* End CSS. */	
-
-/* Define Callout title. */	
-
-	if ($title == '') {
-		$callouttitle = 'Steve Jobs said something but I cannot remember what it was exactly so here is this empty text instead - Tyler Cunningham';
-	}
-	else {
-		$callouttitle = $title;
-	}
-	
-/* End define Callout title. */	
 
 /* Define Callout text. */	
 
@@ -124,35 +68,6 @@ function synapse_callout_section_content() {
 	
 /* End define Callout title. */	
 
-/* Define Callout button text. */
-
-	if ($btext == '') {
-		$calloutbuttontext = 'Buy Now';
-	}
-	else {
-		$calloutbuttontext = $btext;
-	}
-
-/* End define Callout button text. */	
-
-/* Define Callout button image. */
-
-	if ($image != '') {
-		$calloutimage = $image;
-	}
-
-/* End define Callout button image. */
-
-/* Define Callout button link. */
-
-	if ($link == '') {
-		$calloutlink = 'http://cyberchimps.com';
-	}
-	else {
-		$calloutlink = $link;
-	}
-
-/* End define Callout button link. */	
 
 ?>
 	<div class="calloutbg">
