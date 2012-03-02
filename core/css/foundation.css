@@ -649,20 +649,21 @@ div.orbit>a {
    ================================================== */
 
 div.timer {
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     position: relative;
     cursor: pointer;
     z-index: 1001;
     background: #222;
     border-radius: 3px;
     opacity: .8;
+    top: 5px;
  }
 
 span.rotator {
     display: none;
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     position: absolute;
     top: 0;
     left: -20px;
@@ -671,7 +672,7 @@ span.rotator {
 span.mask {
     display: block;
     width: 20px;
-    height: 40px;
+    height: 25px;
     position: absolute;
     top: 0;
     right: 0;
@@ -683,14 +684,14 @@ span.rotator.move {
 
 span.mask.move {
 	display: none;
-    width: 40px;
+    width: 25px;
     left: 0;
 }
 
 span.pause {
     display: block;
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     position: absolute;
     top: 0;
     background: url(../../images/orbit/pause-black.png) no-repeat;
