@@ -270,7 +270,7 @@ a:hover {color: #5ca9d6;}
 
 .prev-posts { float: right;padding: 5px 0 5px 0; }
 
-#crumbs {border: 1px solid #DDD;margin-bottom:15px;margin-top:10px;background:#FFF;}
+#crumbs {border: 1px solid #DDD;margin-bottom:15px;margin-top:15px;background:#FFF;}
 
 .crumbs_text {padding: 1px 5px 5px 15px;}
 
@@ -301,18 +301,16 @@ ol, ul {list-style-position: inside;margin-left: 21px;}
 .widget-container {
 	color: #555;
 	font-size: 13px;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 	background: #fff;
 }
 
-.widget-container li {list-style: none;list-style-type: square;
+.widget-container li {list-style: none;list-style-type:circle;
 list-style-position: inside;}
 
 .textwidget {padding-top: 10px;}
 
-#sidebar {
-	margin-top: 40px;
-}
+#sidebar {margin-top: 40px;}
 
 #sidebar .widget-container td {padding-right: 15px;}
 
@@ -361,11 +359,20 @@ list-style-position: inside;}
 
 .footer-widgets ul{padding:5px 0px 5px 0px; margin-left: 0px;}
 
-.footer-widgets li {
+.footer-widgets li{
 	list-style-type: none;
 	padding-left: 0;
 	color: #ccc;
 }
+
+.footer-widgets li a{
+	color: #ccc;
+}
+
+.footer-widgets li a:hover{
+	color: #eee;
+}
+
 
 .footer-item ul {
 	padding-left: 15px;
