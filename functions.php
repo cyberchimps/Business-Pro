@@ -123,7 +123,7 @@ function new_excerpt_more($more) {
     		$linktext = $options->get($themeslug.'_excerpt_link_text');
    		}
 
-	return '<a href="'. get_permalink($post->ID) . '"> <br /><br /> '.$linktext.'</a>';
+	return '<div class="more-link"><a href="'. get_permalink($post->ID) . '"> <br /><br /> '.$linktext.'</a></div>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
