@@ -733,6 +733,7 @@ figure {
 	div.slider-nav span.left {
     margin-left: 0px; }
     #orbitDemo.orbit, #orbitDemo {height: 450px !important;}
+    .meta ul li {display: inline;}
 }
 
 @media handheld, only screen and (max-width: 400px) {
