@@ -126,7 +126,7 @@ a:hover {color: #5ca9d6;}
 
 /* Nav  */
 
-#nav{position:relative;z-index:2147483647;float:right;margin-top:20px;}
+#nav{position:relative;z-index:2000;float:right;margin-top:20px;}
 #nav .parent > a, #nav .parent > a:hover{background: #fbfbfb;
 	background: -moz-linear-gradient(top,  #fbfbfb 0%, #e4e5e5 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fbfbfb), color-stop(100%,#e4e5e5));
