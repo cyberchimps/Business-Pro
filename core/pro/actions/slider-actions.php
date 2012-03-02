@@ -72,8 +72,8 @@ function synapse_slider_content() {
 	
 /* Row div variable. */	
 
-	$openrow = '<div id="sliderbg"><div class="row">';
-	$closerow = '</div></div>';
+	$openrow = '<div id="sliderbg"><div class="container"><div class="row">';
+	$closerow = '</div></div></div>';
 
 
 ?>	
