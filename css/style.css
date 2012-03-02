@@ -305,8 +305,7 @@ ol, ul {list-style-position: inside;margin-left: 21px;}
 	background: #fff;
 }
 
-.widget-container li {list-style: none;list-style-type:circle;
-list-style-position: inside;}
+.widget-container li {list-style: none;list-style-type:circle;list-style-position: inside;}
 
 .textwidget {padding-top: 10px;}
 
