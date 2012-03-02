@@ -27,17 +27,34 @@ function synapse_product_element_content(){
 		$embed = get_post_meta($post->ID, 'product_media' , true);	
 		$align = get_post_meta($post->ID, 'product_text_align' , true);
 	}
+	
+	if ($align == "0" OR $align =="key1") {
+		$output = "
+					<div id='portfolio_text' class='six columns'>
+						$text
+					</div>
+					<div id='portfolio_media' class='six columns'>
+						<img src='$image'>
+					</div>
+				   "; 
+	}
+	if ($align == "1" OR $align =="key2"){
+		$output = "
+					<div id='portfolio_media' class='six columns'>
+						<img src='$image'>
+					</div>
+					<div id='portfolio_text' class='six columns'>
+						$text
+					</div>
+				   "; 
+	}
+
 ?>
 
 <div id="productbg">
 	<div class="container">
 		<div class="row">
-			<div id="portfolio_text" class="six columns">
-			<?php echo $text; ?>
-			</div>
-			<div id="portfolio_media" class="six columns">
-			<img src="<?php echo $image; ?>">
-			</div>
+			<?php echo $output; ?>
 		</div>
 	</div>
 </div>
