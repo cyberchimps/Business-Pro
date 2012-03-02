@@ -171,8 +171,18 @@ div.orbit-wrapper {
 }
 
 /*============================*/
-/*====== Widgitized Boxes =====*/
+/*====== Bread Crumbs ========*/
 /*============================*/
+
+#crumbs {border: 1px solid #DDD;margin-bottom:15px;margin-top:15px;background:#FFF;}
+
+.crumbs_text {padding: 1px 5px 5px 15px;}
+
+/*============================*/
+/*===== Widgitized Boxes =====*/
+/*============================*/
+
+.boxes {margin-top:20px;margin-bottom:20px;}
 
 #box_container {
 	min-height: 240px;
