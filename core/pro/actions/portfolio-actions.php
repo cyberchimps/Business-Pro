@@ -31,6 +31,12 @@ function synapse_portfolio_element_content() {
 		$title_enable = get_post_meta($post->ID, 'portfolio_title_toggle' , true);
 		$title = get_post_meta($post->ID, 'portfolio_title' , true);;
 	}
+	elseif (is_front_page()) {
+		$category = $options->get($themeslug.'_front_portfolio_category');
+		$num = $options->get($themeslug.'_front_portfolio_number');
+		$title_enable = $options->get($themeslug.'_front_portfolio_title_toggle');
+		$title = $num = $options->get($themeslug.'_front_portfolio_title');
+	}
 	else {
 		$category = $options->get($themeslug.'_portfolio_category');
 		$num = $options->get($themeslug.'_portfolio_number');
