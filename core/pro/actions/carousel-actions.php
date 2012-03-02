@@ -172,7 +172,7 @@ query_posts( array ('post_type' => $themeslug.'_featured_posts', 'showposts' => 
 			$('#carousel').elastislide({
 				imageW 		: 160,
 				speed 		: $speed,
-				margin		: 5,
+				margin		: 0,
 				minItems 	: 5
 			});
 			});
