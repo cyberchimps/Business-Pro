@@ -654,9 +654,9 @@ div.timer {
     position: relative;
     cursor: pointer;
     z-index: 1001;
-    background: #ccc;
+    background: #222;
     border-radius: 3px;
-    opacity: .6;
+    opacity: .8;
  }
 
 span.rotator {
