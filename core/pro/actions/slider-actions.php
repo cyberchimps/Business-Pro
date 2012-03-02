@@ -117,7 +117,7 @@ function synapse_slider_content() {
 
 /* Define slider width variable */ 
 
-	$csWidth = '1000';
+	$csWidth = '980';
 	$imgwidth = '420';
 	$defaultimage = "$root/images/pro/slider-980.jpg";
 

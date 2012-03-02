@@ -138,18 +138,12 @@ function add_sitetitle_color() {
 
 	global $themename, $themeslug, $options;
 
-	if ($options->get($themeslug.'_sitetitle_color') == "") {
-		$sitetitle = '#181818';
-	}
-	
-	else {
+	if ($options->get($themeslug.'_sitetitle_color') != "") {
 		$sitetitle = $options->get($themeslug.'_sitetitle_color'); 
-	}		
-	
 		echo '<style type="text/css">';
 		echo ".sitename a {color: $sitetitle;}";
 		echo '</style>';
-		
+	}
 }
 add_action( 'wp_head', 'add_sitetitle_color');
 
@@ -161,8 +155,6 @@ function add_link_color() {
 
 	if ($options->get($themeslug.'_link_color') != '') {
 		$link = $options->get($themeslug.'_link_color'); 
-	
-
 		echo '<style type="text/css">';
 		echo "a {color: $link;}";
 		echo ".meta a {color: $link;}";
@@ -179,8 +171,6 @@ function add_link_hover_color() {
 
 	if ($options->get($themeslug.'_link_hover_color') != '') {
 		$link = $options->get($themeslug.'_link_hover_color'); 
-	
-
 		echo '<style type="text/css">';
 		echo "a:hover {color: $link;}";
 		echo ".meta a:hover {color: $link;}";
@@ -195,18 +185,12 @@ function add_tagline_color() {
 
 	global $themename, $themeslug, $options;
 
-	if (!$options->get($themeslug.'_tagline_color')) {
-		$tagline = '#000';
-	}
-	
-	else { 
+	if ($options->get($themeslug.'_tagline_color') != '') {
 		$tagline = $options->get($themeslug.'_tagline_color'); 
-	}		
-		
 		echo '<style type="text/css">';
 		echo "#description {color: $tagline;}";
 		echo '</style>';
-
+	}
 }
 add_action( 'wp_head', 'add_tagline_color');
 
