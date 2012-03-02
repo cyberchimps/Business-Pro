@@ -55,7 +55,7 @@ function synapse_slider_content() {
 		$timer = get_post_meta($post->ID, 'slider_timer' , true);	
 	}
 	
-	elseif (is_front_page()) {
+	if (is_front_page()) {
 		$category = $options->get($themeslug.'_front_slider_category'); 
 		$customcategory = $options->get($themeslug.'_front_customslider_category');
 		$captionstyle = $options->get($themeslug.'_front_caption_style');
@@ -86,15 +86,12 @@ function synapse_slider_content() {
 
 	
 /* Row div variable. */	
-if ($size == 'key2' OR $size == '0' ) {
+
 	$openrow = '<div id="sliderbg"><div class="row">';
 	$closerow = '</div></div>';
-}
 
-else {
-	$openrow = '';
-	$closerow = '';
-}?>	
+
+?>	
 
 <?php echo $openrow; 
 	
