@@ -699,7 +699,7 @@ span.pause {
     opacity: 1; }
 
 span.pause.active {
-    background: url(../../images/orbit/pause-black.png) no-repeat 0 -40px; }
+    background: url(../../images/orbit/pause-black.png) no-repeat 0 -25px; }
 
 div.timer:hover span.pause,
 span.pause.active {
