@@ -20,6 +20,8 @@ a{outline:none}
 
 .entry.nine.columns {
 	margin-left: 0.5%;
+	float:left;
+	width: 78%;
 }
 
 .pagination {
