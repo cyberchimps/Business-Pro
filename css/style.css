@@ -264,6 +264,14 @@ a:hover {color: #5ca9d6;}
 
 .meta ul{list-style: none;margin-left:0px;}
 
+.more-link {
+	color: #000;
+}
+
+.more-link a:hover{
+	color: #555;
+}
+
 /* Posts Navigation */
 
 .next-posts {float: left;padding: 5px 0 5px 0; }
@@ -649,7 +657,7 @@ h6 {
 	margin-bottom: 10px;
 }
 
-h1.description, h1.sitename {margin-bottom: 0px;}
+h1.description, h1.sitename {margin-bottom: 0px;margin-top:5px;}
 
 .description {	
 	font-size: 11px;
@@ -662,7 +670,6 @@ h1.description, h1.sitename {margin-bottom: 0px;}
 	font-weight: bolder;
 	margin-top: 20px;
 }
-
 
 /* `Spacing
 ----------------------------------------------------------------------------------------------------*/
