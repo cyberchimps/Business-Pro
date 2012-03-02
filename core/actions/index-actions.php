@@ -33,6 +33,7 @@ function synapse_index_content() {
 	<!--Begin @Core sidebar init-->
 		<?php synapse_sidebar_init(); ?>
 	<!--End @Core sidebar init-->
+	<div class="container">
 	<div class="row">
 	<!--Begin @Core before content sidebar hook-->
 		<?php synapse_before_content_sidebar(); ?>
@@ -83,11 +84,13 @@ function synapse_index_content() {
 			<?php custom_pagination(); ?>
 			<!--End @Core pagination loop hook-->
 		
-		</div><!--end content-->
+		</div><!--end row-->
+		
 
 	<!--Begin @Core after content sidebar hook-->
 		<?php synapse_after_content_sidebar(); ?>
 	<!--End @Core after content sidebar hook-->
+	</div><!--end container-->
 
 </div>
 <?php }
