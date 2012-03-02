@@ -15,6 +15,36 @@
 * @since 1.0
 */
 
+add_action( 'synapse_product_element', 'synapse_product_element_content' );
+
+function synapse_product_element_content(){
+	global $options, $themeslug, $root, $post, $wp_query;
+	
+	if (is_page()) {
+		$title = get_post_meta($post->ID, 'product_title' , true);
+		$text  = get_post_meta($post->ID, 'product_text' , true);
+		$image = get_post_meta($post->ID, 'product_image' , true);
+		$embed = get_post_meta($post->ID, 'product_media' , true);	
+		$align = get_post_meta($post->ID, 'product_text_align' , true);
+	}
+?>
+
+<div id="productbg">
+	<div class="container">
+		<div class="row">
+			<div id="portfolio_text" class="six columns">
+			<?php echo $text; ?>
+			</div>
+			<div id="portfolio_media" class="six columns">
+			<img src="<?php echo $image; ?>">
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php
+}
+
 
 /**
 * End

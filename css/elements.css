@@ -28,7 +28,7 @@ div.orbit-wrapper {
 	margin-bottom: 10px;
 }
 
-#sliderbg {
+#sliderbg, #productbg {
 		border-bottom: 1px solid #E1E1E1;
 		background: #bbb url(../images/sliderbg.png);
 }

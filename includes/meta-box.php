@@ -107,15 +107,14 @@ function initialize_the_meta_boxes() {
 					'portfolio_element' => 'Portfolio',
 					'callout_section' => 'Callout',
 					'twitterbar_section' => 'Twitter Bar',
+					'product_element' => 'Product',
 					'box_section' => 'Boxes',
 					'carousel_section' => 'Carousel',			
 					),
 					'std' => 'page_section,breadcrumbs'
 				))
-
 			->pagehelp('', 'Need Help?', '')
 		->tab($themenamefull." Slider Options")
-			->select('page_slider_size', 'Select Slider Size', '', array('options' => array('Full-Width', 'Half-Width')) )
 			->select('page_slider_type', 'Select Slider Type', '', array('options' => array('Custom Slides', 'Blog Posts')) )
 			->select('slider_category', 'Custom Slide Category', '', array('options' => $slideroptions) )
 			->select('slider_blog_category', 'Blog Post Category', '', array('options' => $blogoptions, 'all') )
@@ -129,6 +128,12 @@ function initialize_the_meta_boxes() {
 			->checkbox('slider_timer', 'Slider Timer', '', array('std' => 'on'))
 			->checkbox('enable_wordthumb', 'WordThumb Image Resizing', '', array('std' => 'off'))
 			->sliderhelp('', 'Need Help?', '')
+		->tab("Product Options")
+			->text('product_title', 'Product Title', '')
+			->textarea('product_text', 'Proudct Text', '')
+			->single_image('product_image', 'Product Image', '')
+			->textarea('product_media', 'Product Media', '')
+			->select('product_text_align', 'Text Align', '', array('options' => array('Left', 'Right')) )
 		->tab("Callout Options")
 			->textarea('callout_text', 'Callout Text', '')
 			->checkbox('extra_callout_options', 'Custom Callout Options', '', array('std' => 'off'))
