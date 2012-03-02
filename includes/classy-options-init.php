@@ -156,7 +156,7 @@ TEMPLATE_URL . '/images/social/thumbs/icons-default.png' ), 'default' => 'defaul
 		->subsection_end()
 		->section("Front Page")
 		->open_outersection()
-			->section_order($themeslug."_front_section_order", "Front Page Re-Order", array('options' => array("synapse_page_slider" => "Content Slider", "synapse_callout_section" => "Callout Section", "synapse_twitterbar_section" => "Twitter Bar", "synapse_index_carousel_section" => "Carousel", "synapse_portfolio_element" => "Portfolio", "synapse_box_section" => "Boxes"), "default" => 'synapse_index'))
+			->section_order($themeslug."_front_section_order", "Front Page Re-Order", array('options' => array("synapse_page_slider" => "Content Slider", "synapse_callout_section" => "Callout Section", "synapse_twitterbar_section" => "Twitter Bar", "synapse_index_carousel_section" => "Carousel", "synapse_portfolio_element" => "Portfolio", "synapse_box_section" => "Boxes"), "default" => 'synapse_page_slider,synapse_callout_section,synapse_twitterbar_section'))
 		->close_outersection()
 		->subsection("Content Slider")
 			->select($themeslug.'_front_customslider_category', 'Select the custom slide category', array( 'options' => $customslider ))

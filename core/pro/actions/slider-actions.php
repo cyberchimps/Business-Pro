@@ -128,15 +128,6 @@ function synapse_slider_content() {
 /* End navigation options */
 
 
-/* Define blog category */
-
-	if ($category != 'all') {
-		$blogcategory = $category;
-	}
-	else {
-		$blogcategory = "";
-	}
-	
 /* End blog category */
 
 /* Define slider height */      
@@ -215,12 +206,9 @@ function synapse_slider_content() {
 
 /* Query posts based on theme/meta options */
 
-	if ( $type == 'custom' OR $type == '0') {
-    	query_posts( array ('post_type' => $themeslug.'_custom_slides', 'showposts' => 20,  'slide_categories' => $customcategory  ) );
-    }
-    else {
-    	query_posts('category_name='.$blogcategory.'&showposts=50');
-	}
+	    	query_posts( array ('post_type' => $themeslug.'_custom_slides', 'showposts' => 20,  'slide_categories' => $customcategory  ) );
+ 
+
 
 /* End query posts based on theme/meta options */
     	
