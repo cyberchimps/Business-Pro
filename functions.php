@@ -117,7 +117,7 @@ function new_excerpt_more($more) {
 	global $themename, $themeslug, $options, $post;
     
     	if ($options->get($themeslug.'_excerpt_link_text') == '') {
-    		$linktext = '(Read More...)';
+    		$linktext = '(Continue Reading...)';
    		}
     	else {
     		$linktext = $options->get($themeslug.'_excerpt_link_text');

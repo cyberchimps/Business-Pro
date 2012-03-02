@@ -51,15 +51,7 @@ function synapse_index_content() {
 		
 				<!--Begin @Core index loop hook-->
 					<?php synapse_loop(); ?>
-				<!--End @Core index loop hook-->	
-			
-				<!--Begin @Core link pages hook-->
-					<?php synapse_link_pages(); ?>
-				<!--End @Core link pages hook-->
-			
-				<!--Begin @Core post edit link hook-->
-					<?php synapse_edit_link(); ?>
-				<!--End @Core post edit link hook-->
+				<!--End @Core index loop hook-->
 			
 				<!--Begin @Core FB like hook-->
 					<?php synapse_fb_like_plus_one(); ?>

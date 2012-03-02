@@ -85,6 +85,13 @@ function synapse_loop_content($content) {
 							the_content();
 						}
 					 ?>
+				<!--Begin @Core link pages hook-->
+					<?php synapse_link_pages(); ?>
+				<!--End @Core link pages hook-->
+			
+				<!--Begin @Core post edit link hook-->
+					<?php synapse_edit_link(); ?>
+				<!--End @Core post edit link hook-->
 				</div><!--end entry-->
 			</div><!--end row-->
 			<?php	
