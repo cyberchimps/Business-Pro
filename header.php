@@ -15,10 +15,9 @@
 /* End globals. */
 	
 ?>
-<!-- Begin @synapse head_tag hook content-->
-	<?php synapse_head_tag(); ?>
-<!-- End @synapse head_tag hook content-->
 
+	<?php synapse_head_tag(); ?>
+	
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?> <!-- wp_enqueue_script( 'comment-reply' );-->
 <?php wp_head(); ?> <!-- wp_head();-->
 	
