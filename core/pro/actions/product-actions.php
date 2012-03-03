@@ -30,25 +30,24 @@ function synapse_product_element_content(){
 	
 	if ($align == "0" OR $align =="key1") {
 		$output = "
-					<div id='portfolio_text' class='six columns'>
-						$text
+					<div id='product_text' class='six columns'>
+						$title <br /> $text
 					</div>
-					<div id='portfolio_media' class='six columns'>
+					<div id='product_media' class='six columns'>
 						<img src='$image'>
 					</div>
 				   "; 
 	}
 	if ($align == "1" OR $align =="key2"){
 		$output = "
-					<div id='portfolio_media' class='six columns'>
+					<div id='product_media' class='six columns'>
 						<img src='$image'>
 					</div>
-					<div id='portfolio_text' class='six columns'>
-						$text
+					<div id='product_text' class='six columns'>
+						$title <br /> $text
 					</div>
 				   "; 
 	}
-
 ?>
 
 <div id="productbg">
