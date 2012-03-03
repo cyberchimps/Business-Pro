@@ -31,7 +31,8 @@ function synapse_product_element_content(){
 	if ($align == "0" OR $align =="key1") {
 		$output = "
 					<div id='product_text' class='six columns'>
-						$title <br /> $text
+						<span class='product_text_title'>$title</span> <br /> <span class='product_text_text'>$text </span><br /><br />
+							<a href='#' class='nice medium radius white button'>Buy Now</a>
 					</div>
 					<div id='product_media' class='six columns'>
 						<img src='$image'>
@@ -44,7 +45,9 @@ function synapse_product_element_content(){
 						<img src='$image'>
 					</div>
 					<div id='product_text' class='six columns'>
-						<span class='product_text_title'>$title</span> <br /> <span class='product_text_text'>$text </span>
+						<span class='product_text_title'>$title</span> <br /> <span class='product_text_text'>$text </span><br /><br />
+							<a href='#' class='nice medium radius white button'>Button Text</a>
+
 					</div>
 				   "; 
 	}
