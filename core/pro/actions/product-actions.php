@@ -44,7 +44,7 @@ function synapse_product_element_content(){
 						<img src='$image'>
 					</div>
 					<div id='product_text' class='six columns'>
-						$title <br /> $text
+						<span class='product_text_title'>$title</span> <br /> <span class='product_text_text'>$text </span>
 					</div>
 				   "; 
 	}

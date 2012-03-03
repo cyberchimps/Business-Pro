@@ -1,4 +1,10 @@
-#product_text {color: white;}
+#product_text {color: white; padding-top: 15px;}
+.product_text_wrap {}
+#product_text.six.columns {margin-left: 1%;}
+.product_text_title {font-size: 20px;}
+.product_text_text {font-size: 16px;}
+
+#product_media {padding: 15px;}
 
 .elementsbg {
 	background: #fff; 
