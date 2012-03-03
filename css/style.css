@@ -809,5 +809,5 @@ figure {
 	.content_title {font-size: 14px;}
 	.content_text {font-size: 12px;}
 	
-	#nav {float: center; margin: auto; width: 100px;}
+	#nav {right: 140px; width: 100px;}
 }
