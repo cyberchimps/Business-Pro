@@ -473,7 +473,7 @@ ol, ul {list-style-position: inside;margin-left: 21px;}
 	display: inline; 
 }
 
-#credit {z-index: 99;text-align: left;}
+#credit {z-index: 99;text-align: left; margin-bottom:8px;}
 
 /* WordPress Styles  */
 
