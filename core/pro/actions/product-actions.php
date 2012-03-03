@@ -18,14 +18,28 @@
 add_action( 'synapse_product_element', 'synapse_product_element_content' );
 
 function synapse_product_element_content(){
-	global $options, $themeslug, $root, $post, $wp_query;
+	global $options, $themeslug, $root, $post;
 	
-	if (is_page()) {
+	if (is_front_page()) {
+		$text  = $options->get($themeslug.'_front_product_text');
+		$title = $options->get($themeslug.'_front_product_title');
+		$image = $options->get($themeslug.'_front_product_image');
+		$embed = $options->get($themeslug.'_front_product_media');
+		$align = $options->get($themeslug.'_front_product_text_align');
+	}
+	elseif (is_page() && !is_front_page()) {
 		$title = get_post_meta($post->ID, 'product_title' , true);
 		$text  = get_post_meta($post->ID, 'product_text' , true);
 		$image = get_post_meta($post->ID, 'product_image' , true);
 		$embed = get_post_meta($post->ID, 'product_media' , true);	
 		$align = get_post_meta($post->ID, 'product_text_align' , true);
+	}
+	else {
+		$text  = $options->get($themeslug.'_blog_product_text');
+		$title = $options->get($themeslug.'_blog_product_title');
+		$image = $options->get($themeslug.'_blog_product_image');
+		$embed = $options->get($themeslug.'_blog_product_media');
+		$align = $options->get($themeslug.'_blog_product_text_align');	
 	}
 	
 	if ($align == "0" OR $align =="key1") {
