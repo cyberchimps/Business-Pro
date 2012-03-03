@@ -2,6 +2,11 @@
 /* OptionsFramework Admin Styles */
 /*-------------------------------------------------------------------------------------------*/
 
+.upload {max-width: 350px;}
+
+.jetpack-message .squeezer {display: none;}
+#message.updated.jetpack-message.jp-connect {display: none;}
+
 .nav {margin-top: -1px;}
 
 .menu {padding-top: 0em;}
