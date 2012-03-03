@@ -25,47 +25,29 @@ global $options, $themeslug, $themename, $themenamefull;
 $options = new ClassyOptions($themename, $themenamefull." Options");
 
 $carouselterms2 = get_terms('carousel_categories', 'hide_empty=0');
-
-	$customcarousel = array();
-                                    
+	$customcarousel = array();                          
     	foreach($carouselterms2 as $carouselterm) {
-
         	$customcarousel[$carouselterm->slug] = $carouselterm->name;
-
         }
         
 $portfolioterms2 = get_terms('portfolio_categories', 'hide_empty=0');
-
-	$customportfolio = array();
-                                    
+	$customportfolio = array();                                   
     	foreach($portfolioterms2 as $portfolioterm) {
-
         	$customportfolio[$portfolioterm->slug] = $portfolioterm->name;
-
         }
 
 $customterms2 = get_terms('slide_categories', 'hide_empty=0');
-
-	$customslider = array();
-                                    
+	$customslider = array();                                    
     	foreach($customterms2 as $customterm) {
-
         	$customslider[$customterm->slug] = $customterm->name;
-
         }
 
 $terms2 = get_terms('category', 'hide_empty=0');
-
-	$blogoptions = array();
-                                    
+	$blogoptions = array();                                  
 	$blogoptions['all'] = "All";
-
     	foreach($terms2 as $term) {
-
         	$blogoptions[$term->slug] = $term->name;
-
         }
-
 
 $options
 	->section("Welcome")
@@ -190,6 +172,13 @@ TEMPLATE_URL . '/images/social/thumbs/icons-default.png' ), 'default' => 'defaul
 			->checkbox($themeslug."_front_portfolio_title_toggle", "Portfolio Title")
 			->text($themeslug."_front_portfolio_title", "Title", array('default' => 'Portfolio'))
 		->subsection_end()
+		->subsection("Product")
+			->select($themeslug."_front_product_text_align", "Text Align", array( 'options' => array("key1" => "Left", "key2" => "Right")))
+			->text($themeslug."_front_product_title", "Product Title")
+			->textarea($themeslug."_front_product_text", "Product Text")
+			->upload($themeslug."_front_product_image", "Product Image")
+			->textarea($themeslug."_front_product_media", "Product Media Embed")
+		->subsection_end()
 		->section("Blog")
 		->open_outersection()
 			->section_order($themeslug."_blog_section_order", "Blog Page Re-Order", array('options' => array("synapse_index" => "Post Page", "synapse_page_slider" => "Content Slider","synapse_callout_section" => "Callout Section", "synapse_twitterbar_section" => "Twitter Bar", "synapse_index_carousel_section" => "Carousel", "synapse_portfolio_element" => "Portfolio", "synapse_box_section" => "Boxes"), "default" => 'synapse_index'))
@@ -240,6 +229,13 @@ TEMPLATE_URL . '/images/social/thumbs/icons-default.png' ), 'default' => 'defaul
 			->select($themeslug.'_portfolio_category', 'Select the carousel category', array( 'options' => $customportfolio ))
 			->checkbox($themeslug."_portfolio_title_toggle", "Portfolio Title")
 			->text($themeslug."_portfolio_title", "Title", array('default' => 'Portfolio'))
+		->subsection_end()
+		->subsection("Product Options")
+			->select($themeslug."_blog_product_text_align", "Text Align", array( 'options' => array("key1" => "Left", "key2" => "Right")))
+			->text($themeslug."_blog_product_title", "Product Title")
+			->textarea($themeslug."_blog_product_text", "Product Text")
+			->upload($themeslug."_blog_product_image", "Product Image")
+			->textarea($themeslug."_blog_product_media", "Product Media Embed")
 		->subsection_end()
 		->subsection("SEO")
 			->textarea($themeslug."_home_description", "Home Description")
