@@ -139,6 +139,7 @@ function initialize_the_meta_boxes() {
 			->checkbox('extra_callout_options', 'Custom Callout Options', '', array('std' => 'off'))
 			->color('custom_callout_text_color', 'Custom Text Color', '')
 			->color('custom_callout_link_color', 'Custom Link Color', '')
+			->single_image('callout_image', 'Testing image uploader', '')
 			->pagehelp('', 'Need help?', '')
 		->tab("Carousel Options")
 			->select('carousel_category', 'Carousel Category', '', array('options' => $carouseloptions) )
