@@ -48,7 +48,7 @@ function synapse_slider_content() {
 		$navigationstyle = $options->get($themeslug.'_front_slider_nav');
 	}
 	
-	if (is_page() && !is_front_page()) {
+	elseif (is_page() && !is_front_page()) {
 		$customcategory = get_post_meta($post->ID, 'slider_category' , true);
 		$sliderheight = get_post_meta($post->ID, 'slider_height' , true);
 		$sliderdelay = get_post_meta($post->ID, 'slider_delay' , true);
