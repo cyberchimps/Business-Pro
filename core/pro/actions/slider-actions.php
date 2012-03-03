@@ -38,16 +38,6 @@ function synapse_slider_content() {
     $tmp_query = $wp_query; 
 	$root = get_template_directory_uri(); 
 	
-	if (is_page()) {
-		$customcategory = get_post_meta($post->ID, 'slider_category' , true);
-		$sliderheight = get_post_meta($post->ID, 'slider_height' , true);
-		$sliderdelay = get_post_meta($post->ID, 'slider_delay' , true);
-		$slideranimation = get_post_meta($post->ID, 'page_slider_animation' , true);
-		$navigationstyle = get_post_meta($post->ID, 'page_slider_navigation_style' , true);
-		$hidenav = get_post_meta($post->ID, 'hide_arrows' , true);
-		$wordenable = get_post_meta($post->ID, 'enable_wordthumb' , true);	
-	}
-	
 	if (is_front_page()) {
 		$customcategory = $options->get($themeslug.'_front_customslider_category');
 		$sliderheight = $options->get($themeslug.'_front_slider_height');
@@ -57,7 +47,17 @@ function synapse_slider_content() {
 		$sliderdelay = $options->get($themeslug.'_front_slider_delay');
 		$navigationstyle = $options->get($themeslug.'_front_slider_nav');
 	}
-
+	
+	if (is_page() && !is_front_page()) {
+		$customcategory = get_post_meta($post->ID, 'slider_category' , true);
+		$sliderheight = get_post_meta($post->ID, 'slider_height' , true);
+		$sliderdelay = get_post_meta($post->ID, 'slider_delay' , true);
+		$slideranimation = get_post_meta($post->ID, 'page_slider_animation' , true);
+		$navigationstyle = get_post_meta($post->ID, 'page_slider_navigation_style' , true);
+		$hidenav = get_post_meta($post->ID, 'hide_arrows' , true);
+		$wordenable = get_post_meta($post->ID, 'enable_wordthumb' , true);	
+	}
+	
 	else {
 		$customcategory = $options->get($themeslug.'_customslider_category');
 		$captionstyle = $options->get($themeslug.'_caption_style');

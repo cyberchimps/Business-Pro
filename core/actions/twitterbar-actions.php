@@ -27,11 +27,11 @@ function synapse_twitterbar_section_content() {
 	global $options, $themeslug, $post; //call globals
 	$root = get_template_directory_uri();
 	
-	if (is_page()) {
-	$handle = get_post_meta($post->ID, 'twitter_handle' , true); 
-	}
 	if (is_front_page()) {
 	$handle = $options->get($themeslug.'_front_twitter');
+	}
+	if (is_page() && !is_front_page()) {
+	$handle = get_post_meta($post->ID, 'twitter_handle' , true); 
 	}
 	else {
 	$handle = $options->get($themeslug.'_blog_twitter');

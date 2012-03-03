@@ -32,14 +32,14 @@ function synapse_carousel_section_content() {
 	$root = get_template_directory_uri(); 
 	$default = "$root/images/pro/carousel.jpg";
 	
-	if (is_page()) {
-		$customcategory = get_post_meta($post->ID, 'carousel_category' , true);
-		$speed = get_post_meta($post->ID, 'carousel_speed' , true);
-
-	}
 	if (is_front_page()) {
 		$customcategory = $options->get($themeslug.'_front_carousel_category');
 		$speed = $options->get($themeslug.'_front_carousel_speed');
+	}
+	elseif (is_page() && !is_front_page()) {
+		$customcategory = get_post_meta($post->ID, 'carousel_category' , true);
+		$speed = get_post_meta($post->ID, 'carousel_speed' , true);
+
 	}
 	else {
 		$customcategory = $options->get($themeslug.'_carousel_category');
