@@ -36,7 +36,7 @@ function synapse_callout_section_content() {
 		$tcolor = get_post_meta($post->ID, 'custom_callout_text_color' , true);
 		$text = get_post_meta($post->ID, 'callout_text' , true);
 	}
-	if (is_front_page()) {
+	elseif (is_front_page()) {
 		$tcolor = $options->get($themeslug.'_front_callout_text_color');
 		$text = $options->get($themeslug.'_front_callout_text');
 	}
@@ -65,7 +65,7 @@ function synapse_callout_section_content() {
 	else {
 		$callouttext = $text;
 	}
-	var_dump($text);
+	
 /* End define Callout title. */	
 
 
