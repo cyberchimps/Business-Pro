@@ -1,9 +1,9 @@
 <?php
 /**
-* Box section actions used by the CyberChimps Synapse Core Framework Pro Extension
+* Product element actions used by the CyberChimps Synapse Core Framework Pro Extension
 *
 * Author: Tyler Cunningham
-* Copyright: © 2011
+* Copyright: © 2012
 * {@link http://cyberchimps.com/ CyberChimps LLC}
 *
 * Released under the terms of the GNU General Public License.
@@ -23,9 +23,10 @@ function synapse_product_element_content(){
 	if (is_front_page()) {
 		$text  = $options->get($themeslug.'_front_product_text');
 		$title = $options->get($themeslug.'_front_product_title');
-		$image = $options->get($themeslug.'_front_product_image');
+		$imgsource = $options->get($themeslug.'_front_product_image');
 		$embed = $options->get($themeslug.'_front_product_media');
 		$align = $options->get($themeslug.'_front_product_text_align');
+		$image = $imgsource['url'];
 	}
 	elseif (is_page() && !is_front_page()) {
 		$title = get_post_meta($post->ID, 'product_title' , true);
@@ -37,13 +38,14 @@ function synapse_product_element_content(){
 	else {
 		$text  = $options->get($themeslug.'_blog_product_text');
 		$title = $options->get($themeslug.'_blog_product_title');
-		$image = $options->get($themeslug.'_blog_product_image');
+		$imgsource = $options->get($themeslug.'_blog_product_image');
 		$embed = $options->get($themeslug.'_blog_product_media');
 		$align = $options->get($themeslug.'_blog_product_text_align');	
+		$image = $imgsource['url'];
 	}
 	
 	if ($align == "0" OR $align =="key1") {
-		$output = "
+		$output =   "
 					<div id='product_text' class='six columns'>
 						<span class='product_text_title'>$title</span> <br /> <span class='product_text_text'>$text </span><br /><br />
 							<a href='#' class='nice medium radius white button'>Buy Now</a>
@@ -51,10 +53,10 @@ function synapse_product_element_content(){
 					<div id='product_media' class='six columns'>
 						<img src='$image'>
 					</div>
-				   "; 
+				    "; 
 	}
 	if ($align == "1" OR $align =="key2"){
-		$output = "
+		$output =   "
 					<div id='product_media' class='six columns'>
 						<img src='$image'>
 					</div>
@@ -63,7 +65,7 @@ function synapse_product_element_content(){
 							<a href='#' class='nice medium radius white button'>Button Text</a>
 
 					</div>
-				   "; 
+				    "; 
 	}
 ?>
 
@@ -77,7 +79,6 @@ function synapse_product_element_content(){
 
 <?php
 }
-
 
 /**
 * End
