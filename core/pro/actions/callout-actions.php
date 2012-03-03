@@ -27,7 +27,7 @@ add_action ( 'synapse_callout_section', 'synapse_callout_section_content' );
 */
 function synapse_callout_section_content() {
 
-	global $options, $themeslug, $post; //call globals
+	global $options, $themeslug, $post, $wp_query; //call globals
 	$root = get_template_directory_uri();  
 
 /* Define variables. */	
@@ -65,7 +65,7 @@ function synapse_callout_section_content() {
 	else {
 		$callouttext = $text;
 	}
-	
+	var_dump($text);
 /* End define Callout title. */	
 
 
