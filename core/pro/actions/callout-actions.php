@@ -32,14 +32,17 @@ function synapse_callout_section_content() {
 
 /* Define variables. */	
 
-	if (is_page()) {
-		$tcolor = get_post_meta($post->ID, 'custom_callout_text_color' , true);
-		$text = get_post_meta($post->ID, 'callout_text' , true);
-	}
-	elseif (is_front_page()) {
+	
+	if (is_front_page()) {
 		$tcolor = $options->get($themeslug.'_front_callout_text_color');
 		$text = $options->get($themeslug.'_front_callout_text');
 	}
+	
+	elseif (is_page() && !is_front_page()) {
+		$tcolor = get_post_meta($post->ID, 'custom_callout_text_color' , true);
+		$text = get_post_meta($post->ID, 'callout_text' , true);
+	}
+	
 	else {
 		$tcolor = $options->get($themeslug.'_blog_callout_text_color');
 		$text = $options->get($themeslug.'_blog_callout_text');
