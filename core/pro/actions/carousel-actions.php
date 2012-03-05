@@ -170,9 +170,9 @@ query_posts( array ('post_type' => $themeslug.'_carousel', 'showposts' => 20, tr
 	<script type="text/javascript">
 			jQuery(document).ready(function ($) {	
 			$('#carousel').elastislide({
-				imageW 		: 160,
+				imageW 		: 150,
 				speed 		: $speed,
-				margin		: 0,
+				margin		: 10,
 				minItems 	: 5
 			});
 			});
