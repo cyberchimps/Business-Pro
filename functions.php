@@ -202,14 +202,14 @@ function create_post_type() {
 			'taxonomies' => array( 'carousel_categories'),
 			'has_archive' => true,
 			'menu_icon' => "$root/images/pro/carousel.png",
-			'rewrite' => array('slug' => 'slides')
+			'rewrite' => array('slug' => 'carousel')
 		)
 	);
 	
 	register_post_type( $themeslug.'_portfolio',
 		array(
 			'labels' => array(
-				'name' => __( 'Portfolio' ),
+				'name' => __( 'Image Portfolio' ),
 				'singular_name' => __( 'Images' )
 			),
 			'public' => true,
