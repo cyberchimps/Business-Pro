@@ -27,13 +27,13 @@
 /* Set slider hook based on page option */
 
 if (preg_match("/page_slider/", $page_section_order ) && $size == "1" ) {
-	remove_action ('synapse_page_slider', 'synapse_slider_content' );
-	add_action ('synapse_page_content_slider', 'synapse_slider_content' );
+	remove_action ('business_page_slider', 'business_slider_content' );
+	add_action ('business_page_content_slider', 'business_slider_content' );
 }
 /* End set slider hook*/
 
 	foreach(explode(",", $page_section_order) as $key) {
-		$fn = 'synapse_' . $key;
+		$fn = 'business_' . $key;
 		if(function_exists($fn)) {
 			call_user_func_array($fn, array());
 		}

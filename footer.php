@@ -18,9 +18,9 @@ global $options, $themeslug;
      	<div class="container">
      		<div class="row">
     	
-	<!-- Begin @synapse footer hook content-->
-		<?php synapse_footer(); ?>
-	<!-- End @synapse footer hook content-->
+	<!-- Begin @business footer hook content-->
+		<?php business_footer(); ?>
+	<!-- End @business footer hook content-->
 	
 	<?php endif;?>
 	
@@ -35,9 +35,9 @@ global $options, $themeslug;
 		<div id="afterfooterwrap">
 		<div class="container">
 		<div class="row">	
-		<!-- Begin @synapse afterfooter hook content-->
-			<?php synapse_secondary_footer(); ?>
-		<!-- End @synapse afterfooter hook content-->
+		<!-- Begin @business afterfooter hook content-->
+			<?php business_secondary_footer(); ?>
+		<!-- End @business afterfooter hook content-->
 		</div>  <!--end afterfooterwrap-->	
 	</div> <!--end afterfooter-->	
 		</div> 	

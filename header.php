@@ -16,20 +16,20 @@
 	
 ?>
 
-	<?php synapse_head_tag(); ?>
+	<?php business_head_tag(); ?>
 	
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?> <!-- wp_enqueue_script( 'comment-reply' );-->
 <?php wp_head(); ?> <!-- wp_head();-->
 	
 </head><!-- closing head tag-->
 
-<!-- Begin @synapse after_head_tag hook content-->
-	<?php synapse_after_head_tag(); ?>
-<!-- End @synapse after_head_tag hook content-->
+<!-- Begin @business after_head_tag hook content-->
+	<?php business_after_head_tag(); ?>
+<!-- End @business after_head_tag hook content-->
 	
-<!-- Begin @synapse before_header hook  content-->
-	<?php synapse_before_header(); ?> 
-<!-- End @synapse before_header hook content -->
+<!-- Begin @business before_header hook  content-->
+	<?php business_before_header(); ?> 
+<!-- End @business before_header hook content -->
 			
 <header>		
 	<?php
@@ -41,6 +41,6 @@
 	?>
 </header>
 
-<!-- Begin @synapse after_header hook -->
-	<?php synapse_after_header(); ?> 
-<!-- End @synapse after_header hook -->
+<!-- Begin @business after_header hook -->
+	<?php business_after_header(); ?> 
+<!-- End @business after_header hook -->

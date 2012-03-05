@@ -1,6 +1,6 @@
 <?php
 /**
-* Slider section actions used by the CyberChimps Synapse Core Framework Pro Extension
+* Slider element actions used by Business Pro
 *
 * Author: Tyler Cunningham
 * Copyright: © 2011
@@ -12,14 +12,13 @@
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
 * @package Pro
-* @since 1.0
+* @since 3.0
 */
 
 /**
 * Extend slider actions
 */
 
-add_action ('synapse_blog_slider', 'synapse_slider_content' );
 add_action ('synapse_page_slider', 'synapse_slider_content' );
 
 /**
@@ -68,14 +67,11 @@ function synapse_slider_content() {
 		$sliderdelay = $options->get($themeslug.'_slider_delay');
 		$navigationstyle = $options->get($themeslug.'_slider_nav');
 	}
-
 	
 /* Row div variable. */	
 
 	$openrow = '<div id="sliderbg"><div class="container"><div class="row">';
 	$closerow = '</div></div></div>';
-
-
 ?>	
 
 <?php echo $openrow; 

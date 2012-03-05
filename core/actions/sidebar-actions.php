@@ -1,9 +1,9 @@
 <?php
 /**
-* Sidebar actions used by the CyberChimps Synapse Core Framework
+* Sidebar actions used by Business.
 *
 * Author: Tyler Cunningham
-* Copyright: © 2011
+* Copyright: © 2012
 * {@link http://cyberchimps.com/ CyberChimps LLC}
 *
 * Released under the terms of the GNU General Public License.
@@ -11,24 +11,24 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package Synapse
-* @since 1.0
+* @package Business
+* @since 3.0
 */
 
 /**
-* Synapse sidebar actions
+* business sidebar actions
 */
-add_action( 'synapse_sidebar_init', 'synapse_sidebar_init_content' );
-add_action( 'synapse_before_content_sidebar', 'synapse_before_content_sidebar_markup' );
-add_action( 'synapse_after_content_sidebar', 'synapse_after_content_sidebar_markup' );
+add_action( 'business_sidebar_init', 'business_sidebar_init_content' );
+add_action( 'business_before_content_sidebar', 'business_before_content_sidebar_markup' );
+add_action( 'business_after_content_sidebar', 'business_after_content_sidebar_markup' );
 
 
 /**
 * Set sidebar and grid variables.
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_sidebar_init_content() {
+function business_sidebar_init_content() {
 
 	global $options, $themeslug, $post, $sidebar, $content_grid;
 	
@@ -65,9 +65,9 @@ function synapse_sidebar_init_content() {
 /**
 * Before entry sidebar
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_before_content_sidebar_markup() { 
+function business_before_content_sidebar_markup() { 
 	global $options, $themeslug, $post, $sidebar; // call globals ?>
 				
 	<?php if ($sidebar == 'right-left' OR $sidebar == "2"): ?>
@@ -86,9 +86,9 @@ function synapse_before_content_sidebar_markup() {
 /**
 * After entry sidebar
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_after_content_sidebar_markup() {
+function business_after_content_sidebar_markup() {
 	global $options, $themeslug, $post, $sidebar; // call globals ?>
 	
 	<?php if ($sidebar == 'right' OR $sidebar == '0' OR $sidebar == '' ): ?>

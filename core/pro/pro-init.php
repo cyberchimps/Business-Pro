@@ -1,6 +1,6 @@
 <?php
 /**
-* CyberChimps Synapse Core Framework Pro Init
+* CyberChimps Business Pro Core Init
 *
 * Authors: Tyler Cunningham
 * Copyright: © 2011

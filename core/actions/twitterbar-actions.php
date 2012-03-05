@@ -1,9 +1,9 @@
 <?php
 /**
-* Twitterbar actions used by the CyberChimps Synapse Core Framework
+* Twitterbar actions used by Business.
 *
 * Author: Tyler Cunningham
-* Copyright: © 2011
+* Copyright: © 2012
 * {@link http://cyberchimps.com/ CyberChimps LLC}
 *
 * Released under the terms of the GNU General Public License.
@@ -11,19 +11,19 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package Synapse
-* @since 1.0
+* @package Business
+* @since 3.0
 */
 
 /**
-* Synapse Twitterbar actions
+* business Twitterbar actions
 */
-add_action( 'synapse_twitterbar_section', 'synapse_twitterbar_section_content' );
+add_action( 'business_twitterbar_section', 'business_twitterbar_section_content' );
 
 /**
 * Retrieves the Twitterbar options and sets up the HTML
 */
-function synapse_twitterbar_section_content() {
+function business_twitterbar_section_content() {
 	global $options, $themeslug, $post; //call globals
 	$root = get_template_directory_uri();
 	

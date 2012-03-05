@@ -1,9 +1,9 @@
 <?php
 /**
-* 404 actions used by the CyberChimps Synapse Core Framework
+* 404 actions used by Business.
 *
 * Author: Tyler Cunningham
-* Copyright: © 2011
+* Copyright: © 2012
 * {@link http://cyberchimps.com/ CyberChimps LLC}
 *
 * Released under the terms of the GNU General Public License.
@@ -11,30 +11,30 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package Synapse
-* @since 1.0
+* @package Business 
+* @since 3.0
 */
 
 /**
-* Synapse 404 actions
+* Business 404 actions
 */
-add_action( 'synapse_404', 'synapse_404_content' );
+add_action( 'business_404', 'business_404_content' );
 
 /**
 * Sets up the 404 content message
 *
-* @since 1.0 
+* @since 3.0 
 */
-function synapse_404_content() {
+function business_404_content() {
 	global $options, $themeslug; // call globals
 	
 	if ($options->get($themeslug.'_custom_404') != '') {
 		$message_text = $options->get($themeslug.'_custom_404');
 	}
 	else {
-		$message_text = apply_filters( 'synapse_404_message', 'Error 404' );
+		$message_text = apply_filters( 'business_404_message', 'Error 404' );
 	} ?>
-	<div class="error"><?php printf( __( $message_text, 'core' )); ?><br />	</div> 
+	<div class="error"><?php printf( __( $message_text, 'business' )); ?><br />	</div> 
 	<?php
 }
 

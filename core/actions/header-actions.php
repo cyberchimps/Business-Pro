@@ -1,9 +1,9 @@
 <?php
 /**
-* Header actions used by the CyberChimps Synapse Core Framework
+* Header actions used by Business. 
 *
 * Author: Tyler Cunningham
-* Copyright: © 2011
+* Copyright: © 2012
 * {@link http://cyberchimps.com/ CyberChimps LLC}
 *
 * Released under the terms of the GNU General Public License.
@@ -11,37 +11,37 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package Synapse
-* @since 1.0
+* @package Business
+* @since 3.0
 */
 
 /**
-* Synapse header actions
+* business header actions
 */
-add_action( 'synapse_after_head_tag', 'synapse_font' );
-add_action( 'synapse_head_tag', 'synapse_html_attributes' );
-add_action( 'synapse_head_tag', 'synapse_meta_tags' );
-add_action( 'synapse_head_tag', 'synapse_title_tag' );
-add_action( 'synapse_head_tag', 'synapse_link_rel' );
+add_action( 'business_after_head_tag', 'business_font' );
+add_action( 'business_head_tag', 'business_html_attributes' );
+add_action( 'business_head_tag', 'business_meta_tags' );
+add_action( 'business_head_tag', 'business_title_tag' );
+add_action( 'business_head_tag', 'business_link_rel' );
 
-add_action( 'synapse_header_sitename', 'synapse_header_sitename_content');
-add_action( 'synapse_header_site_description', 'synapse_header_site_description_content' );
-add_action( 'synapse_header_social_icons', 'synapse_header_social_icons_content' );
+add_action( 'business_header_sitename', 'business_header_sitename_content');
+add_action( 'business_header_site_description', 'business_header_site_description_content' );
+add_action( 'business_header_social_icons', 'business_header_social_icons_content' );
 
-add_action( 'synapse_navigation', 'synapse_nav' );
-add_action( 'synapse_404_content', 'synapse_404_content_handler' );
+add_action( 'business_navigation', 'business_nav' );
+add_action( 'business_404_content', 'business_404_content_handler' );
 
 /**
 * Establishes the theme font family.
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_font() {
+function business_font() {
 	global $themeslug, $options; //Call global variables
-	$family = apply_filters( 'synapse_default_font_family', 'Helvetica, serif' );
+	$family = apply_filters( 'business_default_font_family', 'Helvetica, serif' );
 	
 	if ($options->get($themeslug.'_font') == "" ) {
-		$font = apply_filters( 'synapse_default_font', 'Arial' );
+		$font = apply_filters( 'business_default_font', 'Arial' );
 	}		
 	else {
 		$font = $options->get($themeslug.'_font'); 
@@ -53,9 +53,9 @@ function synapse_font() {
 /**
 * Establishes the theme HTML attributes
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_html_attributes() { ?>
+function business_html_attributes() { ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes('xhtml'); ?>>
 <head profile="http://gmpg.org/xfn/11"> <?php 
@@ -64,9 +64,9 @@ function synapse_html_attributes() { ?>
 /**
 * Establishes the theme META tags (including SEO options)
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_meta_tags() { 
+function business_meta_tags() { 
 	global $themeslug, $options, $post; //Call global variables
 	if(!$post) return; // in case of 404 page or something
 	$title = get_post_meta($post->ID, 'seo_title' , true);
@@ -104,9 +104,9 @@ function synapse_meta_tags() {
 /**
 * Establishes the theme title tags.
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_title_tag() {
+function business_title_tag() {
 	global $options, $themeslug, $query, $post; 
 	$blogtitle = ($options->get($themeslug.'_home_title'));
 	if (!is_404()) {
@@ -163,12 +163,11 @@ function synapse_title_tag() {
 /**
 * Sets the header link rel attributes
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_link_rel() {
+function business_link_rel() {
 	global $themeslug, $options; //Call global variables
 	$favicon = $options->get($themeslug.'_favicon'); //Calls the favicon URL from the theme options 
-	$touch = $options->get($themeslug.'_apple_touch'); //Calls the favicon URL from the theme options 
 	
 	if ($options->get($themeslug.'_font') == "" AND $options->get($themeslug.'_custom_font') == "") {
 		$font = apply_filters( 'synapse_default_font', 'Arial' );
@@ -178,15 +177,29 @@ function synapse_link_rel() {
 	}	
 	else {
 		$font = $options->get($themeslug.'_font'); 
+	} 
+	if ($options->get($themeslug.'_color_scheme') == '') {
+		$color = 'blue';
+	}
+	else {
+		$color = $options->get($themeslug.'_color_scheme');
 	}?>
 	
-<link rel="apple-touch-icon" href="<?php echo stripslashes($touch['url']); ?>"/>		
 <link rel="shortcut icon" href="<?php echo stripslashes($favicon['url']); ?>" type="image/x-icon" />
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/core/css/960/reset.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/core/css/960/text.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/core/css/grid.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/style.css" type="text/css" />
+
+<?php if ($options->get($themeslug.'_responsive_design') == '1') : ?>
+<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/core/css/foundation.css" type="text/css" />
+<?php endif; ?>
+<?php if ($options->get($themeslug.'_responsive_design') == '0') : ?>
+<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/core/css/foundation-static.css" type="text/css" />
+<?php endif; ?>
+<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/core/css/app.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/core/css/ie.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/shortcode.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/elements.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/style.css" type="text/css" />
+<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/color/<?php echo $color; ?>.css" type="text/css" />
+
 
 <?php if (is_child_theme()) :  //add support for child themes?>
 	<link rel="stylesheet" href="<?php echo bloginfo('stylesheet_directory') ; ?>/style.css" type="text/css" />
@@ -194,16 +207,16 @@ function synapse_link_rel() {
 
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-<link href='//fonts.googleapis.com/css?family=<?php echo $font ; ?>' rel='stylesheet' type='text/css' /> <?php
+<link href='http://fonts.googleapis.com/css?family=<?php echo $font ; ?>' rel='stylesheet' type='text/css' /> <?php
 }
 
 
 /**
 * Header left content (sitename or logo)
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_header_sitename_content() {
+function business_header_sitename_content() {
 	global $themeslug, $options; //Call global variables
 	$logo = $options->get($themeslug.'_logo'); //Calls the logo URL from the theme options
 
@@ -220,7 +233,7 @@ if ($options->get($themeslug.'_custom_logo') == '1') { ?>
 }
 
 
-function synapse_header_site_description_content() {
+function business_header_site_description_content() {
 	global $themeslug, $options; ?>
 	
 	<div id="description">
@@ -232,9 +245,9 @@ function synapse_header_site_description_content() {
 /**
 * Social icons
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_header_social_icons_content() { 
+function business_header_social_icons_content() { 
 	global $options, $themeslug; //call globals
 	
 	$facebook		= $options->get($themeslug.'_facebook');
@@ -333,9 +346,9 @@ function synapse_header_social_icons_content() {
 /**
 * Navigation
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_nav() {
+function business_nav() {
 	global $options, $themeslug; //call globals 
 	
 	if ($options->get($themeslug.'_hide_home_icon') == "0" && $options->get($themeslug.'_hide_search') == "0" OR $options->get($themeslug.'_hide_home_icon') == "1" && $options->get($themeslug.'_hide_search') == "0" ) {

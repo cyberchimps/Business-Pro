@@ -1,9 +1,9 @@
 <?php
 /**
-* CyberChimps Synapse Core Framework Pro Extension functions
+* CyberChimps Business Pro Core Functions.
 *
 * Author: Tyler Cunningham
-* Copyright: © 2011
+* Copyright: © 2012
 * {@link http://cyberchimps.com/ CyberChimps LLC}
 *
 * Released under the terms of the GNU General Public License.
@@ -12,13 +12,13 @@
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
 * @package Pro
-* @since 1.0
+* @since 3.0
 */
 
 /**
 * Load jQuery and register additional scripts.
 */ 
-function synapse_pro_scripts() {	
+function business_pro_scripts() {	
 	$path =  get_template_directory_uri() ."/core/pro/library/";
 	
 	wp_register_script( 'easing' ,$path.'js/jquery.easing.1.3.js');
@@ -27,7 +27,7 @@ function synapse_pro_scripts() {
 	wp_enqueue_script ('easing');
 	wp_enqueue_script ('elastislide');
 }
-add_action('wp_enqueue_scripts', 'synapse_pro_scripts');	
+add_action('wp_enqueue_scripts', 'business_pro_scripts');	
 
 /**
 * End

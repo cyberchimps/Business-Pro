@@ -16,11 +16,11 @@ get_header(); ?>
 <div class="container">
 	<div class="row">
 	<!--Begin @Core post area-->
-		<?php synapse_index(); ?>
+		<?php business_index(); ?>
 	<!--End @Core post area-->
 	
 	</div>
-<?php if ($options->get($themeslug.'_single_breadcrumbs') == "1") { synapse_breadcrumbs();}?>
+<?php if ($options->get($themeslug.'_single_breadcrumbs') == "1") { business_breadcrumbs();}?>
 </div><!--end container-->
 
 <?php get_footer(); ?>

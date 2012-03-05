@@ -1,9 +1,9 @@
 <?php
 /**
-* CyberChimps Synapse Core Framework functions
+* CyberChimps Business Core Functions
 *
 * Authors: Tyler Cunningham
-* Copyright: © 2011
+* Copyright: © 2012
 * {@link http://cyberchimps.com/ CyberChimps LLC}
 *
 * Released under the terms of the GNU General Public License.
@@ -11,17 +11,17 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package Synapse
-* @since 1.0
+* @package business
+* @since 3.0
 */
 
 /**
-* Establishes 'core' as the textdomain, sets $locale and file path
+* Establishes 'business' as the textdomain, sets $locale and file path
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_text_domain() {
-	load_theme_textdomain( 'core', TEMPLATEPATH . '/core/languages' );
+function business_text_domain() {
+	load_theme_textdomain( 'business', TEMPLATEPATH . '/core/languages' );
 
 	    $locale = get_locale();
 	    $locale_file = TEMPLATEPATH . "/core/languages/$locale.php";
@@ -30,12 +30,12 @@ function synapse_text_domain() {
 		
 		return;    
 }
-add_action('after_setup_theme', 'synapse_text_domain');
+add_action('after_setup_theme', 'business_text_domain');
 
 /**
 * Load jQuery and register additional scripts.
 */ 
-function synapse_scripts() {
+function business_scripts() {
 	global $options, $themeslug;
 	if ( !is_admin() ) {
 	wp_enqueue_script('jquery');
@@ -73,15 +73,15 @@ function synapse_scripts() {
 		wp_enqueue_script ('lazyload');
 	}
 }
-add_action('wp_enqueue_scripts', 'synapse_scripts');	
+add_action('wp_enqueue_scripts', 'business_scripts');	
 /**
 * Adds "untitled" to posts with no title.
 *
-* @since 1.0
+* @since 3.0
 */
-add_filter('the_title', 'synapse_title');
+add_filter('the_title', 'business_title');
 
-function synapse_title($title) {
+function business_title($title) {
 
 	if ($title == '') {
 		return 'Untitled';
@@ -93,9 +93,9 @@ function synapse_title($title) {
 /**
 * Truncate next/previous post link text for post pagination.
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_shorten_linktext($linkstring,$link) {
+function business_shorten_linktext($linkstring,$link) {
 	$characters = 33;
 	preg_match('/<a.*?>(.*?)<\/a>/is',$linkstring,$matches);
 	$displayedTitle = $matches[1];
@@ -107,15 +107,15 @@ function shorten_with_ellipsis($inputstring,$characters) {
   return (strlen($inputstring) >= $characters) ? substr($inputstring,0,($characters-3)) . '...' : $inputstring;
 }
 
-add_filter('previous_post_link','synapse_shorten_linktext',10,2);
-add_filter('next_post_link','synapse_shorten_linktext',10,2);
+add_filter('previous_post_link','business_shorten_linktext',10,2);
+add_filter('next_post_link','business_shorten_linktext',10,2);
 
 /**
 * Comment function
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_comment($comment, $args, $depth) {
+function business_comment($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment; ?>
    <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
      <div id="comment-<?php comment_ID(); ?>">
@@ -143,9 +143,9 @@ function synapse_comment($comment, $args, $depth) {
 /**
 * Breadcrumbs function
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_breadcrumbs() {
+function business_breadcrumbs() {
   global $root;
   
   $delimiter = "<img src='$root/images/breadcrumb-arrow.png'>";

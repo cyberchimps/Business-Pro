@@ -1,9 +1,9 @@
 <?php
 /**
-* Index actions used by the CyberChimps Synapse Core Framework
+* Index actions used by Business.
 *
 * Author: Tyler Cunningham
-* Copyright: © 2011
+* Copyright: © 2012
 * {@link http://cyberchimps.com/ CyberChimps LLC}
 *
 * Released under the terms of the GNU General Public License.
@@ -11,62 +11,52 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package Synapse
-* @since 1.0
+* @package Business
+* @since 3.0
 */
 
 /**
-* Synapse index actions
+* Business post actions
 */
 
-add_action( 'synapse_index', 'synapse_index_content');
+add_action( 'business_post', 'business_post_content');
 
 /**
 * Index content
 *
 * @since 1.0
 */
-function synapse_index_content() { 
+function business_post_content() { 
 
 	global $options, $themeslug, $post, $sidebar, $content_grid; // call globals ?>
 	
-	<!--Begin @Core sidebar init-->
-		<?php synapse_sidebar_init(); ?>
-	<!--End @Core sidebar init-->
+	<!--Begin @business sidebar init-->
+		<?php business_sidebar_init(); ?>
+	<!--End @business sidebar init-->
 	<div class="container">
 	<div class="row">
-	<!--Begin @Core before content sidebar hook-->
-		<?php synapse_before_content_sidebar(); ?>
-	<!--End @Core before content sidebar hook-->
+	<!--Begin @business before content sidebar hook-->
+		<?php business_before_content_sidebar(); ?>
+	<!--End @business before content sidebar hook-->
 
 		<div id="content" class="<?php echo $content_grid; ?>">
 		
-		<!--Begin @Core index entry hook-->
-		<?php synapse_blog_content_slider(); ?>
-		<!--End @Core index entry hook-->
-
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 			
 			<div class="post_container">
 				<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
 		
-				<!--Begin @Core index loop hook-->
-					<?php synapse_loop(); ?>
-				<!--End @Core index loop hook-->
-			
-				<!--Begin @Core FB like hook-->
-					<?php synapse_fb_like_plus_one(); ?>
-				<!--End @Core FB like hook-->
-				
-				
-			
+				<!--Begin @business index loop hook-->
+					<?php business_loop(); ?>
+				<!--End @business index loop hook-->
+							
 				</div><!--end post_class-->
 			</div><!--end post container-->
 			
 			<?php if (is_single() && $options->get($themeslug.'_post_pagination') == "1") : ?>
-				<!--Begin @Core post pagination hook-->
-					<?php synapse_post_pagination(); ?>
-				<!--End @Core post pagination hook-->			
+				<!--Begin @business post pagination hook-->
+					<?php business_post_pagination(); ?>
+				<!--End @business post pagination hook-->			
 				<?php endif;?>
 			
 			<?php if (is_single()):?>
@@ -81,16 +71,15 @@ function synapse_index_content() {
 
 			<?php endif; ?>
 			
-			<!--Begin @Core pagination hook-->
+			<!--Begin @business pagination hook-->
 			<?php custom_pagination(); ?>
-			<!--End @Core pagination loop hook-->
+			<!--End @business pagination loop hook-->
 		
 		</div><!--end row-->
 		
-
-	<!--Begin @Core after content sidebar hook-->
-		<?php synapse_after_content_sidebar(); ?>
-	<!--End @Core after content sidebar hook-->
+	<!--Begin @business after content sidebar hook-->
+		<?php business_after_content_sidebar(); ?>
+	<!--End @business after content sidebar hook-->
 	</div><!--end container-->
 
 </div>

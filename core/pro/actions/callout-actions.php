@@ -1,9 +1,9 @@
 <?php
 /**
-* Callout section actions used by the CyberChimps Synapse Core Framework Pro Extension
+* Callout section actions used by Business Pro.
 *
 * Author: Tyler Cunningham
-* Copyright: © 2011
+* Copyright: © 2012
 * {@link http://cyberchimps.com/ CyberChimps LLC}
 *
 * Released under the terms of the GNU General Public License.
@@ -11,21 +11,21 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package Pro
-* @since 1.0
+* @package Business Pro
+* @since 3.0
 */
 
 /**
 * Pro callout actions
 */
-add_action ( 'synapse_callout_section', 'synapse_callout_section_content' );
+add_action ( 'business_callout_section', 'business_callout_section_content' );
 
 /**
 * Retrieves the Callout Section options and sets up the HTML
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_callout_section_content() {
+function business_callout_section_content() {
 
 	global $options, $themeslug, $post, $wp_query; //call globals
 	$root = get_template_directory_uri();  

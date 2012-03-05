@@ -1,9 +1,9 @@
 <?php
 /**
-* Global actions used by the CyberChimps Synapse Core Framework
+* Global actions used by Business.
 *
 * Author: Tyler Cunningham
-* Copyright: © 2011
+* Copyright: © 2012
 * {@link http://cyberchimps.com/ CyberChimps LLC}
 *
 * Released under the terms of the GNU General Public License.
@@ -11,27 +11,27 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package Synapse
-* @since 1.0
+* @package Business
+* @since 3.0
 */
 
 /**
-* Synapse global actions
+* Business global actions
 */
 
-add_action( 'synapse_loop', 'synapse_loop_content' );
-add_action( 'synapse_post_byline', 'synapse_post_byline_content' );
-add_action( 'synapse_edit_link', 'synapse_edit_link_content' );
-add_action( 'synapse_post_tags', 'synapse_post_tags_content' );
-add_action( 'synapse_post_bar', 'synapse_post_bar_content' );
-add_action( 'synapse_fb_like_plus_one', 'synapse_fb_like_plus_one_content' );
+add_action( 'business_loop', 'business_loop_content' );
+add_action( 'business_post_byline', 'business_post_byline_content' );
+add_action( 'business_edit_link', 'business_edit_link_content' );
+add_action( 'business_post_tags', 'business_post_tags_content' );
+add_action( 'business_post_bar', 'business_post_bar_content' );
+add_action( 'business_fb_like_plus_one', 'business_fb_like_plus_one_content' );
 
 /**
 * Check for post format type, apply filter based on post format name for easy modification.
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_loop_content($content) { 
+function business_loop_content($content) { 
 
 	global $options, $themeslug, $post; //call globals
 	
@@ -67,9 +67,9 @@ function synapse_loop_content($content) {
   					echo '</div>';
 				}
 			?>	
-			<!--Call @Core Meta hook-->
+			<!--Call @business Meta hook-->
 			<div class="row">
-			<div class="three columns"><?php synapse_post_byline(); ?></div>
+			<div class="three columns"><?php business_post_byline(); ?></div>
 				<div class="entry nine columns">
 					<?php if ($post_formats != '0') : ?>
 						<div class="postformats"><!--begin format icon-->
@@ -85,19 +85,19 @@ function synapse_loop_content($content) {
 							the_content();
 						}
 					 ?>
-				<!--Begin @Core link pages hook-->
-					<?php synapse_link_pages(); ?>
-				<!--End @Core link pages hook-->
+				<!--Begin @business link pages hook-->
+					<?php business_link_pages(); ?>
+				<!--End @business link pages hook-->
 			
-				<!--Begin @Core post edit link hook-->
-					<?php synapse_edit_link(); ?>
-				<!--End @Core post edit link hook-->
+				<!--Begin @business post edit link hook-->
+					<?php business_edit_link(); ?>
+				<!--End @business post edit link hook-->
 				</div><!--end entry-->
 			</div><!--end row-->
 			<?php	
 		
 		$content = ob_get_clean();
-		$content = apply_filters( 'synapse_post_formats_'.$format.'_content', $content );
+		$content = apply_filters( 'business_post_formats_'.$format.'_content', $content );
 	
 		echo $content; 
 }
@@ -105,9 +105,9 @@ function synapse_loop_content($content) {
 /**
 * Sets the post byline information (author, date, category). 
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_post_byline_content() {
+function business_post_byline_content() {
 	global $options, $themeslug; //call globals.  
 	if (is_single()) {
 		$hidden = $options->get($themeslug.'_single_hide_byline'); 
@@ -121,11 +121,11 @@ function synapse_post_byline_content() {
 	
 	<div class="meta">
 	<ul>
-		<li class="metadate"><?php if (($hidden[$themeslug.'_hide_date']) != '0'):?><?php printf( __( '', 'core' )); ?><a href="<?php the_permalink() ?>"><?php echo get_the_date(); ?></a><?php endif;?></li>
-		<li class="metaauthor"><?php if (($hidden[$themeslug.'_hide_author']) != '0'):?><?php printf( __( '', 'core' )); ?><?php the_author_posts_link(); ?><?php endif;?></li>
-		<li class="metacomments"><?php if (($hidden[$themeslug.'_hide_comments']) != '0'):?><?php comments_popup_link( __('No Comments', 'core' ), __('1 Comment', 'core' ), __('% Comments' , 'core' )); //need a filer here ?><?php endif;?></li>
-		<li class="metacat"><?php if (($hidden[$themeslug.'_hide_categories']) != '0'):?><?php printf( __( '', 'core' )); ?> <?php the_category(', ') ?><?php endif;?></li>
-		<li class="metatags"><?php synapse_post_tags(); ?></li>
+		<li class="metadate"><?php if (($hidden[$themeslug.'_hide_date']) != '0'):?><?php printf( __( '', 'business' )); ?><a href="<?php the_permalink() ?>"><?php echo get_the_date(); ?></a><?php endif;?></li>
+		<li class="metaauthor"><?php if (($hidden[$themeslug.'_hide_author']) != '0'):?><?php printf( __( '', 'business' )); ?><?php the_author_posts_link(); ?><?php endif;?></li>
+		<li class="metacomments"><?php if (($hidden[$themeslug.'_hide_comments']) != '0'):?><?php comments_popup_link( __('No Comments', 'business' ), __('1 Comment', 'business' ), __('% Comments' , 'business' )); //need a filer here ?><?php endif;?></li>
+		<li class="metacat"><?php if (($hidden[$themeslug.'_hide_categories']) != '0'):?><?php printf( __( '', 'business' )); ?> <?php the_category(', ') ?><?php endif;?></li>
+		<li class="metatags"><?php business_post_tags(); ?></li>
 	</ul>
 	</div> <?php
 }
@@ -133,18 +133,18 @@ function synapse_post_byline_content() {
 /**
 * Sets up the WP edit link
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_edit_link_content() {
+function business_edit_link_content() {
 	edit_post_link('Edit', '<p>', '</p>');
 }
 
 /**
 * Sets up the tag area
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_post_tags_content() {
+function business_post_tags_content() {
 	global $options, $themeslug; 
 	if (is_single()) {
 		$hidden = $options->get($themeslug.'_single_hide_byline'); 
@@ -158,40 +158,6 @@ function synapse_post_tags_content() {
 
 	<?php if (has_tag() AND ($hidden[$themeslug.'_hide_tags']) != '0'):?>
 			<?php the_tags('', ', ', ''); ?>
-	<?php endif;
-}
-
-/**
-* Sets up the Facebook Like and Google Plus One area
-*
-* @since 3.1
-*/
-function synapse_fb_like_plus_one_content() {
-	global $options, $themeslug; 
-	
-	if (is_single()) {
-		 $fb = $options->get($themeslug.'_single_show_fb_like');
-		 $gplus = $options->get($themeslug.'_single_show_gplus');
-	}
-	elseif (is_archive()) {
-		 $fb = $options->get($themeslug.'_archive_show_fb_like');
-		 $gplus = $options->get($themeslug.'_archive_show_gplus');
-	}
-	else {
-		 $fb = $options->get($themeslug.'_show_fb_like');
-		 $gplus = $options->get($themeslug.'_show_gplus');
-	}?>
-
-	<?php if ($gplus == "1"):?>
-		<div class="gplusone">	
-			<g:plusone size="standard" count="true"></g:plusone>
-		</div>
-	<?php endif;?>
-						
-	<?php if ($fb == "1"):?>			
-		<div id="fb">
-			<iframe src="http://www.facebook.com/plugins/like.php?href=<?php the_permalink() ?>&layout=standard&show_faces=true&width=450&action=like&colorscheme=light" scrolling="no" frameborder="0"  allowTransparency="true" style="border:none; overflow:hidden; width:330px; height:28px"></iframe>
-		</div>
 	<?php endif;
 }
 

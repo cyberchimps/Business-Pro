@@ -1,6 +1,6 @@
 <?php
 /**
-* Product element actions used by the CyberChimps Synapse Core Framework Pro Extension
+* Product element actions used by Business Pro
 *
 * Author: Tyler Cunningham
 * Copyright: © 2012
@@ -11,13 +11,13 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package Pro
-* @since 1.0
+* @package Business Pro
+* @since 3.0
 */
 
-add_action( 'synapse_product_element', 'synapse_product_element_content' );
+add_action( 'business_product_element', 'business_product_element_content' );
 
-function synapse_product_element_content(){
+function business_product_element_content(){
 	global $options, $themeslug, $root, $post;
 	
 	if (is_front_page()) {

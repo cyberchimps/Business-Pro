@@ -1,9 +1,9 @@
 <?php
 /**
-* Page actions used by the CyberChimps Synapse Core Framework
+* Page actions used by Business.
 *
 * Author: Tyler Cunningham
-* Copyright: © 2011
+* Copyright: © 2012
 * {@link http://cyberchimps.com/ CyberChimps LLC}
 *
 * Released under the terms of the GNU General Public License.
@@ -11,38 +11,34 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package Synapse
-* @since 1.0
+* @package Business
+* @since 3.0
 */
 
 /**
-* Synapse page actions
+* Business page actions
 */
 
-add_action('synapse_page_section', 'synapse_page_section_content' );
+add_action('business_page_section', 'business_page_section_content' );
 
 /**
 * Sets up the page content. 
 *
 * @since 1.0
 */
-function synapse_page_section_content() { 
+function business_page_section_content() { 
 	global $options, $themeslug, $post, $sidebar, $content_grid;
-	
-	synapse_sidebar_init();
-	
+	business_sidebar_init();
 	$hidetitle = get_post_meta($post->ID, 'hide_page_title' , true);
-
-
 ?>
 <div class="row">
-	<!--Begin @Core before content sidebar hook-->
-		<?php synapse_before_content_sidebar(); ?>
-	<!--End @Core before content sidebar hook-->
+	<!--Begin @business before content sidebar hook-->
+		<?php business_before_content_sidebar(); ?>
+	<!--End @business before content sidebar hook-->
 			
 		<div id="content" class="<?php echo $content_grid; ?>">
 		
-		<?php synapse_page_content_slider(); ?>
+		<?php business_page_content_slider(); ?>
 		
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		
@@ -51,7 +47,6 @@ function synapse_page_section_content() {
 				<div class="post" id="post-<?php the_ID(); ?>">
 				<?php if ($hidetitle == "on" OR $hidetitle == ''): ?>
 				
-
 					<h2 class="posts_title"><?php the_title(); ?></h2>
 						<?php endif;?>
 
@@ -75,9 +70,9 @@ function synapse_page_section_content() {
 				
 	</div><!--end content_left-->
 	
-	<!--Begin @Core after content sidebar hook-->
-		<?php synapse_after_content_sidebar(); ?>
-	<!--End @Core after content sidebar hook-->
+	<!--Begin @business after content sidebar hook-->
+		<?php business_after_content_sidebar(); ?>
+	<!--End @business after content sidebar hook-->
 </div>
 <?php
 }

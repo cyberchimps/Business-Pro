@@ -1,9 +1,9 @@
 <?php
 /**
-* Footer actions used by the CyberChimps Synapse Core Framework Pro Extension
+* Footer actions used by Business Pro
 *
 * Author: Tyler Cunningham
-* Copyright: © 2011
+* Copyright: © 2012
 * {@link http://cyberchimps.com/ CyberChimps LLC}
 *
 * Released under the terms of the GNU General Public License.
@@ -11,8 +11,8 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package Pro
-* @since 1.0
+* @package Business Pro
+* @since 3.0
 */
 
 
@@ -20,9 +20,9 @@
 /**
 * Adds the CyberChimps Pro credit link.
 *
-* @since 1.0
+* @since 3.0
 */
-function synapse_pro_secondary_footer_credit() { 
+function business_pro_secondary_footer_credit() { 
 	global $options, $themeslug; //call globals
 	
 	if ($options->get($themeslug.'_hide_link') == "1") {?>

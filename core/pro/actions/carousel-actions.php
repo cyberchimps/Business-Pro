@@ -1,9 +1,9 @@
 <?php
 /**
-* Carousel section actions used by the CyberChimps Synapse Core Framework Pro Extension
+* Carousel section actions used by Business Pro
 *
 * Author: Tyler Cunningham
-* Copyright: © 2011
+* Copyright: © 2012
 * {@link http://cyberchimps.com/ CyberChimps LLC}
 *
 * Released under the terms of the GNU General Public License.
@@ -11,14 +11,14 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package Pro
-* @since 1.0
+* @package Business Pro
+* @since 3.0
 */
 
-add_action( 'synapse_index_carousel_section', 'synapse_carousel_section_content' );
-add_action( 'synapse_carousel_section', 'synapse_carousel_section_content' );
+add_action( 'business_index_carousel_section', 'business_carousel_section_content' );
+add_action( 'business_carousel_section', 'business_carousel_section_content' );
 
-function synapse_carousel_section_content() {
+function business_carousel_section_content() {
 
 /* Call globals. */	
 

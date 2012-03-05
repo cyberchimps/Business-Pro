@@ -1,9 +1,9 @@
 <?php
 /**
-* Portfolio section actions used by the CyberChimps Synapse Core Framework Pro Extension
+* Portfolio element actions used by Business Pro.
 *
 * Author: Tyler Cunningham
-* Copyright: © 2011
+* Copyright: © 2012
 * {@link http://cyberchimps.com/ CyberChimps LLC}
 *
 * Released under the terms of the GNU General Public License.
@@ -11,16 +11,16 @@
 * along with this software. In the main directory, see: /licensing/
 * If not, see: {@link http://www.gnu.org/licenses/}.
 *
-* @package Pro
-* @since 1.0
+* @package Business Pro
+* @since 3.0
 */
 
 /**
-* Synapse Portfolio Section actions
+* business Portfolio Section actions
 */
-add_action( 'synapse_portfolio_element', 'synapse_portfolio_element_content' );
+add_action( 'business_portfolio_element', 'business_portfolio_element_content' );
 	
-function synapse_portfolio_element_content() {	
+function business_portfolio_element_content() {	
 	global $options, $post, $themeslug, $root, $wp_query;
 	$tmp_query = $wp_query; 
 	$image = get_post_meta($post->ID, 'portfolio_image' , true);
@@ -156,8 +156,6 @@ function synapse_portfolio_element_content() {
     });
     });
     </script>
-    
-    
 OUT;
 
 /* End Portfolio javascript */ 

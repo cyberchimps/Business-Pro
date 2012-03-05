@@ -27,7 +27,7 @@ require_once ( get_template_directory() . '/core/actions/sidebar-actions.php' );
 require_once ( get_template_directory() . '/core/actions/404-actions.php' );
 require_once ( get_template_directory() . '/core/actions/archive-actions.php' ); 
 require_once ( get_template_directory() . '/core/actions/comments-actions.php' );
-require_once ( get_template_directory() . '/core/actions/index-actions.php' );
+require_once ( get_template_directory() . '/core/actions/post-actions.php' );
 require_once ( get_template_directory() . '/core/actions/global-actions.php' );
 require_once ( get_template_directory() . '/core/actions/header-actions.php' );
 require_once ( get_template_directory() . '/core/actions/footer-actions.php' );

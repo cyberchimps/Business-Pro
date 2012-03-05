@@ -28,12 +28,6 @@ add_action( 'business_logo_menu', 'business_logo_menu_content');
 add_action( 'business_logo_description', 'business_logo_description_content');
 add_action( 'business_banner', 'business_banner_content');
 
-remove_action( 'synapse_head_tag', 'synapse_link_rel' );
-add_action( 'synapse_head_tag', 'business_link_rel' );
-
-remove_action( 'synapse_box_section', 'synapse_box_section_content' );
-add_action( 'synapse_box_section', 'business_box_section_content' );
-
 /**
 * Sets up the header contact area
 *
@@ -41,7 +35,7 @@ add_action( 'synapse_box_section', 'business_box_section_content' );
 */
 function business_header_contact_area_content() { 
 	global $themeslug, $options; 
-	$contactdefault = apply_filters( 'synapse_header_contact_default_text', 'Enter Contact Information Here' ); 
+	$contactdefault = apply_filters( 'business_header_contact_default_text', 'Enter Contact Information Here' ); 
 	
 	if ($options->get($themeslug.'_header_contact') == '' ) {
 		echo "<div id='header_contact'>";
@@ -58,97 +52,6 @@ function business_header_contact_area_content() {
 	}
 }
 
-/**
-* Sets up the Box Section wigetized area
-*
-* @since 3.1
-*/
-function business_box_section_content() { 
-	global $post; //call globals
-	
-	$enableboxes = get_post_meta($post->ID, 'enable_box_section' , true);
-	$root = get_template_directory_uri(); ?>
-<div class="container">
-<div class="row boxes">
-	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box 1") ) : ?>
-		<div id="box1" class="three columns">
-			<h2 class="box-widget-title">Responsive Pro Slider</h2>	
-			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/iphone.png" height="24" alt="slider" class="alignleft" />"Again, you can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future." -Steve Jobs</p>
-		</div><!--end box1-->
-		<?php endif; ?>
-	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box 2") ) : ?>
-		<div id="box2" class="three columns">
-			<h2 class="box-widget-title">Responsive Design</h2>
-			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/home.png" height="24" alt="slider" class="alignleft" />"Focus and simplicity. Simple can be harder than complex: You have to work hard to get your thinking clean to make it simple. But it's worth it in the end, because once you get there, you can move mountains." -Steve Jobs</p>
-		</div><!--end box2-->
-		<?php endif; ?>
-	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box 3") ) : ?>
-		<div id="box3" class="three columns">
-			<h2 class="box-widget-title">Excellent Support</h2>
-			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/cogs.png" height="24" alt="slider" class="alignleft" />"Again, you can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future." -Steve Jobs</p>
-		</div><!--end box3-->
-		<?php endif; ?>
-	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box 4") ) : ?>
-		<div id="box4" class="three columns">
-			<h2 class="box-widget-title">Excellent Support</h2>
-			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/search.png" height="24" alt="slider" class="alignleft" />"Again, you can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future." -Steve Jobs</p>
-		</div><!--end box3-->
-		<?php endif; ?>
-</div>
-</div>
-<?php
-}
-
-
-/**
-* Sets the header link rel attributes
-*
-* @since 3.0.2
-*/
-function business_link_rel() {
-	global $themeslug, $options; //Call global variables
-	$favicon = $options->get($themeslug.'_favicon'); //Calls the favicon URL from the theme options 
-	
-	if ($options->get($themeslug.'_font') == "" AND $options->get($themeslug.'_custom_font') == "") {
-		$font = apply_filters( 'synapse_default_font', 'Arial' );
-	}		
-	elseif ($options->get($themeslug.'_custom_font') != "" && $options->get($themeslug.'_font') == 'custom') {
-		$font = $options->get($themeslug.'_custom_font');	
-	}	
-	else {
-		$font = $options->get($themeslug.'_font'); 
-	} 
-	if ($options->get($themeslug.'_color_scheme') == '') {
-		$color = 'blue';
-	}
-	else {
-		$color = $options->get($themeslug.'_color_scheme');
-	}?>
-	
-<link rel="shortcut icon" href="<?php echo stripslashes($favicon['url']); ?>" type="image/x-icon" />
-
-<?php if ($options->get($themeslug.'_responsive_design') == '1') : ?>
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/core/css/foundation.css" type="text/css" />
-<?php endif; ?>
-<?php if ($options->get($themeslug.'_responsive_design') == '0') : ?>
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/core/css/foundation-static.css" type="text/css" />
-<?php endif; ?>
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/core/css/app.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/core/css/ie.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/shortcode.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/elements.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/style.css" type="text/css" />
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/color/<?php echo $color; ?>.css" type="text/css" />
-
-
-<?php if (is_child_theme()) :  //add support for child themes?>
-	<link rel="stylesheet" href="<?php echo bloginfo('stylesheet_directory') ; ?>/style.css" type="text/css" />
-<?php endif; ?>
-
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-
-<link href='http://fonts.googleapis.com/css?family=<?php echo $font ; ?>' rel='stylesheet' type='text/css' /> <?php
-}
 
 /**
 * Sitename/Register
@@ -165,7 +68,7 @@ global $current_user;
 			<div class="seven columns">
 				
 				<!-- Begin @Core header sitename hook -->
-					<?php synapse_header_sitename(); ?> 
+					<?php business_header_sitename(); ?> 
 				<!-- End @Core header sitename hook -->
 			
 				
@@ -203,7 +106,7 @@ function business_sitename_contact_content() {
 			<div class="seven columns">
 				
 				<!-- Begin @Core header sitename hook -->
-					<?php synapse_header_sitename(); ?> 
+					<?php business_header_sitename(); ?> 
 				<!-- End @Core header sitename hook -->
 			
 				
@@ -268,7 +171,7 @@ function business_logo_description_content() {
 			<div class="seven columns">
 				
 			<!-- Begin @Core header sitename hook -->
-					<?php synapse_header_sitename(); ?> 
+					<?php business_header_sitename(); ?> 
 			<!-- End @Core header sitename hook -->
 			
 				
@@ -277,7 +180,7 @@ function business_logo_description_content() {
 			<div class="five columns" style="text-align: right;">
 			
 			<!-- Begin @Core header description hook -->
-				<?php synapse_header_site_description(); ?> 
+				<?php business_header_site_description(); ?> 
 			<!-- End @Core header description hook -->
 						
 			</div>	
@@ -301,13 +204,13 @@ function business_description_icons_content() {
 		
 			<div class="five columns">
 			<!-- Begin @Core header description hook -->
-				<?php synapse_header_site_description(); ?> 
+				<?php business_header_site_description(); ?> 
 			<!-- End @Core header description hook -->		
 			</div>
 			
 			<div class="seven columns">
 			<!-- Begin @Core header social icon hook -->
-				<?php synapse_header_social_icons(); ?> 
+				<?php business_header_social_icons(); ?> 
 			<!-- End @Core header contact social icon hook -->			
 			</div>	
 		</div><!--end row-->
@@ -332,7 +235,7 @@ function business_logo_menu_content() {
 			<div class="five columns"">
 				
 				<!-- Begin @Core header sitename hook -->
-					<?php synapse_header_sitename(); ?> 
+					<?php business_header_sitename(); ?> 
 				<!-- End @Core header sitename hook -->
 			
 			</div>	
@@ -367,7 +270,7 @@ function business_header_standard_content() {
 			<div class="seven columns">
 				
 				<!-- Begin @Core header sitename hook -->
-					<?php synapse_header_sitename(); ?> 
+					<?php business_header_sitename(); ?> 
 				<!-- End @Core header sitename hook -->
 			
 				
@@ -376,7 +279,7 @@ function business_header_standard_content() {
 			<div id ="register" class="five columns">
 				
 			<!-- Begin @Core header social icon hook -->
-				<?php synapse_header_social_icons(); ?> 
+				<?php business_header_social_icons(); ?> 
 			<!-- End @Core header contact social icon hook -->	
 				
 			</div>	
