@@ -69,10 +69,9 @@ function initialize_the_meta_boxes() {
 	$mb = new Chimps_Metabox('Carousel', 'Featured Post Carousel', array('pages' => array($themeslug.'_carousel')));
 	$mb
 		->tab("Featured Post Carousel Options")
-			->text('post_title', 'Featured Post Title', '')
 			->single_image('post_image', 'Featured Post Image', '')
 			->text('post_url', 'Featured Post URL', '')
-			->reorder('reorder_id', 'Reorder Name', 'Reorder Desc' )
+			->reorder('reorder_id', 'Reorder', 'Reorder Desc' )
 		->end();
 		
 	$mb = new Chimps_Metabox('Portfolio', 'Portfolio Element', array('pages' => array($themeslug.'_portfolio')));
@@ -92,7 +91,7 @@ function initialize_the_meta_boxes() {
 			->text('slider_url', 'Custom Slide Link', '')			
 			->checkbox('slider_hidetitle', 'Slide Title Bar', '', array('std' => 'on'))
 			->sliderhelp('', 'Need Help?', '')
-			->reorder('reorder_id', 'Reorder Name', 'Reorder Desc' )
+			->reorder('reorder_id', 'Reorder', 'Reorder Desc' )
 		->end();
 
 	$mb = new Chimps_Metabox('pages', $themenamefull.' Page Options', array('pages' => array('page')));

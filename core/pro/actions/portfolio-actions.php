@@ -140,7 +140,7 @@ function synapse_portfolio_element_content() {
 
 	wp_reset_query(); /* Reset post query */ 
 	
-/* Begin Carousel javascript */ 
+/* Begin Portfolio javascript */ 
     
     $out .= <<<OUT
  <script type="text/javascript">
@@ -160,7 +160,7 @@ function synapse_portfolio_element_content() {
     
 OUT;
 
-/* End Carousel javascript */ 
+/* End Portfolio javascript */ 
 
 echo $out;
 

@@ -55,7 +55,7 @@ function synapse_carousel_section_content() {
 
 /* Query posts  */
 
-query_posts( array ('post_type' => $themeslug.'_featured_posts', 'showposts' => 20, true, 'carousel_categories' => $customcategory ));
+query_posts( array ('post_type' => $themeslug.'_carousel', 'showposts' => 20, true, 'carousel_categories' => $customcategory ));
 
 /* End query posts based on theme/meta options */
     	
@@ -102,7 +102,7 @@ query_posts( array ('post_type' => $themeslug.'_featured_posts', 'showposts' => 
 	    	$out .= "
 	    	
 				<li>
-	    			<a href='$link'>	
+	    			<a href='$image'>	
 	    				<img src='$image' alt='$title'/>
 	    			</a>
 	    			<div class='carousel_caption'>$title</div>
@@ -176,6 +176,17 @@ query_posts( array ('post_type' => $themeslug.'_featured_posts', 'showposts' => 
 				minItems 	: 5
 			});
 			});
+			jQuery(document).ready(function ($) {
+    $(function() {
+        $('.es-carousel a').lightBox({
+    		imageLoading:			'$root/images/portfolio/lightbox-ico-loading.gif',		
+			imageBtnPrev:			'$root/images/portfolio/lightbox-btn-prev.gif',			
+			imageBtnNext:			'$root/images/portfolio/lightbox-btn-next.gif',			
+			imageBtnClose:			'$root/images/portfolio/lightbox-btn-close.gif',		
+			imageBlank:				'$root/images/portfolio/lightbox-blank.gif',			
+	 });
+    });
+    });
 		</script>
 OUT;
 
