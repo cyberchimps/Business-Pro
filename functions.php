@@ -463,7 +463,7 @@ function business_lazy_load() {
     echo <<<EOF
 <script type="text/javascript">
 	jQuery(document).ready(function($){
-  	jQuery("img").not("#orbitDemo img, .es-carousel img").lazyload({
+  	jQuery("img").not("#orbitDemo img, .es-carousel img, #credit img").lazyload({
     	effect:"fadeIn",
     	placeholder: "$placeholder"
   	});
