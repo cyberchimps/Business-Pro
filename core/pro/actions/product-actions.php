@@ -31,8 +31,9 @@ function synapse_product_element_content(){
 	elseif (is_page() && !is_front_page()) {
 		$title = get_post_meta($post->ID, 'product_title' , true);
 		$text  = get_post_meta($post->ID, 'product_text' , true);
+		$type  = get_post_meta($post->ID, 'product_type' , true);
 		$image = get_post_meta($post->ID, 'product_image' , true);
-		$embed = get_post_meta($post->ID, 'product_media' , true);	
+		$video = get_post_meta($post->ID, 'product_video' , true);	
 		$align = get_post_meta($post->ID, 'product_text_align' , true);
 		$link_enable  = get_post_meta($post->ID, 'product_link_toggle' , true);
 		$link  = get_post_meta($post->ID, 'product_link_url' , true);
@@ -46,11 +47,20 @@ function synapse_product_element_content(){
 		$image = $imgsource['url'];
 	}
 	
-	if ($link_enable == "on" or $link_enable == "1") {
+	
+	
+	if ($link_enable == "on" or $link_enable == "1" OR $link_enable == '') {
 		$button = "<a href='$link' class='nice medium radius white button'>Buy Now</a>";
 	}
 	else {
 		$button = '';
+	}
+	
+	if ($type == "0" OR $type == "key1") {
+		$media = "<img src='$image'>";
+	}
+	else {
+		$media ="<div class='flex-video'>$video</div>";
 	}
 	
 	if ($align == "0" OR $align =="key1") {
@@ -60,14 +70,14 @@ function synapse_product_element_content(){
 							$button
 					</div>
 					<div id='product_media' class='six columns'>
-						<img src='$image'>
+						$media
 					</div>
 				    "; 
 	}
 	if ($align == "1" OR $align =="key2"){
 		$output =   "
 					<div id='product_media' class='six columns'>
-						<img src='$image'>
+						$media
 					</div>
 					<div id='product_text' class='six columns'>
 						<span class='product_text_title'>$title</span> <br /> <span class='product_text_text'>$text </span><br /><br />
