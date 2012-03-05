@@ -34,6 +34,8 @@ function synapse_product_element_content(){
 		$image = get_post_meta($post->ID, 'product_image' , true);
 		$embed = get_post_meta($post->ID, 'product_media' , true);	
 		$align = get_post_meta($post->ID, 'product_text_align' , true);
+		$link_enable  = get_post_meta($post->ID, 'product_link_toggle' , true);
+		$link  = get_post_meta($post->ID, 'product_link_url' , true);
 	}
 	else {
 		$text  = $options->get($themeslug.'_blog_product_text');
@@ -44,11 +46,18 @@ function synapse_product_element_content(){
 		$image = $imgsource['url'];
 	}
 	
+	if ($link_enable == "on" or $link_enable == "1") {
+		$button = "<a href='$link' class='nice medium radius white button'>Buy Now</a>";
+	}
+	else {
+		$button = '';
+	}
+	
 	if ($align == "0" OR $align =="key1") {
 		$output =   "
 					<div id='product_text' class='six columns'>
 						<span class='product_text_title'>$title</span> <br /> <span class='product_text_text'>$text </span><br /><br />
-							<a href='#' class='nice medium radius white button'>Buy Now</a>
+							$button
 					</div>
 					<div id='product_media' class='six columns'>
 						<img src='$image'>
@@ -62,7 +71,7 @@ function synapse_product_element_content(){
 					</div>
 					<div id='product_text' class='six columns'>
 						<span class='product_text_title'>$title</span> <br /> <span class='product_text_text'>$text </span><br /><br />
-							<a href='#' class='nice medium radius white button'>Button Text</a>
+							$button
 
 					</div>
 				    "; 

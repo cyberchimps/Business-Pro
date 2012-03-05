@@ -134,6 +134,8 @@ function initialize_the_meta_boxes() {
 			->textarea('product_text', 'Proudct Text', '')
 			->single_image('product_image', 'Product Image', '')
 			->textarea('product_media', 'Product Media', '')
+			->checkbox('product_link_toggle', 'Product Link', '', array('std' => 'on'))
+			->text('product_link_url', 'Link', '')
 		->tab("Callout Options")
 			->textarea('callout_text', 'Callout Text', '')
 			->checkbox('extra_callout_options', 'Custom Callout Options', '', array('std' => 'off'))
