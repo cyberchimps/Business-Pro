@@ -48,10 +48,10 @@ function synapse_carousel_section_content() {
 	
 /* End define variables. */	 
 ?>
-
-<div class="row">
-	<div id="carousel" class="es-carousel-wrapper">
-		<div class="es-carousel"><?php 
+<div class="container">
+	<div class="row">
+		<div id="carousel" class="es-carousel-wrapper">
+			<div class="es-carousel"><?php 
 
 /* Query posts  */
 
@@ -197,6 +197,7 @@ echo $out;
 /* END */ 
 ?>
 
+			</div>
 		</div>
 	</div>
 </div> <?php
