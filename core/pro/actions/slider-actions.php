@@ -19,12 +19,12 @@
 * Extend slider actions
 */
 
-add_action ('synapse_page_slider', 'synapse_slider_content' );
+add_action ('business_page_slider', 'business_slider_content' );
 
 /**
 * Extend slider functions
 */
-function synapse_slider_content() {
+function business_slider_content() {
 
 /* Call globals. */	
 
