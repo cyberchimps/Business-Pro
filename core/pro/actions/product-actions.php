@@ -23,10 +23,14 @@ function synapse_product_element_content(){
 	if (is_front_page()) {
 		$text  = $options->get($themeslug.'_front_product_text');
 		$title = $options->get($themeslug.'_front_product_title');
+		$type = $options->get($themeslug.'_front_product_type');
 		$imgsource = $options->get($themeslug.'_front_product_image');
-		$embed = $options->get($themeslug.'_front_product_media');
-		$align = $options->get($themeslug.'_front_product_text_align');
 		$image = $imgsource['url'];
+		$video = $options->get($themeslug.'_front_product_video');
+		$align = $options->get($themeslug.'_front_product_text_align');
+		$link_enable = $options->get($themeslug.'_front_product_link_toggle');
+		$link = $options->get($themeslug.'_front_product_link_url');
+		
 	}
 	elseif (is_page() && !is_front_page()) {
 		$title = get_post_meta($post->ID, 'product_title' , true);
@@ -41,10 +45,13 @@ function synapse_product_element_content(){
 	else {
 		$text  = $options->get($themeslug.'_blog_product_text');
 		$title = $options->get($themeslug.'_blog_product_title');
+		$type = $options->get($themeslug.'_blog_product_type');
 		$imgsource = $options->get($themeslug.'_blog_product_image');
-		$embed = $options->get($themeslug.'_blog_product_media');
-		$align = $options->get($themeslug.'_blog_product_text_align');	
 		$image = $imgsource['url'];
+		$video = $options->get($themeslug.'_blog_product_video');
+		$align = $options->get($themeslug.'_blog_product_text_align');
+		$link_enable = $options->get($themeslug.'_blog_proudct_link_toggle');
+		$link = $options->get($themeslug.'_blog_product_link_url');
 	}
 	
 	
