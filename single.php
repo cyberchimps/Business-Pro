@@ -16,7 +16,7 @@ get_header(); ?>
 <div class="container">
 	<div class="row">
 	<!--Begin @Core post area-->
-		<?php business_index(); ?>
+		<?php business_post(); ?>
 	<!--End @Core post area-->
 	
 	</div>
