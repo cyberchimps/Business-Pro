@@ -142,5 +142,14 @@ jQuery(document).ready(function($) {
 			items.hide();
 		}
     }).trigger('change');
+    
+        $('#checkbox-product_link_toggle').change(function(){
+	    var items = $("tr.product_link_url,");
+		if($(this).is(':checked')) {
+			items.show();
+		} else {
+			items.hide();
+		}
+    }).trigger('change');
 
 });
