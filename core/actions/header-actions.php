@@ -207,17 +207,18 @@ function synapse_header_sitename_content() {
 	global $themeslug, $options; //Call global variables
 	$logo = $options->get($themeslug.'_logo'); //Calls the logo URL from the theme options
 
-	if ($logo != '') { ?>
+if ($options->get($themeslug.'_custom_logo') == '1') { ?>
 	<div id="logo">
 		<a href="<?php echo home_url(); ?>/"><img src="<?php echo stripslashes($logo['url']); ?>" alt="logo"></a>
 	</div> <?php
 	}
 						
-	if ($logo == '' ) { ?>
+	else{ ?>
 		<h1 class="sitename"><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?> </a></h1>
 		<?php
 	}						 
 }
+
 
 function synapse_header_site_description_content() {
 	global $themeslug, $options; ?>

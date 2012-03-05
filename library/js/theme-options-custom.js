@@ -5,7 +5,14 @@
 
 jQuery(document).ready(function($) {
 
-	
+  $("#bu_custom_logo").change(function() {
+    var toShow = $("#section-bu_logo");
+    if($(this).is(':checked')) {
+      toShow.show();
+    } else {
+      toShow.hide();
+    }
+  }).change();	
   $("#section-bu_font").change(function() {
     if($(this).find(":selected").val() == 'custom') {
       $('#section-bu_custom_font').fadeIn();
