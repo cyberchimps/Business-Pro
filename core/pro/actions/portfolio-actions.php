@@ -113,19 +113,19 @@ function business_portfolio_element_content() {
 	      	$out .= "	
 	    		<div id='gallery' class='twelve columns'><ul>
 	      			<li id='portfolio_wrap' class='four columns'>
-	    				<a href='$root/images/portfolio.jpg' title='Image 1'><img src='$root/images/portfolio.jpg'  alt='Image 1'/>
+	    				<a href='$root/images/pro/portfolio.jpg' title='Image 1'><img src='$root/images/portfolio.jpg'  alt='Image 1'/>
 	    					<div class='portfolio_caption'>Image 1</div>
 	    				</a>
 	    			</li>
 	    		
 	  	    		<li id='portfolio_wrap' class='four columns'>
-	    				<a href='$root/images/portfolio.jpg' title='Image 2'><img src='$root/images/portfolio.jpg'  alt='Image 2'/>
+	    				<a href='$root/images/pro/portfolio.jpg' title='Image 2'><img src='$root/images/portfolio.jpg'  alt='Image 2'/>
 	    					<div class='portfolio_caption'>Image 2</div>
 	    				</a>
 	    			</li>
 	    		
 					<li id='portfolio_wrap' class='four columns'>
-	    				<a href='$root/images/portfolio.jpg' title='Image 3'><img src='$root/images/portfolio.jpg'  alt='Image 3'/>
+	    				<a href='$root/images/pro/portfolio.jpg' title='Image 3'><img src='$root/images/portfolio.jpg'  alt='Image 3'/>
 	    					<div class='portfolio_caption'>Image 3</div>
 	    				</a>
 	    			</li>
