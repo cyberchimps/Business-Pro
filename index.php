@@ -16,19 +16,7 @@
 */
 
 	global $options, $themeslug, $post; // call globals
-	
 	$reorder = $options->get($themeslug.'_blog_section_order');
-	$slidersize = $options->get($themeslug.'_slider_size');
-			
-/* Set slider hook based on page option */
-
-	if (preg_match("/business_blog_slider/", $reorder ) && $slidersize != "key2" ) {
-		remove_action ( 'business_blog_slider', 'business_slider_content' );
-		add_action ( 'business_blog_content_slider', 'business_slider_content');
-	}
-	
-/* End set slider hook*/
-
 ?>
 
 <?php get_header(); ?>
