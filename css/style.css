@@ -561,12 +561,12 @@ img.size-full {
     padding:0 4px 5px;
 }
 
-
-
 blockquote { 
-	background-color: #ccc;
+	background-color: #eee;
 	margin: 10px;
 	padding: 3px;
+	border-left: none;
+	color: #222;
 }
 
 blockquote p {margin: 10px; }
