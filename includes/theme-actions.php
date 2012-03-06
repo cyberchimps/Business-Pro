@@ -30,7 +30,7 @@ add_action( 'business_description_icons', 'business_description_icons_content');
 function business_description_icons_content() {
 ?>
 
-<div id="header">
+<div id="subheader">
 	<div class="container">
 		<div class="row">	
 			
