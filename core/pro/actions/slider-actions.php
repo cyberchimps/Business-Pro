@@ -39,7 +39,7 @@ function business_slider_content() {
 	
 	if (is_front_page()) {
 		$customcategory = $options->get($themeslug.'_front_customslider_category');
-		$sliderheight = $options->get($themeslug.'_front_slider_height');
+		$height = $options->get($themeslug.'_front_slider_height');
 		$hidenav = $options->get($themeslug.'_front_hide_slider_arrows');
 		$wordenable = $options->get($themeslug.'_front_enable_wordthumb');
 		$slideranimation = $options->get($themeslug.'_front_slider_animation');
@@ -49,7 +49,7 @@ function business_slider_content() {
 	
 	elseif (is_page() && !is_front_page()) {
 		$customcategory = get_post_meta($post->ID, 'slider_category' , true);
-		$sliderheight = get_post_meta($post->ID, 'slider_height' , true);
+		$height = get_post_meta($post->ID, 'slider_height' , true);
 		$sliderdelay = get_post_meta($post->ID, 'slider_delay' , true);
 		$slideranimation = get_post_meta($post->ID, 'page_slider_animation' , true);
 		$navigationstyle = get_post_meta($post->ID, 'page_slider_navigation_style' , true);
@@ -58,14 +58,14 @@ function business_slider_content() {
 	}
 	
 	else {
-		$customcategory = $options->get($themeslug.'_customslider_category');
-		$captionstyle = $options->get($themeslug.'_caption_style');
-		$sliderheight = $options->get($themeslug.'_slider_height');
-		$hidenav = $options->get($themeslug.'_hide_slider_arrows');
-		$wordenable = $options->get($themeslug.'_enable_wordthumb');
-		$slideranimation = $options->get($themeslug.'_slider_animation');
-		$sliderdelay = $options->get($themeslug.'_slider_delay');
-		$navigationstyle = $options->get($themeslug.'_slider_nav');
+		$customcategory = $options->get($themeslug.'_blog_customslider_category');
+		$captionstyle = $options->get($themeslug.'_blog_caption_style');
+		$height = $options->get($themeslug.'_blog_slider_height');
+		$hidenav = $options->get($themeslug.'_blog_hide_slider_arrows');
+		$wordenable = $options->get($themeslug.'_blog_enable_wordthumb');
+		$slideranimation = $options->get($themeslug.'_blog_slider_animation');
+		$sliderdelay = $options->get($themeslug.'_blog_slider_delay');
+		$navigationstyle = $options->get($themeslug.'_blog_slider_nav');
 	}
 	
 /* Row div variable. */	
@@ -334,7 +334,17 @@ function business_slider_content() {
 
 /* End slider navigation variable */ 
 
+
+
 ?>
+
+<!-- Apply slider CSS based on user settings -->
+
+	<style type="text/css" media="screen">
+		#orbitDemo { height: <?php echo $height ?>px !important; }
+	</style>
+
+<!-- End style -->
 	
 <?php if ($navigationstyle == 'key3' OR $navigationstyle == '2') :?>
 	<style type="text/css" media="screen">
