@@ -498,7 +498,7 @@ function menu_fallback() {
 */ 
 function ifp_widgets_init() {
     register_sidebar(array(
-    	'name' => 'Sidebar Widgets',
+    	'name' => 'Full Sidebar',
     	'id'   => 'sidebar-widgets',
     	'description'   => 'These are widgets for the sidebar.',
     	'before_widget' => '<div id="%1$s" class="widget-container">',
@@ -507,7 +507,7 @@ function ifp_widgets_init() {
     	'after_title'   => '</h2>'
     ));
     register_sidebar(array(
-    	'name' => 'Sidebar Left',
+    	'name' => 'Left Half Sidebar',
     	'id'   => 'sidebar-left',
     	'description'   => 'These are widgets for the left sidebar.',
     	'before_widget' => '<div id="%1$s" class="widget-container">',
@@ -516,7 +516,7 @@ function ifp_widgets_init() {
     	'after_title'   => '</h2>'
     ));    	
     register_sidebar(array(
-    	'name' => 'Sidebar Right',
+    	'name' => 'Right Half Sidebar',
     	'id'   => 'sidebar-right',
     	'description'   => 'These are widgets for the right sidebar.',
     	'before_widget' => '<div id="%1$s" class="widget-container">',
