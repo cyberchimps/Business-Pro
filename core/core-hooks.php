@@ -475,6 +475,15 @@ function business_post_bar() {
 	do_action ('business_post_bar');
 }
 
+function business_logo_menu() {
+	do_action('business_logo_menu');
+}
+
+function business_description_icons() {
+	do_action('business_description_icons');
+}
+
+
 /**
 * End
 */
