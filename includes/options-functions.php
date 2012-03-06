@@ -280,7 +280,7 @@ function add_menu_font() {
 	global $themename, $themeslug, $options;	
 		
 	if ($options->get($themeslug.'_menu_font') == "") {
-		$font = 'Arial';
+		$font = 'Lucida Grande';
 	}		
 		
 	elseif ($options->get($themeslug.'_menu_font') == 'custom' && $options->get($themeslug.'_custom_menu_font') != "") {
