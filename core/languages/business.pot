@@ -18,68 +18,68 @@ msgstr ""
 "X-Textdomain-Support: yes"
 
 #: core/actions/archive-actions.php:36
-#@ core
+#@ business
 msgid "Archive for the &#8216;"
 msgstr ""
 
 #: core/actions/archive-actions.php:36
-#@ core
+#@ business
 msgid "&#8217; Category:"
 msgstr ""
 
 #: core/actions/archive-actions.php:39
-#@ core
+#@ business
 msgid "Posts Tagged &#8216;"
 msgstr ""
 
 #: core/actions/archive-actions.php:39
-#@ core
+#@ business
 msgid "&#8217;:"
 msgstr ""
 
 #: core/actions/archive-actions.php:42
 #: core/actions/archive-actions.php:45
-#@ core
+#@ business
 msgid "Archive for"
 msgstr ""
 
 #: core/actions/archive-actions.php:48
-#@ core
+#@ business
 msgid "Archive for:"
 msgstr ""
 
 #: core/actions/archive-actions.php:51
-#@ core
+#@ business
 msgid "Author Archive:"
 msgstr ""
 
 #: core/actions/archive-actions.php:54
-#@ core
+#@ business
 msgid "Blog Archives:"
 msgstr ""
 
 #: core/actions/comments-actions.php:49
-#@ core
+#@ business
 msgid "No Responses"
 msgstr ""
 
 #: core/actions/comments-actions.php:49
-#@ core
+#@ business
 msgid "One Response"
 msgstr ""
 
 #: core/actions/comments-actions.php:49
-#@ core
+#@ business
 msgid "% Responses"
 msgstr ""
 
 #: core/actions/comments-actions.php:88
-#@ core
+#@ business
 msgid "You must be"
 msgstr ""
 
 #: core/actions/comments-actions.php:88
-#@ core
+#@ business
 msgid "logged in"
 msgstr ""
 
@@ -89,19 +89,19 @@ msgid "to post a comment."
 msgstr ""
 
 #: core/actions/footer-actions.php:39
-#@ core
+#@ business
 msgid "Recent Posts"
 msgstr ""
 
 #: core/actions/footer-actions.php:46
 #: sidebar.php:26
-#@ core
-#@ ifeature
+#@ business
+#@ business
 msgid "Archives"
 msgstr ""
 
 #: core/actions/footer-actions.php:53
-#@ core
+#@ business
 msgid "Links"
 msgstr ""
 
@@ -109,107 +109,107 @@ msgstr ""
 #: core/actions/footer-actions.php:64
 #: sidebar.php:40
 #: sidebar.php:44
-#@ core
-#@ ifeature
+#@ business
+#@ business
 msgid "WordPress"
 msgstr ""
 
 #: core/actions/footer-actions.php:64
 #: sidebar.php:44
-#@ core
-#@ ifeature
+#@ business
+#@ business
 msgid "http://wordpress.org/"
 msgstr ""
 
 #: core/actions/footer-actions.php:64
 #: sidebar.php:44
-#@ core
-#@ ifeature
+#@ business
+#@ business
 msgid "Powered by WordPress, state-of-the-art semantic personal publishing platform."
 msgstr ""
 
 #: core/actions/global-actions.php:43
-#@ core
+#@ business
 msgid "Published on"
 msgstr ""
 
 #: core/actions/global-actions.php:44
-#@ core
+#@ business
 msgid "by"
 msgstr ""
 
 #: core/actions/global-actions.php:45
-#@ core
+#@ business
 msgid "in"
 msgstr ""
 
 #: core/actions/global-actions.php:70
-#@ core
+#@ business
 msgid "No Comments &#187;"
 msgstr ""
 
 #: core/actions/global-actions.php:70
-#@ core
+#@ business
 msgid "1 Comment &#187;"
 msgstr ""
 
 #: core/actions/global-actions.php:70
-#@ core
+#@ business
 msgid "% Comments &#187;"
 msgstr ""
 
 #: core/actions/index-actions.php:276
-#@ default
+#@ business
 msgid "Page"
 msgstr ""
 
 #: core/classy-options/classy-options-framework/classy-options.php:82
-#@ default
+#@ business
 msgid "Save Options"
 msgstr ""
 
 #: core/classy-options/classy-options-framework/classy-options.php:86
-#@ ifeature
+#@ business
 msgid "Support"
 msgstr ""
 
 #: core/classy-options/classy-options-framework/classy-options.php:87
-#@ ifeature
+#@ business
 msgid "Documentation"
 msgstr ""
 
 #: core/classy-options/classy-options-framework/classy-options.php:88
-#@ ifeature
+#@ business
 msgid "Forum"
 msgstr ""
 
 #: core/classy-options/classy-options-framework/classy-options.php:89
-#@ ifeature
+#@ business
 msgid "Twitter"
 msgstr ""
 
 #: core/classy-options/classy-options-framework/classy-options.php:90
-#@ ifeature
+#@ business
 msgid "Facebook"
 msgstr ""
 
 #: core/classy-options/classy-options-framework/classy-options.php:91
-#@ ifeature
+#@ business
 msgid "CyberChimps Store"
 msgstr ""
 
 #: core/classy-options/classy-options-framework/classy-options.php:92
-#@ ifeature
+#@ business
 msgid "CyberChimps Pro"
 msgstr ""
 
 #: core/classy-options/classy-options-framework/classy-options.php:111
-#@ default
+#@ business
 msgid "Restore Defaults"
 msgstr ""
 
 #: core/classy-options/classy-options-framework/classy-options.php:111
-#@ default
+#@ business
 msgid "Click OK to reset. Any theme settings will be lost!"
 msgstr ""
 
@@ -234,12 +234,12 @@ msgid "Options saved."
 msgstr ""
 
 #: core/classy-options/classy-options-framework/options-medialibrary-uploader.php:26
-#@ default
+#@ business
 msgid "Options Framework Internal Container"
 msgstr ""
 
 #: core/classy-options/classy-options-framework/options-medialibrary-uploader.php:128
-#@ default
+#@ business
 msgid "Upload"
 msgstr ""
 
@@ -259,89 +259,84 @@ msgid "Previously Uploaded"
 msgstr ""
 
 #: core/pro/inc/meta-box.php:22
-#@ default
+#@ business
 msgid "You don't have permission to delete this file."
 msgstr ""
 
 #: core/pro/inc/meta-box.php:26
-#@ default
+#@ business
 msgid "File has been successfully deleted."
 msgstr ""
 
 #: functions.php:82
 #, php-format
-#@ default
+#@ business
 msgid "<cite class=\"fn\">%s</cite> <span class=\"says\"></span>"
 msgstr ""
 
 #: functions.php:85
-#@ default
+#@ business
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
 #: functions.php:89
 #, php-format
-#@ default
+#@ business
 msgid "%1$s at %2$s"
 msgstr ""
 
 #: functions.php:89
-#@ default
+#@ business
 msgid "(Edit)"
 msgstr ""
 
-#: functions.php:221
-#@ default
-msgid "iFeature Slides"
-msgstr ""
-
 #: functions.php:222
-#@ default
+#@ business
 msgid "Slides"
 msgstr ""
 
 #: functions.php:237
-#@ default
+#@ business
 msgid "Carousel"
 msgstr ""
 
 #: functions.php:238
-#@ default
+#@ business
 msgid "Posts"
 msgstr ""
 
 #: functions.php:390
-#@ default
+#@ business
 msgid "Header Menu"
 msgstr ""
 
 #: functions.php:390
-#@ default
+#@ business
 msgid "Footer Menu"
 msgstr ""
 
 #: sidebar.php:19
-#@ ifeature
+#@ business
 msgid "Pages"
 msgstr ""
 
 #: sidebar.php:33
-#@ ifeature
+#@ business
 msgid "Categories"
 msgstr ""
 
 #: sidebar.php:50
-#@ ifeature
+#@ business
 msgid "Subscribe"
 msgstr ""
 
 #: sidebar.php:52
-#@ ifeature
+#@ business
 msgid "Entries (RSS)"
 msgstr ""
 
 #: sidebar.php:53
-#@ ifeature
+#@ business
 msgid "Comments (RSS)"
 msgstr ""
 
