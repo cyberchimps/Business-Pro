@@ -33,7 +33,7 @@ function business_box_section_content() {
 <div class="row boxes">
 	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box 1") ) : ?>
 		<div id="box1" class="three columns">
-			<h2 class="box-widget-title">Responsive Pro Slider</h2>	
+			<h2 class="box-widget-title">Responsive Slider</h2>	
 			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/iphone.png" height="24" alt="slider" class="alignleft" />"Again, you can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future." -Steve Jobs</p>
 		</div><!--end box1-->
 		<?php endif; ?>
@@ -45,7 +45,7 @@ function business_box_section_content() {
 		<?php endif; ?>
 	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box 3") ) : ?>
 		<div id="box3" class="three columns">
-			<h2 class="box-widget-title">Excellent Support</h2>
+			<h2 class="box-widget-title">Drag and Drop Elements</h2>
 			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/cogs.png" height="24" alt="slider" class="alignleft" />"Again, you can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future." -Steve Jobs</p>
 		</div><!--end box3-->
 		<?php endif; ?>
