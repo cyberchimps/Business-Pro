@@ -30,6 +30,7 @@ function business_product_element_content(){
 		$align = $options->get($themeslug.'_front_product_text_align');
 		$link_enable = $options->get($themeslug.'_front_product_link_toggle');
 		$link = $options->get($themeslug.'_front_product_link_url');
+		$link_text = $options->get($themeslug.'_front_product_link_text');
 		
 	}
 	elseif (is_page() && !is_front_page()) {
@@ -41,6 +42,7 @@ function business_product_element_content(){
 		$align = get_post_meta($post->ID, 'product_text_align' , true);
 		$link_enable  = get_post_meta($post->ID, 'product_link_toggle' , true);
 		$link  = get_post_meta($post->ID, 'product_link_url' , true);
+		$link_text  = get_post_meta($post->ID, 'product_link_text' , true);
 	}
 	else {
 		$text  = $options->get($themeslug.'_blog_product_text');
@@ -52,12 +54,13 @@ function business_product_element_content(){
 		$align = $options->get($themeslug.'_blog_product_text_align');
 		$link_enable = $options->get($themeslug.'_blog_proudct_link_toggle');
 		$link = $options->get($themeslug.'_blog_product_link_url');
+		$link_text = $options->get($themeslug.'_blog_product_link_text');
 	}
 	
 	
 	
 	if ($link_enable == "on" or $link_enable == "1" OR $link_enable == '') {
-		$button = "<a href='$link' class='nice medium radius white button'>Buy Now</a>";
+		$button = "<a href='$link' class='nice medium radius white button'>$link_text</a>";
 	}
 	else {
 		$button = '';

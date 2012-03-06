@@ -73,7 +73,7 @@ jQuery(document).ready(function($) {
     }
   }).change();
     $("#bu_blog_product_link_toggle").change(function() {
-    var toShow = $("#section-bu_blog_product_link_url");
+    var toShow = $("#section-bu_blog_product_link_url, #section-bu_blog_product_link_text");
     if($(this).is(':checked')) {
       toShow.show();
     } else {
@@ -81,7 +81,7 @@ jQuery(document).ready(function($) {
     }
   }).change();
    $("#bu_front_product_link_toggle").change(function() {
-    var toShow = $("#section-bu_front_product_link_url");
+    var toShow = $("#section-bu_front_product_link_url, #section-bu_front_product_link_text");
     if($(this).is(':checked')) {
       toShow.show();
     } else {
@@ -196,13 +196,13 @@ jQuery(function($) {
 	$("input[name='business[bu_blog_section_order]']").change(function(){
 		var show = $(this).val().split(",");
 		var map = {
-			synapse_page_slider: "subsection-blogslider",
-			synapse_callout_section: "subsection-calloutoptions",
-			synapse_portfolio_element: "subsection-portfoliooptions",
-			synapse_twitterbar_section: "subsection-twtterbaroptions",
-			synapse_index_carousel_section: "subsection-carouseloptions",
-			synapse_product_element: "subsection-productoptions"
-			// , synapse_box_section: ""
+			business_page_slider: "subsection-blogslider",
+			business_callout_section: "subsection-calloutoptions",
+			business_portfolio_element: "subsection-portfoliooptions",
+			business_twitterbar_section: "subsection-twtterbaroptions",
+			business_index_carousel_section: "subsection-carouseloptions",
+			business_product_element: "subsection-productoptions"
+			// , business_box_section: ""
 		};
 
 		$.each(map, function(key, value) {
@@ -217,13 +217,13 @@ jQuery(function($) {
 		$("input[name='business[bu_front_section_order]']").change(function(){
 		var show = $(this).val().split(",");
 		var map = {
-			synapse_page_slider: "subsection-slider",
-			synapse_callout_section: "subsection-callout",
-			synapse_portfolio_element: "subsection-portfolio",
-			synapse_twitterbar_section: "subsection-twtterbar",
-			synapse_index_carousel_section: "subsection-carousel",
-			synapse_product_element: "subsection-product"
-			// , synapse_box_section: ""
+			business_page_slider: "subsection-slider",
+			business_callout_section: "subsection-callout",
+			business_portfolio_element: "subsection-portfolio",
+			business_twitterbar_section: "subsection-twtterbar",
+			business_index_carousel_section: "subsection-carousel",
+			business_product_element: "subsection-product"
+			// , business_box_section: ""
 		};
 
 		$.each(map, function(key, value) {
@@ -240,7 +240,7 @@ jQuery(function($) {
 		var map = {
 			business_sitename_contact: "section-bu_header_contact",
 			business_banner: "section-bu_banner"
-			// , synapse_box_section: ""
+			// , business_box_section: ""
 		};
 
 		$.each(map, function(key, value) {
