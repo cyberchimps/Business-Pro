@@ -201,7 +201,7 @@ function business_slider_content() {
 	    	}
 	    	
 	    	if ($media == '') {
-	    		$mediacontent = "<img src='$image' width='$imgwidth' height='240' alt='Slider' />";
+	    		$mediacontent = "<img class='aligncenter' src='$image' width='$imgwidth' height='240' alt='Slider' />";
 
 	    	}
 	    	
@@ -215,8 +215,8 @@ function business_slider_content() {
 	  							<div class='content_title' style='padding-left: 15px; padding-right: 15px;'>$title</div><br />
 	  							<div class='content_text' style='padding-left: 15px; padding-right: 15px;'>$customtext</div>
 	  						</div>
-	  						<div id='image_container' class='six columns' style='padding-top:40px; float: $imagealign;  '>
-	  							<div class='media_content'>$mediacontent</div> 						
+	  						<div id='image_container' class='six columns' style='padding-top:20px; float: $imagealign;  '>
+	  							<div class='media_content'><center>$mediacontent</center></div> 						
 	  						</div>
 	    				</div>
 	    			   

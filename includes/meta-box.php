@@ -83,7 +83,7 @@ function initialize_the_meta_boxes() {
 	$mb = new Chimps_Metabox('slides', 'Custom Feature Slides', array('pages' => array($themeslug.'_custom_slides')));
 	$mb
 		->tab("Custom Slide Options")
-			->select('slider_type', 'Select Slider Type', '', array('options' => array('Text/Image', 'Full Image', 'Full Text')) )
+			->select('slider_type', 'Select Slider Type', '', array('options' => array('Text and Image', 'Image Only', 'Text Only')) )
 			->textarea('slider_caption', 'Custom Slide Caption', '')
 			->single_image('slider_image', 'Custom Slide Image', '')
 			->textarea('slider_media', 'Slider Media', '')

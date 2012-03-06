@@ -789,6 +789,8 @@ figure {
     #orbitDemo.orbit, #orbitDemo {height: 450px !important;}
     .meta ul li {display: inline; margin-right:15px;}
     #product_media.six.columns {margin-left: 0%; float: none;}
+    #image_container.six.columns {float: none !important;}
+    #text_container {margin-bottom: 20px;}
 }
 
 @media handheld, only screen and (max-width: 400px) {
