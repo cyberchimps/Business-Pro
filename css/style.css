@@ -289,7 +289,7 @@ a:hover {color: #5ca9d6;}
 	overflow: hidden;
 }
 
-#magnify {float:left;position:absolute;margin: 5px 0 0 5px;}
+#magnify {float:left;position:absolute;margin: 2px 0 0 5px;}
 
 #magnify {margin: 0 0 0 5px\0/IE8+9; /* IE8+9  */}
 
