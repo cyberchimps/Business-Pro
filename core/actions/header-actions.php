@@ -59,7 +59,12 @@ function business_font() {
 * @since 3.0
 */
 function business_html_attributes() { ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes('xhtml'); ?>>
 <head profile="http://gmpg.org/xfn/11"> <?php 
 }
