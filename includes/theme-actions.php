@@ -20,9 +20,46 @@
 */
 
 add_action( 'business_logo_menu', 'business_logo_menu_content');
+add_action( 'business_description_icons', 'business_description_icons_content');
 
 /**
 * Description/Icons
+*
+* @since 3.0
+*/
+function business_description_icons_content() {
+?>
+
+<div id="header">
+	<div class="container">
+		<div class="row">	
+			
+			<div class="five columns">
+				
+			<!-- Begin @Core header description hook -->
+				<?php business_header_site_description(); ?> 
+			<!-- End @Core header description hook -->
+			
+				
+			</div>	
+			
+			<div class="seven columns">
+			
+			<!-- Begin @Core header social icon hook -->
+				<?php business_header_social_icons(); ?> 
+			<!-- End @Core header contact social icon hook -->	
+						
+			</div>	
+
+		
+		</div><!--end row-->
+	</div>
+</div>
+<?php
+}
+
+/**
+* Logo/Menu
 *
 * @since 3.0
 */

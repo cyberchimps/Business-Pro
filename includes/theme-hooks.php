@@ -20,3 +20,6 @@ function business_logo_menu() {
 	do_action('business_logo_menu');
 }
 
+function business_description_icons() {
+	do_action('business_description_icons');
+}

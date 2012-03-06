@@ -100,7 +100,7 @@ $options
 			->close_outersection()
 	->section("Header")
 		->open_outersection()
-			->section_order("header_section_order", "Drag drop sections for the Header", array('options' => array("business_logo_menu" => "Logo + Menu", "business_subheader" => "Search + Icons"), 'default' => 'business_logo_menu'))
+			->section_order("header_section_order", "Drag drop sections for the Header", array('options' => array("business_logo_menu" => "Logo + Menu", "business_description_icons" => "Description + Icons"), 'default' => 'business_logo_menu'))
 		->close_outersection()
 			->subsection("Header Options")
 			->checkbox($themeslug."_custom_logo", "Custom Logo" , array('default' => true))
