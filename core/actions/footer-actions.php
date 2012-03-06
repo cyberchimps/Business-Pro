@@ -45,13 +45,6 @@ function business_footer_widgets() {
 				<?php wp_get_archives('type=postbypost&limit=4'); ?>
 			</ul>
 		</div>
-		
-		<div class="three columns footer-widgets">
-			<h3 class="footer-widget-title"><?php printf( __( 'Archives', 'business' )); ?></h3>
-			<ul>
-				<?php wp_get_archives('type=monthly&limit=16'); ?>
-			</ul>
-		</div>
 
 		<div class="three columns footer-widgets">
 			<h3 class="footer-widget-title"><?php printf( __( 'WordPress', 'business' )); ?></h3>
@@ -61,6 +54,11 @@ function business_footer_widgets() {
     		<li><a href="<?php echo esc_url( __('http://wordpress.org/', 'business' )); ?>" target="_blank" title="<?php esc_attr_e('Powered by WordPress, state-of-the-art semantic personal publishing platform.', 'business'); ?>"> <?php printf( __('WordPress', 'business' )); ?></a></li>
     		<?php wp_meta(); ?>
     		</ul>
+		</div>
+		
+		<div class="three columns footer-widgets">
+			<h3 class="footer-widget-title"><?php printf( __( 'Search', 'business' )); ?></h3>
+			<?php get_search_form(); ?>
 		</div>
 		
 			<?php }

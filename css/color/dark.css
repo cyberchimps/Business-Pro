@@ -22,10 +22,16 @@ a:hover {color: #5ca9d6;}
 
 .calloutbg {background: #3b3b3b url(../../images/headerbgdark.png);border-bottom:1px solid #2E2F30;}
 
-.callout_title {
-	color: #f8f8f8;
-}
+#callout_text {color: #f8f8f8;}
 
 .content_title, .content_text {
 	color: #252525;
+}
+
+.sitename a{
+	color: #f8f8f8;
+}
+
+.sitename a:hover{
+	color: #ccc;
 }
