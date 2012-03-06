@@ -16,44 +16,7 @@
 */
 
 
-/**
-* Hook for header content area
-*
-* @since 3.0
-*/
-function business_header_content() {
-	do_action('business_header_content');
-}
-
-/**
-* Hook for the Header Contact Area
-*
-* @since 3.0.5
-*/
-function business_header_contact_area() {
-	do_action('business_header_contact_area');
-}
-
-function business_sitename_register() {
-	do_action('business_sitename_register');
-}
-
-function business_sitename_contact() {
-	do_action('business_sitename_contact');
-}
-
-function business_description_icons() {
-	do_action('business_description_icons');
-}
-
 function business_logo_menu() {
 	do_action('business_logo_menu');
 }
 
-function business_logo_description() {
-	do_action('business_logo_description');
-}
-
-function business_banner() {
-	do_action('business_banner');
-}
