@@ -478,7 +478,7 @@ add_action('wp_head', 'business_lazy_load');
 */ 
 function register_menus() {
 	register_nav_menus(
-	array( 'header-menu' => __( 'Header Menu' ), 'footer-menu' => __( 'Footer Menu' ), 'sub-menu' => __( 'Sub Menu' ))
+	array( 'header-menu' => __( 'Header Menu' ))
   );
 }
 add_action( 'init', 'register_menus' );
