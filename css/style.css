@@ -150,7 +150,7 @@ a:hover {color: #5ca9d6;}
     display: none;
 	background-color: #FFF;
     border: 1px solid #E6E6E6;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px 0 #eee;
     margin: 20px 0 0;
     padding: 8px 0 0;
     position: absolute;
