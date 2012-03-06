@@ -106,7 +106,7 @@ function business_slider_content() {
 
 	$csWidth = '980';
 	$imgwidth = '420';
-	$defaultimage = "$root/images/pro/slider-980.jpg";
+	$sliderdefault = "$root/images/pro/sliderdefault.jpg";
 
 /* End slider width variable */ 
 
@@ -269,13 +269,32 @@ function business_slider_content() {
 	      	
 	      	else:
 	      
-	      	$out .= "	<br /><br /><br /><br />
-	    				<font size='6'>Oops! You have not created a Custom Slide.</font> <br /><br />
-
-To learn how to create a custom slide please <a href='http://cyberchimps.com/question/using-the-ifeature-slider/' target='_blank'><font color='blue'>read the documentation</font></a>.<br /><br />
-
-To create a Custom Slide please go to the Custom Slides tab in WP-Admin. Once you have created your first Custom Slide it will display here instead of this warning.<br /><br />
-		
+	      	$out .= "	
+	      				<div id='orbitDemo'>
+	      				<div class='slider_content'>	
+	  							<img src='$sliderdefault' alt='Slider' />
+	    				</div>	
+	    				
+	    				<div class='slider_content'>
+	  						<div id='text_container' class='six columns' style='float: left; '>
+	  							<div class='content_title' style='padding-left: 15px; padding-right: 15px;'>Text-Align Left</div><br />
+	  							<div class='content_text' style='padding-left: 15px; padding-right: 15px;'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+	  						</div>
+	  						<div id='image_container' class='six columns' style='padding-top:20px; float: right;  '>
+	  							<div class='media_content'><img class='aligncenter' src='$root/images/pro/product.jpg' width='$imgwidth' height='240' alt='Slider' /></div> 						
+	  						</div>
+	    				</div>
+	    				
+	    			<div class='slider_content'>
+	  						<div id='text_container' class='six columns' style='float: right; '>
+	  							<div class='content_title' style='padding-left: 15px; padding-right: 15px;'>Text-Align Right</div><br />
+	  							<div class='content_text' style='padding-left: 15px; padding-right: 15px;'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+	  						</div>
+	  						<div id='image_container' class='six columns' style='padding-top:20px; float: left;  '>
+	  							<div class='media_content'><img class='aligncenter' src='$root/images/pro/product.jpg' width='$imgwidth' height='240' alt='Slider' /></div> 						
+	  						</div>
+	    				</div>
+	    				</div>
 	    			";
 	endif; 	    
 	$wp_query = $tmp_query;    
