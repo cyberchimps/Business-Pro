@@ -245,12 +245,9 @@ a:hover {color: #5ca9d6;}
 	border-radius: 15px;
 	width: 160px;
 	padding: 0;
-	margin: 7px 5px 5px 10px;
 	height: 20px;
 	box-shadow:inset 0 0 1px #222;
 	background: #fff;
-	float: right;
-	margin-right: 20px;
 }
 
 .center .searchform {float:none;}
