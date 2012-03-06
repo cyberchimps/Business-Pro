@@ -63,7 +63,7 @@ function business_callout_section_content() {
 /* Define Callout text. */	
 
 	if ($text == '') {
-		$callouttext = 'CyberChimps gives you the tools to turn WordPress into a modern feature rich Content Management System (CMS)';
+		$callouttext = '<div style="margin-bottom:10px; font-size:20px;"><i>"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed odio nibh, tincidunt adipiscing, pretium nec, tincidunt id, enim. Fusce scelerisque nunc vitae nisl. Quisque quis urna in velit dictum pellentesque."</i><br /></div> Get ready to <a href="http://cyberchimps.com">learn more</a>.';
 	}
 	else {
 		$callouttext = $text;
