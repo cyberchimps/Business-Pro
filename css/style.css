@@ -113,14 +113,13 @@ a:hover {color: #5ca9d6;}
 /* Header  */
 
 #subheader {
-	background:url(../images/broken_noise.png);
+	background:url(../images/subheaderdark.png);
 	height:35px;
-	border-bottom: 1px solid #e1e1e1;
 }
 
 #header_contact{ text-align:right;}
 
-#logo {margin-bottom: 5px;margin-top:10px}
+#logo {margin-bottom: 5px;margin-top:18px;line-height: 40px;}
 
 #banner {margin-bottom: 10px;}
 
@@ -712,7 +711,8 @@ h1.description, h1.sitename {margin-bottom: 0px;}
 .description {	
 	font-size: 11px;
 	margin-top:12px;
-	color: #666;
+	color: #eee;
+	font-weight: bold;
 }
 
 .sitename {
