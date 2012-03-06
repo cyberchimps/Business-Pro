@@ -168,6 +168,30 @@ a:hover {color: #5ca9d6;}
     top: -10px;
     width: 14px;
 }
+
+#nav #nav_menu > li > .children {
+    display: none;
+	background-color: #FFF;
+    border: 1px solid #E6E6E6;
+    box-shadow: 0 1px 1px 0 #eee;
+    margin: 20px 0 0;
+    padding: 8px 0 0;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    float: left;
+    width: 180px;
+    z-index: 9999;
+}
+#nav #nav_menu > li > .children .nav_arrow {
+    background: url(../images/nav_arrow.png);
+    height: 11px;
+    left: 10px;
+    position: absolute;
+    top: -10px;
+    width: 14px;
+}
+
 #nav #nav_menu > li > a {
 	background: #FBFBFB;
 	background: -moz-linear-gradient(center top , #FBFBFB 0%, #E4E5E5 100%) repeat scroll 0 0 transparent;

@@ -53,3 +53,21 @@ jQuery(document).ready(function($) {
 	}, function () {
 	});
 });
+
+jQuery(document).ready(function($) {
+	$('#nav_menu .children').hide();
+	$('#nav_menu > li > .children').append('<span class="nav_arrow"/>');
+	$("#nav_menu ul").find(".children").prev().addClass("parent-menu");
+	
+	$("#nav_menu > li").hover( function() {
+		$(this).children(".children").fadeIn("slow");
+	}, function () {
+		$(this).find(".children").hide();
+	});
+	
+	$("#nav_menu > li > .children li").hover( function() {
+		$(this).children(".children").slideDown("slow");
+	}, function () {
+	});
+});
+
