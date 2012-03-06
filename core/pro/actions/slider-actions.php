@@ -98,7 +98,7 @@ function business_slider_content() {
 /* End animation styles. */		
 
 	$wordthumb = "h=240&w=420";
-	$wordthumb2 = "h=330&w=980";
+	$wordthumb2 = "h=300&w=980";
 
 /* End define wordthumb. */
 
