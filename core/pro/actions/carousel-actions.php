@@ -105,7 +105,6 @@ query_posts( array ('post_type' => $themeslug.'_carousel', 'showposts' => 20, tr
 	    			<a href='$image'>	
 	    				<img src='$image' alt='$title'/>
 	    			</a>
-	    			<div class='carousel_caption'>$title</div>
 	    		</li>
 	    	
 	    	";
