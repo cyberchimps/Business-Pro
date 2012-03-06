@@ -387,7 +387,7 @@ ol, ul {list-style-position: inside;margin-left: 21px;}
 
 .textwidget {padding-top: 10px;}
 
-#sidebar {margin-top: 40px;}
+#sidebar, #sidebar_left, #sidebar_right {margin-top: 40px;}
 
 #sidebar .widget-container td {padding-right: 15px;}
 
