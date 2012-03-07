@@ -77,7 +77,7 @@ function custom_gallery_post_format( $content ) {
 		}
 		?>	
 			<div class="row">
-			<div class="three columns"><?php synapse_post_byline(); ?></div>
+			<div class="three columns"><?php business_post_byline(); ?></div>
 				<div class="entry nine columns">
 					<?php if ($options->get($themeslug.'_post_formats') == '1') : ?>
 						<div class="postformats"><!--begin format icon-->
@@ -107,11 +107,11 @@ function custom_gallery_post_format( $content ) {
 				<?php endif;?>
 				
 				<!--Begin @Core link pages hook-->
-					<?php synapse_link_pages(); ?>
+					<?php business_link_pages(); ?>
 				<!--End @Core link pages hook-->
 			
 				<!--Begin @Core post edit link hook-->
-					<?php synapse_edit_link(); ?>
+					<?php business_edit_link(); ?>
 				<!--End @Core post edit link hook-->
 				</div><!--end entry-->
 			</div><!--end row-->
@@ -120,7 +120,7 @@ function custom_gallery_post_format( $content ) {
 		$content = ob_get_clean();	
 		return $content; 
 }
-add_filter('synapse_post_formats_gallery_content', 'custom_gallery_post_format' ); 
+add_filter('business_post_formats_gallery_content', 'custom_gallery_post_format' ); 
 	
 /**
 * Set custom post excerpt link text based on theme option.
@@ -609,7 +609,7 @@ function custom_pagination($pages = '', $range = 4)
      }
 }
 /**
-* Initialize Synapse Core Framework and Pro Extension.
+* Initialize business Core Framework and Pro Extension.
 */ 
 require_once ( get_template_directory() . '/core/core-init.php' );
 require_once ( get_template_directory() . '/core/pro/pro-init.php' );
