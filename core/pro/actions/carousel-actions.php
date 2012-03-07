@@ -122,50 +122,50 @@ query_posts( array ('post_type' => $themeslug.'_carousel_images', 'showposts' =>
 	      			<li>
 	      				
 	    				<a href='$default'>	
-	    				<img src='$default' alt='$title'/>
+	    				<img src='$default' />
 	    			</a>
 
 	    				
 	    			</li>
 					<li>
 	    				<a href='$default'>	
-	    				<img src='$default' alt='$title'/>
+	    				<img src='$default' />
 	    			</a>
 
 	    			</li>
 					<li>
 	    				<a href='$default'>	
-	    				<img src='$default' alt='$title'/>
+	    				<img src='$default' />
 	    			</a>
 
 	    			</li>
 					<li>
 	    				<a href='$default'>	
-	    				<img src='$default' alt='$title'/>
+	    				<img src='$default' />
 	    			</a>
 	    			</li>
 					<li>
 	    				<a href='$default'>	
-	    				<img src='$default' alt='$title'/>
+	    				<img src='$default' />
 	    			</a>
 	    			</li>
 	    			
 	    			<li>
 	    				<a href='$default'>	
-	    				<img src='$default' alt='$title'/>
+	    				<img src='$default' />
 	    			</a>
 	    			</li>
 	    			
 	    			<li>
 	    				<a href='$default'>	
-	    				<img src='$default' alt='$title'/>
+	    				<img src='$default' />
 	    			</a>
 
 	    			</li>
 
 					<li>
 	    				<a href='$default'>	
-	    				<img src='$default' alt='$title'/>
+	    				<img src='$default' />
 	    			</a>
 
 	    			</li>
