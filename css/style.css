@@ -811,7 +811,7 @@ figure {
     #product_media.six.columns {margin-left: 0%; float: none;}
     #image_container.six.columns {float: none !important;}
     #text_container {margin-bottom: 20px;}
-    .entry.nine.columns, .byline.three.columns {width: 89% !important;}
+    .entry.nine.columns, .byline.three.columns {width: 90% !important; margin-left: 0% !important;}
     
 }
 
