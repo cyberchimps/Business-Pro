@@ -815,7 +815,7 @@ figure {
     #image_container.six.columns {float: none !important;}
     #text_container {margin-bottom: 20px;}
     .entry.nine.columns, .byline.three.columns {width: 100% !important; margin-left: 0% !important;}
-    
+    #sidebar.four.columns {float: left;} 
 }
 
 @media handheld, only screen and (max-width: 400px) {

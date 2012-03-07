@@ -121,32 +121,53 @@ query_posts( array ('post_type' => $themeslug.'_carousel_images', 'showposts' =>
 	    <ul>
 	      			<li>
 	      				
-	    				<img src='$default' alt='Post 1'/>
+	    				<a href='$default'>	
+	    				<img src='$default' alt='$title'/>
+	    			</a>
+
 	    				
 	    			</li>
 					<li>
-	    				<img src='$default' alt='Post 2' />
+	    				<a href='$default'>	
+	    				<img src='$default' alt='$title'/>
+	    			</a>
+
 	    			</li>
 					<li>
-	    				<img src='$default' alt='Post 3' />
+	    				<a href='$default'>	
+	    				<img src='$default' alt='$title'/>
+	    			</a>
+
 	    			</li>
 					<li>
-	    				<img src='$default' alt='Post 4' />
+	    				<a href='$default'>	
+	    				<img src='$default' alt='$title'/>
+	    			</a>
 	    			</li>
 					<li>
-	    				<img src='$default' alt='Post 5' />
+	    				<a href='$default'>	
+	    				<img src='$default' alt='$title'/>
+	    			</a>
 	    			</li>
 	    			
 	    			<li>
-	    				<img src='$default' alt='Post 6' />
+	    				<a href='$default'>	
+	    				<img src='$default' alt='$title'/>
+	    			</a>
 	    			</li>
 	    			
 	    			<li>
-	    				<img src='$default' alt='Post 6' />
+	    				<a href='$default'>	
+	    				<img src='$default' alt='$title'/>
+	    			</a>
+
 	    			</li>
 
 					<li>
-	    				<img src='$default' alt='Post 6' />
+	    				<a href='$default'>	
+	    				<img src='$default' alt='$title'/>
+	    			</a>
+
 	    			</li>
 
 
