@@ -2,7 +2,7 @@
 
 /* Reset and Design Constant Styles */
 
-body {background-color: #FFF;}
+body {color:#222;background-color: #FFF;}
 *, html, body{padding:0;border:0;margin:0;}
 body, div, p, input, textarea{font-size:14px;}
 h1, h2, h3, h4, h5, h6{font-weight:normal;}
@@ -140,6 +140,7 @@ a:hover {color: #5ca9d6;}
 	display: block;
 	padding: 5px 10px;
 	font-weight: 400;
+	text-decoration:none;
 }
 #nav_menu > li {
     padding: 0 0 20px 0;
@@ -376,7 +377,7 @@ ol, ul {list-style-position: inside;margin-left: 21px;}
 /* Sidebar  */
 
 .widget-container {
-	color: #555;
+	color: #222;
 	font-size: 13px;
 	margin-bottom: 40px;
 	background: #fff;
@@ -741,6 +742,8 @@ h1.description, h1.sitename {margin-bottom: 0px;}
 	margin-top: 20px;
 	line-height: 40px;
 }
+
+.sitename a{text-decoration: none;}
 
 /* `Spacing
 ----------------------------------------------------------------------------------------------------*/
