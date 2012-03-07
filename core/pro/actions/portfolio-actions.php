@@ -75,7 +75,7 @@ function business_portfolio_element_content() {
 <div id="portfolio" class="container">
 	<div class="row">
 	
-	<?php query_posts( array ('post_type' => $themeslug.'_portfolio', 'showposts' => 50, 'portfolio_categories' => $category ));
+	<?php query_posts( array ('post_type' => $themeslug.'_portfolio_images', 'showposts' => 50, 'portfolio_categories' => $category ));
 			
 	if (have_posts()) :
 	  	 $out = " <div id='gallery' class='twelve columns'>$title_output<ul>"; 

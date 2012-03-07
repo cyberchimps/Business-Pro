@@ -55,7 +55,7 @@ function business_carousel_section_content() {
 
 /* Query posts  */
 
-query_posts( array ('post_type' => $themeslug.'_carousel', 'showposts' => 20, true, 'carousel_categories' => $customcategory ));
+query_posts( array ('post_type' => $themeslug.'_carousel_images', 'showposts' => 20, true, 'carousel_categories' => $customcategory ));
 
 /* End query posts based on theme/meta options */
     	
