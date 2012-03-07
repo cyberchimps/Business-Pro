@@ -239,7 +239,7 @@ jQuery(function($) {
 		var show = $(this).val().split(",");
 		var map = {
 			business_sitename_contact: "section-bu_header_contact",
-			business_banner: "section-bu_banner"
+			business_description_icons: "subsection-social"
 			// , business_box_section: ""
 		};
 

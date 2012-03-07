@@ -110,8 +110,6 @@ $options
 			->text($themeslug."_custom_menu_font", "Enter a Custom Menu Font")
 		->subsection_end()
 		->subsection("Social")
-			->images($themeslug."_icon_style", "Icon set", array( 'options' => array( 'round' => TEMPLATE_URL . '/images/social/thumbs/icons-round.png', 'legacy' => TEMPLATE_URL . '/images/social/thumbs/icons-classic.png', 'default' =>
-TEMPLATE_URL . '/images/social/thumbs/icons-default.png' ), 'default' => 'default' ) )
 			->text($themeslug."_twitter", "Twitter Icon URL", array('default' => 'http://twitter.com'))
 			->checkbox($themeslug."_hide_twitter_icon", "Hide Twitter Icon", array('default' => true))
 			->text($themeslug."_facebook", "Facebook Icon URL", array('default' => 'http://facebook.com'))
