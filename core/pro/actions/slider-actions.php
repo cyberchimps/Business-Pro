@@ -160,7 +160,7 @@ function business_slider_content() {
 	    		$image = $halfdefault;
 	    	}
 	    	if ($customimage == '' && $slidertype == '1'){ // No custom image, no custom thumb, full-width slider, WordThumb enabled. 
-	    		$image = $fulldefault;
+	    		$fullsized = $fulldefault;
 	    	}
 	    	
 	    	if ($media == '') {
@@ -234,7 +234,7 @@ function business_slider_content() {
 	      	$out .= "	
 	      				<div id='orbitDemo'>
 	      				<div class='slider_content'>	
-	  							<img src='$sliderdefault' alt='Slider' />
+	  							<img src='$fulldefault' alt='Slider' />
 	    				</div>	
 	    				
 	    				<div class='slider_content'>
