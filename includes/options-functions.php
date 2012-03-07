@@ -60,122 +60,20 @@ function business_content_layout() {
 }
 add_action( 'wp_head', 'business_content_Layout' );
 
-/* Widget Title Background*/
+/* Site Title Color */
 
-function widget_title_background() {
-	global $options, $themeslug;
-		
-	if ($options->get($themeslug.'_widget_title_background') == '0' ) {
-		echo '<style type="text/css">';
-		echo ".widget-title {background: none; border-bottom: none;}";
-		echo '</style>';
-	}
-
-}
-add_action( 'wp_head', 'widget_title_background' );
-
-/* Icon margin*/
-
-function icon_margin() {
-	global $options, $themeslug;
-	$margin = $options->get($themeslug.'_icon_margin');
-	
-	if ($options->get($themeslug.'_icon_margin') != '10px' ) {
-		echo '<style type="text/css">';
-		echo ".icons {margin-top: $margin;}";
-		echo '</style>';
-	}
-
-}
-add_action( 'wp_head', 'icon_margin' );
-
-/* Adjust postbar width for full width and 2 sidebar configs*/
-
-function postbar_option() {
-	global $options, $themeslug;
-	
-	if ($options->get($themeslug.'_blog_sidebar') == 'two-right' OR $options->get($themeslug.'_blog_sidebar') == 'right-left') {
-		echo '<style type="text/css">';
-		echo ".postbar {width: 95.4%;}";
-		echo '</style>';
-	}
-	
-	if ($options->get($themeslug.'_blog_sidebar') == 'none') {
-		echo '<style type="text/css">';
-		echo ".postbar {width: 97.8%;}";
-		echo '</style>';
-	}
-}
-add_action( 'wp_head', 'postbar_option');
-
-/* Plus 1 Allignment */
-
-function plusone_alignment() {
-
-	global $themename, $themeslug, $options;
-	
-	if ($options->get($themeslug.'_show_fb_like') == "1" AND $options->get($themeslug.'_show_gplus') == "1" OR $options->get($themeslug.'_single_show_fb_like') == "1" AND $options->get($themeslug.'_single_show_gplus') == "1" ) {
-
-		echo '<style type="text/css">';
-		echo ".gplusone {float: right; margin-right: -38px;}";
-		echo '</style>';
-		
-	}
-	
-}
-add_action( 'wp_head', 'plusone_alignment');
-
-
-/* Featured Image Alignment */
-
-function featured_image_alignment() {
-
-	global $themename, $themeslug, $options;
-	
-	if ($options->get($themeslug.'_featured_image_align') == "key3" ) {
-
-		echo '<style type="text/css">';
-		echo ".featured-image {float: right;}";
-		echo '</style>';
-		
-	}
-	
-	elseif ($options->get($themeslug.'_featured_image_align') == "key2" ) {
-
-		echo '<style type="text/css">';
-		echo ".featured-image {text-align: center;}";
-		echo '</style>';
-		
-	}
-	
-	else {
-
-		echo '<style type="text/css">';
-		echo ".featured-image {float: none;}";
-		echo '</style>';
-		
-	}
-
-	
-}
-add_action( 'wp_head', 'featured_image_alignment');
-
-/* Post Meta Data width */
-
-function post_meta_data_width() {
+function add_text_color() {
 
 	global $themename, $themeslug, $options;
 
-	if ($options->get($themeslug.'_blog_sidebar') == "two-right" OR $options->get($themeslug.'_blog_sidebar') == "right-left") {
-
+	if ($options->get($themeslug.'_text_color') != "") {
+		$textcolor = $options->get($themeslug.'_text_color'); 
 		echo '<style type="text/css">';
-		echo ".postmetadata {width: 480px;}";
+		echo "body {color: $textcolor;}";
 		echo '</style>';
-		
 	}
-	
 }
-add_action( 'wp_head', 'post_meta_data_width');
+add_action( 'wp_head', 'add_text_color');
 
 /* Site Title Color */
 
