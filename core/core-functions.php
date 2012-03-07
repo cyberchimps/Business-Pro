@@ -53,6 +53,7 @@ function business_scripts() {
 	wp_register_script( 'menu' ,$path.'/js/menu.js');
 	wp_register_script( 'lightbox' ,$path.'/js/jquery.lightbox-0.5.js');
 	wp_register_script( 'plusone' ,$path.'/js/plusone.js');
+	wp_register_script( 'mobilemenu' ,$path.'/js/mobilemenu.js');
 	
 	wp_enqueue_script ('orbit');
 	wp_enqueue_script ('apps');
@@ -63,11 +64,8 @@ function business_scripts() {
 	wp_enqueue_script ('menu');
 	wp_enqueue_script ('lightbox');
 	wp_enqueue_script ('plusone');
-	
-	if ($options->get($themeslug.'_responsive_design') == '1' ) {
-		wp_register_script( 'mobilemenu' ,$path.'/js/mobilemenu.js');
-		wp_enqueue_script ('mobilemenu');
-	}
+	wp_enqueue_script ('mobilemenu');
+
 	if ($options->get($themeslug.'_lazy_load') == '1' ) {
 		wp_register_script( 'lazyload' ,$path.'/js/jquery.lazyload.js');
 		wp_enqueue_script ('lazyload');
