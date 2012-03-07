@@ -2,7 +2,11 @@ Business Pro Changelog
 
 ****************************
 
-Version 3.0 (01-14-12)
+Version 3.0 (03-07-12)
+-Moved to CyberChimps Response Core Framework based codebase.
+-Added Page Elements.
+-Added Front Page template.
+-Added Templates Theme Options.
 
 Version 2.1.2 (12-12-11)
 -Visual fix to theme options for WordPress 3.3.
