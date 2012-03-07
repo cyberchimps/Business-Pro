@@ -128,78 +128,39 @@ function business_slider_content() {
 
 	    	/* Post-specific variables */	
 
+	    	$title				= get_the_title() ; /* Gets slide title from post/custom slide title */
 	    	$customimage 		= get_post_meta($post->ID, 'slider_image' , true);  /* Gets slide custom image from page/post meta option */
 	    	$slidertype			= get_post_meta($post->ID, 'slider_type' , true);  /* Gets slide custom image from page/post meta option */
 	    	$customtext 		= get_post_meta($post->ID, 'slider_caption' , true);  /* Gets slide custom image from page/post meta option */
 	    	$media		 		= get_post_meta($post->ID, 'slider_media' , true);  /* Gets slide custom image from page/post meta option */
 	    	$align				= get_post_meta($post->ID, 'slider_text_align' , true);  /* Gets slide custom image from page/post meta option */
 	    	$customlink 		= get_post_meta($post->ID, 'slider_url' , true); /* Gets link from custom slide meta option */
-	    	$permalink 			= get_permalink(); /* Gets post URL for blog post slides */
-	   		$blogtext 			= get_post_meta($post->ID, 'slider_text' , true); /* Gets slide caption from post meta option */  		
-	   		$title				= get_the_title() ; /* Gets slide title from post/custom slide title */
 	   		$customsized        = "$root/core/pro/library/wt/wordthumb.php?src=$customimage&a=c&$wordthumb"; /* Gets custom image from page/post meta option, applies wordthumb code  */
 	   		$fullsized        = "$root/core/pro/library/wt/wordthumb.php?src=$customimage&a=c&$wordthumb2"; /* Gets custom image from page/post meta option, applies wordthumb code  */
 
-
-			/* End variables */	
-
-			/* Controls slide title based on page meta setting */	
-	   		
-	   		/* Slider Text Align */	
 	   		
 	   		if ($align == '0' OR $align == '') {
 	   			$textalign = 'left';
 	   			$imagealign = 'right';
 	   		}
-	   		
 	   		elseif ($align == '1') {
 	   			$textalign = 'right';
 	   			$imagealign = 'left';
 	   		}
+	    
 
-	    	/* End slider text align */
-	    		    	
-	    	/* End slider text */	
-
-	    	/* Controls slide image and thumbnails */
-
-	    	if ($customimage != '' && $customthumb == '' && $wordenable == '1' OR $customimage != '' && $customthumb == '' && $wordenable == 'on'){ // Custom image, no custom thumb, WordThumb enabled. 
+	    	if ($customimage != ''  && $wordenable == '1' OR $customimage != '' && $wordenable == 'on'){ // Custom image, no custom thumb, WordThumb enabled. 
 	    		$image = $customsized;
-	    		$thumbnail = "$root/core/pro/library/wt/wordthumb.php?src=$customimage&a=c&h=30&w=50";
-	    	}
-	    	elseif ($customimage != '' && $customthumb != '' && $wordenable == '1' OR $customimage != '' && $customthumb != '' && $wordenable == 'on'){ // Custom image, custom thumb, WordThumb enabled. 
-	    		$image = $customimage;
-	    		$thumbnail = "$root/core/pro/library/wt/wordthumb.php?src=$customthumb&a=c&h=30&w=50";
-	    	}
-	    	elseif ($customimage != '' && $customthumb != '' && $wordenable != '1' OR $customimage != '' && $customthumb != '' && $wordenable != 'on'){ // Custom image, custom thumb, WordThumb disabled. 
-	    		$image = $customimage;
-	    		$thumbnail = $customthumb;
-	    	}
-	    	elseif ($customimage != '' && $customthumb == '' && $wordenable != '1' OR $customimage != '' && $customthumb == '' && $wordenable != 'on'){ // Custom image, no custom thumb, WordThumb disabled. 
-	    		$image = $customimage;
-	    		$thumbnail = "$root/images/pro/sliderthumb.jpg";
-	    	}
-	    	elseif ($customimage != '' && $customthumb == '' && $wordenable == '1' OR $customimage != '' && $customthumb == '' && $wordenable == 'on'){ // Custom image, no custom thumb, WordThumb enabled. 
-	    		$image = $customsized;
-	    		$thumbnail = "$root/images/pro/sliderthumb.jpg";
-	    	}  	
-	    	elseif ($customimage == '' && $wordenable != '1' OR $customimage == '' && $wordenable != 'on'){ // No custom image, no custom thumb, full-width slider, WordThumb enabled. 
-
+	    	}   	
+	    	elseif ($customimage == '' && $wordenable == '1' OR $customimage == '' && $wordenable == 'on'){ // No custom image, no custom thumb, full-width slider, WordThumb enabled. 
 	    		$image = $defaultimage;
-	    		$thumbnail = "$root/images/pro/sliderthumb.jpg";
 	    	}
 	    	
-	    	elseif ($customimage == '' && $wordenable == '1' OR $customimage == '' && $wordenable == 'on'){ // No custom image, no custom thumb, full-width slider, WordThumb enabled. 
-
-	    		$image = $defaultimage;
-	    		$thumbnail = "$root/images/pro/sliderthumb.jpg";
-	    	}
 	    	
 	    	if ($media == '') {
 	    		$mediacontent = "<img class='aligncenter' src='$image' width='$imgwidth' height='240' alt='Slider' />";
 
 	    	}
-	    	
 	    	else {
 	    		$mediacontent = $media;
 	    	}
