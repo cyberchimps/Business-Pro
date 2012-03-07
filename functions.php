@@ -198,7 +198,7 @@ function create_post_type() {
 		)
 	);
 	
-	register_post_type( $themeslug.'_carousel',
+	register_post_type( $themeslug.'_carousel_images',
 		array(
 			'labels' => array(
 				'name' => __( 'Image Carousel' ),
@@ -210,11 +210,11 @@ function create_post_type() {
 			'taxonomies' => array( 'carousel_categories'),
 			'has_archive' => true,
 			'menu_icon' => "$root/images/pro/carousel.png",
-			'rewrite' => array('slug' => 'carousel')
+			'rewrite' => array('slug' => 'carousel_images')
 		)
 	);
 	
-	register_post_type( $themeslug.'_portfolio',
+	register_post_type( $themeslug.'_portfolio_images',
 		array(
 			'labels' => array(
 				'name' => __( 'Portfolio' ),
@@ -226,7 +226,7 @@ function create_post_type() {
 			'taxonomies' => array( 'portfolio_categories'),
 			'has_archive' => true,
 			'menu_icon' => "$root/images/pro/portfolio.png",
-			'rewrite' => array('slug' => 'portfolio')
+			'rewrite' => array('slug' => 'portfolio_images')
 		)
 	);
 
