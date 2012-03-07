@@ -22,8 +22,8 @@
 	$themenamefull = 'Business Pro';
 	$themeslug = 'bu';
 	$root = get_template_directory_uri(); 
-	$pagedocs = 'http://cyberchimps.com/question/using-the-ifeature-pro-page-options/';
-	$sliderdocs = 'http://cyberchimps.com/question/how-to-use-the-ifeature-pro-3-slider/';
+	$pagedocs = 'http://cyberchimps.com/question/using-the-business-pro-page-options/';
+	$sliderdocs = 'http://cyberchimps.com/question/business-pro-content-slider/';
 
 /**
 * Basic theme setup.

@@ -60,7 +60,6 @@ function initialize_the_meta_boxes() {
 	$mb
 		->tab("Featured Post Carousel Options")
 			->single_image('post_image', 'Featured Post Image', '')
-			->text('post_url', 'Featured Post URL', '')
 			->reorder('reorder_id', 'Reorder', 'Reorder Desc' )
 		->end();
 		

@@ -800,7 +800,6 @@ div.slider-nav span.left {
 
 .orbit-bullets {
     position: absolute;
-    z-index: 1000;
     list-style: none;
     left: 50%;
 	margin-left: -50px;
