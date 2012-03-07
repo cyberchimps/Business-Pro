@@ -183,8 +183,6 @@ $options
 			->text($themeslug."_excerpt_length", "Excerpt Character Length", array('default' => '55'))
 			->checkbox($themeslug."_show_featured_images", "Featured Images")
 			->multicheck($themeslug."_hide_byline", "Post Byline Elements", array( 'options' => array($themeslug."_hide_author" => "Author" , $themeslug."_hide_categories" => "Categories", $themeslug."_hide_date" => "Date", $themeslug."_hide_comments" => "Comments", $themeslug."_hide_share" => "Share", $themeslug."_hide_tags" => "Tags"), 'default' => array( $themeslug."_hide_tags" => true, $themeslug."_hide_share" => true, $themeslug."_hide_author" => true, $themeslug."_hide_date" => true, $themeslug."_hide_comments" => true, $themeslug."_hide_categories" => true ) ) )
-			->checkbox($themeslug."_show_fb_like", "Facebook Like Button")
-			->checkbox($themeslug."_show_gplus", "Google Plus One Button")
 		->subsection_end()
 		->subsection("Blog Slider")
 			->select($themeslug.'_blog_customslider_category', 'Custom slide category', array( 'options' => $customslider ))
