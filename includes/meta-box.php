@@ -116,7 +116,7 @@ function initialize_the_meta_boxes() {
 		->tab($themenamefull." Slider Options")
 			->select('slider_category', 'Custom Slide Category', '', array('options' => $slideroptions) )
 			->select('slider_blog_category', 'Blog Post Category', '', array('options' => $blogoptions, 'all') )
-			->text('slider_height', 'Slider Height', '', array('std' => '330'))
+			->text('slider_height', 'Slider Height', '', array('std' => '300'))
 			->text('slider_delay', 'Slider Delay Time (MS)', '', array('std' => '3500'))
 			->select('page_slider_animation', 'Slider Animation Type', '', array('options' => array('Horizontal-Push (default)', 'Fade', 'Horizontal-Slide', 'Vertical-Slide')) )
 			->select('page_slider_navigation_style', 'Slider Navigation Style', '', array('options' => array('Dots (default)', 'None')) )
