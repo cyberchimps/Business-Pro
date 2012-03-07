@@ -33,20 +33,20 @@ function business_box_section_content() {
 <div class="row boxes">
 	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box 1") ) : ?>
 		<div id="box1" class="three columns">
-			<h2 class="box-widget-title">Responsive Slider</h2>	
-			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/iphone.png" height="24" alt="slider" class="alignleft" />"Again, you can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future." -Steve Jobs</p>
+			<h2 class="box-widget-title">Responsive Design</h2>	
+			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/iphone.png" height="24" alt="slider" class="alignleft" />Business Pro’s Modern Responsive Design automatically adjusts to any mobile device including the iPhone, iPad, and Android devices.</p>
 		</div><!--end box1-->
 		<?php endif; ?>
 	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box 2") ) : ?>
 		<div id="box2" class="three columns">
-			<h2 class="box-widget-title">Responsive Design</h2>
-			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/home.png" height="24" alt="slider" class="alignleft" />"Focus and simplicity. Simple can be harder than complex: You have to work hard to get your thinking clean to make it simple. But it's worth it in the end, because once you get there, you can move mountains." -Steve Jobs</p>
+			<h2 class="box-widget-title">Content Feature Slider </h2>
+			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/home.png" height="24" alt="slider" class="alignleft" />Business Pro comes with a SEO and iOS friendly Responsive Content Feature Slider that displays content professionally and beautifully on any device.</p>
 		</div><!--end box2-->
 		<?php endif; ?>
 	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box 3") ) : ?>
 		<div id="box3" class="three columns">
 			<h2 class="box-widget-title">Drag and Drop Elements</h2>
-			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/cogs.png" height="24" alt="slider" class="alignleft" />"Again, you can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future." -Steve Jobs</p>
+			<p class="boxtext"><img src="<?php echo $root ; ?>/images/icons/cogs.png" height="24" alt="slider" class="alignleft" />Business Pro includes a variety of Drag and Drop Elements that can be used on any page including the blog page.</p>
 		</div><!--end box3-->
 		<?php endif; ?>
 	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Box 4") ) : ?>
