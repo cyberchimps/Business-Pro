@@ -55,16 +55,6 @@ function initialize_the_meta_boxes() {
 	// End taxonomy call
 	
 	$meta_boxes = array();
-
-	$mb = new Chimps_Metabox('post_slide_options', $themenamefull.' Slider Options', array('pages' => array('post')));
-	$mb
-		->tab("Slider Options")
-			->single_image('slider_image', 'Slider Image', '')
-			->text('slider_text', 'Slider Text', 'Enter your slider text here')
-			->checkbox('slider_hidetitle', 'Title Bar', '', array('std' => 'on'))
-			->single_image('slider_custom_thumb', 'Custom Thumbnail', 'Use the image uploader to upload a custom navigation thumbnail')
-			->sliderhelp('', 'Need Help?', '')
-		->end();
 		
 	$mb = new Chimps_Metabox('Carousel', 'Featured Post Carousel', array('pages' => array($themeslug.'_carousel_images')));
 	$mb
