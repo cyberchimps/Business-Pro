@@ -84,12 +84,11 @@ function initialize_the_meta_boxes() {
 	$mb
 		->tab("Custom Slide Options")
 			->select('slider_type', 'Select Slider Type', '', array('options' => array('Text and Image', 'Image Only', 'Text Only')) )
-			->textarea('slider_caption', 'Custom Slide Caption', '')
-			->single_image('slider_image', 'Custom Slide Image', '')
-			->textarea('slider_media', 'Slider Media', '')
+			->textarea('slider_caption', 'Slide Text', '')
+			->single_image('slider_image', 'Slide Image', '')
+			->textarea('slider_media', 'Slider Media Embed', '')
 			->select('slider_text_align', 'Text Align', '', array('options' => array('Left', 'Right')) )
-			->text('slider_url', 'Custom Slide Link', '')			
-			->checkbox('slider_hidetitle', 'Slide Title Bar', '', array('std' => 'on'))
+			->text('slider_url', 'Image Link', '')			
 			->sliderhelp('', 'Need Help?', '')
 			->reorder('reorder_id', 'Reorder', 'Reorder Desc' )
 		->end();

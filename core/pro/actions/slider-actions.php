@@ -76,10 +76,6 @@ function business_slider_content() {
 
 <?php echo $openrow; 
 	
-/* End row riv variables. */	
-	
-/* End define variables. */	
-
 /* Define animation styles. */	
 
 	if ($slideranimation == 'key2' OR $slideranimation == '1') {
@@ -98,7 +94,7 @@ function business_slider_content() {
 /* End animation styles. */		
 
 	$wordthumb = "h=240&w=480";
-	$wordthumb2 = "h=300&w=980";
+	$wordthumb2 = "h=330&w=980";
 
 /* End define wordthumb. */
 
@@ -110,7 +106,7 @@ function business_slider_content() {
 
 /* End slider width variable */ 
 
-	query_posts( array ('post_type' => $themeslug.'_custom_slides', 'showposts' => 50,  'slide_categories' => $customcategory  ) );
+	query_posts( array ('post_type' => $themeslug.'_custom_slides', 'showposts' => 100,  'slide_categories' => $customcategory  ) );
  
 /* End query posts based on theme/meta options */
     	
@@ -119,7 +115,7 @@ function business_slider_content() {
 	if (have_posts()) :
 	    $out = "<div id='orbitDemo'>"; 
 	    $i = 0;
-		$no = '50';
+		$no = '100';
 	
 	
 /* End post counter */	    	
@@ -141,10 +137,9 @@ function business_slider_content() {
 	    	$permalink 			= get_permalink(); /* Gets post URL for blog post slides */
 	   		$blogtext 			= get_post_meta($post->ID, 'slider_text' , true); /* Gets slide caption from post meta option */  		
 	   		$title				= get_the_title() ; /* Gets slide title from post/custom slide title */
-	   		$hidetitlebar       = get_post_meta($post->ID, 'slider_hidetitle' , true); /* Gets page/post meta option for disabling slide title bar */
 	   		$customsized        = "$root/core/pro/library/wt/wordthumb.php?src=$customimage&a=c&$wordthumb"; /* Gets custom image from page/post meta option, applies wordthumb code  */
 	   		$fullsized        = "$root/core/pro/library/wt/wordthumb.php?src=$customimage&a=c&$wordthumb2"; /* Gets custom image from page/post meta option, applies wordthumb code  */
-	   		$customthumb 		= get_post_meta($post->ID, 'slider_custom_thumb' , true); /* Gets custom thumbnail from page/post meta option */
+
 
 			/* End variables */	
 
