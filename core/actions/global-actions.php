@@ -69,7 +69,7 @@ function business_loop_content($content) {
 			?>	
 			<!--Call @business Meta hook-->
 			<div class="row">
-			<div class="three columns"><?php business_post_byline(); ?></div>
+			<div class="byline three columns"><?php business_post_byline(); ?></div>
 				<div class="entry nine columns">
 					<?php if ($post_formats != '0') : ?>
 						<div class="postformats"><!--begin format icon-->

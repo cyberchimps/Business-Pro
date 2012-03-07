@@ -811,8 +811,8 @@ figure {
     #product_media.six.columns {margin-left: 0%; float: none;}
     #image_container.six.columns {float: none !important;}
     #text_container {margin-bottom: 20px;}
-    .entry.nine.columns {width: 95% !important;}
-    .featured-image {text-align: center;}
+    .entry.nine.columns, .byline.three.columns {width: 89% !important;}
+    
 }
 
 @media handheld, only screen and (max-width: 400px) {
