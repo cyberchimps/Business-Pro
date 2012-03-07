@@ -66,7 +66,7 @@ function initialize_the_meta_boxes() {
 			->sliderhelp('', 'Need Help?', '')
 		->end();
 		
-	$mb = new Chimps_Metabox('Carousel', 'Featured Post Carousel', array('pages' => array($themeslug.'_carousel')));
+	$mb = new Chimps_Metabox('Carousel', 'Featured Post Carousel', array('pages' => array($themeslug.'_carousel_images')));
 	$mb
 		->tab("Featured Post Carousel Options")
 			->single_image('post_image', 'Featured Post Image', '')
@@ -74,7 +74,7 @@ function initialize_the_meta_boxes() {
 			->reorder('reorder_id', 'Reorder', 'Reorder Desc' )
 		->end();
 		
-	$mb = new Chimps_Metabox('Portfolio', 'Portfolio Element', array('pages' => array($themeslug.'_portfolio')));
+	$mb = new Chimps_Metabox('Portfolio', 'Portfolio Element', array('pages' => array($themeslug.'_portfolio_images')));
 	$mb
 		->tab("Portfolio Element")
 			->single_image('portfolio_image', 'Portfolio Image', '')
