@@ -152,6 +152,9 @@ function business_slider_content() {
 	    	if ($customimage != ''  && $wordenable == '1' OR $customimage != '' && $wordenable == 'on'){ // Custom image, no custom thumb, WordThumb enabled. 
 	    		$image = $customsized;
 	    	}   	
+	    	if ($customimage != ''  && $wordenable == '0' OR $customimage != '' && $wordenable == 'OFF'){ // Custom image, no custom thumb, WordThumb enabled. 
+	    		$image = $customimage;
+	    	} 
 	    	elseif ($customimage == '' && $wordenable == '1' OR $customimage == '' && $wordenable == 'on'){ // No custom image, no custom thumb, full-width slider, WordThumb enabled. 
 	    		$image = $defaultimage;
 	    	}
