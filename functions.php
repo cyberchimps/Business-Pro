@@ -28,7 +28,7 @@
 /**
 * Basic theme setup.
 */ 
-function if_theme_setup() {
+function bu_theme_setup() {
 	if ( ! isset( $content_width ) ) $content_width = 608; //Set content width
 	
 	add_theme_support(
@@ -41,7 +41,7 @@ function if_theme_setup() {
 	add_theme_support('automatic-feed-links');
 	add_editor_style();
 }
-add_action( 'after_setup_theme', 'if_theme_setup' );
+add_action( 'after_setup_theme', 'bu_theme_setup' );
 
 /**
 * Redirect user to theme options page after activation.
