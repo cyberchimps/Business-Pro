@@ -217,7 +217,7 @@ function create_post_type() {
 	register_post_type( $themeslug.'_portfolio',
 		array(
 			'labels' => array(
-				'name' => __( 'Image Portfolio' ),
+				'name' => __( 'Portfolio' ),
 				'singular_name' => __( 'Images' )
 			),
 			'public' => true,
