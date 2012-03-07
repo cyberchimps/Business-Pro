@@ -2,7 +2,7 @@
 
 /* Reset and Design Constant Styles */
 
-body {background-color: #FFF;}
+body {color:#222;background-color: #FFF;}
 *, html, body{padding:0;border:0;margin:0;}
 body, div, p, input, textarea{font-size:14px;}
 h1, h2, h3, h4, h5, h6{font-weight:normal;}
