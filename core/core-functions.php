@@ -72,21 +72,6 @@ function business_scripts() {
 	}
 }
 add_action('wp_enqueue_scripts', 'business_scripts');	
-/**
-* Adds "untitled" to posts with no title.
-*
-* @since 3.0
-*/
-add_filter('the_title', 'business_title');
-
-function business_title($title) {
-
-	if ($title == '') {
-		return 'Untitled';
-	} else {
-		return $title;
-	}
-}
 
 /**
 * Truncate next/previous post link text for post pagination.
