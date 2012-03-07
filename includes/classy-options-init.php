@@ -51,25 +51,23 @@ $terms2 = get_terms('category', 'hide_empty=0');
 
 $options
 	->section("Welcome")
-		->info("<h1>Business Pro 4</h1>
+		->info("<h1>Business Pro 3</h1>
 		
-<p><strong>A Responsive Drag & Drop Premium WordPress Theme</strong></p>
+<p><strong>Business Pro Professional Responsive WordPress Theme</strong></p>
 
-<p>iFeature Pro 4 includes a Responsive Apple-like design (which magically adjusts to mobile devices such as the iPhone and iPad), Responsive iFeature Slider, New Drag & Drop Header Elements, Page and Blog Elements, intuitive Theme Options, and is built with HTML5 and CSS3.</p>
+<p>Business Pro 3 from CyberChimps WordPress Themes is a Professional Responsive WordPress Theme perfect for any business on any device. It gives your company the tools to turn WordPress into a modern Drag and Drop Content Management System (CMS).</p>
 
 <p>To get started simply work your way through the menus to the left, select your options, add your content, and always remember to hit save after making any changes.</p>
 
-<p>You will find the new Drag & Drop Header Elements editor under Header to the left, and the Drag & Drop Blog Elements editor under Blog.</p>
+<p>The Content Feature Slider options are under the Business Pro Page Options which are available below the Page content entry area in WP-Admin when you edit a page. This way you can configure each page individually. You will also find the Drag & Drop Page Elements editor within the Business Pro Page Options as well.</p>
 
-<p>The iFeature Pro Slider options are under the iFeature Pro Page Options which are available below the Page content entry area in WP-Admin when you edit a page. This way you can configure each page individually. You will also find the Drag & Drop Page Elements editor within the iFeature Pro Page Options as well.</p>
+<p>If you are using the Content Feature Slider, Image Carousel, or Portfolio on a Page you can edit your slides from the Content Slides menu available in the WP-Admin menu to the far left. Look for the CyberChimps logo.</p>
 
-<p>If you are using the iFeature Pro Slider on a Page you can upload, and edit your slides from the iFeature Slides menu available in the WP-Admin menu to the far left. Look for the CyberChimps logo.</p>
+<p>We tried to make Business Pro as easy to use as possible, but if you still need help please read the <a href='http://cyberchimps.com/businesspro/docs/' target='_blank'>documentation</a>, and visit our <a href='http://cyberchimps.com/forum/pro/' target='_blank'>support forum</a>.</p>
 
-<p>We tried to make iFeature Pro as easy to use as possible, but if you still need help please read the <a href='http://cyberchimps.com/ifeaturepro/docs/' target='_blank'>documentation</a>, and visit our <a href='http://cyberchimps.com/forum/pro/' target='_blank'>support forum</a>.</p>
+<p>Thank you for using Business Pro.</p>
 
-<p>Thank you for using iFeature Pro.</p>
-
-<p><strong>A Different Kind of WordPress Theme</strong></p>
+<p><strong>A Professional Business WordPress Theme</strong></p>
 ")
 	->section("Design")
 		->open_outersection()
