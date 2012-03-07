@@ -173,7 +173,7 @@ function business_slider_content() {
 
 			$textimg = "
 	  					<div class='slider_content'>
-	  						<div id='text_container' class='six columns' style='float: $textalign; '>
+	  						<div id='text_container' class='six columns' style='float: $textalign; padding-top: 20px;'>
 	  							<div class='content_title' style='padding-left: 15px; padding-right: 15px;'>$title</div><br />
 	  							<div class='content_text' style='padding-left: 15px; padding-right: 15px;'>$customtext</div>
 	  						</div>
