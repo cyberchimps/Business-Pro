@@ -102,7 +102,8 @@ function business_slider_content() {
 
 	$csWidth = '980';
 	$imgwidth = '420';
-	$sliderdefault = "$root/images/pro/sliderdefault.jpg";
+	$fulldefault = "$root/images/pro/sliderdefault.jpg";
+	$halfdefault = "$root/images/pro/product.jpg";
 
 /* End slider width variable */ 
 
@@ -155,10 +156,12 @@ function business_slider_content() {
 	    	if ($customimage != ''  && $wordenable == '0' OR $customimage != '' && $wordenable == 'OFF'){ // Custom image, no custom thumb, WordThumb enabled. 
 	    		$image = $customimage;
 	    	} 
-	    	elseif ($customimage == '' && $wordenable == '1' OR $customimage == '' && $wordenable == 'on'){ // No custom image, no custom thumb, full-width slider, WordThumb enabled. 
-	    		$image = $defaultimage;
+	    	if ($customimage == '' && $slidertype == '0'){ // No custom image, no custom thumb, full-width slider, WordThumb enabled. 
+	    		$image = $halfdefault;
 	    	}
-	    	
+	    	if ($customimage == '' && $slidertype == '1'){ // No custom image, no custom thumb, full-width slider, WordThumb enabled. 
+	    		$image = $fulldefault;
+	    	}
 	    	
 	    	if ($media == '') {
 	    		$mediacontent = "<img class='aligncenter' src='$image' width='$imgwidth' height='240' alt='Slider' />";
