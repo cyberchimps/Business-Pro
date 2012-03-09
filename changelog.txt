@@ -5,6 +5,7 @@ Business Pro Changelog
 Version 3.0.1 (03-09-12)
 -Fixed empty space at the end of licensing folder name.
 -Fixed bug with archive template. 
+-Added Javascript to hide/show options as needed in Content Slide options.
 
 Version 3.0 (03-07-12)
 -Moved to CyberChimps Response Core Framework based codebase.
