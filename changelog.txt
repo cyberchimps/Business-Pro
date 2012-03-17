@@ -2,6 +2,9 @@ Business Pro Changelog
 
 ****************************
 
+Version 3.0.3 (03-17-12)
+-Fixed slider navigation arrow option.
+
 Version 3.0.2 (03-09-12)
 -Fixed issue with widgetized boxes. 
 

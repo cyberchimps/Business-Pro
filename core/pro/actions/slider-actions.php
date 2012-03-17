@@ -296,7 +296,16 @@ function business_slider_content() {
 
 /* End slider navigation variable */ 
 
+/* Slider navigation options */
 
+	if ($hidenav == '0' OR $hidenav == "off") { ?>
+		<style type="text/css">
+		div.slider-nav {display: none !important;}
+		</style> <?php
+	}
+	
+	
+/* End navigation options */
 
 ?>
 
@@ -307,6 +316,7 @@ function business_slider_content() {
 	</style>
 
 <!-- End style -->
+
 	
 <?php if ($navigationstyle == 'key3' OR $navigationstyle == '2') :?>
 	<style type="text/css" media="screen">
