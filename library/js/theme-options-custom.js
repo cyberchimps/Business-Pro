@@ -222,6 +222,7 @@ jQuery(function($) {
 			business_portfolio_element: "subsection-portfolio",
 			business_twitterbar_section: "subsection-twtterbar",
 			business_index_carousel_section: "subsection-carousel",
+			business_front_page_custom: "subsection-custom",
 			business_product_element: "subsection-product"
 			// , business_box_section: ""
 		};
