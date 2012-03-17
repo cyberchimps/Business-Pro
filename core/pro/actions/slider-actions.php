@@ -164,7 +164,7 @@ function business_slider_content() {
 	    	}
 	    	
 	    	if ($media == '') {
-	    		$mediacontent = "<img class='aligncenter' src='$image' width='$imgwidth' height='240' alt='Slider' />";
+	    		$mediacontent = "<a href='$customlink'><img class='aligncenter' src='$image' width='$imgwidth' height='240' alt='Slider' /></a>";
 
 	    	}
 	    	else {
@@ -187,7 +187,7 @@ function business_slider_content() {
 	    	$fullimg = "
 	  					<div class='slider_content'>
 	  							 			
-	  							<img src='$fullsized' alt='Slider' />
+	  							<a href='$customlink'><img src='$fullsized' alt='Slider' /></a>
 	  						
 	    				</div>
 	    				";
