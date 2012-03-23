@@ -2,6 +2,9 @@ Business Pro Changelog
 
 ****************************
 
+Version 3.0.4 (03-23-12)
+-Fix for slider bug on pages with WordThumb disabled. 
+
 Version 3.0.3 (03-17-12)
 -Fixed slider navigation arrow option.
 -Fixed slide image broken links.

@@ -148,12 +148,11 @@ function business_slider_content() {
 	   			$textalign = 'right';
 	   			$imagealign = 'left';
 	   		}
-	    
 
 	    	if ($customimage != ''  && $wordenable == '1' OR $customimage != '' && $wordenable == 'on'){ // Custom image, no custom thumb, WordThumb enabled. 
 	    		$image = $customsized;
 	    	}   	
-	    	if ($customimage != ''  && $wordenable == '0' OR $customimage != '' && $wordenable == 'OFF'){ // Custom image, no custom thumb, WordThumb enabled. 
+	    	if ($customimage != ''  && $wordenable == '0' OR $customimage != '' && $wordenable == 'off'){ // Custom image, no custom thumb, WordThumb enabled. 
 	    		$image = $customimage;
 	    	} 
 	    	if ($customimage == '' && $slidertype == '0'){ // No custom image, no custom thumb, full-width slider, WordThumb enabled. 
