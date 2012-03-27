@@ -101,7 +101,7 @@ function business_slider_content() {
 /* Define slider width variable */ 
 
 	$csWidth = '980';
-	$imgwidth = '420';
+	$imgwidth = '480';
 	$fulldefault = "$root/images/pro/sliderdefault.jpg";
 	$halfdefault = "$root/images/pro/product.jpg";
 
