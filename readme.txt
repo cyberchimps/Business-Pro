@@ -3,6 +3,11 @@ Business Pro is a Premium WordPress theme designed by CyberChimps.com in Califor
 Theme Homepage -  http://cyberchimps.com/businesspro
 
 Licensed under GNU General Public License v2.0 - http://www.gnu.org/licenses/gpl-2.0.html
+
+Blog icons provided by http://glyphicons.com/ under the Creative Commons license.
+
+Foundation and Orbit are licensed under the MIT license - http://www.opensource.org/licenses/mit-license.php
+
 ---------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 
@@ -15,4 +20,3 @@ For the support forum please visit: http://cyberchimps.com/forum/
 For more support options please visit http://cyberchimps.com/support/
 
 e-mail: cyberchimpspro@gmail.com
-

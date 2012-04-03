@@ -2,6 +2,37 @@ Business Pro Changelog
 
 ****************************
 
+Version 3.0.5 (04-03-12)
+-Fixed bug with video embeds in content slider.
+-Responsive fix for subheader. 
+-Added Romanian, French and Croatian language files. 
+-Removed height: auto from objects.
+-Changed <!--more--> link text to "Read more…".
+-Fixed bug with archive of an empty category.
+-Adjusted "viewport" initial scale for full-width mobile device view.  
+
+Version 3.0.4 (03-23-12)
+-Fix for slider bug on pages with WordThumb disabled. 
+
+Version 3.0.3 (03-17-12)
+-Fixed slider navigation arrow option.
+-Fixed slide image broken links.
+-Added Custom HTML element for Front Page. 
+
+Version 3.0.2 (03-09-12)
+-Fixed issue with widgetized boxes. 
+
+Version 3.0.1 (03-09-12)
+-Fixed empty space at the end of licensing folder name.
+-Fixed bug with archive template. 
+-Added Javascript to hide/show options as needed in Content Slide options.
+
+Version 3.0 (03-07-12)
+-Moved to CyberChimps Response Core Framework based codebase.
+-Added Page Elements.
+-Added Front Page template.
+-Added Templates Theme Options.
+
 Version 2.1.2 (12-12-11)
 -Visual fix to theme options for WordPress 3.3.
 
