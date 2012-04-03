@@ -6,6 +6,10 @@ Version 3.0.5 (04-03-12)
 -Fixed bug with video embeds in content slider.
 -Responsive fix for subheader. 
 -Added Romanian, French and Croatian language files. 
+-Removed height: auto from objects.
+-Changed <!--more--> link text to "Read more…".
+-Fixed bug with archive of an empty category.
+-Adjusted "viewport" initial scale for full-width mobile device view.  
 
 Version 3.0.4 (03-23-12)
 -Fix for slider bug on pages with WordThumb disabled. 
