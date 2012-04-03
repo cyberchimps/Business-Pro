@@ -2,11 +2,10 @@ Business Pro Changelog
 
 ****************************
 
-Version 3.0.6 (03-30-12)
--Responsive fix for subheader. 
-
-Version 3.0.5 (03-28-12)
+Version 3.0.5 (04-03-12)
 -Fixed bug with video embeds in content slider.
+-Responsive fix for subheader. 
+-Added Romanian, French and Croatian language files. 
 
 Version 3.0.4 (03-23-12)
 -Fix for slider bug on pages with WordThumb disabled. 
