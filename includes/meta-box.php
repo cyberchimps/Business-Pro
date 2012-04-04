@@ -137,6 +137,7 @@ function initialize_the_meta_boxes() {
 			->text('portfolio_title', 'Title', '', array('std' => 'Portfolio'))
 		->tab("Twitter Options")
 			->text('twitter_handle', 'Twitter Handle', 'Enter your Twitter handle if using the Twitter bar')
+			->checkbox('twitter_reply', 'Show @ Replies', '')
 		->tab("SEO Options")
 			->text('seo_title', 'SEO Title', '')
 			->textarea('seo_description', 'SEO Description', '')
