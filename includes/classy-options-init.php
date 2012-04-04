@@ -131,7 +131,7 @@ $options
 			->textarea($themeslug."_ga_code", "Google Analytics Code")
 		->subsection_end()
 		->section("Front Page")
-		->info("Placeholder")		
+		->info("<p>The front-page template has been removed in favor of being able to use either a traditional static page or the blog page as the homepage.<br/><br/> For more information about using the Business Pro page options, visit our documentation page <a href='http://cyberchimps.com/question/using-the-business-pro-page-options/' target='_blank'>here.</a></p>")		
 		->section("Blog")
 		->open_outersection()
 			->section_order($themeslug."_blog_section_order", "Drag & Drop Elements", array('options' => array("business_post" => "Post Page", "business_page_slider" => "Content Slider","business_callout_section" => "Callout Section", "business_twitterbar_section" => "Twitter Bar", "business_index_carousel_section" => "Carousel", "business_portfolio_element" => "Portfolio", "business_product_element" => "Product","business_box_section" => "Boxes"), "default" => 'business_post'))
