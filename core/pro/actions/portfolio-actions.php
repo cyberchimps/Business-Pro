@@ -25,14 +25,7 @@ function business_portfolio_element_content() {
 	$tmp_query = $wp_query; 
 	$image = get_post_meta($post->ID, 'portfolio_image' , true);
 	
-	if (is_front_page()) {
-		$category = $options->get($themeslug.'_front_portfolio_category');
-		$num = $options->get($themeslug.'_front_portfolio_number');
-		$title_enable = $options->get($themeslug.'_front_portfolio_title_toggle');
-		$title = $num = $options->get($themeslug.'_front_portfolio_title');
-	}
-	
-	elseif (is_page() && !is_front_page()){
+	if (is_page()){
 		$category = get_post_meta($post->ID, 'portfolio_category' , true);
 		$num = get_post_meta($post->ID, 'portfolio_row_number' , true);
 		$title_enable = get_post_meta($post->ID, 'portfolio_title_toggle' , true);

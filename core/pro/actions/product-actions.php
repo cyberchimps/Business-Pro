@@ -20,20 +20,7 @@ add_action( 'business_product_element', 'business_product_element_content' );
 function business_product_element_content(){
 	global $options, $themeslug, $root, $post;
 	
-	if (is_front_page()) {
-		$text  = $options->get($themeslug.'_front_product_text');
-		$title = $options->get($themeslug.'_front_product_title');
-		$type = $options->get($themeslug.'_front_product_type');
-		$imgsource = $options->get($themeslug.'_front_product_image');
-		$image = $imgsource['url'];
-		$video = $options->get($themeslug.'_front_product_video');
-		$align = $options->get($themeslug.'_front_product_text_align');
-		$link_enable = $options->get($themeslug.'_front_product_link_toggle');
-		$link = $options->get($themeslug.'_front_product_link_url');
-		$link_text = $options->get($themeslug.'_front_product_link_text');
-		
-	}
-	elseif (is_page() && !is_front_page()) {
+	if (is_page()) {
 		$title = get_post_meta($post->ID, 'product_title' , true);
 		$text  = get_post_meta($post->ID, 'product_text' , true);
 		$type  = get_post_meta($post->ID, 'product_type' , true);

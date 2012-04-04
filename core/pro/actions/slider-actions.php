@@ -37,17 +37,7 @@ function business_slider_content() {
     $tmp_query = $wp_query; 
 	$root = get_template_directory_uri(); 
 	
-	if (is_front_page()) {
-		$customcategory = $options->get($themeslug.'_front_customslider_category');
-		$height = $options->get($themeslug.'_front_slider_height');
-		$hidenav = $options->get($themeslug.'_front_hide_slider_arrows');
-		$wordenable = $options->get($themeslug.'_front_enable_wordthumb');
-		$slideranimation = $options->get($themeslug.'_front_slider_animation');
-		$sliderdelay = $options->get($themeslug.'_front_slider_delay');
-		$navigationstyle = $options->get($themeslug.'_front_slider_nav');
-	}
-	
-	elseif (is_page() && !is_front_page()) {
+	if (is_page()) {
 		$customcategory = get_post_meta($post->ID, 'slider_category' , true);
 		$height = get_post_meta($post->ID, 'slider_height' , true);
 		$sliderdelay = get_post_meta($post->ID, 'slider_delay' , true);

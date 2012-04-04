@@ -51,10 +51,6 @@ function business_pro_entry() {
 	do_action('business_pro_entry');
 }
 
-function business_front_page_custom() {
-	do_action('business_front_page_custom');
-}
-
 /** 
 * Front Page
 */
