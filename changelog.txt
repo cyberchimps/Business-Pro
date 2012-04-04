@@ -3,6 +3,7 @@ Business Pro Changelog
 ****************************
 
 Version 3.0.5 (04-03-12)
+-Twitter Bar no longer requires Twitter for WordPress plugin.
 -Unidentified index error fix for meta box code. 
 -Fixed bug with video embeds in content slider.
 -Responsive fix for subheader. 

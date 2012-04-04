@@ -2,7 +2,7 @@
 /**
 * Twitterbar actions used by Business.
 *
-* Author: Tyler Cunningham
+* Authors: Benjamin Mueller, Tyler Cunningham
 * Copyright: © 2012
 * {@link http://cyberchimps.com/ CyberChimps LLC}
 *
@@ -13,43 +13,85 @@
 *
 * @package Business
 * @since 3.0
+* @last modified 3.0.5
 */
 
 /**
-* business Twitterbar actions
+* Business Twitterbar actions
 */
 add_action( 'business_twitterbar_section', 'business_twitterbar_section_content' );
 
 /**
-* Retrieves the Twitterbar options and sets up the HTML
+* Retrieves the Twitterbar options
 */
 function business_twitterbar_section_content() {
 	global $options, $themeslug, $post; //call globals
-	$root = get_template_directory_uri();
-	
-	if (is_front_page()) {
-	$handle = $options->get($themeslug.'_front_twitter');
+
+	if ( is_page() ) {
+		$handle = get_post_meta($post->ID, 'twitter_handle' , true); 
+		$show_replies = get_post_meta($post->ID, 'twitter_reply' , true); 
+	} else {
+		$handle = $options->get($themeslug.'_blog_twitter');
+		$show_replies = $options->get($themeslug.'_blog_twitter_reply');
 	}
-	elseif (is_page() && !is_front_page()) {
-	$handle = get_post_meta($post->ID, 'twitter_handle' , true); 
+
+	if ( $handle ) {
+		business_display_latest_tweets( $handle, $show_replies );
 	}
-	else {
-	$handle = $options->get($themeslug.'_blog_twitter');
-	}?>
-	<div class="container">
+}
+
+/**
+* Display the latest tweets from Twitter
+*/
+function business_display_latest_tweets( $username, $show_replies = 0 ) {
+	$latest_tweet = business_get_latest_tweets( $username, $show_replies );
+?>
 	<div class="row">
 		<div id="twitterbar" class="twelve columns"><!--id="twitterbar"-->
 			<div id="twittertext">
-				<a href=" http://twitter.com/<?php echo $handle ; ?>" > <img src="<?php echo "$root/images/twitterbird.png" ?>" /> <?php echo $handle ;?> - </a><?php twitter_messages($handle); ?>
+				<?php
+					if ( $latest_tweet ) {	
+						$screen_name = $latest_tweet['user']['screen_name'];
+						$user_permalink = 'http://twitter.com/#!/'.$screen_name;
+						$tweet_permalink = 'http://twitter.com/#!/'.$screen_name.'/status/'.$latest_tweet['id_str'];
+						echo '<a href="'.$user_permalink.'"> <img src="'.get_template_directory_uri().'/images/twitterbird.png" /> '. $screen_name .' - </a>'.$latest_tweet['text'].' <small><a href="'.$tweet_permalink.'">' .human_time_diff(strtotime($latest_tweet['created_at']), current_time('timestamp')).' ago</a></small>';
+					} else {
+						echo '<p>No tweets to display</p>';
+					}
+				?>
 			</div>
 		</div><!--end twitterbar--> 
-	</div>
-	</div>
-		<?php
-}	
+	</div>	
+<?php
+}
 
+/**
+* Get the latest tweets from Twitter
+*/
+function business_get_latest_tweets( $username, $show_replies = 0 ) {
+	if ( $username ) :
+		// Check to see if Latest Tweet is Saved in Transient and settings have not changed
+		$cached_latest_tweet = get_transient('business_latest_tweet');
+		if ($cached_latest_tweet !== false && ($cached_latest_tweet['show_replies'] == $show_replies) && ($cached_latest_tweet['username'] == $username) ) return $cached_latest_tweet['latest_tweet'];
+
+		// Latest Tweet not set create it now
+		$latest_tweet = '';
+		$exclude_replies = ( $show_replies == 0 ) ? '&exclude_replies=true' : '';
+		$data = wp_remote_get('https://api.twitter.com/1/statuses/user_timeline.json?screen_name='.$username.$exclude_replies, array('sslverify' => false) );
+		if (!is_wp_error($data)) {
+			$value = json_decode($data['body'],true);
+			$latest_tweet = $value[0]; // Array key 0 pulls the most recent Tweet
+		}
+
+		// Set the transient cache value
+		set_transient('business_latest_tweet', array('username' => $username, 'show_replies' => $show_replies, 'latest_tweet' => $latest_tweet), apply_filters('business_latest_tweets_cache_time', 3600));
+		
+		return $latest_tweet;
+	else :
+		return false;
+	endif;
+}
 /**
 * End
 */
-
 ?>

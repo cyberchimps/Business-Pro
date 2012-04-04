@@ -136,7 +136,7 @@ function initialize_the_meta_boxes() {
 			->checkbox('portfolio_title_toggle', 'Portfolio Title', '')
 			->text('portfolio_title', 'Title', '', array('std' => 'Portfolio'))
 		->tab("Twitter Options")
-			->text('twitter_handle', 'Twitter Handle', 'Enter your Twitter handle if using the Twitter bar - Requires <a href="http://wordpress.org/extend/plugins/twitter-for-wordpress/" target="_blank">Twitter for WordPress Plugin')
+			->text('twitter_handle', 'Twitter Handle', 'Enter your Twitter handle if using the Twitter bar')
 		->tab("SEO Options")
 			->text('seo_title', 'SEO Title', '')
 			->textarea('seo_description', 'SEO Description', '')
