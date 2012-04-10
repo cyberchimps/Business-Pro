@@ -74,7 +74,8 @@ function business_html_attributes() { ?>
 *
 * @since 3.0
 */
-function business_meta_tags() { 
+function business_meta_tags() { ?>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> <?php
 	global $themeslug, $options, $post; //Call global variables
 	if(!$post) return; // in case of 404 page or something
 	$title = get_post_meta($post->ID, 'seo_title' , true);
