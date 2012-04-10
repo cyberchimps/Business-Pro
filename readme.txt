@@ -11,6 +11,8 @@ Foundation and Orbit are licensed under the MIT license - http://www.opensource.
 ---------------------------------------------------------------------------
 ---------------------------------------------------------------------------
 
+Note: with 3.1 we have removed the Front Page template. For more information about using a static page as your home page please visit the following documentation page: http://cyberchimps.com/question/using-the-front-page-and-posts-page-in-business-pro/
+
 For updated documentation, walkthroughs, and support please visit http://cyberchimps.com/
 
 For updated docs please visit http://cyberchimps.com//docs/
