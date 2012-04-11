@@ -130,27 +130,40 @@ function business_slider_content() {
 	   		$fullsized        = "$root/core/pro/library/wt/wordthumb.php?src=$customimage&a=c&$wordthumb2"; /* Gets custom image from page/post meta option, applies wordthumb code  */
 
 	   		
-	   		if ($align == '0' OR $align == '') {
-	   			$textalign = 'left';
-	   			$imagealign = 'right';
-	   		}
-	   		elseif ($align == '1') {
-	   			$textalign = 'right';
-	   			$imagealign = 'left';
-	   		}
-
-	    	if ($customimage != ''  && $wordenable == '1' OR $customimage != '' && $wordenable == 'on'){ // Custom image, no custom thumb, WordThumb enabled. 
+	   		/* Images */	
+			
+	    	if ($customimage != '' && $wordenable == '1' && $slidertype == '0') { 
 	    		$image = $customsized;
-	    	}   	
-	    	if ($customimage != ''  && $wordenable == '0' OR $customimage != '' && $wordenable == 'off'){ // Custom image, no custom thumb, WordThumb enabled. 
+	    	}  
+	    	if ($customimage != '' && $wordenable == 'on' && $slidertype == '0') { 
+	    		$image = $customsized;
+	    	} 	
+	    	if ($customimage != '' && $wordenable == '0' && $slidertype == '0') {  
 	    		$image = $customimage;
-	    	} 
-	    	if ($customimage == '' && $slidertype == '0'){ // No custom image, no custom thumb, full-width slider, WordThumb enabled. 
+	    	}
+	 		if ($customimage != '' && $wordenable == 'off' && $slidertype == '0') {  
+	    		$image = $customimage;
+	    	}
+	    	if ($customimage != '' && $wordenable == '1' && $slidertype == '1') { 
+	    		$image = $fullsized;
+	    	}
+	    	if ($customimage != '' && $wordenable == 'on' && $slidertype == '1') { 
+	    		$image = $fullsized;
+	    	}
+	    	if ($customimage != '' && $wordenable == '0' && $slidertype == '1') { 
+	    		$image = $customimage;
+	    	}
+	    	if ($customimage != '' && $wordenable == 'off' && $slidertype == '1') { 
+	    		$image = $customimage;
+	    	}   	
+	    	if ($customimage == '' && $slidertype == '0'){ 
 	    		$image = $halfdefault;
 	    	}
-	    	if ($customimage == '' && $slidertype == '1'){ // No custom image, no custom thumb, full-width slider, WordThumb enabled. 
-	    		$fullsized = $fulldefault;
+	    	if ($customimage == '' && $slidertype == '1'){ 
+	    		$image = $fulldefault;
 	    	}
+	    	
+	    	/* Media Type */	
 	    	
 	    	if ($media == '') {
 	    		$mediacontent = "<a href='$customlink'><img class='aligncenter' src='$image' width='$imgwidth' height='240' alt='Slider' /></a>";
@@ -159,7 +172,18 @@ function business_slider_content() {
 	    	else {
 	    		$mediacontent = $media;
 	    	}
-
+	    	
+	    	/* Align */	
+	    	
+	    	if ($align == '0' OR $align == '') {
+	   			$textalign = 'left';
+	   			$imagealign = 'right';
+	   		}
+	   		elseif ($align == '1') {
+	   			$textalign = 'right';
+	   			$imagealign = 'left';
+	   		}
+			
 			$textimg = "
 	  					<div class='slider_content'>
 	  						<div id='text_container' class='six columns' style='float: $textalign; padding-top: 20px;'>
@@ -176,7 +200,7 @@ function business_slider_content() {
 	    	$fullimg = "
 	  					<div class='slider_content'>
 	  							 			
-	  							<a href='$customlink'><img src='$fullsized' alt='Slider' /></a>
+	  							<a href='$customlink'><img src='$image' alt='Slider' /></a>
 	  						
 	    				</div>
 	    				";
