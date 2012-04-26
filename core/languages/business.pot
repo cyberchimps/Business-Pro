@@ -1,4 +1,4 @@
-#Copyright (C) 2011 
+#Copyright (C) 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: Core 1.0 \n"
@@ -158,120 +158,57 @@ msgstr ""
 msgid "% Comments &#187;"
 msgstr ""
 
-#: core/actions/index-actions.php:276
+#: core/actions/global-actions.php:86
 #@ business
+msgid "Read more…"
+msgstr ""
+
+#: core/actions/global-actions.php:187
+#@ business
+msgid "Tags: "
+msgstr ""
+
+#: core/actions/pagination-actions.php:49
+#: core/core-functions.php:241
+#@ business
+#@ default
 msgid "Page"
 msgstr ""
 
-#: core/classy-options/classy-options-framework/classy-options.php:82
+#: core/actions/pagination-actions.php:50
 #@ business
-msgid "Save Options"
+msgid "&laquo; First"
 msgstr ""
 
-#: core/classy-options/classy-options-framework/classy-options.php:86
+#: core/actions/pagination-actions.php:51
 #@ business
-msgid "Support"
+msgid "&lsaquo; Previous"
 msgstr ""
 
-#: core/classy-options/classy-options-framework/classy-options.php:87
+#: core/actions/pagination-actions.php:61
 #@ business
-msgid "Documentation"
+msgid "Next &rsaquo;"
 msgstr ""
 
-#: core/classy-options/classy-options-framework/classy-options.php:88
+#: core/actions/pagination-actions.php:62
 #@ business
-msgid "Forum"
+msgid "Last &raquo;"
 msgstr ""
 
-#: core/classy-options/classy-options-framework/classy-options.php:89
+#: core/actions/pagination-actions.php:99
 #@ business
-msgid "Twitter"
+msgid "Pages:"
 msgstr ""
 
-#: core/classy-options/classy-options-framework/classy-options.php:90
+
+#: searchform.php:15
 #@ business
-msgid "Facebook"
-msgstr ""
+msgid "Search"
+msgstr 
 
-#: core/classy-options/classy-options-framework/classy-options.php:91
+#: core/actions/index-actions.php:276
 #@ business
-msgid "CyberChimps Store"
-msgstr ""
-
-#: core/classy-options/classy-options-framework/classy-options.php:92
-#@ business
-msgid "CyberChimps Pro"
-msgstr ""
-
-#: core/classy-options/classy-options-framework/classy-options.php:111
-#@ business
-msgid "Restore Defaults"
-msgstr ""
-
-#: core/classy-options/classy-options-framework/classy-options.php:111
-#@ business
-msgid "Click OK to reset. Any theme settings will be lost!"
-msgstr ""
-
-#: core/classy-options/classy-options-framework/classy-options.php:141
-#@ optionsframework
-msgid "Default options restored."
-msgstr ""
-
-#: core/classy-options/classy-options-framework/classy-options.php:150
-#@ optionsframework
-msgid "Options Imported"
-msgstr ""
-
-#: core/classy-options/classy-options-framework/classy-options.php:153
-#@ optionsframework
-msgid "Invalid Data for Import"
-msgstr ""
-
-#: core/classy-options/classy-options-framework/classy-options.php:209
-#@ optionsframework
-msgid "Options saved."
-msgstr ""
-
-#: core/classy-options/classy-options-framework/options-medialibrary-uploader.php:26
-#@ business
-msgid "Options Framework Internal Container"
-msgstr ""
-
-#: core/classy-options/classy-options-framework/options-medialibrary-uploader.php:128
-#@ business
-msgid "Upload"
-msgstr ""
-
-#: core/classy-options/classy-options-framework/options-medialibrary-uploader.php:151
-#@ optionsframework
-msgid "View File"
-msgstr ""
-
-#: core/classy-options/classy-options-framework/options-medialibrary-uploader.php:288
-#@ optionsframework
-msgid "Gallery"
-msgstr ""
-
-#: core/classy-options/classy-options-framework/options-medialibrary-uploader.php:288
-#@ optionsframework
-msgid "Previously Uploaded"
-msgstr ""
-
-#: core/pro/inc/meta-box.php:22
-#@ business
-msgid "You don't have permission to delete this file."
-msgstr ""
-
-#: core/pro/inc/meta-box.php:26
-#@ business
-msgid "File has been successfully deleted."
-msgstr ""
-
-#: functions.php:82
-#, php-format
-#@ business
-msgid "<cite class=\"fn\">%s</cite> <span class=\"says\"></span>"
+msgid "Page"
 msgstr ""
 
 #: functions.php:85

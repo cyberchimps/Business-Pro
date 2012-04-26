@@ -29,6 +29,7 @@
 * Basic theme setup.
 */ 
 function bu_theme_setup() {
+	global $content_width;
 	if ( ! isset( $content_width ) ) $content_width = 608; //Set content width
 	
 	add_theme_support(
@@ -581,7 +582,7 @@ function ifp_widgets_init() {
 }
 add_action ('widgets_init', 'ifp_widgets_init');
 
-function custom_pagination($pages = '', $range = 4)
+function bu_custom_pagination($pages = '', $range = 4)
 {
      $showitems = ($range * 2)+1;  
  
@@ -600,9 +601,9 @@ function custom_pagination($pages = '', $range = 4)
  
      if(1 != $pages)
      {
-         echo "<div class=\"pagination\"><span>Page ".$paged." of ".$pages."</span>";
-         if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>&laquo; First</a>";
-         if($paged > 1 && $showitems < $pages) echo "<a href='".get_pagenum_link($paged - 1)."'>&lsaquo; Previous</a>";
+         echo '<div class="pagination"><span>'.__( 'Page', 'core' ).' '.$paged.' of '.$pages.'</span>';
+         if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo '<a href="'.get_pagenum_link(1).'">'.__( '&laquo; First', 'business' ).'</a>';
+         if($paged > 1 && $showitems < $pages) echo '<a href="'.get_pagenum_link($paged - 1).'">'.__( '&lsaquo; Previous', 'business' ).'</a>';
  
          for ($i=1; $i <= $pages; $i++)
          {
@@ -612,8 +613,8 @@ function custom_pagination($pages = '', $range = 4)
              }
          }
  
-         if ($paged < $pages && $showitems < $pages) echo "<a href=\"".get_pagenum_link($paged + 1)."\">Next &rsaquo;</a>";
-         if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>Last &raquo;</a>";
+         if ($paged < $pages && $showitems < $pages) echo '<a href=\"'.get_pagenum_link($paged + 1).'"\">'.__( 'Next &rsaquo;', 'business').'</a>';
+         if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo '<a href="'.get_pagenum_link($pages).'">'.__( 'Last &raquo;', 'business' ).'</a>';
          echo "</div>\n";
      }
 }
