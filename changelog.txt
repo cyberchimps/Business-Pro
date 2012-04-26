@@ -3,10 +3,12 @@ Business Pro Changelog
 ****************************
 
 Version 3.1.2 (04-26-12)
+-Removed "Share" option from post byline options.
 -Added missing $content_width global to theme setup function.
 -Updated pagination function with missing translation functions.
 -Updated business.pot.
 -Added Pinterest social icon option.
+-Fixed media embed on image/media only slider option.
 
 Version 3.1.1 (04-11-12)
 -Fixed image bug in Content Slider element on pages. 

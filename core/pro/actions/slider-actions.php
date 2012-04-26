@@ -204,6 +204,14 @@ function business_slider_content() {
 	  						
 	    				</div>
 	    				";
+	    				
+	    	$fullvideo = "
+	  					<div class='slider_content'>
+	  							 			
+	  							<div class='media_content'><center>$mediacontent</center></div>
+	  						
+	    				</div>
+	    				";
 	    		
 	    	$fulltext = "
 	  					<div class='slider_content' style='height: 330px;'>
@@ -220,8 +228,12 @@ function business_slider_content() {
 	    		$type = $textimg;
 	    	}
 	    	
-	    	elseif ($slidertype == '1') {
+	    	elseif ($slidertype == '1' && $media == '') {
 	    		$type = $fullimg;
+	    	}
+	    	
+	    	elseif ($slidertype == '1' && $media != '') {
+	    		$type = $fullvideo;
 	    	}
 	    	
 	    	elseif ($slidertype == '2') {
