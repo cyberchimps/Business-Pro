@@ -2,6 +2,9 @@ Business Pro Changelog
 
 ****************************
 
+Version 3.1.3 (04-28-12)
+-Fixed paginaiton bug causing fatal error. 
+
 Version 3.1.2 (04-26-12)
 -Removed "Share" option from post byline options.
 -Added missing $content_width global to theme setup function.
