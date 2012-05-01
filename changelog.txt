@@ -2,6 +2,11 @@ Business Pro Changelog
 
 ****************************
 
+Version 3.1.4 (05-01-12)
+-Mobile Menu now works in phone landscape mode. 
+-Fixed bug with broken "next" link in pagination.
+-Added Swedish and Russian language files.
+
 Version 3.1.3 (04-28-12)
 -Fixed paginaiton bug causing fatal error. 
 
