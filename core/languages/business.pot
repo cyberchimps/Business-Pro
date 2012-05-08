@@ -1,4 +1,4 @@
-#Copyright (C) 2012
+#Copyright (C) 2011 
 msgid ""
 msgstr ""
 "Project-Id-Version: Core 1.0 \n"
@@ -166,6 +166,11 @@ msgstr ""
 #: core/actions/global-actions.php:187
 #@ business
 msgid "Tags: "
+msgstr ""
+
+#: core/actions/pagination-actions.php:49
+#@ business
+msgid "of"
 msgstr ""
 
 #: core/actions/pagination-actions.php:49
