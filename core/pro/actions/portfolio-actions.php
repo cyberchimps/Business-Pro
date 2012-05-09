@@ -36,7 +36,7 @@ function business_portfolio_element_content() {
 		$category = $options->get($themeslug.'_portfolio_category');
 		$num = $options->get($themeslug.'_portfolio_number');
 		$title_enable = $options->get($themeslug.'_portfolio_title_toggle');
-		$title = $num = $options->get($themeslug.'_portfolio_title');
+		$title = $options->get($themeslug.'_portfolio_title');
 	}
 	
 	if ($num == '1' OR $num == 'key2') {
