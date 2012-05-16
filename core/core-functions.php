@@ -66,6 +66,12 @@ function business_scripts() {
 	wp_enqueue_script ('plusone');
 	wp_enqueue_script ('mobilemenu');
 
+	if ($options->get($themeslug.'_responsive_video') == '1' ) {
+	
+		wp_register_script( 'video' ,$path.'/js/video.js');
+		wp_enqueue_script ('video');	
+	}
+	
 	if ($options->get($themeslug.'_lazy_load') == '1' ) {
 		wp_register_script( 'lazyload' ,$path.'/js/jquery.lazyload.js');
 		wp_enqueue_script ('lazyload');

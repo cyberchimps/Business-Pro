@@ -72,6 +72,7 @@ $options
 	->section("Design")
 		->open_outersection()
 			->select($themeslug."_color_scheme", "Select a Skin Color", array( 'options' => array("light" => "Light (default)", "dark" => "Dark"), 'default' => 'light'))
+			->checkbox($themeslug."_responsive_video", "Responsive Videos")
 		->close_outersection()
 		->subsection("Typography")
 			->select($themeslug."_font", "Choose a Font", array( 'options' => array("Arial" => "Arial (default)", "Courier New" => "Courier New", "Georgia" => "Georgia", "Helvetica" => "Helvetica", "Lucida Grande" => "Lucida Grande", "Tahoma" => "Tahoma", "Times New Roman" => "Times New Roman", "Verdana" => "Verdana", "Actor" => "Actor", "Coda" => "Coda", "Maven+Pro" => "Maven Pro", "Metrophobic" => "Metrophobic", "News+Cycle" => "News Cycle", "Nobile" => "Nobile", "Tenor+Sans" => "Tenor Sans", "Quicksand" => "Quicksand", "Ubuntu" => "Ubuntu", 'custom' => "Custom")))
