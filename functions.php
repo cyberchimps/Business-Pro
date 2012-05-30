@@ -309,10 +309,10 @@ add_action( 'save_post', 'custom_taxonomy_default', 100, 2 );
 /**
 * Edit columns for portfolio post type.
 */ 
-add_filter('manage_edit-bu_portfolio_columns', 'portfolio_edit_columns');
-add_action('manage_bu_portfolio_posts_custom_column',  'portfolio_columns_display', 10, 2);
+add_filter('manage_edit-bu_portfolio_columns', 'bu_portfolio_edit_columns');
+add_action('manage_bu_portfolio_posts_custom_column',  'bu_portfolio_columns_display', 10, 2);
 
-function portfolio_edit_columns($portfolio_columns){
+function bu_portfolio_edit_columns($portfolio_columns){
     $portfolio_columns = array(
         "cb" => "<input type=\"checkbox\" />",
         "title" => _x('Title', 'column name'),
@@ -324,7 +324,7 @@ function portfolio_edit_columns($portfolio_columns){
    
     return $portfolio_columns;
 }
-function portfolio_columns_display($portfolio_columns, $post_id){
+function bu_portfolio_columns_display($portfolio_columns, $post_id){
 	global $post;
 	$cat = get_the_terms($post->ID, 'portfolio_categories');
 	
@@ -353,10 +353,10 @@ function portfolio_columns_display($portfolio_columns, $post_id){
 /**
 * Edit columns for slider post type.
 */ 
-add_filter('manage_edit-bu_custom_slides_columns', 'slider_edit_columns');
-add_action('manage_bu_custom_slides_posts_custom_column',  'slides_columns_display', 10, 2);
+add_filter('manage_edit-bu_custom_slides_columns', 'bu_slider_edit_columns');
+add_action('manage_bu_custom_slides_posts_custom_column',  'bu_slides_columns_display', 10, 2);
 
-function slider_edit_columns($portfolio_columns){
+function bu_slider_edit_columns($portfolio_columns){
     $portfolio_columns = array(
         "cb" => "<input type=\"checkbox\" />",
         "title" => _x('Title', 'column name'),
@@ -368,7 +368,7 @@ function slider_edit_columns($portfolio_columns){
    
     return $portfolio_columns;
 }
-function slides_columns_display($portfolio_columns, $post_id){
+function bu_slides_columns_display($portfolio_columns, $post_id){
 	global $post;
 	$cat = get_the_terms($post->ID, 'slide_categories');
 	$images = get_post_meta($post->ID, 'slider_image' , true);
@@ -399,10 +399,10 @@ function slides_columns_display($portfolio_columns, $post_id){
 /**
 * Edit columns for slider post type.
 */ 
-add_filter('manage_edit-bu_carousel_columns', 'carousel_edit_columns');
-add_action('manage_bu_carousel_posts_custom_column',  'carousel_columns_display', 10, 2);
+add_filter('manage_edit-bu_carousel_columns', 'bu_carousel_edit_columns');
+add_action('manage_bu_carousel_posts_custom_column',  'bu_carousel_columns_display', 10, 2);
 
-function carousel_edit_columns($portfolio_columns){
+function bu_carousel_edit_columns($portfolio_columns){
     $portfolio_columns = array(
         "cb" => "<input type=\"checkbox\" />",
         "title" => _x('Title', 'column name'),
@@ -414,7 +414,7 @@ function carousel_edit_columns($portfolio_columns){
    
     return $portfolio_columns;
 }
-function carousel_columns_display($portfolio_columns, $post_id){
+function bu_carousel_columns_display($portfolio_columns, $post_id){
 	global $post;
 	$cat = get_the_terms($post->ID, 'carousel_categories');
 	$images = get_post_meta($post->ID, 'post_image' , true);
