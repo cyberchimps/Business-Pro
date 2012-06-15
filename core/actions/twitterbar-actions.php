@@ -28,8 +28,8 @@ function business_twitterbar_section_content() {
 	global $options, $themeslug, $post; //call globals
 
 	if ( is_page() ) {
-		$handle = get_post_meta($post->ID, 'twitter_handle' , true); 
-		$replies = get_post_meta($post->ID, 'twitter_reply' , true); 
+		$handle = get_post_meta($post->ID, $themeslug.'_twitter_handle' , true); 
+		$replies = get_post_meta($post->ID, $themeslug.'_twitter_reply' , true); 
 		
 		if ($replies == "off") {
 			$show_replies = '0'; 
@@ -42,17 +42,17 @@ function business_twitterbar_section_content() {
 		$handle = $options->get($themeslug.'_blog_twitter');
 		$show_replies = $options->get($themeslug.'_blog_twitter_reply');
 	}
-
+	
 	if ( $handle ) {
-		business_display_latest_tweets( $handle, $show_replies );
+		synapse_display_latest_tweets( $handle, $show_replies );
 	}
 }
 
 /**
 * Display the latest tweets from Twitter
 */
-function business_display_latest_tweets( $username, $show_replies = 0 ) {
-	$latest_tweet = business_get_latest_tweets( $username, $show_replies );
+function synapse_display_latest_tweets( $username, $show_replies = 0 ) {
+	$latest_tweet = synapse_get_latest_tweets( $username, $show_replies );
 ?>
 	<div class="row">
 		<div id="twitterbar" class="twelve columns"><!--id="twitterbar"-->
@@ -62,7 +62,7 @@ function business_display_latest_tweets( $username, $show_replies = 0 ) {
 						$screen_name = $latest_tweet['user']['screen_name'];
 						$user_permalink = 'http://twitter.com/#!/'.$screen_name;
 						$tweet_permalink = 'http://twitter.com/#!/'.$screen_name.'/status/'.$latest_tweet['id_str'];
-						echo '<a href="'.$user_permalink.'"> <img src="'.get_template_directory_uri().'/images/twitterbird.png" /> '. $screen_name .' - </a>'.$latest_tweet['text'].' <small><a href="'.$tweet_permalink.'">' .human_time_diff(strtotime($latest_tweet['created_at']), current_time('timestamp')).' ago</a></small>';
+						echo '<a href="'.$user_permalink.'"> <img src="'.get_template_directory_uri().'/images/twitterbird.png" /> '. $screen_name .' - </a>'.$latest_tweet['text'].' <small><a href="'.$tweet_permalink.'">' .human_time_diff(strtotime($latest_tweet['created_at']), current_time('timestamp', 1)).' ago</a></small>';
 					} else {
 						echo '<p>No tweets to display</p>';
 					}
@@ -76,12 +76,12 @@ function business_display_latest_tweets( $username, $show_replies = 0 ) {
 /**
 * Get the latest tweets from Twitter
 */
-function business_get_latest_tweets( $username, $show_replies = 0 ) {
+function synapse_get_latest_tweets( $username, $show_replies = 0 ) {
 	if ( $username ) :
 		// Check to see if Latest Tweet is Saved in Transient and settings have not changed
-		$cached_latest_tweet = get_transient('business_latest_tweet');
-		if ($cached_latest_tweet !== false && ($cached_latest_tweet['show_replies'] == $show_replies) && ($cached_latest_tweet['username'] == $username) ) return $cached_latest_tweet['latest_tweet'];
-
+		$cached_latest_tweet = get_transient('synapse_latest_tweet');
+		if (@trim($cached_latest_tweet['latest_tweet']) !== '' && ($cached_latest_tweet['show_replies'] == $show_replies) && ($cached_latest_tweet['username'] == $username) ) return $cached_latest_tweet['latest_tweet'];
+		
 		// Latest Tweet not set create it now
 		$latest_tweet = '';
 		$exclude_replies = ( $show_replies == 0 ) ? '&exclude_replies=true' : '';
@@ -92,7 +92,7 @@ function business_get_latest_tweets( $username, $show_replies = 0 ) {
 		}
 
 		// Set the transient cache value
-		set_transient('business_latest_tweet', array('username' => $username, 'show_replies' => $show_replies, 'latest_tweet' => $latest_tweet), apply_filters('business_latest_tweets_cache_time', 3600));
+		set_transient('synapse_latest_tweet', array('username' => $username, 'show_replies' => $show_replies, 'latest_tweet' => $latest_tweet), apply_filters('synapse_latest_tweets_cache_time', 3600));
 		
 		return $latest_tweet;
 	else :
