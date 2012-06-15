@@ -2,6 +2,12 @@ Business Pro Changelog
 
 ****************************
 
+Version 3.1.8 (06-15-12)
+-Replaced wp_theme_data() (deprecated) with wp_get_theme().
+-Fixed Twitterbar timestamp issue and random "no tweets to display" message.
+-Tweaked breadcrumb code to fix random WP_Object error. 
+-Added Czech language files.
+
 Version 3.1.7 (06-02-12)
 -Added Hindi language files.
 -Fixed typo in Page Options.
