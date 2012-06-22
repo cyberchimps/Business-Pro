@@ -2,6 +2,90 @@ Business Pro Changelog
 
 ****************************
 
+Version 3.1.9 (06-22-12)
+-3.4 Update API Fix.
+
+Version 3.1.8 (06-15-12)
+-Replaced wp_theme_data() (deprecated) with wp_get_theme().
+-Fixed Twitterbar timestamp issue and random "no tweets to display" message.
+-Tweaked breadcrumb code to fix random WP_Object error. 
+-Added Czech language files.
+
+Version 3.1.7 (06-02-12)
+-Added Hindi language files.
+-Fixed typo in Page Options.
+-Added prefix to custom columns functions to avoid plugin conflicts. 
+
+Version 3.1.6 (05-16-12)
+-Added option for responsive embeded videos (Youtube/Vimeo).
+-Added Polish language files. 
+
+Version 3.1.5 (05-09-12)
+-Added Spanish, Italian, Turkish and Persian language files. 
+-Updated Swedish translation files. 
+-Updated business.pot
+-Fixed/added missing translation wrappers to post pagination function.
+-Fixed bug with blog portfolio.
+
+Version 3.1.4 (05-01-12)
+-Mobile Menu now works in phone landscape mode. 
+-Fixed bug with broken "next" link in pagination.
+-Added Swedish and Russian language files.
+-Updated jquery.easing for better third-party plugin compatibility.
+
+Version 3.1.3 (04-28-12)
+-Fixed paginaiton bug causing fatal error. 
+
+Version 3.1.2 (04-26-12)
+-Removed "Share" option from post byline options.
+-Added missing $content_width global to theme setup function.
+-Updated pagination function with missing translation functions.
+-Updated business.pot.
+-Added Pinterest social icon option.
+-Fixed media embed on image/media only slider option.
+
+Version 3.1.1 (04-11-12)
+-Fixed image bug in Content Slider element on pages. 
+
+Version 3.1 (04-10-12)
+-Removed front-page template.
+-Added option to show @replies in Twitter Bar element.
+-Added Hebrew language files.
+-Re-adding IE Quirks fix. 
+
+Version 3.0.5 (04-03-12)
+-Twitter Bar no longer requires Twitter for WordPress plugin.
+-Unidentified index error fix for meta box code. 
+-Fixed bug with video embeds in content slider.
+-Responsive fix for subheader. 
+-Added Romanian, French and Croatian language files. 
+-Removed height: auto from objects.
+-Changed <!--more--> link text to "Read more…".
+-Fixed bug with archive of an empty category.
+-Adjusted "viewport" initial scale for full-width mobile device view.  
+
+Version 3.0.4 (03-23-12)
+-Fix for slider bug on pages with WordThumb disabled. 
+
+Version 3.0.3 (03-17-12)
+-Fixed slider navigation arrow option.
+-Fixed slide image broken links.
+-Added Custom HTML element for Front Page. 
+
+Version 3.0.2 (03-09-12)
+-Fixed issue with widgetized boxes. 
+
+Version 3.0.1 (03-09-12)
+-Fixed empty space at the end of licensing folder name.
+-Fixed bug with archive template. 
+-Added Javascript to hide/show options as needed in Content Slide options.
+
+Version 3.0 (03-07-12)
+-Moved to CyberChimps Response Core Framework based codebase.
+-Added Page Elements.
+-Added Front Page template.
+-Added Templates Theme Options.
+
 Version 2.1.2 (12-12-11)
 -Visual fix to theme options for WordPress 3.3.
 
