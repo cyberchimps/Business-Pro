@@ -67,6 +67,8 @@ function initialize_the_meta_boxes() {
 	$mb
 		->tab("Portfolio Element")
 			->single_image('portfolio_image', 'Portfolio Image', '')
+			->checkbox('custom_portfolio_url_toggle', 'Custom Portfolio URL', '', array('std' => 'off'))
+			->text('custom_portfolio_url', 'URL', '')
 		->end();
 
 	$mb = new Chimps_Metabox('slides', 'Custom Feature Slides', array('pages' => array($themeslug.'_custom_slides')));

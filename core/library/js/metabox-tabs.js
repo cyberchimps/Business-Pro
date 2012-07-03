@@ -153,5 +153,24 @@ jQuery(document).ready(function($) {
 			items.hide();
 		}
     }).trigger('change');
-
+	
+	/* To toggle URL tab on change of custom_portfolio_url_toggle */
+	$('#checkbox-custom_portfolio_url_toggle').change(function(){
+	    var items = $("tr.custom_portfolio_url");
+		if($(this).is(':checked')) {
+			items.show();
+		} else {
+			items.hide();
+		}
+    }).trigger('change');
+	
+	jQuery("#post").validate({
+		rules: {
+			custom_portfolio_url: {
+				required: true,
+				url: true
+			}
+	   }
+	 });
+	
 });
