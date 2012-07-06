@@ -848,6 +848,9 @@ function metabox_enqueue() {
 	wp_enqueue_script('jquerycustom', get_template_directory_uri().'/core/library/js/jquery-custom.js', array('jquery') );
 	
 	wp_enqueue_style('metabox-tabs-css');
+	
+	wp_register_script( 'validator' ,$path.'jquery.validate.js');
+	wp_enqueue_script ('validator');
 }
 
 /********************* END DEFINITION OF META BOXES ***********************/
