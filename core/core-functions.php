@@ -73,11 +73,6 @@ function business_scripts() {
 		wp_register_script( 'video' ,$path.'/js/video.js');
 		wp_enqueue_script ('video');	
 	}
-	
-	if ($options->get($themeslug.'_lazy_load') == '1' ) {
-		wp_register_script( 'lazyload' ,$path.'/js/jquery.lazyload.js');
-		wp_enqueue_script ('lazyload');
-	}
 }
 add_action('wp_enqueue_scripts', 'business_scripts');	
 
