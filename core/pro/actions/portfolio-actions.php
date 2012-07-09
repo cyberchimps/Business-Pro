@@ -63,6 +63,18 @@ function business_portfolio_element_content() {
 		$title_output = '';
 	}
 	
+	switch($number){
+		case 'four':
+				$columns = 3;
+				break;
+		case 'three':
+				$columns = 4;
+				break;
+		case 'six':
+				$columns = 2;
+				break;
+	}
+	
 	?>
 
 <div id="portfolio" class="container">
@@ -71,17 +83,17 @@ function business_portfolio_element_content() {
 	<?php query_posts( array ('post_type' => $themeslug.'_portfolio_images', 'showposts' => 50, 'portfolio_categories' => $category ));
 			
 	if (have_posts()) :
-	  	 $out = " <div id='gallery' class='twelve columns'>$title_output<ul>"; 
+				
+	  	$out = "<div id='gallery' class='twelve columns'>$title_output<ul>"; 
 
-	  	$i = 0;
-		$no = '50';
+	  $i = 1;
+		$no = '51';
 
 		while (have_posts() && $i<$no) : 
 
 		the_post(); 
 
 	    	/* Post-specific variables */	
-
 	    	$image = get_post_meta($post->ID, 'portfolio_image' , true);
 	    	$title = get_the_title() ;	    	
 	    	$custom_portfolio_url_toggle = get_post_meta($post->ID, 'custom_portfolio_url_toggle' , true);
@@ -108,7 +120,12 @@ function business_portfolio_element_content() {
 	    			</a>
 	  	    	</li>
 	    			";
-
+						
+				if( $i %$columns == 0 )
+					{
+						$out .= "<div class='clear'></div>";
+					}
+					
 	    	/* End slide markup */	
 
 	      	$i++;
