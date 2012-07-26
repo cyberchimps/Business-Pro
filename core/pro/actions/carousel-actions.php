@@ -51,7 +51,7 @@ function business_carousel_section_content() {
 
 /* Query posts  */
 
-query_posts( array ('post_type' => $themeslug.'_carousel_images', 'showposts' => 20, true, 'carousel_categories' => $customcategory ));
+query_posts( array ('post_type' => $themeslug.'_carousel_images', 'showposts' => -1, true, 'carousel_categories' => $customcategory ));
 
 /* End query posts based on theme/meta options */
     	
@@ -71,7 +71,7 @@ query_posts( array ('post_type' => $themeslug.'_carousel_images', 'showposts' =>
 
 /* Initialize slide creation */	
 
-	while (have_posts() && $i<$no) : 
+	while (have_posts()) : 
 
 		the_post(); 
 
