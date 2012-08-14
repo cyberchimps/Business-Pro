@@ -27,7 +27,7 @@ function business_carousel_section_content() {
 /* End globals. */	
 
 /* Define variables. */	
-
+		$out = '';
     $tmp_query = $wp_query; 
 	$root = get_template_directory_uri(); 
 	$default = "$root/images/pro/carousel.jpg";
@@ -182,8 +182,8 @@ query_posts( array ('post_type' => $themeslug.'_carousel_images', 'showposts' =>
 
 /* Begin Carousel javascript */ 
     
-    $out .= <<<OUT
-	<script type="text/javascript">
+    $out .= "
+	<script type='text/javascript'>
 			jQuery(document).ready(function ($) {	
 			$('#carousel').elastislide({
 				imageW 		: 150,
@@ -203,8 +203,7 @@ query_posts( array ('post_type' => $themeslug.'_carousel_images', 'showposts' =>
 	 });
     });
     });
-		</script>
-OUT;
+		</script>";
 
 /* End Carousel javascript */ 
 

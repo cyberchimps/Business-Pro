@@ -33,7 +33,8 @@ function business_slider_content() {
 /* End globals. */
 
 /* Define variables. */	
-
+		
+		$out = '';
     $tmp_query = $wp_query; 
 	$root = get_template_directory_uri(); 
 	
@@ -358,8 +359,8 @@ function business_slider_content() {
 
 /* Begin Orbit javascript */ 
     
-    $out .= <<<OUT
-<script type="text/javascript">
+    $out .= "
+<script type='text/javascript'>
 	 jQuery(document).ready(function ($) {
    $(window).load(function() {
     $('#orbitDemo').orbit({
@@ -372,8 +373,7 @@ function business_slider_content() {
      });
      });
      });
-</script>
-OUT;
+</script>";
 
 /* End NivoSlider javascript */ 
 

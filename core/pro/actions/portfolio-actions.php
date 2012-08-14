@@ -22,6 +22,7 @@ add_action( 'business_portfolio_element', 'business_portfolio_element_content' )
 	
 function business_portfolio_element_content() {	
 	global $options, $post, $themeslug, $root, $wp_query;
+	$out = '';
 	$tmp_query = $wp_query; 
 	$image = get_post_meta($post->ID, 'portfolio_image' , true);
 	
@@ -166,8 +167,8 @@ function business_portfolio_element_content() {
 	
 /* Begin Portfolio javascript */ 
     
-    $out .= <<<OUT
- <script type="text/javascript">
+    $out .= "
+ <script type='text/javascript'>
  	jQuery(document).ready(function ($) {
     $(function() {
         $('#gallery a.slide').lightBox({
@@ -179,8 +180,7 @@ function business_portfolio_element_content() {
 	 });
     });
     });
-    </script>
-OUT;
+    </script>";
 
 /* End Portfolio javascript */ 
 

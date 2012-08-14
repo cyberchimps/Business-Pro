@@ -119,8 +119,8 @@ function business_blog_slider_lite_content() {
 	    wp_reset_query();
 /* Begin NivoSlider javascript */ 
     
-    $out .= <<<OUT
-<script type="text/javascript">
+    $out .= "
+<script type='text/javascript'>
    $(window).load(function() {
     $('#orbitDemo').orbit({
          animation: '$animation',
@@ -130,8 +130,7 @@ function business_blog_slider_lite_content() {
          bullets: $dots,
      });
      });
-</script>
-OUT;
+</script>";
 
 /* End NivoSlider javascript */ 
 
