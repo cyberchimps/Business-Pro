@@ -2,6 +2,12 @@ Business Pro Changelog
 
 ****************************
 
+Version 3.1.11 (08-21-12)
+-Added custom url to logo.
+-Made meta tag language dynamic.
+-Fix calendar blow out issue.
+-Removed <<out.
+
 Version 3.1.10 (08-13-12)
 -Chrome decimal fix.
 -Removed carousel limit.
