@@ -88,7 +88,7 @@ function business_comments_loop() {
 	</div>
 
 	<?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
-		<p><?php printf (__( 'You must be', 'business' )); ?><a href="<?php echo wp_login_url( get_permalink() ); ?>"> <?php printf( __( 'logged in', 'business' ), '</a>', __('to post a comment.', 'business' )); ?></p>
+		<p><?php _e( 'You must be', 'business' ); ?><a href="<?php echo wp_login_url( get_permalink() ); ?>"> <?php _e( 'logged in', 'business' ); ?></a> <?php _e('to post a comment.', 'business' ); ?></p>
 	<?php else : ?>
 	
 	<?php comment_form(); ?>
