@@ -335,6 +335,7 @@ function business_slider_content() {
 
 ?>
 
+<?php if($height != ''): ?>
 <!-- Apply slider CSS based on user settings -->
 
 	<style type="text/css" media="screen">
@@ -342,7 +343,7 @@ function business_slider_content() {
 	</style>
 
 <!-- End style -->
-
+<?php endif; ?>
 	
 <?php if ($navigationstyle == 'key3' OR $navigationstyle == '2') :?>
 	<style type="text/css" media="screen">
