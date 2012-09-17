@@ -75,7 +75,7 @@ function initialize_the_meta_boxes() {
 	$mb
 		->tab("Custom Slide Options")
 			->select('slider_type', 'Select Slide Type', '', array('options' => array('Text and Media', 'Media Only', 'Text Only')) )
-			->select('slider_text_align', 'Slide Layout', '', array('options' => array('Text Left - Image Right', 'Image Right - Text Left')) )	
+			->select('slider_text_align', 'Slide Layout', '', array('options' => array('Text Left - Image Right', 'Text Right - Image Left')) )	
 			->textarea('slider_caption', 'Slide Text', '')
 			->select('slider_media_type', 'Media Type', '', array('options' => array('Image', 'Video')) )
 			->single_image('slider_image', 'Slide Image', '')
