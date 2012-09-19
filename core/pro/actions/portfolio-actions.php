@@ -171,13 +171,20 @@ function business_portfolio_element_content() {
  <script type='text/javascript'>
  	jQuery(document).ready(function ($) {
     $(function() {
+       if( $(window).width() > 480 ) {
         $('#gallery a.slide').lightBox({
-    		imageLoading:			'$root/images/portfolio/lightbox-ico-loading.gif',		
-			imageBtnPrev:			'$root/images/portfolio/lightbox-btn-prev.gif',			
-			imageBtnNext:			'$root/images/portfolio/lightbox-btn-next.gif',			
-			imageBtnClose:			'$root/images/portfolio/lightbox-btn-close.gif',		
-			imageBlank:				'$root/images/portfolio/lightbox-blank.gif',			
-	 });
+    			imageLoading:			'$root/images/portfolio/lightbox-ico-loading.gif',		
+					imageBtnPrev:			'$root/images/portfolio/lightbox-btn-prev.gif',			
+					imageBtnNext:			'$root/images/portfolio/lightbox-btn-next.gif',			
+					imageBtnClose:			'$root/images/portfolio/lightbox-btn-close.gif',		
+					imageBlank:				'$root/images/portfolio/lightbox-blank.gif'
+	 			});
+			}
+			if( $(window).width() < 480 ) {
+				$('#gallery a.slide').click(function(e){
+					e.preventDefault();
+				});
+			}
     });
     });
     </script>";
