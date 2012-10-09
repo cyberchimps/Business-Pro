@@ -584,7 +584,11 @@ class RW_Meta_Box {
 
 	// Save data from meta box
 	function save($post_id) {
-
+		global $pagenow;
+		
+		// check that the save is coming from the edit post page and not the quick edit
+    if( 'edit.php' == $pagenow ) {
+			
 		if (isset($_POST['post_type'])) {
 			$post_type = $_POST['post_type'];
 		}
@@ -593,11 +597,11 @@ class RW_Meta_Box {
 		}
 
 		$post_type_object = get_post_type_object($post_type);
-
+		
 		if ((defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)						// check autosave
 		|| (!isset($_POST['post_ID']) || $post_id != $_POST['post_ID'])			// check revision
 		|| (!in_array($_POST['post_type'], $this->_meta_box['pages']))			// check if current post type is supported
-		|| (!check_admin_referer(basename(__FILE__), 'rw_meta_box_nonce'))		// verify nonce
+		|| (!check_admin_referer(basename(__FILE__), 'rw_meta_box_nonce'))	// verify nonce
 		|| (!current_user_can($post_type_object->cap->edit_post, $post_id))) {	// check permission
 			return $post_id;
 		}
@@ -622,6 +626,7 @@ class RW_Meta_Box {
 					$this->save_field($post_id, $field, $old, $new);
 				}
 			}
+		}
 		}
 	}
 
