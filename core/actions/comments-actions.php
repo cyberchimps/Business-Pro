@@ -44,7 +44,7 @@ function business_comments_password_required() {
 */
 function business_comments_loop() { 
 	global $post; ?>
-<?php if ( have_comments() ) : ?>
+<?php if ( have_comments() && ! post_password_required() ) : ?>
 	<div class="comments_container">
 		<h2 class="commentsh2"><?php comments_number( __('No Responses', 'business' ), __( 'One Response', 'business' ), __('% Responses', 'business' ));?></h2>
 
@@ -68,7 +68,7 @@ function business_comments_loop() {
 	
  <?php else : // this is displayed if there are no comments so far ?>
 
-	<?php if ( comments_open() ) : ?>
+	<?php if ( comments_open() && ! post_password_required() ) : ?>
 		<!-- If comments are open, but there are no comments. -->
 
 	 <?php else : // comments are closed ?>
@@ -77,7 +77,7 @@ function business_comments_loop() {
 	
 <?php endif; ?>
 
-<?php if ( comments_open() ) : ?>
+<?php if ( comments_open() && ! post_password_required() ) : ?>
 
 <div class="comments_container">
 
