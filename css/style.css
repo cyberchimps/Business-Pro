@@ -812,7 +812,7 @@ figure {
     right: 0px; }
 	div.slider-nav span.left {
     margin-left: 0px; }
-    #orbitDemo.orbit, #orbitDemo {height: 450px !important;}
+    #orbitDemo.orbit, #orbitDemo {height: auto !important;}
     .meta ul li {display: inline; margin-right:15px;}
     #product_media.six.columns {margin-left: 0%; float: none;}
     #image_container.six.columns {float: none !important;}
