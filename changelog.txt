@@ -2,6 +2,11 @@ Business Pro Changelog
 
 ****************************
 
+Version 3.1.15 (11-07-12)
+-Fixed slider height to be responsive.
+-Fixed Google font issue.
+-Added password protection for elements.
+
 Version 3.1.15 (10-16-12)
 -Allowed \ in custom CSS.
 -Comments - password protected pages.
