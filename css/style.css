@@ -63,6 +63,9 @@ color:#fff;
 #sidebar_left.four.columns {margin-right: 2%; width: 30.7%;}
 #content.eight.columns {width: 65.4%; margin-left: 0%;}
 
+html.ie7 #container {
+	position: relative;
+}
 #container {
 	margin-left: auto;
 	margin-right: auto;
@@ -117,7 +120,7 @@ a:hover {color: #5ca9d6;}
 	background:url(../images/subheaderdark.png);
 
 }
-
+html.ie7 #header { position: relative; z-index: 9999;}
 #header_contact{ text-align:right;}
 
 #logo {margin-bottom: 5px;margin-top:18px;line-height: 40px;}
