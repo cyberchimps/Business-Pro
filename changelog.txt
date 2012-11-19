@@ -2,7 +2,13 @@ Business Pro Changelog
 
 ****************************
 
-Version 3.1.15 (11-07-12)
+Version 3.1.17 (11-19-12)
+-Twitter bar link fix.
+-Feed title removed.
+-Custom Post Type search fix.
+-IE7 menu fix.
+
+Version 3.1.16 (11-07-12)
 -Fixed slider height to be responsive.
 -Fixed Google font issue.
 -Added password protection for elements.
