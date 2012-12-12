@@ -137,7 +137,7 @@ jQuery(document).ready(function($) {
     }).trigger('change');
     
     $('#checkbox-portfolio_title_toggle').change(function(){
-	    var items = $("tr.portfolio_title,");
+	    var items = $("tr.portfolio_title");
 		if($(this).is(':checked')) {
 			items.show();
 		} else {
