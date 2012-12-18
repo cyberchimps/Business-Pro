@@ -17,6 +17,10 @@
 
 /* Page Elements */
 
+#orbitDemo .flex-video {
+	position: inherit;
+}
+
 div.orbit-wrapper {
 	margin-top: 25px;	
 }
