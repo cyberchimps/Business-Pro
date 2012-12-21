@@ -228,8 +228,11 @@ function business_link_rel() {
 		$font == 'Quicksand' ||
 		$font == 'Ubuntu'
 	) :
+	
+		// Check if SSL is present, if so then use https othereise use http
+		$protocol = is_ssl() ? 'https' : 'http';
 	?>
-		<link href='http://fonts.googleapis.com/css?family=<?php echo $font; ?>' rel='stylesheet' type='text/css' />
+		<link href='<?php ehco $protocol; ?>://fonts.googleapis.com/css?family=<?php echo $font; ?>' rel='stylesheet' type='text/css' />
 	<?php endif;
 }
 
