@@ -147,9 +147,9 @@ html.ie7 #header { position: relative; z-index: 9999;}
 	text-decoration:none;
 }
 #nav_menu > li {
-    padding: 0 0 20px 0;
+    padding: 00;
     float: left;
-    margin: 0 7px;
+    margin: 0 7px 20px 7px;
 }
 #nav #nav_menu > li > .sub-menu {
     display: none;
