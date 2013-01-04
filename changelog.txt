@@ -2,6 +2,11 @@
 
 ****************************
 
+Version 3.2.0.0 (01-04-13)
+-Fixed video position in slider
+-Setup SSL for Google Fonts if available
+-Fixed padding around menu
+
 Version 3.1.19 (12-12-12)
 -Fix for page drag and drop in WP3.5
 
