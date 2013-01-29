@@ -400,6 +400,7 @@ class ClassyOptions {
 				}
 
 				$output .= "<input type='button' class='upload_image_button' value='".__( 'Upload', 'cyberchimps' )."' />";
+				$output .= "<br/><div class='upload-text'>or enter URL</div>";
 				$output .= "<input type='text' class='upload_image_field'  name='{$value['id']}_text' size='72' value='" . (isset($val['url']) ? $val['url'] : "") . "'/>";
 				
 			break;
