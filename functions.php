@@ -122,6 +122,19 @@ function custom_gallery_post_format( $content ) {
 		return $content; 
 }
 add_filter('business_post_formats_gallery_content', 'custom_gallery_post_format' ); 
+
+/**
+* Set custom post excerpt link if excerpt is supplied manually.
+*/ 
+function excerpt_read_more_link($output) {
+	global $post;
+
+	if(!empty($post->post_excerpt))
+		return $output . '<a href="'. get_permalink($post->ID) . '"> Continue Reading...</a>';
+	else
+		return $output;
+}
+add_filter('the_excerpt', 'excerpt_read_more_link');
 	
 /**
 * Set custom post excerpt link text based on theme option.
@@ -140,6 +153,10 @@ function new_excerpt_more($more) {
 	return '</p><div class="more-link"><a href="'. get_permalink($post->ID) . '">'.$linktext.'</a></div>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
+
+
+
+
 
 /**
 * Set custom post excerpt length based on theme option.
