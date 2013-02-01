@@ -130,7 +130,7 @@ function excerpt_read_more_link($output) {
 	global $post;
 
 	if(!empty($post->post_excerpt))
-		return $output . '<a href="'. get_permalink($post->ID) . '"> Continue Reading...</a>';
+		return $output . '<div class="more-link"><a href="'. get_permalink($post->ID) . '"> Continue Reading...</a></div>';
 	else
 		return $output;
 }
@@ -153,10 +153,6 @@ function new_excerpt_more($more) {
 	return '</p><div class="more-link"><a href="'. get_permalink($post->ID) . '">'.$linktext.'</a></div>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
-
-
-
-
 
 /**
 * Set custom post excerpt length based on theme option.
