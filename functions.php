@@ -126,7 +126,7 @@ add_filter('business_post_formats_gallery_content', 'custom_gallery_post_format'
 /**
 * Set custom post excerpt link if excerpt is supplied manually.
 */ 
-function excerpt_read_more_link($output) {
+function manual_excerpt_read_more_link($output) {
 
 	global $themename, $themeslug, $options, $post;
 
@@ -142,7 +142,7 @@ function excerpt_read_more_link($output) {
 	else
 		return $output;
 }
-add_filter('the_excerpt', 'excerpt_read_more_link');
+add_filter('the_excerpt', 'manual_excerpt_read_more_link');
 	
 /**
 * Set custom post excerpt link text based on theme option.
