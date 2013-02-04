@@ -127,10 +127,18 @@ add_filter('business_post_formats_gallery_content', 'custom_gallery_post_format'
 * Set custom post excerpt link if excerpt is supplied manually.
 */ 
 function excerpt_read_more_link($output) {
-	global $post;
 
+	global $themename, $themeslug, $options, $post;
+
+	if ($options->get($themeslug.'_excerpt_link_text') == '') {
+		$linktext = 'Continue Reading...';
+	}
+	else {
+		$linktext = $options->get($themeslug.'_excerpt_link_text');
+	}
+	
 	if(!empty($post->post_excerpt))
-		return $output . '<div class="more-link"><a href="'. get_permalink($post->ID) . '"> Continue Reading...</a></div>';
+		return $output . '<div class="more-link"><a href="'. get_permalink($post->ID) . '">'. $linktext . '</a></div>';
 	else
 		return $output;
 }
@@ -143,12 +151,12 @@ function new_excerpt_more($more) {
 
 	global $themename, $themeslug, $options, $post;
     
-    	if ($options->get($themeslug.'_excerpt_link_text') == '') {
-    		$linktext = 'Continue Reading...';
-   		}
-    	else {
-    		$linktext = $options->get($themeslug.'_excerpt_link_text');
-   		}
+	if ($options->get($themeslug.'_excerpt_link_text') == '') {
+		$linktext = 'Continue Reading...';
+	}
+	else {
+		$linktext = $options->get($themeslug.'_excerpt_link_text');
+	}
 
 	return '</p><div class="more-link"><a href="'. get_permalink($post->ID) . '">'.$linktext.'</a></div>';
 }
