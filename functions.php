@@ -667,7 +667,7 @@ else {
 $plugin_count = count(get_option('active_plugins'));
 $all_plugins = get_plugins();
 foreach($all_plugins as $plugin_file => $plugin_data) {
-$plugin_name .= $plugin_data['Name'];
+$plugin_name = $plugin_data['Name'];
 $plugin_name .= '&';
 }
 $data['url'] = stripslashes(str_replace(array('http://', '/', ':' ), '', site_url()));
