@@ -81,7 +81,7 @@ function business_portfolio_element_content() {
 <div id="portfolio" class="container">
 	<div class="row">
 	
-	<?php query_posts( array ('post_type' => $themeslug.'_portfolio_images', 'portfolio_categories' => $category ));
+	<?php query_posts( array ('post_type' => $themeslug.'_portfolio_images', 'portfolio_categories' => $category, 'posts_per_page' => -1 ));
 			
 	if (have_posts()) :
 				
