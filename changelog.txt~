@@ -2,10 +2,6 @@
 
 ****************************
 
-Version 3.2.0.5 (5-10-13)
--Fixed the meta postion with respect to the post
--Fixed the post per page issue for portfolios
-
 Version 3.2.0.4 (3-14-13)
 -Fixed sidebar width bug
 -Re-positioned wp_footer()
